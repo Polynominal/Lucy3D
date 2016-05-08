@@ -172,7 +172,9 @@ void Model::render(int mech_ref)
                  // needed for GLES2
               //glUniformMatrix4fv(glGetUniformLocation(Vars->getID(),"local"),1,GL_FALSE,glm::value_ptr(Model_Matrix));
                 Buffer->attach();
+                #ifndef USE_OPENGL3
                 Vars->apply();
+                #endif
                 Buffer->render(GL_TRIANGLES);
             }
             v.Buffers[0]->detach();

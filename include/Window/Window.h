@@ -1,6 +1,7 @@
 #ifndef MIKUS_WINDOW_H
 #define MIKUS_WINDOW_H
 #include <Settings.h>
+#include <Startup.h>
 #include <Window/Windower.h>
 #include <Window/Data.h>
 

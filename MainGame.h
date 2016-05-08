@@ -121,7 +121,7 @@ class MainGame : public Gamestate
 //            //a->scale(-0.5,-0.5,-0.5);
 
             auto Model =  new Graphics::Model();
-            Model->fromFile("assets/Models/nanosuit/nanosuit.obj");
+            Model->fromFile("assets/Models/DELETE/nanosuit.obj");
             Model->generate();
             auto b = newScene.insert(Model);
 
@@ -148,36 +148,36 @@ class MainGame : public Gamestate
             cam2D->step(-800/2,-600/2,-540);
             Maigui::OpenGL::attachWrappers(Ui.getSkin().get(),&cam2D->view,&cam2D->projection);
             Collider_OpenGL::createWrappers(Ui.getWorld(),&cam2D->view,&cam2D->projection);
-            Ui.formDefaultSkin();
-
-//            Ui.setGlobalScale(800.0f/1024.0f,600.0f/720.0f);
-
-            Ui.getWorld()->OnCollision = [](Collider::Shape* A,Collider::Shape* B){
-                A->Color = Collider::Vertex(0,1,0);
-                B->Color = Collider::Vertex(0,1,0);
-            };
-            Ui.getWorld()->OnRelease = [](Collider::Shape* A,Collider::Shape* B){
-                A->Color = Collider::Vertex(0,0,0);
-                B->Color = Collider::Vertex(0,0,0);
-            };
-//            Ui.addButton(400,300,0.0f,300,50,1);
-//            auto b = Ui.addButton(350,220,2.0f,300,50,1);
-//            b->rotateTo(0.0f,30.0f,0.0f);
-//            b->setText("Hello!");
-//            b->setName("Button1");
-            auto f = Ui.addFrame(350,220,2.0f,300,50,1);
-            f->move(10,0,0);
-            f->scaleTo(300,300,0);
-            text = new Graphics::Text("assets/Fonts/libel.ttf");
-            text->setProjection(&cam2D->projection);
-
-
-            inst = new Graphics::Text::Instance(text);
-            render = new Graphics::Text::Render(inst);
-
-            job = *render << Graphics::Text::Present::MatchOut;
-            job->setSpeed(0.001f);
-            *job << "Hello world!";
+//            Ui.formDefaultSkin();
+//
+////            Ui.setGlobalScale(800.0f/1024.0f,600.0f/720.0f);
+//
+//            Ui.getWorld()->OnCollision = [](Collider::Shape* A,Collider::Shape* B){
+//                A->Color = Collider::Vertex(0,1,0);
+//                B->Color = Collider::Vertex(0,1,0);
+//            };
+//            Ui.getWorld()->OnRelease = [](Collider::Shape* A,Collider::Shape* B){
+//                A->Color = Collider::Vertex(0,0,0);
+//                B->Color = Collider::Vertex(0,0,0);
+//            };
+////            Ui.addButton(400,300,0.0f,300,50,1);
+////            auto b = Ui.addButton(350,220,2.0f,300,50,1);
+////            b->rotateTo(0.0f,30.0f,0.0f);
+////            b->setText("Hello!");
+////            b->setName("Button1");
+//            auto f = Ui.addFrame(350,220,2.0f,300,50,1);
+//            f->move(10,0,0);
+//            f->scaleTo(300,300,0);
+//            text = new Graphics::Text("assets/Fonts/libel.ttf");
+//            text->setProjection(&cam2D->projection);
+//
+//
+//            inst = new Graphics::Text::Instance(text);
+//            render = new Graphics::Text::Render(inst);
+//
+//            job = *render << Graphics::Text::Present::MatchOut;
+//            job->setSpeed(0.001f);
+//            *job << "Hello world!";
         };
         void draw()
         {
@@ -225,11 +225,11 @@ class MainGame : public Gamestate
             }
             if (keyboard.isDown("left shift"))
             {
-                cam->strafe(cam->UP,2);
+                cam->strafe(cam->UP,0.1f);
             }
             if (keyboard.isDown("left ctrl"))
             {
-                cam->strafe(cam->DOWN,2);
+                cam->strafe(cam->DOWN,0.1f);
             }
             if (keyboard.isDown("esc"))
             {

@@ -47,7 +47,7 @@ class Lucia
             bool has(int id)
             {
                 auto iter = chunks.find(id);
-                if (iter != chunks.end()){lastCheckup = id;}else{lastCheckup = -1;};
+                if (iter != chunks.end()){lastCheckup = id;return true;}else{lastCheckup = -1;return false;};
             };
             T get()
             {

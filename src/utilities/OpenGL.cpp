@@ -228,7 +228,7 @@ void Shader_Vars::apply()
 */
 void Buffer::generate(bool genEBO)
 {
-    #ifndef USE_GLES2
+    #ifdef USE_OPENGL3
     glGenVertexArrays(1,&vao);
     #endif // USE_GLES2
     glGenBuffers(1,&vbo);
@@ -319,6 +319,7 @@ void Buffer::sendData(std::vector<ptr<Vertex_Buffer>> Data,uint index)
 
     uint offset = index*VertexSize*sizeof(GLfloat);
     glBufferSubData(GL_ARRAY_BUFFER,offset,sizeof(GLfloat) *VertexSize*Data.size(),&compiled[0]);
+    getShaderVars()->apply();
 }
 void Buffer::sendData(GLfloat *Data,uint size,uint index)
 {
@@ -329,6 +330,7 @@ void Buffer::sendData(GLfloat *Data,uint size,uint index)
 
     uint offset = index*VertexSize*sizeof(GLfloat);
     glBufferSubData(GL_ARRAY_BUFFER,offset,sizeof(GLfloat) *VertexSize*size,&compiled[0]);
+    getShaderVars()->apply();
 }
 void Buffer::allocateIndices(uint size)
 {
@@ -378,9 +380,9 @@ void Buffer::attach(bool t)
         glBindVertexArray(vao);
         #else
         glBindBuffer(GL_ARRAY_BUFFER,vbo);
+        #endif // USE_GLES2
         if (ebo != 0 ){glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,ebo);};
         if (t){glBindBuffer(GL_ARRAY_BUFFER,vbo);};
-        #endif // USE_GLES2
 };
 void Buffer::render(GLenum mode,uint start,uint lenght)
 {
@@ -409,7 +411,7 @@ void Buffer::draw(GLenum mode,uint start,uint lenght)
 void Buffer::draw(GLenum mode){draw(mode,0,size);};
 void Buffer::detach(bool t)
 {
-        #ifndef USE_GLES2
+        #ifdef USE_OPENGL3
         glBindVertexArray(0);
         #else
         if (ebo != 0 ){glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,ebo);};
@@ -418,7 +420,7 @@ void Buffer::detach(bool t)
 };
 void Buffer::destroy()
 {
-    #ifndef USE_GLES2
+    #ifdef USE_OPENGL3
     glDeleteVertexArrays(1,&vao);
     #endif
     glDeleteBuffers(1,&vbo);

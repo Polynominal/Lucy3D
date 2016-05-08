@@ -161,13 +161,14 @@ int main(int argc, char* argv[])
     Lucia errors;
 
     Windower::Window* window = new Windower::Window();
+    // this is for gl context / window related functions
+
 
     Lucia_GLWrapper(&errors,window);
 
     auto fn = errors.newFunction("main",[argc,argv,window]()
     {
         main_loop(argc,argv,window);
-
     });
 
     errors.handleException(fn);

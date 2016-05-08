@@ -57,7 +57,7 @@ namespace Graphics
             }
         case QUAD_FAN:
             {
-                id = GL_QUAD_FAN;
+                id = GL_QUAD_STRIP;
                 break;
             }
         case POLYGON:

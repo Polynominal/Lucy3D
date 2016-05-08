@@ -21,10 +21,18 @@ bool Window::create()
     uint h = size.y;
     uint x = Position.x;
     uint y = Position.y;
-
+    int major =3;
+    int minor =1;
+    #if defined USE_GLES2 || defined USE_GLES3
+    major = 2;
+    minor = 0;
     SDL_GL_SetAttribute( SDL_GL_CONTEXT_PROFILE_MASK,SDL_GL_CONTEXT_PROFILE_ES );
-    SDL_GL_SetAttribute( SDL_GL_CONTEXT_MAJOR_VERSION, 3 );
-    SDL_GL_SetAttribute( SDL_GL_CONTEXT_MINOR_VERSION, 1 );
+    #elif defined USE_OPENGL3
+    SDL_GL_SetAttribute( SDL_GL_CONTEXT_PROFILE_MASK,SDL_GL_CONTEXT_PROFILE_CORE );
+    #endif // define
+
+    SDL_GL_SetAttribute( SDL_GL_CONTEXT_MAJOR_VERSION, major );
+    SDL_GL_SetAttribute( SDL_GL_CONTEXT_MINOR_VERSION, minor );
     Core = SDL_CreateWindow(
         title.c_str(),
         x,
@@ -41,17 +49,18 @@ bool Window::create()
     {
         std::cout << "Context is up!" << std::endl;
     }
-    std::cout << "Major: " << glGetString(GL_SHADING_LANGUAGE_VERSION) << std::endl;
+    std::cout << "Major glVersion: " << glGetString(GL_SHADING_LANGUAGE_VERSION) << std::endl;
     if (Core == NULL)
     {
         return false;
     }else
     {
-
         SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
-
         alive = true;
     }
+    #ifdef LUCY_PLEASE_USE_STARTUP
+    startup_tasks();
+    #endif // uncoditional_init
     return true;
 }
 void Window::setTitle(std::string title){SDL_SetWindowTitle(Core,title.c_str());};

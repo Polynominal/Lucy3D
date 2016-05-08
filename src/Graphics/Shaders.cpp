@@ -103,18 +103,11 @@ void checkBasicBuild(Shader_Vars* v)
     {
         std::cout << "Building Basic!" << std::endl;
         std::string Vertex =
-        #if defined USE_GLES2 || defined USE_GLES3
         "#version 100 \n"
         "attribute vec2 vertex;\n"
         "attribute vec2 uv;\n"
         "varying vec2 TexCoords;\n"
         "uniform vec2 translation;"
-        #else
-        "#version 300 es\n"
-        "layout (location = 1) in vec2 vertex;\n"
-        "layout (location = 0) in vec2 uv;\n"
-        "out vec2 TexCoords;\n"
-        #endif
         "void main()\n"
         "{\n"
         "   gl_Position = vec4((vertex + translation).xy, 0.0f, 1.0f);\n"
@@ -123,15 +116,9 @@ void checkBasicBuild(Shader_Vars* v)
 
 
         std::string Fragment =
-        #if defined USE_GLES2 || defined USE_GLES3
         "#version 100 \n"
         "precision highp float;"
         "varying vec2 TexCoords;\n"
-        #else
-        "#version 330 \n"
-        "in vec2 TexCoords;\n"
-        "out vec4 color;\n"
-        #endif
         "uniform vec4 Color;\n"
         "uniform bool useColor;\n"
         "uniform sampler2D Texture;\n"

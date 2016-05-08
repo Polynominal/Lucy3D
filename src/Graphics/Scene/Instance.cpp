@@ -13,7 +13,7 @@ Instance::Instance()
 {
     if ( !Graphics::_Shaders::DefaultSceneShader->isBuilt() )
     {
-        Graphics::_Shaders::DefaultSceneShader->fromFile("shaders/Shader.vert","shaders/Shader.frag","DefaultScene");
+        Graphics::_Shaders::DefaultSceneShader->fromFile("assets/Shaders/Shader.vert","assets/Shaders/Shader.frag","DefaultScene");
         Graphics::_Shaders::DefaultSceneShader->addVar("position",0,3);
         Graphics::_Shaders::DefaultSceneShader->addVar("texCoord2",3,5);
     };
