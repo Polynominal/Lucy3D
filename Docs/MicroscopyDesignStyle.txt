@@ -1,0 +1,257 @@
+Design style Microscopy
+=======================
+Microscopy's philosophy:
+"Let the user have controll by giving him a hand at every level."
+This means that you must write your application in incrimental levels, for example:
+<T> getVerticalWrap();
+<T> getHorizontalWrap();
+[<T><T>] getWrap(){ return [getHorizontalWrap(),getVerticalWrap()]; };
+
+Typical class
++============+
+
+Methods
+-------
+When designing methods they must be split into the following categories:
+
+Specials
+++++++++
+there are some special keywords such as:
+
+*insert - reseved for plural insertion of a specific type.
+*remove - used for large regenerative systems to destroy.
+*generate - used for large regenerative systems to generate.
+*finalize - used for finalization of the state.
+
+
+Void's
+++++++
+Voids are misc functions such as void draw(); they are generaly not scrutinized.
+
+Add's
++++++
+allows for addition of things as such:
+
+addImage(path);
+addFilter(Filter);
+
+To's
+++++
+To's are a vital design decision that will save a lagre amount of typing:
+instead of 
+setPosition(x,y,z);
+use:
+moveTo(x,y,z); and move(x,y,z);
+this way you will save typing time and will have a clearer perspective on whats happening
+To's are exclusive to movement however there are other exceptional cases where they can be used.
+
+Set's
+++++++
+setWrap(); -> sets the wrap but does NOT apply it.
+The idea here is that you can call as many setWraps as you'd like but you dont apply them
+this avoids large preformance overhead that a programm may have that needs to set wrap but not use it.
+
+for example:
+				----+
+setHorizontalWrap(some mode);       |
+setHorizontalWrap(other mode);      +---- can have a 3x Footprint in other styles.
+setVerticalWrap(some mode);         |
+				----+	
+applyWrap() <-- reduces the footprint by 2.
+applywrap in this case can also becalled finalize(); however keep in mind that finalize implies the 
+application of all of the variables.
+
+Get's
++++++
+For every set there should be a Get.
+Is
+++
+allows for getting the hidden states:
+isFinished();
+isUsed();
+isMoved();
+
+apply
+++++++
+applyWrap(); -> applies the wrap 
+
+Style guidance:
++++++++++++++++
+All the names should be in camelToeCase, which indicates standard usage.
+Highest level functions should be in CamelCase which indicates exclusive end user usage.
+
+Inheritance design
+------------------
+When working with inheritance design please use State Objects method:
+
+For example:
+Class (virtual) Filter
+{
+	public:
+		virtual setFilterHorizontal();
+		virtual setFilterVertical();
+	protected:
+		filter modes;
+
+}
+to be then later used with an object:
+Class Image: inherits from Filter.
+{
+	draw();
+}
+
+This way we can minimise duplicate functions done elsewhere and unify improvements and most importantly
+reduce workload.
+
+There are also more advanced prospects later in the task:
+Filter
+{
+	Filter();
+	~Filter();
+}
+Image
+{
+	setFilterState(Filter* f); // allows setting filter state with predefined variables.
+}
+its so you can do this
+Filter();
+Filter->setModes();
+for (auto v: Images){setFilterState(Filter);};
+instead of:
+
+for (auto v: Images)
+{
+	v->doThis();
+	v-doThat();
+	v->doAnother();
+};
+THIS MODE IS NOT ENFORCED BUT IS CONSIDERED LUXURY.
+
+Module seperation
+=================
+One of the main tenants of microscopy is replaceable parts. Any bits of this project should be simple to 
+be exported into any other project and still work.
+Therefore large degrees of seperation must be forged between modules.
+If you need to then take parts out of the modules and put them into Utilities namespace.
+this way you can have a replacable dependency.
+
+For example both Graphics and Physics depend on a Vec3 class.
+Vec3 is found in Utilities this way both Graphics and Physics can use it and remain independent of each other.
+This reduces compile time and allows for reusing your work.
+
+Namespaces and precompiler flags
+================================
+Namespaces always tast with a Captial and follow CamelCase as they are for the end user
+unless stated otherwise with camelToe.
+
+Like such:
+
+namespace Graphics
+{
+	class Item;
+	class OtherItem;
+
+	namespace Bases
+	{
+		namespace internalUsage{someBase, someOtherBase};
+		
+		PublicBase;
+	}
+};
+Lambdas
+=======
+Use of lambdas are enforced when dealing with OnEvent programing.
+for example a OnRead should ALWAYS be a lambda such as 
+
+std::function<void(char)> OnRead = [](char Character){};
+
+[!!!] to allow for switching in runtime [!!!]
+
+
+Comments
+========
+These are not heavily enforced but are higly encouraged.
+
+Make sure you comment the areas where microscopy style is used:
+Comment sections are to be used like {}. for example
+
+//Misc
+someFunction();
+draw();
+eat();
+sleep();
+//
+
+==
+OR
+==
+
+//Misc
+draw();
+
+//Get's
+getThis();
+//
+
+
+[!] NOT [!]:
+//Misc
+someFunction();
+draw();
+eat();
+sleep();
+ <- Missing: "//"
+
+Use of [!] Some warning [!] is to be used to highlight important information you can show the 
+level of danger by increasing the marks:
+[!!!] EXTREMLEY DANGEROUS [!!!]
+To voide other concerns refer to these
+
+[!] Warning (incremental)
+[?] Unsure
+
+[<T>] template indicator.
+[B] Broken.
+[T] tested
+[C] compiled
+[NT] not tested.
+[NC] not compiled
+[WIP] underconstruction
+[&] doesn't meet style requirements.
+[*] carefull consideration.
+[^] requries indepth knowelage.
+[//] undocumented.
+[\\] faulty documentation.
+[%] Reference to math to be used alongside of the above.
+[#] Indication of Examplary work.
+[@] Needs thorough review.
+[IF] Indication of Decision making.
+[¬] bitwise operations.
+["] use of text. 
+[<<] requires immediate attention.(incremental)
+[PP] PostPone.
+[£] license issue.
+[A] standrad of the program (incremental)
+
+[!!] Remember that you can combine these [!!]   
+=============================================
+For example:
+[¬ !?] means criticaly unsure about bitwise operations.
+[! £] means that you are warning about license and usage.
+[!! ^] means that you are double warning that indepth knowelage is requred.
+[PP <<] means you postponed and that you require immediate attention.
+[B <T> \\ NT NC <<]  this means that template is broken,undocumented, untested and not compiled.
+and requries immediate attention.
+
+Extra
+=====
+Sometimes Automatic may be refeered to as Automagical/y which indicates that the program is "smart"
+meaning that it has multiple safety mechanisms in the same fashion as an Airbus A380 and other boeing planes.
+if it aint Boeing I ain't Goeing!
+
+ 
+
+
+
+
+ 

@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="WildLife" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/WildLife" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include" />
+					<Add directory="common" />
+					<Add directory="include/Threads" />
+					<Add directory="include/utilities" />
+					<Add directory="include/" />
+					<Add directory="include/Cillider" />
+					<Add directory="include/Collider" />
+					<Add directory="include/Graphics" />
+					<Add directory="include/Maths" />
+					<Add directory="include/Collider/Algorithm" />
+					<Add directory="include/Collider/Shapes" />
+					<Add directory="include/Maigui" />
+					<Add directory="include/Window" />
+					<Add directory="include/Maigui/" />
+					<Add directory="include/Graphics/Tools" />
+					<Add directory="include/Graphics/Tools/TextInstance.h" />
+					<Add directory="include/Filters" />
+					<Add directory="include/Graphics/Shaders/" />
+					<Add directory="include/Graphics/Primitives/" />
+					<Add directory="include/Compatability/GLES2" />
+					<Add directory="include/Compatability/GLES2/Primitives" />
+					<Add directory="include/Compatability/GLES2/Shaders" />
+					<Add directory="include/Collider/Wrappers" />
+					<Add directory="include/Compatability/GLES2/Buffers" />
+				</Compiler>
+				<Linker>
+					<Add directory="Dependencies/SDL2-2.0.4/Lib/Release" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/WildLife" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O3" />
+					<Add directory="include" />
+					<Add directory="include/Threads" />
+					<Add directory="include/utilities" />
+					<Add directory="include/" />
+					<Add directory="include/Cillider" />
+					<Add directory="include/Collider" />
+					<Add directory="include/Graphics" />
+					<Add directory="include/Maths" />
+					<Add directory="include/Collider/Algorithm" />
+					<Add directory="include/Collider/Shapes" />
+					<Add directory="include/Maigui" />
+					<Add directory="include/Window" />
+					<Add directory="include/Maigui/" />
+					<Add directory="include/Graphics/Tools" />
+					<Add directory="include/Graphics/Tools/TextInstance.h" />
+					<Add directory="include/Filters" />
+					<Add directory="include/Graphics/Shaders/" />
+					<Add directory="include/Graphics/Primitives/" />
+					<Add directory="include/Compatability/GLES2" />
+					<Add directory="include/Compatability/GLES2/Primitives" />
+					<Add directory="include/Compatability/GLES2/Shaders" />
+					<Add directory="include/Collider/Wrappers" />
+					<Add directory="include/Compatability/GLES2/Buffers" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add directory="Dependencies/SDL2-2.0.4/Lib/Release" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=c++11" />
+			<Add option="-Wall" />
+			<Add directory="Dependencies/glm/glm" />
+			<Add directory="Dependencies/glew-1.13.0/include" />
+			<Add directory="common" />
+			<Add directory="Dependencies/DeviL/include" />
+			<Add directory="Dependencies/plog/include" />
+			<Add directory="include/Network" />
+			<Add directory="Dependencies/SDL2-2.0.4/include" />
+			<Add directory="Dependencies/freetype-2.6.2/include" />
+			<Add directory="../Global_SDK/include" />
+			<Add directory="../Global_SDK/include/GLES2" />
+			<Add directory="Dependencies/assimp-3.2/include" />
+		</Compiler>
+		<ResourceCompiler>
+			<Add directory="Dependencies/freetype-2.6.2/src" />
+		</ResourceCompiler>
+		<Linker>
+			<Add option="-lmingw32 -lSDL2 -lSDL2main -lws2_32 -lfreetype" />
+			<Add library="Dependencies\DeviL\lib\DevIL.lib" />
+			<Add library="Dependencies\DeviL\lib\ILU.lib" />
+			<Add library="Dependencies\DeviL\lib\ILUT.lib" />
+			<Add library="..\Global_SDK\x86\libEGL.lib" />
+			<Add library="..\Global_SDK\x86\libGLESv2.lib" />
+			<Add library="Dependencies\assimp-3.2\lib\libassimp.dll.a" />
+			<Add directory="Dependencies/glm/" />
+			<Add directory="Dependencies/glew-1.13.0/lib/" />
+			<Add directory="Dependencies/DeviL/lib" />
+			<Add directory="Dependencies/freetype-2.6.2/objs" />
+			<Add directory="../Global_SDK/x86" />
+			<Add directory="Dependencies/assimp-3.2/lib" />
+		</Linker>
+		<Unit filename="MainGame.h" />
+		<Unit filename="include/Collider/Algorithm/GJK.h" />
+		<Unit filename="include/Collider/Collider.h" />
+		<Unit filename="include/Collider/Manager.h" />
+		<Unit filename="include/Collider/Opengl.h" />
+		<Unit filename="include/Collider/Shape.h" />
+		<Unit filename="include/Collider/Shape/Point.h" />
+		<Unit filename="include/Collider/Shape/Polygon.h" />
+		<Unit filename="include/Collider/Shape/Ray.h" />
+		<Unit filename="include/Collider/Shape/Sphere.h" />
+		<Unit filename="include/Collider/Tools.h" />
+		<Unit filename="include/Compatability/GLES2/Shaders/Basic2D.h" />
+		<Unit filename="include/Compatability/GLES2/Shaders/Blit2D.h" />
+		<Unit filename="include/Controll/Keyboard.h" />
+		<Unit filename="include/Controll/Safety/GLWrapper.h" />
+		<Unit filename="include/Controll/Safety/Lucia.h" />
+		<Unit filename="include/Graphics/Bases/DrawMode.h" />
+		<Unit filename="include/Graphics/Bases/Filter.h" />
+		<Unit filename="include/Graphics/Bases/Moveable.h" />
+		<Unit filename="include/Graphics/Bases/ShaderHolder.h" />
+		<Unit filename="include/Graphics/Buffers/Canvas.h" />
+		<Unit filename="include/Graphics/Buffers/Mesh.h" />
+		<Unit filename="include/Graphics/Camera.h" />
+		<Unit filename="include/Graphics/Graphics.h" />
+		<Unit filename="include/Graphics/Image.h" />
+		<Unit filename="include/Graphics/Primitives/Quad.h" />
+		<Unit filename="include/Graphics/Scene/Instance.h" />
+		<Unit filename="include/Graphics/Scene/Model.h" />
+		<Unit filename="include/Graphics/Scene/Object.h" />
+		<Unit filename="include/Graphics/Scene/Scene2D.h" />
+		<Unit filename="include/Graphics/Shaders.h" />
+		<Unit filename="include/Graphics/Shaders/Bases.h" />
+		<Unit filename="include/Graphics/Shaders/Bloom.h" />
+		<Unit filename="include/Graphics/Shaders/Blur.h" />
+		<Unit filename="include/Graphics/Shaders/Outline.h" />
+		<Unit filename="include/Graphics/Shaders/Scene2D.h" />
+		<Unit filename="include/Graphics/Text/Instance.h" />
+		<Unit filename="include/Graphics/Text/Task.h" />
+		<Unit filename="include/Graphics/Text/Text.h" />
+		<Unit filename="include/Maigui/Addons/Text.h" />
+		<Unit filename="include/Maigui/Addons/Titlebar.h" />
+		<Unit filename="include/Maigui/Bases/Color.h" />
+		<Unit filename="include/Maigui/Bases/Drawable.h" />
+		<Unit filename="include/Maigui/Bases/Moveable.h" />
+		<Unit filename="include/Maigui/Item.h" />
+		<Unit filename="include/Maigui/Maigui.h" />
+		<Unit filename="include/Maigui/Manager.h" />
+		<Unit filename="include/Maigui/Skin.h" />
+		<Unit filename="include/Maigui/Types/Button.h" />
+		<Unit filename="include/Maigui/Types/Container.h" />
+		<Unit filename="include/Maigui/Types/Frame.h" />
+		<Unit filename="include/Maigui/Types/Widget.h" />
+		<Unit filename="include/Maigui/Wrappers/OpenGl.h" />
+		<Unit filename="include/Network/Client.h" />
+		<Unit filename="include/Network/Network.h" />
+		<Unit filename="include/Network/Server.h" />
+		<Unit filename="include/Network/win32.h" />
+		<Unit filename="include/Settings.h" />
+		<Unit filename="include/State/GameManager.h" />
+		<Unit filename="include/State/Gamestate.h" />
+		<Unit filename="include/Threads/Threads.h" />
+		<Unit filename="include/Threads/queque.h" />
+		<Unit filename="include/Window/Data.h" />
+		<Unit filename="include/Window/Window.h" />
+		<Unit filename="include/Window/Windower.h" />
+		<Unit filename="include/utilities/Container.h" />
+		<Unit filename="include/utilities/Log.h" />
+		<Unit filename="include/utilities/OpenGL.h" />
+		<Unit filename="include/utilities/Utils.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src/Collider/Algorithm/GJK.cpp" />
+		<Unit filename="src/Collider/Manager.cpp" />
+		<Unit filename="src/Collider/Opengl.cpp" />
+		<Unit filename="src/Collider/Shape.cpp" />
+		<Unit filename="src/Collider/Shape/Point.cpp" />
+		<Unit filename="src/Collider/Shape/Polygon.cpp" />
+		<Unit filename="src/Collider/Shape/Ray.cpp" />
+		<Unit filename="src/Collider/Shape/Sphere.cpp" />
+		<Unit filename="src/Compatability/GLES2/Shaders/Basic2D.cpp" />
+		<Unit filename="src/Compatability/GLES2/Shaders/Blit2D.cpp" />
+		<Unit filename="src/Controll/Keyboard.cpp" />
+		<Unit filename="src/Controll/Safety/Lucia.cpp" />
+		<Unit filename="src/Graphics/Bases/Moveable.cpp" />
+		<Unit filename="src/Graphics/Buffers/Canvas.cpp" />
+		<Unit filename="src/Graphics/Buffers/Mesh.cpp" />
+		<Unit filename="src/Graphics/Camera.cpp" />
+		<Unit filename="src/Graphics/Graphics.cpp" />
+		<Unit filename="src/Graphics/Image.cpp" />
+		<Unit filename="src/Graphics/Primitives/Quad.cpp" />
+		<Unit filename="src/Graphics/Scene/Instance.cpp" />
+		<Unit filename="src/Graphics/Scene/Model.cpp" />
+		<Unit filename="src/Graphics/Scene/Object.cpp" />
+		<Unit filename="src/Graphics/Scene/Scene2D.cpp" />
+		<Unit filename="src/Graphics/Shaders.cpp" />
+		<Unit filename="src/Graphics/Shaders/Bases.cpp" />
+		<Unit filename="src/Graphics/Shaders/Bloom.cpp" />
+		<Unit filename="src/Graphics/Shaders/Blur.cpp" />
+		<Unit filename="src/Graphics/Shaders/Outline.cpp" />
+		<Unit filename="src/Graphics/Text/Instance.cpp" />
+		<Unit filename="src/Graphics/Text/Task.cpp" />
+		<Unit filename="src/Graphics/Text/Text.cpp" />
+		<Unit filename="src/Maigui/Addons/Text.cpp" />
+		<Unit filename="src/Maigui/Addons/Titlebar.cpp" />
+		<Unit filename="src/Maigui/Bases/Drawable.cpp" />
+		<Unit filename="src/Maigui/Item.cpp" />
+		<Unit filename="src/Maigui/Maigui.cpp" />
+		<Unit filename="src/Maigui/Manager.cpp" />
+		<Unit filename="src/Maigui/Skin.cpp" />
+		<Unit filename="src/Maigui/Types/Button.cpp" />
+		<Unit filename="src/Maigui/Types/Container.cpp" />
+		<Unit filename="src/Maigui/Types/Frame.cpp" />
+		<Unit filename="src/Maigui/Types/Widget.cpp" />
+		<Unit filename="src/Maigui/Wrappers/OpenGl.cpp" />
+		<Unit filename="src/Network/win32.cpp" />
+		<Unit filename="src/State/GameManager.cpp" />
+		<Unit filename="src/State/Gamestate.cpp" />
+		<Unit filename="src/Threads/Threads.cpp" />
+		<Unit filename="src/Threads/queque.cpp" />
+		<Unit filename="src/Window/Window.cpp" />
+		<Unit filename="src/utilities/Container.cpp" />
+		<Unit filename="src/utilities/Log.cpp" />
+		<Unit filename="src/utilities/OpenGL.cpp" />
+		<Unit filename="src/utilities/Utils.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
