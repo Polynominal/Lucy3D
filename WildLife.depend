@@ -1,0 +1,2631 @@
+# depslib dependency file v1.0
+1462391027 source:d:\cbprojects\wildlife\main.cpp
+	<Settings.h>
+	<winsock2.h>
+	<windows.h>
+	<stdio.h>
+	<iostream>
+	<string>
+	<SDL.h>
+	<Settings.h>
+	"glm.hpp"
+	<IL/il.h>
+	<IL/ilut.h>
+	<utilities/Utils.h>
+	<utilities/Log.h>
+	<Graphics\Scene\Instance.h>
+	<State\GameManager.h>
+	<Network\win32.h>
+	<Collider/Collider.h>
+	<Window/Windower.h>
+	<MainGame.h>
+	<Controll/Safety/Lucia.h>
+	<Controll/Safety/GLWrapper.h>
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_config.h
+	"SDL_platform.h"
+	"SDL_config_premake.h"
+	"SDL_config_windows.h"
+	"SDL_config_winrt.h"
+	"SDL_config_macosx.h"
+	"SDL_config_iphoneos.h"
+	"SDL_config_android.h"
+	"SDL_config_psp.h"
+	"SDL_config_minimal.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1394911904 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\begin_code.h
+
+1394911904 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\close_code.h
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_config_windows.h
+	"SDL_platform.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_config_winrt.h
+	"SDL_platform.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_config_macosx.h
+	"SDL_platform.h"
+	<AvailabilityMacros.h>
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_config_iphoneos.h
+	"SDL_platform.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_config_android.h
+	"SDL_platform.h"
+	<stdarg.h>
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_config_psp.h
+	"SDL_platform.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_config_minimal.h
+	"SDL_platform.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_assert.h
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<mmintrin.h>
+	<mm3dnow.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911904 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_pixels.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911904 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911902 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911904 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1394911904 d:\cbprojects\wildlife\dependencies\sdl2-2.0.3\include\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\glm.hpp
+	"detail/_fixes.hpp"
+	<cmath>
+	<climits>
+	<cfloat>
+	<limits>
+	<cassert>
+	"fwd.hpp"
+	"vec2.hpp"
+	"vec3.hpp"
+	"vec4.hpp"
+	"mat2x2.hpp"
+	"mat2x3.hpp"
+	"mat2x4.hpp"
+	"mat3x2.hpp"
+	"mat3x3.hpp"
+	"mat3x4.hpp"
+	"mat4x2.hpp"
+	"mat4x3.hpp"
+	"mat4x4.hpp"
+	"trigonometric.hpp"
+	"exponential.hpp"
+	"common.hpp"
+	"packing.hpp"
+	"geometric.hpp"
+	"matrix.hpp"
+	"vector_relational.hpp"
+	"integer.hpp"
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\detail\_fixes.hpp
+	<cmath>
+
+1438464936 d:\cbprojects\wildlife\dependencies\glm\glm\fwd.hpp
+	"detail/type_int.hpp"
+	"detail/type_float.hpp"
+	"detail/type_vec.hpp"
+	"detail/type_mat.hpp"
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_int.hpp
+	"setup.hpp"
+	<type_traits>
+	<cstdint>
+
+1441569934 d:\cbprojects\wildlife\dependencies\glm\glm\detail\setup.hpp
+	<cassert>
+	<cstddef>
+	<cuda.h>
+	<intrin.h>
+	<immintrin.h>
+	<immintrin.h>
+	<smmintrin.h>
+	<pmmintrin.h>
+	<emmintrin.h>
+	<__config>
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_float.hpp
+	"setup.hpp"
+
+1438465103 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_vec.hpp
+	"precision.hpp"
+	"type_int.hpp"
+
+1441038560 d:\cbprojects\wildlife\dependencies\glm\glm\detail\precision.hpp
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_mat.hpp
+	"precision.hpp"
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\vec2.hpp
+	"detail/type_vec2.hpp"
+
+1441568189 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_vec2.hpp
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec2.inl"
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\detail\_swizzle.hpp
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\detail\_swizzle_func.hpp
+
+1441568189 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_vec2.inl
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\vec3.hpp
+	"detail/type_vec3.hpp"
+
+1441568189 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_vec3.hpp
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec3.inl"
+
+1441568189 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_vec3.inl
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\vec4.hpp
+	"detail/type_vec4.hpp"
+
+1441568189 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_vec4.hpp
+	"setup.hpp"
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec4.inl"
+
+1441568189 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_vec4.inl
+	"type_vec4_sse2.inl"
+	"type_vec4_avx.inl"
+	"type_vec4_avx2.inl"
+
+1441038892 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_vec4_sse2.inl
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_vec4_avx.inl
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_vec4_avx2.inl
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\mat2x2.hpp
+	"detail/type_mat2x2.hpp"
+
+1440864226 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_mat2x2.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x2.inl"
+
+1438470808 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_mat2x2.inl
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\mat2x3.hpp
+	"detail/type_mat2x3.hpp"
+
+1438468469 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_mat2x3.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x3.inl"
+
+1438470737 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_mat2x3.inl
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\mat2x4.hpp
+	"detail/type_mat2x4.hpp"
+
+1438468425 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_mat2x4.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x4.inl"
+
+1438470573 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_mat2x4.inl
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\mat3x2.hpp
+	"detail/type_mat3x2.hpp"
+
+1438468285 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_mat3x2.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x2.inl"
+
+1438470418 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_mat3x2.inl
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\mat3x3.hpp
+	"detail/type_mat3x3.hpp"
+
+1438468227 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_mat3x3.hpp
+	"../fwd.hpp"
+	"type_vec3.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x3.inl"
+
+1438470302 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_mat3x3.inl
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\mat3x4.hpp
+	"detail/type_mat3x4.hpp"
+
+1438468095 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_mat3x4.hpp
+	"../fwd.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x4.inl"
+
+1438470191 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_mat3x4.inl
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\mat4x2.hpp
+	"detail/type_mat4x2.hpp"
+
+1438468017 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_mat4x2.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x2.inl"
+
+1438470017 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_mat4x2.inl
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\mat4x3.hpp
+	"detail/type_mat4x3.hpp"
+
+1438467958 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_mat4x3.hpp
+	"../fwd.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x3.inl"
+
+1438470532 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_mat4x3.inl
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\mat4x4.hpp
+	"detail/type_mat4x4.hpp"
+
+1438467899 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_mat4x4.hpp
+	"../fwd.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x4.inl"
+
+1438469995 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_mat4x4.inl
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\trigonometric.hpp
+	"detail/func_trigonometric.hpp"
+
+1441051837 d:\cbprojects\wildlife\dependencies\glm\glm\detail\func_trigonometric.hpp
+	"setup.hpp"
+	"precision.hpp"
+	"func_trigonometric.inl"
+
+1441052446 d:\cbprojects\wildlife\dependencies\glm\glm\detail\func_trigonometric.inl
+	"_vectorize.hpp"
+	<cmath>
+	<limits>
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\detail\_vectorize.hpp
+	"type_vec1.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+
+1441568189 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_vec1.hpp
+	"../fwd.hpp"
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec1.inl"
+
+1441568189 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_vec1.inl
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\exponential.hpp
+	"detail/func_exponential.hpp"
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\detail\func_exponential.hpp
+	"type_vec1.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	<cmath>
+	"func_exponential.inl"
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\detail\func_exponential.inl
+	"func_vector_relational.hpp"
+	"_vectorize.hpp"
+	<limits>
+	<cmath>
+	<cassert>
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\detail\func_vector_relational.hpp
+	"precision.hpp"
+	"setup.hpp"
+	"func_vector_relational.inl"
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\detail\func_vector_relational.inl
+	<limits>
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\common.hpp
+	"detail/func_common.hpp"
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\detail\func_common.hpp
+	"setup.hpp"
+	"precision.hpp"
+	"type_int.hpp"
+	"_fixes.hpp"
+	"func_common.inl"
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\detail\func_common.inl
+	"func_vector_relational.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"_vectorize.hpp"
+	<limits>
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\packing.hpp
+	"detail/func_packing.hpp"
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\detail\func_packing.hpp
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"func_packing.inl"
+
+1437262117 d:\cbprojects\wildlife\dependencies\glm\glm\detail\func_packing.inl
+	"func_common.hpp"
+	"type_half.hpp"
+	"../fwd.hpp"
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_half.hpp
+	"setup.hpp"
+	"type_half.inl"
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\detail\type_half.inl
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\geometric.hpp
+	"detail/func_geometric.hpp"
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\detail\func_geometric.hpp
+	"type_vec3.hpp"
+	"func_geometric.inl"
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\detail\func_geometric.inl
+	"func_exponential.hpp"
+	"func_common.hpp"
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"type_float.hpp"
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\matrix.hpp
+	"detail/func_matrix.hpp"
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\detail\func_matrix.hpp
+	"../detail/precision.hpp"
+	"../detail/setup.hpp"
+	"../detail/type_mat.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../mat2x2.hpp"
+	"../mat2x3.hpp"
+	"../mat2x4.hpp"
+	"../mat3x2.hpp"
+	"../mat3x3.hpp"
+	"../mat3x4.hpp"
+	"../mat4x2.hpp"
+	"../mat4x3.hpp"
+	"../mat4x4.hpp"
+	"func_matrix.inl"
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\detail\func_matrix.inl
+	"../geometric.hpp"
+	<limits>
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\vector_relational.hpp
+	"detail/func_vector_relational.hpp"
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\integer.hpp
+	"detail/func_integer.hpp"
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\detail\func_integer.hpp
+	"setup.hpp"
+	"precision.hpp"
+	"func_common.hpp"
+	"func_vector_relational.hpp"
+	"func_integer.inl"
+
+1426538703 d:\cbprojects\wildlife\dependencies\glm\glm\detail\func_integer.inl
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"type_int.hpp"
+	"_vectorize.hpp"
+	<intrin.h>
+	<limits>
+
+1451953525 source:d:\cbprojects\wildlife\src\gamestate.cpp
+	"Gamestate.h"
+
+1452125793 d:\cbprojects\wildlife\include\gamestate.h
+	<iostream>
+	<vector>
+
+1439236042 d:\cbprojects\wildlife\dependencies\glew-1.13.0\include\gl\glew.h
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<Availability.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
+
+1451358313 source:d:\cbprojects\wildlife\common\compileshaders.cpp
+	<GL/glew.h>
+	<GL\gl.h>
+	<GL/glu.h>
+	<iostream>
+	<fstream>
+	<vector>
+
+1454883370 d:\cbprojects\wildlife\common\compileshaders.cpp
+	<GL/glew.h>
+	<GL\gl.h>
+	<GL/glu.h>
+	<iostream>
+	<fstream>
+	<vector>
+
+1452011572 source:d:\cbprojects\wildlife\src\glrenderer.cpp
+	"GLRenderer.h"
+	"CompileShaders.cpp"
+
+1451944030 d:\cbprojects\wildlife\include\glrenderer.h
+	<gl/glew.h>
+	<vector>
+	<GLBuffer.h>
+	<string>
+	<SDL.h>
+	<Image.h>
+	<Camera.h>
+
+1453913335 d:\cbprojects\wildlife\include\glbuffer.h
+	<vector>
+	<gl/glew.h>
+	<string>
+	<iostream>
+	<Image.h>
+	<glm.hpp>
+	<gtc/matrix_transform.hpp>
+	<gtc/type_ptr.hpp>
+
+1453913372 source:d:\cbprojects\wildlife\src\glbuffer.cpp
+	"GLBuffer.h"
+
+1215447208 d:\cbprojects\wildlife\dependencies\simple opengl image library\include\soil.h
+
+1425431874 d:\cbprojects\wildlife\dependencies\freeimage\dist\x32\freeimage.h
+	<wchar.h>
+	<inttypes.h>
+
+1450342214 d:\cbprojects\wildlife\dependencies\freeimage\include\freeimage.h
+	<wchar.h>
+	<inttypes.h>
+
+1215447208 d:\cbprojects\wildlife\dependencies\soil\src\soil.h
+
+1451855587 source:d:\cbprojects\wildlife\src\image.cpp
+	"Image.h"
+	<iostream>
+	<map>
+	<string>
+
+1451854870 d:\cbprojects\wildlife\include\image.h
+	<string>
+	<gl/glew.h>
+	<IL/il.h>
+	<IL/ilu.h>
+
+1453156894 source:d:\cbprojects\wildlife\globals.cpp
+	<gl/glew.h>
+	<map>
+	<IL/il.h>
+	<SDL2/SDL.h>
+
+1236481406 d:\cbprojects\wildlife\dependencies\devil\include\il\il.h
+	<stdio.h>
+	<limits.h>
+	<wchar.h>
+
+1236481406 d:\cbprojects\wildlife\dependencies\devil\include\il\ilu.h
+	<IL/il.h>
+
+1236481406 d:\cbprojects\wildlife\dependencies\devil\include\il\ilut.h
+	<IL/il.h>
+	<IL/ilu.h>
+	"IL/config.h"
+	"IL/config.h"
+	<IL/ilut_config.h>
+	<windows.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+	<crtdbg.h>
+	<windows.h>
+	<d3d8.h>
+	<d3d9.h>
+	<rpcsal.h>
+	<sal.h>
+	<d3d10.h>
+	<X11/Xlib.h>
+	<X11/Xutil.h>
+	<sys/ipc.h>
+	<sys/shm.h>
+	<X11/extensions/XShm.h>
+	<allegro.h>
+
+1234920584 d:\cbprojects\wildlife\dependencies\devil\include\il\config.h
+
+1235994778 d:\cbprojects\wildlife\dependencies\devil\include\il\ilut_config.h
+
+1441038256 d:\cbprojects\wildlife\dependencies\glm\glm\gtc\matrix_transform.hpp
+	"../mat4x4.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../gtc/constants.hpp"
+	"matrix_transform.inl"
+
+1441051454 d:\cbprojects\wildlife\dependencies\glm\glm\gtc\constants.hpp
+	"../detail/setup.hpp"
+	"constants.inl"
+
+1441052694 d:\cbprojects\wildlife\dependencies\glm\glm\gtc\constants.inl
+	<limits>
+
+1426538469 d:\cbprojects\wildlife\dependencies\glm\glm\gtc\matrix_transform.inl
+	"../geometric.hpp"
+	"../trigonometric.hpp"
+	"../matrix.hpp"
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\gtc\type_ptr.hpp
+	"../gtc/quaternion.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../mat2x2.hpp"
+	"../mat2x3.hpp"
+	"../mat2x4.hpp"
+	"../mat3x2.hpp"
+	"../mat3x3.hpp"
+	"../mat3x4.hpp"
+	"../mat4x2.hpp"
+	"../mat4x3.hpp"
+	"../mat4x4.hpp"
+	<cstring>
+	"type_ptr.inl"
+
+1438471086 d:\cbprojects\wildlife\dependencies\glm\glm\gtc\quaternion.hpp
+	"../mat3x3.hpp"
+	"../mat4x4.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../gtc/constants.hpp"
+	"quaternion.inl"
+
+1438472000 d:\cbprojects\wildlife\dependencies\glm\glm\gtc\quaternion.inl
+	"../trigonometric.hpp"
+	"../geometric.hpp"
+	"../exponential.hpp"
+	<limits>
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\gtc\type_ptr.inl
+	<cstring>
+
+1453922354 source:d:\cbprojects\wildlife\src\camera.cpp
+	"Camera.h"
+	<SDL2/SDL.h>
+	<iostream>
+	<gtx/string_cast.hpp>
+
+1453912811 d:\cbprojects\wildlife\include\camera.h
+	<glm.hpp>
+	<gtc/matrix_transform.hpp>
+	<gtc/type_ptr.hpp>
+	<gtx/transform.hpp>
+	<gtx/quaternion.hpp>
+	<gtc/quaternion.hpp>
+	<gl/glew.h>
+
+1454958178 d:\cbprojects\wildlife\include\gamemanager.h
+	<Gamestate.h>
+	<SDL.h>
+	<GL/glew.h>
+	<string>
+	<algorithm>
+	<Threads/Threads.h>
+
+1452008111 d:\cbprojects\wildlife\maingame.cpp
+	<GLBuffer.h>
+	<GLRenderer.h>
+	<Gamestate.h>
+	<Camera.h>
+	<string>
+
+1452008111 source:d:\cbprojects\wildlife\maingame.cpp
+	<GLBuffer.h>
+	<GLRenderer.h>
+	<Gamestate.h>
+	<Camera.h>
+	<string>
+
+1454958199 source:d:\cbprojects\wildlife\src\gamemanager.cpp
+	"GameManager.h"
+
+1462350118 d:\cbprojects\wildlife\maingame.h
+	<utilities/OpenGL.h>
+	<State/Gamestate.h>
+	<Camera.h>
+	<string>
+	<glm.hpp>
+	<gtc/matrix_transform.hpp>
+	<gtc/type_ptr.hpp>
+	<Controll/Keyboard.h>
+	<Graphics/Graphics.h>
+	<Graphics/Scene/Model.h>
+	<Graphics/Scene/Instance.h>
+	<Graphics/Text/Text.h>
+	<Graphics/Text/Instance.h>
+	<Graphics/Text/Task.h>
+	<Collider/Collider.h>
+	<Collider/Manager.h>
+	<Collider/Opengl.h>
+	<Collider/Shape/Polygon.h>
+	<Collider/Shape/Sphere.h>
+	<Collider/Shape/Point.h>
+	<Collider/Shape/Ray.h>
+	<Maigui/Maigui.h>
+	<Maigui/Manager.h>
+	<Maigui/Wrappers/OpenGL.h>
+	<Maigui/Types/Frame.h>
+	<Compatability/GLES2/Shaders/Basic2D.h>
+	<Settings.h>
+	<Maigui\Types\Button.h>
+
+1441049533 d:\cbprojects\wildlife\dependencies\glm\glm\gtx\string_cast.hpp
+	"../glm.hpp"
+	"../gtc/type_precision.hpp"
+	"../gtc/quaternion.hpp"
+	"../gtx/dual_quaternion.hpp"
+	<string>
+	"string_cast.inl"
+
+1424014283 d:\cbprojects\wildlife\dependencies\glm\glm\gtc\type_precision.hpp
+	"../gtc/quaternion.hpp"
+	"../gtc/vec1.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../mat2x2.hpp"
+	"../mat2x3.hpp"
+	"../mat2x4.hpp"
+	"../mat3x2.hpp"
+	"../mat3x3.hpp"
+	"../mat3x4.hpp"
+	"../mat4x2.hpp"
+	"../mat4x3.hpp"
+	"../mat4x4.hpp"
+	"type_precision.inl"
+
+1424014283 d:\cbprojects\wildlife\dependencies\glm\glm\gtc\vec1.hpp
+	"../glm.hpp"
+	"../detail/type_vec1.hpp"
+	"vec1.inl"
+
+1424014283 d:\cbprojects\wildlife\dependencies\glm\glm\gtc\vec1.inl
+
+1424014283 d:\cbprojects\wildlife\dependencies\glm\glm\gtc\type_precision.inl
+
+1438468215 d:\cbprojects\wildlife\dependencies\glm\glm\gtx\dual_quaternion.hpp
+	"../glm.hpp"
+	"../gtc/constants.hpp"
+	"../gtc/quaternion.hpp"
+	"dual_quaternion.inl"
+
+1438468257 d:\cbprojects\wildlife\dependencies\glm\glm\gtx\dual_quaternion.inl
+	"../geometric.hpp"
+	<limits>
+
+1441049462 d:\cbprojects\wildlife\dependencies\glm\glm\gtx\string_cast.inl
+	<cstdarg>
+	<cstdio>
+
+1453913985 d:\cbprojects\wildlife\include\scene.h
+	<gl/glew.h>
+	<vector>
+	<map>
+	<GLBuffer.h>
+	<Scene_Object.h>
+	<string>
+	<SDL.h>
+	<Image.h>
+	<Camera.h>
+	<memory>
+
+1453914390 d:\cbprojects\wildlife\include\scene_object.h
+	<GLBuffer.h>
+	<glm.hpp>
+	<gtc/matrix_transform.hpp>
+	<gtc/type_ptr.hpp>
+
+1453914433 source:d:\cbprojects\wildlife\src\scene_object.cpp
+	"Scene_Object.h"
+
+1453913943 source:d:\cbprojects\wildlife\src\scene.cpp
+	"Scene.h"
+	"CompileShaders.cpp"
+
+1452210304 d:\cbprojects\wildlife\include\keyboard.h
+	<SDL2/SDL.h>
+	<string>
+
+1452210313 source:d:\cbprojects\wildlife\src\keyboard.cpp
+	"Keyboard.h"
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\gtx\transform.hpp
+	"../glm.hpp"
+	"../gtc/matrix_transform.hpp"
+	"transform.inl"
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\gtx\transform.inl
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\gtx\quaternion.hpp
+	"../glm.hpp"
+	"../gtc/constants.hpp"
+	"../gtc/quaternion.hpp"
+	"../gtx/norm.hpp"
+	"quaternion.inl"
+
+1437695657 d:\cbprojects\wildlife\dependencies\glm\glm\gtx\norm.hpp
+	"../glm.hpp"
+	"../gtx/quaternion.hpp"
+	"norm.inl"
+
+1424017883 d:\cbprojects\wildlife\dependencies\glm\glm\gtx\norm.inl
+
+1441050881 d:\cbprojects\wildlife\dependencies\glm\glm\gtx\quaternion.inl
+	<limits>
+	"../gtc/constants.hpp"
+
+1452470246 d:\cbprojects\wildlife\include\cameracontroll.h
+
+1452470258 source:d:\cbprojects\wildlife\src\cameracontroll.cpp
+	"CameraControll.h"
+
+1452545389 source:d:\cbprojects\wildlife\src\client.cpp
+	"Client.h"
+
+1452550737 d:\cbprojects\wildlife\include\client.h
+	<GLBuffer.h>
+
+1452545546 source:d:\cbprojects\wildlife\src\server.cpp
+	"Server.h"
+
+1452633729 d:\cbprojects\wildlife\include\server.h
+	<thread>
+	<vector>
+	<map>
+	<string>
+	<SDL2/SDL.h>
+
+1452731232 source:d:\cbprojects\wildlife\src\threads.cpp
+	"Threads.h"
+	<iostream>
+
+1452803794 d:\cbprojects\wildlife\include\threads.h
+	<functional>
+	<thread>
+	<map>
+	<mutex>
+	<atomic>
+	<vector>
+	<memory>
+	<queue>
+
+1453184617 d:\cbprojects\wildlife\include\threads\threads.h
+	<functional>
+	<thread>
+	<map>
+	<mutex>
+	<atomic>
+	<vector>
+	<memory>
+	<queue>
+
+1452814834 d:\cbprojects\wildlife\include\threads\queque.h
+	<mutex>
+	<atomic>
+	<queue>
+	<iostream>
+
+1452810659 source:d:\cbprojects\wildlife\src\threads\queque.cpp
+	"queque.h"
+
+1452812958 source:d:\cbprojects\wildlife\src\threads\threads.cpp
+	"Threads/Threads.h"
+
+1462156679 d:\cbprojects\wildlife\include\utilities\utils.h
+	<string>
+	<ctime>
+	<thread>
+	<iostream>
+	<fstream>
+	<map>
+	<vector>
+
+1456603674 d:\cbprojects\wildlife\include\utilities\log.h
+	<utilities/utils.h>
+	<string>
+	<map>
+	<vector>
+	<iostream>
+	<type_traits>
+	<typeinfo>
+	<sstream>
+	<fstream>
+	<numeric>
+
+1453179060 source:d:\cbprojects\wildlife\src\server\server.cpp
+	"Network/Server.h"
+	<Utilities\Log.h>
+
+1452965352 d:\cbprojects\wildlife\include\server\server.h
+	<thread>
+	<vector>
+	<map>
+	<string>
+	<SDL2/SDL.h>
+	<enet/enet.h>
+
+1430397728 d:\cbprojects\wildlife\dependencies\enet-1.3.13\include\enet\enet.h
+	<stdlib.h>
+	"enet/win32.h"
+	"enet/unix.h"
+	"enet/types.h"
+	"enet/protocol.h"
+	"enet/list.h"
+	"enet/callbacks.h"
+
+1453182593 d:\cbprojects\wildlife\dependencies\enet-1.3.13\include\enet\win32.h
+	<stdlib.h>
+	<winsock2.h>
+
+1430397728 d:\cbprojects\wildlife\dependencies\enet-1.3.13\include\enet\unix.h
+	<stdlib.h>
+	<sys/time.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<netinet/in.h>
+	<unistd.h>
+
+1430397728 d:\cbprojects\wildlife\dependencies\enet-1.3.13\include\enet\types.h
+
+1430397728 d:\cbprojects\wildlife\dependencies\enet-1.3.13\include\enet\protocol.h
+	"enet/types.h"
+
+1430397728 d:\cbprojects\wildlife\dependencies\enet-1.3.13\include\enet\list.h
+	<stdlib.h>
+
+1430397728 d:\cbprojects\wildlife\dependencies\enet-1.3.13\include\enet\callbacks.h
+	<stdlib.h>
+
+1456616731 source:d:\cbprojects\wildlife\src\utilities\log.cpp
+	"Log.h"
+	<windows.h>
+	<tchar.h>
+	<conio.h>
+	<strsafe.h>
+
+1456121877 source:d:\cbprojects\wildlife\src\utilities\utils.cpp
+	"utilities/Utils.h"
+
+1453156894 d:\cbprojects\wildlife\globals.cpp
+	<gl/glew.h>
+	<map>
+	<IL/il.h>
+	<SDL2/SDL.h>
+
+1453179112 source:d:\cbprojects\wildlife\src\server\client.cpp
+	"Network/Client.h"
+	<utilities/log.h>
+
+1453179103 d:\cbprojects\wildlife\include\network\client.h
+	<GLBuffer.h>
+	<utilities/Log.h>
+	<enet/enet.h>
+	<string>
+
+1453175664 source:d:\cbprojects\wildlife\src\server\network.cpp
+	"Network/Network.h"
+
+1453182532 d:\cbprojects\wildlife\include\network\network.h
+	<enet/enet.h>
+	<Network/Server.h>
+	<Network/Client.h>
+	<Threads.h>
+
+1453182541 d:\cbprojects\wildlife\include\network\server.h
+	<thread>
+	<vector>
+	<map>
+	<string>
+	<SDL2/SDL.h>
+	<enet/enet.h>
+
+1453179112 source:d:\cbprojects\wildlife\src\network\client.cpp
+	"Network/Client.h"
+	<utilities/log.h>
+
+1453182023 source:d:\cbprojects\wildlife\src\network\network.cpp
+	"Network/Network.h"
+
+1453181897 source:d:\cbprojects\wildlife\src\network\server.cpp
+	"Network/Server.h"
+	<Utilities\Log.h>
+
+1453660336 d:\cbprojects\wildlife\include\network\win32.h
+	<winsock2.h>
+	<windows.h>
+	<ws2tcpip.h>
+	<iphlpapi.h>
+	<string>
+	<map>
+
+1453660697 source:d:\cbprojects\wildlife\src\network\win32.cpp
+	"win32.h"
+	<utilities/log.h>
+
+1453852004 source:d:\cbprojects\wildlife\src\collider\collider.cpp
+	"Collider.h"
+
+1456862432 d:\cbprojects\wildlife\include\collider\collider.h
+	<cmath>
+	<iostream>
+	<vector>
+	<map>
+	<algorithm>
+	<functional>
+	<memory>
+	<math.h>
+	<Collider/Tools.h>
+	<Collider/Algorithm/GJK.h>
+	<Collider/Shape.h>
+	<Collider/Manager.h>
+
+1456962597 d:\cbprojects\wildlife\include\collider\shape.h
+	<Collider/Collider.h>
+	<GJK.h>
+	<utilities/Utils.h>
+
+1453852550 d:\cbprojects\wildlife\include\collider\maths.h
+	<algorithm>
+	<cmath>
+
+1455584936 source:d:\cbprojects\wildlife\src\collider\point.cpp
+	"Point.h"
+	<Collider/Sphere.h>
+	<Collider/Algorithm/GJK.h>
+
+1455585628 d:\cbprojects\wildlife\include\collider\point.h
+	<Collider/Collider.h>
+	<Collider/Polygon.h>
+
+1455587946 source:d:\cbprojects\wildlife\src\collider\polygon.cpp
+	"Polygon.h"
+
+1455585601 d:\cbprojects\wildlife\include\collider\polygon.h
+	"Collider/Shape.h"
+
+1460407545 source:d:\cbprojects\wildlife\src\collider\shape.cpp
+	"Shape.h"
+
+1456611976 d:\cbprojects\wildlife\include\collider\manager.h
+	<Collider/Collider.h>
+	<Collider/Tools.h>
+
+1460407579 source:d:\cbprojects\wildlife\src\collider\manager.cpp
+	"Manager.h"
+	<Collider/Shape.h>
+	<Collider/Shape/Polygon.h>
+	<Collider/Shape/Point.h>
+	<Collider/Shape/Sphere.h>
+	<Collider/Shape/Ray.h>
+
+1453931657 d:\cbprojects\wildlife\include\graphics\scene.h
+	<gl/glew.h>
+	<vector>
+	<map>
+	<Graphics.h>
+	<GLBuffer.h>
+	<Scene_Object.h>
+	<Image.h>
+	<Camera.h>
+	<string>
+	<SDL.h>
+	<memory>
+
+1462155553 d:\cbprojects\wildlife\include\graphics\graphics.h
+	<Settings.h>
+	<SDL.h>
+	<IL/il.h>
+	<IL/ilut.h>
+	<glm.hpp>
+	<gtc/matrix_transform.hpp>
+	<gtc/type_ptr.hpp>
+	<string>
+	<map>
+	<functional>
+	<vector>
+	<settings.h>
+	<Compatability/GLES2/Framebuffer.h>
+
+1453931879 d:\cbprojects\wildlife\include\graphics\glbuffer.h
+	<vector>
+	<gl/glew.h>
+	<string>
+	<iostream>
+	<Image.h>
+	<glm.hpp>
+	<gtc/matrix_transform.hpp>
+	<gtc/type_ptr.hpp>
+	<Graphics.h>
+
+1461797729 d:\cbprojects\wildlife\include\graphics\image.h
+	<string>
+	<IL/il.h>
+	<IL/ilu.h>
+	<Graphics/Graphics.h>
+	<Graphics/Bases/Filter.h>
+
+1453931432 d:\cbprojects\wildlife\include\graphics\scene_object.h
+	<glm.hpp>
+	<gtc/matrix_transform.hpp>
+	<gtc/type_ptr.hpp>
+	<Graphics.h>
+	<GLBuffer.h>
+
+1458705999 d:\cbprojects\wildlife\include\graphics\camera.h
+	<glm.hpp>
+	<gtc/matrix_transform.hpp>
+	<gtc/type_ptr.hpp>
+	<gtx/transform.hpp>
+	<gtx/quaternion.hpp>
+	<gtc/quaternion.hpp>
+	<Graphics/Graphics.h>
+	<Window/Windower.h>
+
+1460596984 source:d:\cbprojects\wildlife\src\graphics\camera.cpp
+	"Camera.h"
+	<SDL.h>
+	<iostream>
+
+1454892185 source:d:\cbprojects\wildlife\src\graphics\glbuffer.cpp
+	"GLBuffer.h"
+
+1454864729 source:d:\cbprojects\wildlife\src\graphics\scene.cpp
+	"Scene.h"
+	"CompileShaders.cpp"
+
+1462246004 source:d:\cbprojects\wildlife\src\graphics\image.cpp
+	"Image.h"
+	<iostream>
+	<map>
+	<string>
+
+1453914433 source:d:\cbprojects\wildlife\src\graphics\scene_object.cpp
+	"Scene_Object.h"
+
+1454386025 d:\cbprojects\wildlife\src\collider\shape.cpp
+	"Shape.h"
+	<iostream>
+
+1455590531 d:\cbprojects\wildlife\include\collider\sphere.h
+	<Collider/Collider.h>
+	<Collider/Polygon.h>
+	<Collider/Shape.h>
+
+1455590902 source:d:\cbprojects\wildlife\src\collider\sphere.cpp
+	"Sphere.h"
+
+1460387610 d:\cbprojects\wildlife\include\collider\opengl.h
+	<Settings.h>
+	<Collider/Collider.h>
+	<Collider/Manager.h>
+	<glm.hpp>
+	<gtc/matrix_transform.hpp>
+	<gtc/type_ptr.hpp>
+	<utilities/OpenGL.h>
+
+1455056998 source:d:\cbprojects\wildlife\src\collider\tools.cpp
+	"Tools.h"
+
+1457062848 d:\cbprojects\wildlife\include\collider\tools.h
+	<Collider/Collider.h>
+
+1455317854 d:\cbprojects\wildlife\include\collider\party\gjk_algorithm.h
+	<Collider/Collider.h>
+	<Collider/party/vector.h>
+
+1400422466 d:\cbprojects\wildlife\include\collider\party\vector.h
+	<math.h>
+
+1455317840 source:d:\cbprojects\wildlife\src\collider\party\gjk_algorithm.cpp
+	"Collider/party/GJK_Algorithm.h"
+	"Collider/party/vector.h"
+
+1455317882 source:d:\cbprojects\wildlife\src\collider\party\vector.cpp
+	"Collider/party/vector.h"
+
+1456782644 d:\cbprojects\wildlife\include\collider\algorithm
+
+1456778519 source:d:\cbprojects\wildlife\src\collider\algorithm\gjk.cpp
+	"GJK.h"
+
+1456782644 d:\cbprojects\wildlife\include\collider\algorithm\gjk.h
+	<Collider/Collider.h>
+	<Collider/Shape.h>
+
+1455603721 source:d:\cbprojects\wildlife\src\collider\shapes\point.cpp
+	"Collider/Shape/Point.h"
+	<Collider/Shape/Sphere.h>
+	<Collider/Algorithm/GJK.h>
+
+1455870293 d:\cbprojects\wildlife\include\collider\shape\point.h
+	<Collider/Collider.h>
+	<Collider/Shape/Polygon.h>
+
+1455870296 d:\cbprojects\wildlife\include\collider\shape\polygon.h
+	"Collider/Shape.h"
+
+1455870308 d:\cbprojects\wildlife\include\collider\shape\sphere.h
+	<Collider/Collider.h>
+	<Collider/Shape/Polygon.h>
+	<Collider/Shape.h>
+
+1455591686 source:d:\cbprojects\wildlife\src\collider\shapes\polygon.cpp
+	"Collider/Shape/Polygon.h"
+
+1455604771 source:d:\cbprojects\wildlife\src\collider\shapes\sphere.cpp
+	"Collider/Shape/Sphere.h"
+
+1455870121 source:d:\cbprojects\wildlife\src\collider\shape\point.cpp
+	"Collider/Shape/Point.h"
+	<Collider/Shape/Sphere.h>
+	<Collider/Algorithm/GJK.h>
+
+1456438521 source:d:\cbprojects\wildlife\src\collider\shape\polygon.cpp
+	"Collider/Shape/Polygon.h"
+
+1460405603 source:d:\cbprojects\wildlife\src\collider\shape\ray.cpp
+	"Collider/Shape/Ray.h"
+	<Collider/Algorithm/GJK.h>
+
+1456786062 d:\cbprojects\wildlife\include\collider\shape\ray.h
+	<Collider/Collider.h>
+	<Collider/Shape.h>
+
+1455871400 source:d:\cbprojects\wildlife\src\collider\shape\sphere.cpp
+	"Collider/Shape/Sphere.h"
+
+1455790304 source:d:\cbprojects\wildlife\src\maigui\widget.cpp
+	"Maigui\Widget.h"
+
+1455790395 d:\cbprojects\wildlife\include\maigui\widget.h
+	<Maigui.h>
+
+1460238004 d:\cbprojects\wildlife\include\maigui\maigui.h
+	<Collider/Collider.h>
+	<Collider/Shape/Ray.h>
+
+1461613502 d:\cbprojects\wildlife\include\graphics\scene\scene.h
+	<Settings.h>
+	<vector>
+	<map>
+	<Graphics\Graphics.h>
+	<Graphics\Shaders.h>
+	<Graphics\Buffers\Mesh.h>
+	<Graphics\Scene\Object.h>
+	<Image.h>
+	<Camera.h>
+	<string>
+	<SDL.h>
+	<memory>
+	<GLES2/gl2.h>
+
+1459063511 d:\cbprojects\wildlife\include\graphics\buffers\glbuffer.h
+	<vector>
+	<string>
+	<iostream>
+	<Image.h>
+	<glm.hpp>
+	<gtc/matrix_transform.hpp>
+	<gtc/type_ptr.hpp>
+	<Graphics.h>
+
+1461106862 d:\cbprojects\wildlife\include\graphics\scene\scene_object.h
+	<glm.hpp>
+	<gtc/matrix_transform.hpp>
+	<gtc/type_ptr.hpp>
+	<Graphics\Graphics.h>
+	<Graphics\Buffers\Mesh.h>
+	<Graphics\Bases\Moveable.h>
+	<utilities\OpenGL.h>
+
+1459408716 d:\cbprojects\wildlife\include\state\gamemanager.h
+	<Settings.h>
+	<Window/Window.h>
+	<State\Gamestate.h>
+	<SDL.h>
+	<string>
+	<algorithm>
+	<Threads/Threads.h>
+
+1460486901 d:\cbprojects\wildlife\include\state\gamestate.h
+	<Settings.h>
+	<Window/Window.h>
+	<iostream>
+	<vector>
+
+1459036965 d:\cbprojects\wildlife\include\controll\keyboard.h
+	<SDL.h>
+	<string>
+
+1455921581 source:d:\cbprojects\wildlife\src\controll\keyboard.cpp
+	"Controll/Keyboard.h"
+
+1460339048 source:d:\cbprojects\wildlife\src\graphics\buffers\glbuffer.cpp
+	"Graphics/Buffers/GLBuffer.h"
+
+1459339042 source:d:\cbprojects\wildlife\src\graphics\scene\scene.cpp
+	"Graphics/Scene/Scene.h"
+
+1456603725 source:d:\cbprojects\wildlife\src\graphics\scene\scene_object.cpp
+	"Graphics/Scene/Scene_Object.h"
+
+1459995062 source:d:\cbprojects\wildlife\src\maigui\maigui.cpp
+	"Maigui\Maigui.h"
+	<Maigui\Manager.h>
+
+1460486925 source:d:\cbprojects\wildlife\src\state\gamemanager.cpp
+	"State/GameManager.h"
+
+1459048894 source:d:\cbprojects\wildlife\src\state\gamestate.cpp
+	"State/Gamestate.h"
+
+1459360208 source:d:\cbprojects\wildlife\src\window\window.cpp
+	"Window.h"
+	"glm.hpp"
+	<iostream>
+
+1459408733 d:\cbprojects\wildlife\include\window\window.h
+	<Settings.h>
+	<Window/Windower.h>
+	<Window/Data.h>
+
+1459036965 d:\cbprojects\wildlife\include\window\windower.h
+	<vector>
+	<memory>
+	<SDL.h>
+	<string>
+	<vector>
+	<map>
+	<Window/Window.h>
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<iconv.h>
+	<sal.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_config.h
+	"SDL_platform.h"
+	"SDL_config_premake.h"
+	"SDL_config_windows.h"
+	"SDL_config_winrt.h"
+	"SDL_config_macosx.h"
+	"SDL_config_iphoneos.h"
+	"SDL_config_android.h"
+	"SDL_config_psp.h"
+	"SDL_config_minimal.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\begin_code.h
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\close_code.h
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_config_windows.h
+	"SDL_platform.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_config_winrt.h
+	"SDL_platform.h"
+	<sdkddkver.h>
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_config_macosx.h
+	"SDL_platform.h"
+	<AvailabilityMacros.h>
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_config_iphoneos.h
+	"SDL_platform.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_config_android.h
+	"SDL_platform.h"
+	<stdarg.h>
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_config_psp.h
+	"SDL_platform.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_config_minimal.h
+	"SDL_platform.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_assert.h
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	<mbarrier.h>
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<mmintrin.h>
+	<mm3dnow.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_pixels.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1451739392 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1455934113 d:\cbprojects\wildlife\include\window\data.h
+	<Window/Windower.h>
+	<iostream>
+
+1462149087 source:d:\cbprojects\wildlife\src\graphics\graphics.cpp
+	<Graphics/Graphics.h>
+
+1462154326 source:d:\cbprojects\wildlife\src\collider\opengl.cpp
+	<Collider/Opengl.h>
+
+1460829052 d:\cbprojects\wildlife\include\maigui\manager.h
+	<Maigui/Maigui.h>
+	<Maigui/Item.h>
+
+1460828327 d:\cbprojects\wildlife\include\maigui\item.h
+	<Maigui/Maigui.h>
+	<Maigui/Skin.h>
+	<Maigui/Manager.h>
+	<Maigui/Bases/Drawable.h>
+	<Maigui/Bases/Moveable.h>
+
+1460586650 d:\cbprojects\wildlife\include\maigui\skin.h
+	<Maigui/Maigui.h>
+	<Graphics/Image.h>
+
+1460829498 source:d:\cbprojects\wildlife\src\maigui\manager.cpp
+	"Maigui/Manager.h"
+	<Maigui/Types/Container.h>
+	<Maigui/Types/Widget.h>
+	<Maigui/Types/Frame.h>
+	<Maigui/Types/Button.h>
+
+1456615623 source:d:\cbprojects\wildlife\src\maigui\opengl.cpp
+	<Maigui/Wrappers/OpenGl.h>
+
+1459973459 d:\cbprojects\wildlife\include\maigui\wrappers\opengl.h
+	<Maigui/Maigui.h>
+	<Collider/Opengl.h>
+
+1462029440 source:d:\cbprojects\wildlife\src\maigui\skin.cpp
+	<Maigui/Skin.h>
+	<Maigui/Item.h>
+
+1459995768 source:d:\cbprojects\wildlife\src\maigui\types\container.cpp
+	"Maigui/Types/Container.h"
+
+1460252164 d:\cbprojects\wildlife\include\maigui\types\container.h
+	<Maigui/Maigui.h>
+	<Maigui/Item.h>
+
+1456871830 d:\cbprojects\wildlife\include\maigui\types\widget.h
+	<Maigui/Maigui.h>
+	<Maigui/Item.h>
+
+1456963688 source:d:\cbprojects\wildlife\src\maigui\types\widget.cpp
+	"Maigui/Types/Widget.h"
+
+1460997532 source:d:\cbprojects\wildlife\src\maigui\item.cpp
+	"Maigui/Item.h"
+
+1462030249 source:d:\cbprojects\wildlife\src\maigui\wrappers\opengl.cpp
+	<Maigui/Wrappers/OpenGl.h>
+	<Maigui/Skin.h>
+	<utilities/OpenGL.h>
+	<Graphics/Text/Text.h>
+
+1457800254 source:d:\cbprojects\wildlife\src\graphics\tools\text.cpp
+	"Graphics/Tools/Text.h"
+
+1457800223 d:\cbprojects\wildlife\include\graphics\tools\text.h
+	<Graphics/Graphics.h>
+	<SDL.h>
+	<GL/glew.h>
+	<ft2build.h>
+	<Graphics/Shaders.h>
+
+1448741332 d:\cbprojects\wildlife\dependencies\freetype-2.6.2\include\ft2build.h
+	<freetype/config/ftheader.h>
+
+1448741332 d:\cbprojects\wildlife\dependencies\freetype-2.6.2\include\freetype\config\ftheader.h
+
+1461808500 source:d:\cbprojects\wildlife\src\graphics\shaders.cpp
+	"Shaders.h"
+
+1462151791 d:\cbprojects\wildlife\include\graphics\shaders.h
+	<Settings.h>
+	<string>
+	<vector>
+	<iostream>
+	<fstream>
+	<SDL.h>
+	<memory>
+	<Graphics/Graphics.h>
+	<Utils.h>
+	<utilities/OpenGL.h>
+
+1457800188 source:d:\cbprojects\wildlife\src\graphics\tools\flagprogressive.cpp
+	"flagProgressive.h"
+
+1457796850 d:\cbprojects\wildlife\include\graphics\tools\flagprogressive.h
+	<Graphics/Tools/Text.h>
+	<Graphics/Tools/TextInstance.h>
+	<queque.h>
+
+1457800283 d:\cbprojects\wildlife\include\graphics\tools\textinstance.h
+	<Graphics/Tools/Text.h>
+
+1457799924 source:d:\cbprojects\wildlife\src\graphics\tools\textinstance.cpp
+	"Graphics/Tools/TextInstance.h"
+
+1460998712 d:\cbprojects\wildlife\include\graphics\text\text.h
+	<Graphics/Graphics.h>
+	<SDL.h>
+	<ft2build.h>
+	<memory.h>
+	<gtc/matrix_transform.hpp>
+	<Graphics/Shaders.h>
+	<Graphics/Shaders/Outline.h>
+	<Graphics/Shaders/Bloom.h>
+
+1461801306 d:\cbprojects\wildlife\include\graphics\text\instance.h
+	<Graphics/Text/Text.h>
+	<Graphics/Buffers/Canvas.h>
+	<Graphics/Bases/Moveable.h>
+
+1462393841 source:d:\cbprojects\wildlife\src\graphics\text\instance.cpp
+	"Graphics/Text/Instance.h"
+	<Graphics/Text/Task.h>
+	<Graphics/Bases/Moveable.h>
+
+1457874538 source:d:\cbprojects\wildlife\src\graphics\text\task.cpp
+	"Graphics/Text/Task.h"
+
+1461706321 d:\cbprojects\wildlife\include\graphics\text\task.h
+	<Graphics/Text/Text.h>
+	<Graphics/Text/Instance.h>
+	<Graphics/Bases/Moveable.h>
+	<queque.h>
+
+1460998849 source:d:\cbprojects\wildlife\src\graphics\text\text.cpp
+	"Graphics/Text/Text.h"
+
+1457903984 source:d:\cbprojects\wildlife\src\filters\stencil.cpp
+	"Stencil.h"
+
+1458702342 d:\cbprojects\wildlife\include\filters\stencil.h
+
+1461799709 d:\cbprojects\wildlife\include\graphics\shaders\outline.h
+	<Graphics/Graphics.h>
+	<Graphics/Shaders/Bases.h>
+
+1461799689 source:d:\cbprojects\wildlife\src\graphics\shaders\outline.cpp
+	"Outline.h"
+
+1461799709 d:\cbprojects\wildlife\include\graphics\shaders\\outline.h
+	<Graphics/Graphics.h>
+	<Graphics/Shaders/Bases.h>
+
+1459880435 d:\cbprojects\wildlife\include\graphics\buffers\canvas.h
+	<Graphics/Graphics.h>
+	<Graphics/Shaders.h>
+	<Compatability/GLES2/Shaders/Blit2D.h>
+	<Graphics/Primitives/Quad.h>
+
+1459976742 source:d:\cbprojects\wildlife\src\graphics\buffers\canvas.cpp
+	"Graphics\Buffers\Canvas.h"
+
+1462155724 d:\cbprojects\wildlife\include\graphics\primitives\quad.h
+	<Graphics/Graphics.h>
+	<Graphics/Shaders.h>
+	<utilities/OpenGL.h>
+
+1459962336 source:d:\cbprojects\wildlife\src\graphics\primitives\quad.cpp
+	"Graphics\Primitives\Quad.h"
+
+1459339782 source:d:\cbprojects\wildlife\src\graphics\shaders\blur.cpp
+	"Graphics/Shaders/Blur.h"
+
+1458076996 d:\cbprojects\wildlife\include\graphics\shaders\\blur.h
+
+1459957781 d:\cbprojects\wildlife\include\graphics\shaders\bases.h
+	<Graphics/Graphics.h>
+	<Graphics/Shaders.h>
+	<Graphics/Buffers/Canvas.h>
+	<Graphics/Primitives/Quad.h>
+
+1462156820 source:d:\cbprojects\wildlife\src\graphics\shaders\bases.cpp
+	"Bases.h"
+
+1459957781 d:\cbprojects\wildlife\include\graphics\shaders\\bases.h
+	<Graphics/Graphics.h>
+	<Graphics/Shaders.h>
+	<Graphics/Buffers/Canvas.h>
+	<Graphics/Primitives/Quad.h>
+
+1458609065 d:\cbprojects\wildlife\include\graphics\shaders\blur.h
+	<Graphics/Graphics.h>
+	<Graphics/Shaders/Bases.h>
+
+1458426319 source:d:\cbprojects\wildlife\src\utilities\container.cpp
+	"Container.h"
+
+1458426424 d:\cbprojects\wildlife\include\utilities\container.h
+	<initializer_list>
+
+1458443367 source:d:\cbprojects\wildlife\src\bloom.cpp
+	"Bloom.h"
+
+1458443190 d:\cbprojects\wildlife\include\bloom.h
+	<Graphics/Shaders.h>
+	<Graphics/Shaders/Blur.h>
+
+1458510375 d:\cbprojects\wildlife\include\graphics\shaders\bloom.h
+	<Graphics/Shaders.h>
+	<Graphics/Shaders/Blur.h>
+
+1459797414 source:d:\cbprojects\wildlife\src\graphics\shaders\bloom.cpp
+	"Bloom.h"
+
+1458510375 d:\cbprojects\wildlife\include\graphics\shaders\\bloom.h
+	<Graphics/Shaders.h>
+	<Graphics/Shaders/Blur.h>
+
+1439195753 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\gles2\gl2.h
+	<GLES2/gl2platform.h>
+	<KHR/khrplatform.h>
+
+1439195753 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\gles2\gl2platform.h
+	<KHR/khrplatform.h>
+
+1439195753 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\khr\khrplatform.h
+	<stdint.h>
+	<inttypes.h>
+	<stdint.h>
+
+1439195753 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\gles3\gl3.h
+	<GLES3/gl3platform.h>
+	<KHR/khrplatform.h>
+
+1439195753 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\gles3\gl3platform.h
+	<KHR/khrplatform.h>
+
+1458701845 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\sdl_opengles.h
+	<OpenGLES/ES1/gl.h>
+	<OpenGLES/ES1/glext.h>
+	<GLES2/gl2.h>
+	<GLES2/gl2ext.h>
+
+1439192153 d:\cbprojects\wildlife\dependencies\sdl2-2.0.4\include\gles2\gl2ext.h
+
+1458943218 d:\cbprojects\wildlife\include\collider\wrappers\opengles2.h
+	<Collider/Collider.h>
+	<Collider/Manager.h>
+	<GLES2/gl2.h>
+	<glm.hpp>
+	<gtc/matrix_transform.hpp>
+	<gtc/type_ptr.hpp>
+
+1459408870 d:\cbprojects\wildlife\include\settings.h
+	<GLES2/gl2.h>
+
+1459051034 source:d:\cbprojects\wildlife\src\collider\wrappers\opengles2.cpp
+	"OpenglES2.h"
+
+1458944291 source:d:\cbprojects\wildlife\src\compatability\gles2\framebuffer.cpp
+	"Compatability/GLES2/Framebuffer.h"
+
+1458966308 d:\cbprojects\wildlife\include\compatability\gles2\framebuffer.h
+
+1458946171 d:\cbprojects\wildlife\include\compatability\gles2\primitives\quad.h
+	<GLES2/gl2.h>
+	<memory>
+
+1458948065 d:\cbprojects\wildlife\include\compatability\gles2\shaders\blit2d.h
+	<Graphics/Graphics.h>
+	<Graphics/Shaders.h>
+
+1458722761 source:d:\cbprojects\wildlife\src\compatability\gles2\primitives\quad.cpp
+	"Compatability\GLES2\Primitives\Quad.h"
+
+1459408676 d:\cbprojects\wildlife\include\compatability\gles2\shaders\basic2d.h
+	<Settings.h>
+	<memory>
+	<Graphics/Shaders.h>
+
+1459342363 source:d:\cbprojects\wildlife\src\compatability\gles2\shaders\basic2d.cpp
+	"Compatability/GLES2/Shaders/Basic2D.h"
+
+1459535046 source:d:\cbprojects\wildlife\src\compatability\gles2\shaders\blit2d.cpp
+	"Compatability/GLES2/Shaders/Blit2D.h"
+
+1458951991 d:\cbprojects\wildlife\include\compatability\gles2\buffers\glbuffer.h
+	<vector>
+	<string>
+	<iostream>
+	<Image.h>
+	<glm.hpp>
+	<gtc/matrix_transform.hpp>
+	<gtc/type_ptr.hpp>
+	<Graphics.h>
+
+1459051077 source:d:\cbprojects\wildlife\src\compatability\gles2\buffers\glbuffer.cpp
+	"Graphics/Buffers/GLBuffer.h"
+
+1462154435 d:\cbprojects\wildlife\include\utilities\opengl.h
+	<Settings.h>
+	<vector>
+	<memory>
+	<fstream>
+	<iostream>
+	<cstdarg>
+
+1459075192 d:\cbprojects\wildlife\src\utilities\opengl.cpp
+	"utilities/OpenGL.h"
+
+1462244205 source:d:\cbprojects\wildlife\src\utilities\opengl.cpp
+	"utilities/OpenGL.h"
+
+1462233005 d:\cbprojects\wildlife\include\graphics\bases\moveable.h
+	<glm.hpp>
+	<gtc/matrix_transform.hpp>
+	<gtc/type_ptr.hpp>
+	<gtx/transform.hpp>
+	<gtx/quaternion.hpp>
+	<gtc/quaternion.hpp>
+	<functional>
+
+1459890790 source:d:\cbprojects\wildlife\src\graphics\scene\scene2d.cpp
+	"Graphics\Scene\Scene2D.h"
+
+1459890805 d:\cbprojects\wildlife\include\graphics\scene\scene2d.h
+
+1460829618 d:\cbprojects\wildlife\include\maigui\types\frame.h
+	<Maigui/Maigui.h>
+	<Maigui/Item.h>
+	<Maigui/Types/Container.h>
+	<Maigui/Addons/Titlebar.h>
+
+1460170781 d:\cbprojects\wildlife\include\maigui\types\text.h
+	<Maigui/Maigui.h>
+	<Maigui/Skin.h>
+	<Maigui/Bases/Color.h>
+	<Maigui/Bases/Moveable.h>
+
+1460589912 d:\cbprojects\wildlife\include\maigui\bases\color.h
+
+1462122136 source:d:\cbprojects\wildlife\src\maigui\types\frame.cpp
+	"Maigui/Types/Frame.h"
+
+1460166393 source:d:\cbprojects\wildlife\src\maigui\types\text.cpp
+	"Maigui\Types\Text.h"
+
+1461000059 source:d:\cbprojects\wildlife\src\maigui\addons\titlebar.cpp
+	"Maigui\Addons\Titlebar.h"
+	<Maigui\Item.h>
+
+1461000134 d:\cbprojects\wildlife\include\maigui\addons\titlebar.h
+	<Maigui\Item.h>
+	<Maigui\Bases\Moveable.h>
+	<Maigui\Addons\Text.h>
+
+1461104822 d:\cbprojects\wildlife\include\maigui\bases\moveable.h
+	<Maigui/Maigui.h>
+
+1460828089 d:\cbprojects\wildlife\include\maigui\addons\text.h
+	<Maigui/Maigui.h>
+	<Maigui/Skin.h>
+	<Maigui/Bases/Color.h>
+	<Maigui/Bases/Moveable.h>
+
+1460828227 source:d:\cbprojects\wildlife\src\maigui\addons\text.cpp
+	"Maigui\Addons\Text.h"
+
+1460679357 source:d:\cbprojects\wildlife\src\maigui\types\button.cpp
+	"Maigui\Types\Button.h"
+
+1460240028 d:\cbprojects\wildlife\include\maigui\types\button.h
+	<Maigui/Addons/Text.h>
+	<Maigui/Item.h>
+
+1460997668 d:\cbprojects\wildlife\include\maigui\bases\drawable.h
+	<Maigui/Skin.h>
+	<Maigui/Bases/Color.h>
+	<memory>
+	<vector>
+
+1460997878 source:d:\cbprojects\wildlife\src\maigui\bases\drawable.cpp
+	<Maigui\Bases\Drawable.h>
+
+1462235071 d:\cbprojects\wildlife\include\graphics\buffers\mesh.h
+	<vector>
+	<string>
+	<iostream>
+	<glm.hpp>
+	<gtc/matrix_transform.hpp>
+	<gtc/type_ptr.hpp>
+	<Graphics/Graphics.h>
+	<Graphics/Scene/Instance.h>
+	<Graphics/Image.h>
+	<Graphics/Bases/Moveable.h>
+	<Graphics/Bases/DrawMode.h>
+	<Graphics/Bases/ShaderHolder.h>
+	<utilities/OpenGL.h>
+
+1462232271 d:\cbprojects\wildlife\include\graphics\scene\object.h
+	<glm.hpp>
+	<gtc/matrix_transform.hpp>
+	<gtc/type_ptr.hpp>
+	<Graphics\Graphics.h>
+	<Graphics\Buffers\Mesh.h>
+	<Graphics\Scene\Model.h>
+	<Graphics\Bases\Moveable.h>
+	<Graphics\Scene\Instance.h>
+	<utilities\OpenGL.h>
+	<algorithm>
+
+1462149190 d:\cbprojects\wildlife\include\graphics\bases\filter.h
+
+1462233775 d:\cbprojects\wildlife\include\graphics\scene\instance.h
+	<Settings.h>
+	<vector>
+	<map>
+	<Graphics\Graphics.h>
+	<Graphics\Shaders.h>
+	<Graphics\Buffers\Mesh.h>
+	<Graphics\Scene\Model.h>
+	<Graphics\Scene\Object.h>
+	<utilities\Utils.h>
+	<Image.h>
+	<Camera.h>
+	<string>
+	<SDL.h>
+	<memory>
+	<GLES2/gl2.h>
+
+1461791676 source:d:\cbprojects\wildlife\src\graphics\bases\filter.cpp
+	"Graphics\Bases\Filter.h"
+
+1461793013 source:d:\cbprojects\wildlife\src\graphics\bases\moveable.cpp
+	"Graphics\Bases\Moveable.h"
+
+1462232357 source:d:\cbprojects\wildlife\src\graphics\buffers\mesh.cpp
+	"Graphics/Buffers/Mesh.h"
+	<Graphics/Bases/Moveable.h>
+
+1462233726 source:d:\cbprojects\wildlife\src\graphics\scene\instance.cpp
+	"Graphics/Scene/Instance.h"
+	<Graphics\Scene\Object.h>
+
+1462236211 source:d:\cbprojects\wildlife\src\graphics\scene\object.cpp
+	"Graphics/Scene/Object.h"
+
+1462234983 d:\cbprojects\wildlife\include\graphics\bases\drawmode.h
+	<Settings.h>
+
+1462231141 d:\cbprojects\wildlife\include\graphics\bases\shaderholder.h
+	<Graphics/Graphics.h>
+	<Graphics/Shaders.h>
+	<utilities/OpenGL.h>
+
+1462331955 source:d:\cbprojects\wildlife\src\graphics\scene\model.cpp
+	"Graphics\Scene\Model.h"
+
+1462235717 d:\cbprojects\wildlife\include\graphics\scene\model.h
+	<Graphics/Bases/Moveable.h>
+	<Graphics/Bases/DrawMode.h>
+	<Graphics/Bases/ShaderHolder.h>
+	<Graphics/Image.h>
+	<Graphics/Shaders.h>
+	<utilities/OpenGL.h>
+	<assimp/Importer.hpp>
+	<assimp/scene.h>
+	<assimp/postprocess.h>
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\importer.hpp
+	"types.h"
+	"config.h"
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\types.h
+	<sys/types.h>
+	<math.h>
+	<stddef.h>
+	<string.h>
+	<limits.h>
+	"defs.h"
+	"vector3.h"
+	"vector2.h"
+	"color4.h"
+	"matrix3x3.h"
+	"matrix4x4.h"
+	"quaternion.h"
+	<cstring>
+	<new>
+	<string>
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+	"vector2.inl"
+	"vector3.inl"
+	"color4.inl"
+	"quaternion.inl"
+	"matrix3x3.inl"
+	"matrix4x4.inl"
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\defs.h
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\vector3.h
+	<cmath>
+	<math.h>
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\compiler\pushpack1.h
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\compiler\poppack1.h
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\vector2.h
+	<cmath>
+	<math.h>
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\color4.h
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\matrix3x3.h
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\matrix4x4.h
+	"vector3.h"
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\quaternion.h
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\vector2.inl
+	"vector2.h"
+	<cmath>
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\vector3.inl
+	"vector3.h"
+	<cmath>
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\color4.inl
+	"color4.h"
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\quaternion.inl
+	"quaternion.h"
+	<cmath>
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\matrix3x3.inl
+	"matrix3x3.h"
+	"matrix4x4.h"
+	<algorithm>
+	<cmath>
+	<limits>
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\matrix4x4.inl
+	"matrix4x4.h"
+	"matrix3x3.h"
+	"quaternion.h"
+	<algorithm>
+	<limits>
+	<cmath>
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\config.h
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\scene.h
+	"types.h"
+	"texture.h"
+	"mesh.h"
+	"light.h"
+	"camera.h"
+	"material.h"
+	"anim.h"
+	"metadata.h"
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\texture.h
+	"types.h"
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\mesh.h
+	"types.h"
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\light.h
+	"types.h"
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\camera.h
+	"types.h"
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\material.h
+	"types.h"
+	"./Compiler/pushpack1.h"
+	"./Compiler/poppack1.h"
+	"material.inl"
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\material.inl
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\anim.h
+	"types.h"
+	"quaternion.h"
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\metadata.h
+	<assert.h>
+	"Compiler/pstdint.h"
+	<limits.h>
+	<stdint.h>
+	<string>
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\compiler\pstdint.h
+	<stddef.h>
+	<limits.h>
+	<signal.h>
+	<stdint.h>
+	<wchar.h>
+
+1446551256 d:\cbprojects\wildlife\dependencies\assimp-3.2\include\assimp\postprocess.h
+	"types.h"
+
+1462349623 d:\cbprojects\wildlife\include\controll\safety\lucia.h
+	<signal.h>
+	<Threads/Threads.h>
+	<Threads/queque.h>
+	<utilities/Log.h>
+
+1462390650 source:d:\cbprojects\wildlife\src\controll\safety\lucia.cpp
+	"Controll\Safety\Lucia.h"
+
+1462394024 d:\cbprojects\wildlife\include\controll\safety\glwrapper.h
+	<Graphics/Text/Text.h>
+	<Graphics/Text/Instance.h>
+	<Graphics/Primitives/Quad.h>
+	<Window/Window.h>
+

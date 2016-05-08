@@ -1,0 +1,6 @@
+#ifndef SETTINGS_H_INCLUDED
+#define SETTINGS_H_INCLUDED
+#define USE_GLES2
+#include <GLES2/gl2.h>
+
+#endif // SETTINGS_H_INCLUDED
