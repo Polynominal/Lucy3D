@@ -1,6 +1,7 @@
 #ifndef UTILITIES_OPENGL_H
 #define UTILITIES_OPENGL_H
 #include <Settings.h>
+#include <utilities/Log.h>
 #include <vector>
 #include <memory>
 #include <fstream>
@@ -64,6 +65,28 @@ namespace Utils
             uint VBufferIter=0;
 
             Shader_Vars(){};
+            int find(std::string name);
+            void send(std::string name,float v0);
+            void send(std::string name,float v0,float v1);
+            void send(std::string name,float v0,float v1,float v2);
+            void send(std::string name,float v0,float v1,float v2,float v3);
+
+            void send(std::string name,int v0);
+            void send(std::string name,int v0,int v1);
+            void send(std::string name,int v0,int v1,int v2);
+            void send(std::string name,int v0,int v1,int v2,int v3);
+            #ifndef USE_GLES2
+            void send(std::string name,uint v0);
+            void send(std::string name,uint v0,uint v1);
+            void send(std::string name,uint v0,uint v1,uint v2);
+            void send(std::string name,uint v0,uint v1,uint v2,uint v3);
+            #endif
+            void sendArray(std::string name,float* data,uint arraySize);
+            void sendArray(std::string name,int* data,uint arraySize);
+            void sendArray(std::string name,uint* data,uint arraySize);
+
+            void sendMatrix(std::string name,int width,int height,bool transpose,float* value);
+
             void use(){glUseProgram(programID);};
             void clear(){Attributes.clear();VertexSize=0;};
             void setProgram(int ID){programID = ID;clear();};
@@ -108,7 +131,8 @@ namespace Utils
                 void render(GLenum mode,uint start,uint lenght);
                 void render(GLenum mode);
                 void draw(GLenum mode);
-                void draw(GLenum mode,uint start,uint lenght);
+                void draw(GLenum mode,Shader_Vars *Vars);
+                void draw(GLenum mode,uint start,uint lenght,Shader_Vars *Vars);
                 void detach(bool detachVBO=false);
 
                 template <typename T>

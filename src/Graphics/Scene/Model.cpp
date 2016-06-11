@@ -19,7 +19,7 @@ Model::Model()
         Graphics::_Shaders::StandardModelShader->addVar("normal",3,6);
         Graphics::_Shaders::StandardModelShader->addVar("texture",6,8);
     }
-    Vars = Graphics::_Shaders::StandardModelShader->getVars();
+    ShaderVars = Graphics::_Shaders::StandardModelShader->getVars();
     //ctor
 }
 void Model::fromFile(string path)
@@ -29,9 +29,11 @@ void Model::fromFile(string path)
 
     if(!AssScene or AssScene->mFlags == AI_SCENE_FLAGS_INCOMPLETE or !AssScene->mRootNode)
     {
-        std::cout << "--- IMPORT OF : " << path << " FAILED---" << std::endl;
-        std::cout << "ERROR ASS:" << AssImporter.GetErrorString() << std::endl;
-        std::cout << "-----------------------------------------" << std::endl;
+        LOG << "Fatal";
+        LOG << "--- IMPORT OF : " << path << " FAILED----" << std::endl;
+        LOG << "ERROR:" << AssImporter.GetErrorString() << std::endl;
+        LOG << "-----------------------------------------" << std::endl;
+        Controll::Safety::Handler::sendErrorSignal("Import of: " + path + " failed: " + AssImporter.GetErrorString());
         return;
     }
     Directory = path.substr(0, path.find_last_of('/'));
@@ -69,7 +71,7 @@ Model::DataHolder Model::processMesh(aiMesh* mesh)
     auto Data = DataHolder();
     // p[3] t[2] uv[2], totaling 6
 
-    auto Buffer = std::make_shared<Utils::OpenGL::Buffer>(Vars);
+    auto Buffer = std::make_shared<Utils::OpenGL::Buffer>(ShaderVars);
     Data.Buffers.push_back(Buffer);
     Buffer->allocateData(mesh->mNumVertices);
 
@@ -133,10 +135,15 @@ void Model::generate()
     processNode(AssScene->mRootNode);
     AssImporter.FreeScene();
 };
+void Model::render(glm::mat4* model,DRAW mode)
+{
+    ShaderVars->sendMatrix("model_view",4,4,false,glm::value_ptr(*model));
+    render(getMechanicalTarget(mode));
+}
 void Model::draw()
 {
-    glUniformMatrix4fv(glGetUniformLocation(Vars->getID(),"local"),1,GL_FALSE,glm::value_ptr(Model_Matrix));
-    render(mechanical_reference);
+    //ShaderVars->sendMatrix("local",4,4,false,glm::value_ptr(Model_Matrix));
+    render(drawmode_mechanical_reference);
 };
 void Model::render(int mech_ref)
 {
@@ -173,9 +180,9 @@ void Model::render(int mech_ref)
               //glUniformMatrix4fv(glGetUniformLocation(Vars->getID(),"local"),1,GL_FALSE,glm::value_ptr(Model_Matrix));
                 Buffer->attach();
                 #ifndef USE_OPENGL3
-                Vars->apply();
+                ShaderVars->apply();
                 #endif
-                Buffer->render(GL_TRIANGLES);
+                Buffer->render(mech_ref);
             }
             v.Buffers[0]->detach();
         }

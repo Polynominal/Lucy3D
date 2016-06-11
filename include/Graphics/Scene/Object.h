@@ -6,11 +6,9 @@
 #include <gtc/type_ptr.hpp>
 
 #include <Graphics\Graphics.h>
-
-#include <Graphics\Buffers\Mesh.h>
-#include <Graphics\Scene\Model.h>
-
 #include <Graphics\Bases\Moveable.h>
+#include <Graphics\Bases\DrawMode.h>
+#include <Graphics\Bases\ShaderHolder.h>
 #include <Graphics\Scene\Instance.h>
 #include <utilities\OpenGL.h>
 #include <algorithm>
@@ -19,37 +17,44 @@ namespace Graphics
 {
     namespace Scene
     {
-        class Object: public Graphics::Base::Moveable
+        class Object:
+        public Graphics::Base::DrawMode,
+        public Graphics::Base::ShaderHolder,
+        public std::enable_shared_from_this<Object>
         {
             public:
                 Object(){};
-                //set
-                void setScene(Graphics::Scene::Instance* s){Core = s;};
-                //adds
-                void addMesh(Mesh* mesh){Items.push_back(mesh);};
-                void addModel(Model* model){Models.push_back(model);};
-                //gets
-                std::vector<Mesh*> getItems(){return Items;};
-                std::vector<Model*> getModels(){return Models;};
-                // updates the shader use it alongside Mesh.
-                void updateShader(int id,glm::mat4* view,glm::mat4* projection,glm::mat4* local);
-                // draws all the meshes with the same shader.
-                void drawShader(Utils::OpenGL::Shader_Vars *Vars);
-                // draws on random.
-                void preDraw();
-                void draw(glm::mat4* view,glm::mat4* projection);
-                void sort(SORTMODE mode);
-
-                void remove();
-
                 virtual ~Object(){};
-
+                //set
+                virtual void setScene(Graphics::Scene::Instance* s){Core_Scene = s;};
+                //these must be provided to you by the item object is attached to.
+                virtual void useShader(glm::mat4* view,glm::mat4* projection)
+                {
+                        auto vars = getShaderVars();
+                        vars->use();
+                        vars->sendMatrix("view",4,4,false,glm::value_ptr(*view));
+                        vars->sendMatrix("projection",4,4,false,glm::value_ptr(*projection));
+                };
+                virtual void preDraw(){}; // put your image binding here works like bind but I decided that bind is too common causing name clashes.
+                virtual void render(glm::mat4* model,DRAW mode)=0; // rendering assuming that everything is bound correctly.
+                //
+                virtual void render(glm::mat4* model){render(model,getDrawMode());};
+                std::shared_ptr<Object> getObjectPtr(){return shared_from_this();};
+                bool hasTransparency(){return transparency;};
             private:
-                int lastShader=0;
+                bool transparency = false;
+                std::function<void()> OnPreDraw=[](){};
                 std::function<void()> OnDraw=[](){};
-                Graphics::Scene::Instance* Core=nullptr;
-                std::vector<Mesh*> Items;
-                std::vector<Model*> Models;
+                Graphics::Scene::Instance* Core_Scene=nullptr;
+        };
+        class Container: public Graphics::Base::Moveable, public Graphics::Base::DrawMode
+        {
+        public:
+            Container(std::shared_ptr<Object> o){Core = o;};
+            std::shared_ptr<Object> getCore(){return Core;};
+            virtual ~Container(){};
+        private:
+            std::shared_ptr<Object> Core;
         };
     }
 }

@@ -201,28 +201,35 @@ namespace Graphics
     {
         projection = p;
     }
+    void newLine(Text::Font::subfont* sub,float size,float &offsetx,float &offsety,float oldoffsetx)
+    {
+        offsetx = oldoffsetx;
+        offsety = offsety - (sub->getMaxHeight()*size);
+    }
     std::pair<float,float> Text::renderString(string text,float offsetx,float offsety,float gapsize,bool fixedgap,Font::subfont* sub)
     {
         float s = size;
         float pyy = 0;
-        float pxx = 0;
-        int oldoffsetx = offsetx;
+        float oldoffsetx = offsetx;
         for (unsigned int i=0;i < text.size();i++)
         {
             char v = text[i];
             if (v == '\n')
             {
-                offsetx = oldoffsetx;
-                offsety = offsety - (sub->getMaxHeight()*size);
+                newLine(sub,s,offsetx,offsety,oldoffsetx);
             }else
             {
+                if (wrapWidth != -1 and (offsetx) > wrapWidth)
+                {
+                    newLine(sub,s,offsetx,offsety,oldoffsetx);
+                };
                 auto ch = sub->Chars[v];
                 float w = (float)ch->size.x * s;
                 float h = (float)ch->size.y * s;
 
                 float px = (offsetx + ch->bearing.x * s);
                 // 1.0f for a slight offset preventing a loss of the bottom of the text
-                float py = (offsety - (ch->size.y - ch->bearing.y) * s) + 0.2f*baseSize;
+                float py = (offsety - (ch->size.y - ch->bearing.y) * s) + 0.2f*s;
 
                 GLfloat verts[24] =
                 {
@@ -337,11 +344,11 @@ namespace Graphics
 
         return canvas;
     };
-    int Text::getWidth(string s,int size,Text::Type t)
+    float Text::getWidth(string s,int size,Text::Type t)
     {
         return activeFont->getWidth(s,size,t);
     }
-    int Text::getHeight(string s,int size,Text::Type t)
+    float Text::getHeight(string s,int size,Text::Type t)
     {
         return activeFont->getHeight(s,size,t);
     }

@@ -26,6 +26,11 @@ namespace Utils
     bool accumulate(int ticks);
     void sleep(int milliseconds);
     const tm* updateTime();
+    template <typename T>
+    inline T difference(T a,T b)
+    {
+        return std::max(a,b) - std::min(a,b);
+    };
     template <typename T,typename T2>
     inline T2 findInMap(std::map<T2,T> map, T value)
     {

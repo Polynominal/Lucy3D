@@ -24,6 +24,7 @@ namespace Graphics
     {
         class Instance;
         class Object;
+        class Container;
     };
     namespace Base
     {

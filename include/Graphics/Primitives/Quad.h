@@ -16,10 +16,11 @@ namespace Graphics
                 Quad();
                 bool isDone(){return init;};
                 void setMode(bool centered){centeredCordinates = centered;}
-                void generate(float width=0.0f,float height=0.0f,float sw=0.0f,float sh=0.0f,
+                void generate(float width,float height,float sw=0.0f,float sh=0.0f,
                 float bottomx=0.0f,float bottomy=0.0f, float topx=1.0f,float topy=1.0f);
-                void generate(bool t=false);
+                void generate(unsigned int id =0);
                 void draw();
+                void draw(std::shared_ptr<Shader_Vars> vars);
                 void remove();
                 void setImageRange(float bottomx=0,float bottomy=0,float topx=1,float topy=1);
 
@@ -27,7 +28,7 @@ namespace Graphics
             protected:
             private:
                 std::vector<std::shared_ptr<Vertex_Buffer>> Data;
-                void initTasks();
+                void initTasks(int id);
                 float gw;
                 float gh;
                 bool centeredCordinates = true;

@@ -10,26 +10,19 @@
 #include <gtc/type_ptr.hpp>
 
 #include <Graphics/Graphics.h>
-#include <Graphics/Scene/Instance.h>
 #include <Graphics/Image.h>
 
-#include <Graphics/Bases/Moveable.h>
-#include <Graphics/Bases/DrawMode.h>
-#include <Graphics/Bases/ShaderHolder.h>
+#include <Graphics/Scene/Object.h>
 
 #include <utilities/OpenGL.h>
+#include <utilities/Log.h>
 
 namespace Graphics
 {
     typedef Utils::OpenGL::Buffer Buff;
     typedef Utils::OpenGL::Shader_Vars Shader_Vars;
 
-    class Mesh:
-
-    public Graphics::Base::Moveable,
-    public Graphics::Base::DrawMode,
-    public Graphics::Base::ShaderHolder
-
+    class Mesh: public Graphics::Scene::Object
     {
         public:
             Mesh();
@@ -47,8 +40,7 @@ namespace Graphics
             //misc
             std::function<void(int,glm::mat4*)> SwapShaders = [](int id,glm::mat4* t){};
             void finalize();
-            void draw(int programID,bool send_model=false);
-            void draw(bool apply_matrix=false);
+            virtual void render(glm::mat4* model,DRAW mode); // rendering assuming that everything is bound correctly.
             //sets
             Buff*  getSubBuffer(int id=0){return Cores[id];};
             Image* getImage(int id=0){return Images[id];};
@@ -57,8 +49,6 @@ namespace Graphics
 
             virtual ~Mesh();
         private:
-            void render(int mech_ref);
-            void render(){render(mechanical_reference);};
             std::vector<Mesh*>  Children;
             std::vector<Buff*>  Cores;
             std::vector<Image*> Images;

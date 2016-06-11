@@ -228,7 +228,7 @@ namespace Collider_OpenGL
                     "gl_FragColor = color;"
                 #endif
                 "};";
-                std::cout << "Building Collider Wrapper Shader" << std::endl;
+                LOG << "Building" << "Collider Wrapper Shader" << std::endl;
 
                 programID = LoadShaderSource(vertex.c_str(),fragment.c_str());
                 SVars = std::make_shared<Vars>();

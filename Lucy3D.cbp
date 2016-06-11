@@ -2,9 +2,10 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="WildLife" />
+		<Option title="Lucy3D" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
+		<Option virtualFolders="src\Graphics\Buffers\;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/WildLife" prefix_auto="1" extension_auto="1" />
@@ -91,27 +92,29 @@
 			<Add directory="include/Network" />
 			<Add directory="Dependencies/SDL2-2.0.4/include" />
 			<Add directory="Dependencies/freetype-2.6.2/include" />
-			<Add directory="../Global_SDK/include" />
-			<Add directory="../Global_SDK/include/GLES2" />
+			<Add directory="Dependencies/GLES_SDK/include/EGL" />
+			<Add directory="Dependencies/GLES_SDK/include/GLES2" />
 			<Add directory="Dependencies/assimp-3.2/include" />
 		</Compiler>
 		<ResourceCompiler>
 			<Add directory="Dependencies/freetype-2.6.2/src" />
 		</ResourceCompiler>
 		<Linker>
-			<Add option="-lmingw32 -lSDL2 -lSDL2main -lws2_32 -lfreetype" />
-			<Add library="Dependencies\DeviL\lib\DevIL.lib" />
-			<Add library="Dependencies\DeviL\lib\ILU.lib" />
-			<Add library="Dependencies\DeviL\lib\ILUT.lib" />
-			<Add library="..\Global_SDK\x86\libEGL.lib" />
-			<Add library="..\Global_SDK\x86\libGLESv2.lib" />
-			<Add library="Dependencies\assimp-3.2\lib\libassimp.dll.a" />
+			<Add option="-lmingw32 -lSDL2 -lSDL2main -lws2_32  -ldwmapi -lfreetype" />
+			<Add library="Dependencies/DeviL/lib/DevIL.lib" />
+			<Add library="Dependencies/DeviL/lib/ILU.lib" />
+			<Add library="Dependencies/DeviL/lib/ILUT.lib" />
+			<Add library="Dependencies/GLES_SDK/x86/libEGL.lib" />
+			<Add library="Dependencies/GLES_SDK/x86/libGLESv2.lib" />
+			<Add library="Dependencies/assimp-3.2/lib/libassimp.dll.a" />
+			<Add library="Dependencies/glew-1.13.0/mingw64/lib/libglew32.a" />
 			<Add directory="Dependencies/glm/" />
 			<Add directory="Dependencies/glew-1.13.0/lib/" />
 			<Add directory="Dependencies/DeviL/lib" />
 			<Add directory="Dependencies/freetype-2.6.2/objs" />
 			<Add directory="../Global_SDK/x86" />
 			<Add directory="Dependencies/assimp-3.2/lib" />
+			<Add directory="Dependencies/glew-1.13.0/mingw64/lib" />
 		</Linker>
 		<Unit filename="MainGame.h" />
 		<Unit filename="include/Collider/Algorithm/GJK.h" />
@@ -126,8 +129,10 @@
 		<Unit filename="include/Collider/Tools.h" />
 		<Unit filename="include/Compatability/GLES2/Shaders/Basic2D.h" />
 		<Unit filename="include/Compatability/GLES2/Shaders/Blit2D.h" />
+		<Unit filename="include/Compatability/Windows.h" />
 		<Unit filename="include/Controll/Keyboard.h" />
 		<Unit filename="include/Controll/Safety/GLWrapper.h" />
+		<Unit filename="include/Controll/Safety/Handler.h" />
 		<Unit filename="include/Controll/Safety/Lucia.h" />
 		<Unit filename="include/Graphics/Bases/DrawMode.h" />
 		<Unit filename="include/Graphics/Bases/Filter.h" />
@@ -143,6 +148,7 @@
 		<Unit filename="include/Graphics/Scene/Model.h" />
 		<Unit filename="include/Graphics/Scene/Object.h" />
 		<Unit filename="include/Graphics/Scene/Scene2D.h" />
+		<Unit filename="include/Graphics/Scene/Spritesheet.h" />
 		<Unit filename="include/Graphics/Shaders.h" />
 		<Unit filename="include/Graphics/Shaders/Bases.h" />
 		<Unit filename="include/Graphics/Shaders/Bloom.h" />
@@ -171,6 +177,7 @@
 		<Unit filename="include/Network/Server.h" />
 		<Unit filename="include/Network/win32.h" />
 		<Unit filename="include/Settings.h" />
+		<Unit filename="include/Startup.h" />
 		<Unit filename="include/State/GameManager.h" />
 		<Unit filename="include/State/Gamestate.h" />
 		<Unit filename="include/Threads/Threads.h" />
@@ -182,6 +189,8 @@
 		<Unit filename="include/utilities/Log.h" />
 		<Unit filename="include/utilities/OpenGL.h" />
 		<Unit filename="include/utilities/Utils.h" />
+		<Unit filename="include/utilities/logistics.h" />
+		<Unit filename="include/utilities/tween.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Collider/Algorithm/GJK.cpp" />
 		<Unit filename="src/Collider/Manager.cpp" />
@@ -193,7 +202,9 @@
 		<Unit filename="src/Collider/Shape/Sphere.cpp" />
 		<Unit filename="src/Compatability/GLES2/Shaders/Basic2D.cpp" />
 		<Unit filename="src/Compatability/GLES2/Shaders/Blit2D.cpp" />
+		<Unit filename="src/Compatability/Windows.cpp" />
 		<Unit filename="src/Controll/Keyboard.cpp" />
+		<Unit filename="src/Controll/Safety/Handler.cpp" />
 		<Unit filename="src/Controll/Safety/Lucia.cpp" />
 		<Unit filename="src/Graphics/Bases/Moveable.cpp" />
 		<Unit filename="src/Graphics/Buffers/Canvas.cpp" />
@@ -206,6 +217,7 @@
 		<Unit filename="src/Graphics/Scene/Model.cpp" />
 		<Unit filename="src/Graphics/Scene/Object.cpp" />
 		<Unit filename="src/Graphics/Scene/Scene2D.cpp" />
+		<Unit filename="src/Graphics/Scene/Spritesheet.cpp" />
 		<Unit filename="src/Graphics/Shaders.cpp" />
 		<Unit filename="src/Graphics/Shaders/Bases.cpp" />
 		<Unit filename="src/Graphics/Shaders/Bloom.cpp" />
@@ -214,6 +226,9 @@
 		<Unit filename="src/Graphics/Text/Instance.cpp" />
 		<Unit filename="src/Graphics/Text/Task.cpp" />
 		<Unit filename="src/Graphics/Text/Text.cpp" />
+		<Unit filename="src/Graphics/Tools/Spritesheet.cpp">
+			<Option virtualFolder="src/Graphics/Buffers/" />
+		</Unit>
 		<Unit filename="src/Maigui/Addons/Text.cpp" />
 		<Unit filename="src/Maigui/Addons/Titlebar.cpp" />
 		<Unit filename="src/Maigui/Bases/Drawable.cpp" />
@@ -236,6 +251,7 @@
 		<Unit filename="src/utilities/Log.cpp" />
 		<Unit filename="src/utilities/OpenGL.cpp" />
 		<Unit filename="src/utilities/Utils.cpp" />
+		<Unit filename="src/utilities/tween.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

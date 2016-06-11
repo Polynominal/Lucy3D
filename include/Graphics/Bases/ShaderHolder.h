@@ -12,12 +12,12 @@ namespace Graphics
         {
             public:
                 //sets
-                void setShaderVars(std::shared_ptr<Shader_Vars> v){Vars = v;};
+                void setShaderVars(std::shared_ptr<Shader_Vars> v){ShaderVars = v;};
                 //gets
-                std::shared_ptr<Shader_Vars> getShaderVars(){return Vars;};
+                std::shared_ptr<Shader_Vars> getShaderVars(){return ShaderVars;};
                 //
             protected:
-                std::shared_ptr<Shader_Vars> Vars;
+                std::shared_ptr<Shader_Vars> ShaderVars;
         };
     }
 }

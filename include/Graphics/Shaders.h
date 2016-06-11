@@ -10,6 +10,8 @@
 #include <Graphics/Graphics.h>
 #include <Utils.h>
 #include <utilities/OpenGL.h>
+#include <utilities/log.h>
+
 namespace Graphics
 {
     using std::string;

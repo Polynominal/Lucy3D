@@ -46,6 +46,20 @@ void Lucia::registerSignals(Function* fn)
         Current->critical = true;
     });
 }
+void Lucia::reportError(std::string data,bool crash)
+{
+        Current->OnInteraction();
+        Error err = Error();
+        err.data = data;
+        err.id = 0;
+        Current->Errors.push_back(err);
+
+        if (crash)
+        {
+            Current->critical = true;
+            Critical(Current);
+        }
+}
 Lucia::Function* Lucia::newFunction(std::string name,std::function<void()> fn)
 {
     Function* nFn = new Function(name);

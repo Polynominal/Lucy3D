@@ -81,7 +81,6 @@ Outline::Outline()
             "color.a = 0.0f;"
             "if((color.r + color.g + color.b) > 0.1f){gl_FragColor = OColor;};"
         "};\n";
-        std::cout << "Building Outline Shader" << std::endl;
         Graphics::_Shaders::Outline.reset(new Shader());
         Graphics::_Shaders::Outline->build(Vertex,Fragment, "Outline");
     }

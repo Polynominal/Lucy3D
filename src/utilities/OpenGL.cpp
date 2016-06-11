@@ -1,5 +1,6 @@
 #include "utilities/OpenGL.h"
 typedef unsigned int uint;
+typedef std::string string;
 typedef Utils::OpenGL::Buffer Buffer;
 typedef Utils::OpenGL::Vertex_Buffer Buffer_Vertex;
 typedef Utils::OpenGL::Shader_Vars Shader_Vars;
@@ -195,13 +196,162 @@ void Attribute::apply(int vsize)
     glEnableVertexAttribArray(location);
     glVertexAttribPointer(location, finish - start, GL_FLOAT,GL_FALSE, vsize * sizeof(GLfloat), (GLvoid*)(start * sizeof(GLfloat)));
 };
-
+int Shader_Vars::find(string name)
+{
+    auto id = glGetUniformLocation(programID,name.c_str());
+    if (id < 0){ LOG << "Warning" << " Shader var: " << name << " is not found!" << std::endl;};
+    return id;
+}
+// float
+void Shader_Vars::send(string name,float v0)
+{
+    glUniform1f(find(name),v0);
+};
+void Shader_Vars::send(string name,float v0,float v1)
+{
+    glUniform2f(find(name),v0,v1);
+};
+void Shader_Vars::send(string name,float v0,float v1,float v2)
+{
+    glUniform3f(find(name),v0,v1,v2);
+}
+void Shader_Vars::send(string name,float v0,float v1,float v2,float v3)
+{
+    glUniform4f(find(name),v0,v1,v2,v3);
+}
+// INT
+void Shader_Vars::send(string name,int v0)
+{
+    glUniform1i(find(name),v0);
+};
+void Shader_Vars::send(string name,int v0,int v1)
+{
+    glUniform2i(find(name),v0,v1);
+};
+void Shader_Vars::send(string name,int v0,int v1,int v2)
+{
+    glUniform3i(find(name),v0,v1,v2);
+};
+void Shader_Vars::send(string name,int v0,int v1,int v2,int v3)
+{
+    glUniform4i(find(name),v0,v1,v2,v3);
+};
+// UINT
+#ifndef USE_GLES2
+void Shader_Vars::send(string name,uint v0)
+{
+     glUniform1ui(find(name),v0);
+};
+void Shader_Vars::send(string name,uint v0,uint v1)
+{
+    glUniform2ui(find(name),v0,v1);
+};
+void Shader_Vars::send(string name,uint v0,uint v1,uint v2)
+{
+    glUniform3ui(find(name),v0,v1,v2);
+};
+void Shader_Vars::send(string name,uint v0,uint v1,uint v2,uint v3)
+{
+    glUniform4ui(find(name),v0,v1,v2,v3);
+};
+#endif
+void Shader_Vars::sendArray(string name,float* data,uint arraySize)
+{
+    int id = find(name);
+    switch (arraySize)
+    {
+        case 1:
+            glUniform1fv(id,1,data);break;
+        case 2:
+            glUniform2fv(id,1,data);break;
+        case 3:
+            glUniform3fv(id,1,data);break;
+        case 4:
+            glUniform4fv(id,1,data);break;
+    }
+}
+void Shader_Vars::sendArray(string name,int* data,uint arraySize)
+{
+    int id = find(name);
+    switch (arraySize)
+    {
+        case 1:
+            glUniform1iv(id,1,data);break;
+        case 2:
+            glUniform2iv(id,1,data);break;
+        case 3:
+            glUniform3iv(id,1,data);break;
+        case 4:
+            glUniform4iv(id,1,data);break;
+    }
+}
+#ifndef USE_GLES2
+void Shader_Vars::sendArray(string name,uint* data,uint arraySize)
+{
+    int id = find(name);
+    switch (arraySize)
+    {
+        case 1:
+            glUniform1uiv(id,1,data);break;
+        case 2:
+            glUniform2uiv(id,1,data);break;
+        case 3:
+            glUniform3uiv(id,1,data);break;
+        case 4:
+            glUniform4uiv(id,1,data);break;
+    }
+}
+#endif
+void Shader_Vars::sendMatrix(string name,int width,int height,bool transpose,float* value)
+{
+    int id = find(name);
+    switch(width)
+    {
+        case 2:
+            switch(height)
+            {
+                case 2:
+                    glUniformMatrix2fv(id,1,transpose,value);break;
+                #ifndef USE_GLES2
+                case 3:
+                    glUniformMatrix2x3fv(id,1,transpose,value);break;
+                case 4:
+                    glUniformMatrix2x4fv(id,1,transpose,value);break;
+                #endif
+            }break;
+        case 3:
+            switch (height)
+            {
+                #ifndef USE_GLES2
+                case 2:
+                    glUniformMatrix3x2fv(id,1,transpose,value);break;
+                case 4:
+                    glUniformMatrix3x4fv(id,1,transpose,value);break;
+                #endif
+                case 3:
+                    glUniformMatrix3fv(id,1,transpose,value);break;
+            }break;
+        case 4:
+            switch (height)
+            {
+                #ifndef USE_GLES2
+                case 2:
+                    glUniformMatrix4x2fv(id,1,transpose,value);break;
+                case 3:
+                    glUniformMatrix4x3fv(id,1,transpose,value);break;
+                #endif
+                case 4:
+                    glUniformMatrix4fv(id,1,transpose,value);break;
+            }break;
+    }
+}
+//
 void Shader_Vars::add(const char* name, int start,int finish)
 {
     int id = glGetAttribLocation(programID,name);
     if (id == -1)
     {
-        std::cout << "VAR NOT FOUND: " << name << std::endl;
+        LOG << "Warning" << "VAR NOT FOUND: " << name << std::endl;
     }
     Attributes.push_back(Shader_Var_Atribute(id,start,finish));
     VertexSize = VertexSize + (finish - start);
@@ -398,17 +548,22 @@ void Buffer::render(GLenum mode)
 {
     render(mode,0,size);
 }
-void Buffer::draw(GLenum mode,uint start,uint lenght)
+void Buffer::draw(GLenum mode,Shader_Vars *v)
+{
+    if (v == nullptr){LOG << "Fatal" << "NULL SHADER!" << std::endl;};
+    draw(mode,0,size,v);
+};
+void Buffer::draw(GLenum mode,uint start,uint lenght,Shader_Vars *v)
 {
     Attached = false;
     attach();
     #ifdef USE_GLES2
-    Vars->apply();
+    v->apply();
     #endif // USE_GLES2
     render(mode,start,lenght);
     detach();
 }
-void Buffer::draw(GLenum mode){draw(mode,0,size);};
+void Buffer::draw(GLenum mode){draw(mode,0,size,Vars.get());};
 void Buffer::detach(bool t)
 {
         #ifdef USE_OPENGL3

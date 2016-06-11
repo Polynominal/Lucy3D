@@ -12,6 +12,6 @@ uniform mat4 projection;
 
 void main()
 {
-    gl_Position = projection * view * vec4(position, max(normal.x,1.0f));
+    gl_Position = projection * view * model_view * vec4(position, max(normal.x,1.0f));
     TexCoord = texture;
 }

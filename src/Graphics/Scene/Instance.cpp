@@ -2,6 +2,7 @@
 #include <Graphics\Scene\Object.h>
 typedef Graphics::Scene::Instance Instance;
 using namespace Graphics;
+using namespace Graphics::Scene;
 namespace Graphics
 {
     namespace _Shaders
@@ -19,39 +20,61 @@ Instance::Instance()
     };
     //ctor
 }
-std::shared_ptr<Scene::Object> Instance::insert(Mesh* Mesh,float x,float y,float z)
+std::shared_ptr<Container> Instance::addObject(std::shared_ptr<Object> o)
 {
-    std::shared_ptr<Scene::Object> scene_obj(new Object());
-    scene_obj->addMesh(Mesh);
-    scene_obj->moveTo(x,y,z);
-    Objects.push_back(scene_obj);
-    return scene_obj;
+    std::shared_ptr<Container> no = std::make_shared<Container>(o);
+    if (o->hasTransparency()){TransparentObjects.push_back(no);}else{Objects.push_back(no);};
+    insertTasks();
+    return no;
 };
-std::shared_ptr<Scene::Object> Instance::insert(Model* model,float x,float y,float z)
+void Instance::remove(Container* subject)
 {
-    std::shared_ptr<Scene::Object> scene_obj(new Object());
-    scene_obj->addModel(model);
-    scene_obj->moveTo(x,y,z);
-    Objects.push_back(scene_obj);
-    return scene_obj;
-};
-void Instance::remove(Object* subject)
-{
-    Utils::erase_if(&Objects,[subject](std::shared_ptr<Object> target){return (target.get() == subject);});
+    Utils::erase_if(&Objects,[subject](std::shared_ptr<Container> target){return (target.get() == subject);});
 };
 void Instance::sort(SORTMODE m)
 {
-    for (auto v: Objects)
-    {
-        v->sort(m);
-    }
+//    for (auto v: Objects)
+//    {
+//        v->sort(m);
+//    }
+}
+// Dont forget!!
+//1. Draw all opaque objects first.
+//2. Sort all the transparent objects.
+//3. Draw all the transparent objects in sorted order.
+void Instance::drawObject(std::shared_ptr<Container> a,glm::mat4* view,glm::mat4* projection)
+{
+    auto Core = a->getCore();
+    int id = Core->getShaderVars()->programID;
+    if ( id != lastShader){lastShader = id;Core->useShader(view,projection);};
+    Core->preDraw();
+    a->applyTranslations();
+    Core->render(a->getModelMatrix());
 }
 void Instance::draw(glm::mat4* view,glm::mat4* projection)
 {
+    //draw opaque stuff first.
     for (auto v: Objects)
     {
-        v->draw(view,projection);
-    }
+        drawObject(v,view,projection);
+    };
+    // our stuff is sorted by furtherest away first so we dont need to do anything here.
+    // Draw all sorted transparent objects.
+    for (auto v: TransparentObjects)
+    {
+        drawObject(v,view,projection);
+    };
+}
+void Instance::insertTasks()
+{
+    std::sort(TransparentObjects.begin(),TransparentObjects.end(),[](std::shared_ptr<Container>a,std::shared_ptr<Container>b)
+      {
+        return a->getPosition().z < b->getPosition().z;
+      });
+    std::sort(Objects.begin(),Objects.end(),[](std::shared_ptr<Container>a,std::shared_ptr<Container>b)
+      {
+        return a->getCore()->getShaderVars()->programID < b->getCore()->getShaderVars()->programID;
+      });
 }
 void Instance::preDraw()
 {

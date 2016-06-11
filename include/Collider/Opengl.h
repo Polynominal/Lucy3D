@@ -9,6 +9,7 @@
 #include <gtc/matrix_transform.hpp>
 #include <gtc/type_ptr.hpp>
 #include <utilities/OpenGL.h>
+#include <utilities/log.h>
 
 namespace Collider_OpenGL
 {

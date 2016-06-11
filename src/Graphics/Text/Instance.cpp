@@ -57,7 +57,7 @@ void Render::print(string str)
     }
     if (needsRefresh())
     {
-        refresh();
+        applyTranslations();
         glUniformMatrix4fv(glGetUniformLocation(Graphics::textShader->programID, "model"),
         1,GL_FALSE,glm::value_ptr(Model_Matrix));
     }
@@ -125,7 +125,7 @@ void Render::pre()
     glUniformMatrix4fv(glGetUniformLocation(programID, "projection"),
     1,GL_FALSE,glm::value_ptr(*parent->projection));
 
-    refresh();
+    applyTranslations();
     glUniformMatrix4fv(glGetUniformLocation(programID, "model"),
     1,GL_FALSE,glm::value_ptr(Model_Matrix));
 }

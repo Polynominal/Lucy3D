@@ -112,25 +112,16 @@ namespace Graphics
         {
             public:
                 DrawMode(){setDrawMode(DRAW::TRIANGLE);};
+                virtual ~DrawMode(){};
                 virtual void setDrawMode(DRAW Mode)
                 {
                     drawMode = Mode;
-                    mechanical_reference = getMechanicalTarget(Mode);
-                };
-                virtual void render(DRAW m)
-                {
-                    render(Graphics::getMechanicalTarget(m));
-                };
-                virtual void render()
-                {
-                    render(mechanical_reference);
+                    drawmode_mechanical_reference = getMechanicalTarget(Mode);
                 };
                 virtual DRAW getDrawMode(){return drawMode;};
-
             protected:
-                virtual void render(int mech_ref){};
-                int mechanical_reference=0;
-                DRAW drawMode=DRAW::TRIANGLE;
+                int drawmode_mechanical_reference=0;
+                DRAW drawMode       =DRAW::TRIANGLE;
         };
     }
 }

@@ -6,10 +6,12 @@
 
 #include <Graphics/Graphics.h>
 #include <Graphics/Bases/Filter.h>
+#include <utilities/log.h>
+#include <Controll/Safety/Handler.h>
 
 namespace Graphics
 {
-    class Image: public Graphics::Base::Filter
+    class Image: public Graphics::Base::Filter, public Controll::Safety::Handler
     {
         public:
             Image(){};

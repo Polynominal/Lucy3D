@@ -29,33 +29,33 @@ namespace Graphics
                 };
 
                 virtual void move(glm::vec3 p){moveTo(Position + p);};
-                virtual void move(float x,float y,float z){move(glm::vec3(x,y,z));};
+                virtual void move(float x,float y,float z=0.0f){move(glm::vec3(x,y,z));};
 
                 virtual void moveTo(glm::vec3 p);
-                virtual void moveTo(float x,float y,float z){moveTo(glm::vec3(x,y,z));};
+                virtual void moveTo(float x,float y,float z=0.0f){moveTo(glm::vec3(x,y,z));};
 
                 virtual void rotate(glm::vec3 p)
                 {
                     rotateTo(toEularFromQuat(Rotation) + p);
                 };
-                virtual void rotate(float x,float y,float z){rotate(glm::vec3(x,y,z));};
+                virtual void rotate(float x,float y,float z=0.0f){rotate(glm::vec3(x,y,z));};
 
                 virtual void rotateTo(glm::vec3 p)
                 {
                     Rotation = toQuatFromEular(p);
                 }
-                virtual void rotateTo(float x,float y,float z){rotateTo(glm::vec3(x,y,z));};
+                virtual void rotateTo(float x,float y,float z=0.0f){rotateTo(glm::vec3(x,y,z));};
 
                 virtual void rotate(glm::quat q){rotateTo(Rotation + q);};
                 virtual void rotateTo(glm::quat q);
 
                 virtual void scale(glm::vec3 p){scaleTo(Scale + p);};
-                virtual void scale(float x,float y,float z){scale(glm::vec3(x,y,z));};
+                virtual void scale(float x,float y,float z=0.0f){scale(glm::vec3(x,y,z));};
 
                 virtual void scaleTo(glm::vec3 p);
-                virtual void scaleTo(float x,float y,float z){scaleTo(glm::vec3(x,y,z));};
+                virtual void scaleTo(float x,float y,float z=1.0f){scaleTo(glm::vec3(x,y,z));};
 
-                virtual void refresh();
+                virtual void applyTranslations();
                 // on functions
                 virtual void onMove(){};
                 virtual void onRotate(){};
@@ -75,6 +75,10 @@ namespace Graphics
                 bool needsRefresh(){return needs_refresh;};
                 // Get
                 glm::mat4* getModelMatrix(){return &Model_Matrix;};
+                glm::vec3 getPosition(){return Position;};
+                glm::vec3 getRotation(){return toEularFromQuat(Rotation);};
+                glm::quat getQuaternion(){return Rotation;};
+                glm::vec3 getScale(){return Scale;};
                 // user functions
                 std::function<void()> OnMove   = [](){};
                 std::function<void()> OnRotate = [](){};

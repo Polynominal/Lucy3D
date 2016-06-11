@@ -92,7 +92,6 @@ Blur::Blur()
         "gl_FragColor = color;"
         #endif // USE_GLES2
         "};\n";
-        std::cout << "Building Kawase Shader" << std::endl;
         Graphics::_Shaders::Kawase.reset(new Shader());
         Graphics::_Shaders::Kawase->build(Graphics::_Shaders::BlurStandardVertex,Fragment,"Kawase");
     }
@@ -173,7 +172,6 @@ Blur::Blur()
             "gl_FragColor = color;"
             #endif // USE_GLES2
         "};\n";
-        std::cout << "Building Gaus5x5 Shader" << std::endl;
         Graphics::_Shaders::Gaus5x5.reset(new Shader());
         Graphics::_Shaders::Gaus5x5->build(Graphics::_Shaders::BlurStandardVertex,Fragment, "Gaus5x5");
     }
@@ -233,7 +231,6 @@ Blur::Blur()
             "gl_FragColor = color;"
             #endif // USE_GLES2
         "};\n";
-        std::cout << "Building Gaus Shader" << std::endl;
         Graphics::_Shaders::Gaus.reset(new Shader());
         Graphics::_Shaders::Gaus->build(Graphics::_Shaders::BlurStandardVertex,Fragment,"Gaus");
     }

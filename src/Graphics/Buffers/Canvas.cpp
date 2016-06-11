@@ -9,7 +9,7 @@ bool Canvas::generate(float width,float height)
 {
     if (!Graphics::Shared::Quad->isDone())
     {
-        Graphics::Shared::Quad->generate(false);
+        Graphics::Shared::Quad->generate();
     }
     if (width == 0 or height == 0)
     {

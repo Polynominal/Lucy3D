@@ -101,8 +101,8 @@ class Graphics::Text
 
         virtual std::shared_ptr<Graphics::Canvas> render(string text,bool sendmatrix=true);
         // sets
-
-        virtual void setSize(unsigned int s){size = s;};
+        virtual void setWrapWidth(float width=-1){wrapWidth = width;};
+        virtual void setSize(float s){size = s/baseSize;};
         virtual void setFixedGap(bool cond){fixedGap = cond;};
         virtual void setGapSize(float gap){gapSize = gap;};
         virtual std::shared_ptr<Text::Font> setFont(string path);
@@ -113,14 +113,17 @@ class Graphics::Text
         virtual Font::subfont* get(Type t){return get(t);};
 
         std::shared_ptr<Font> getFont(){return activeFont;};
-        virtual int getSize(){return size;};
+        virtual float getSize(){return size/baseSize;};
 
         virtual std::pair<float,float> getDimensions(string s,int size2){return calculateSize(s,size2);}
-        virtual int getWidth(string s, int size2){return getDimensions(s,size2).first;};
-        virtual int getHeight(string s,int size2){return getDimensions(s,size2).second;};
+        virtual float getWidth(string s, int size2){return getDimensions(s,size2).first;};
+        virtual float getHeight(string s,int size2){return getDimensions(s,size2).second;};
 
-        virtual int getWidth(string s,int size,Text::Type t);
-        virtual int getHeight(string s,int size,Text::Type t);
+        virtual float getWidth(string s){return getDimensions(s,size*baseSize).first;};
+        virtual float getHeight(string s){return getDimensions(s,size*baseSize).second;};
+
+        virtual float getWidth(string s,int size,Text::Type t);
+        virtual float getHeight(string s,int size,Text::Type t);
 
         virtual float getFontHeight(int size);
         // misc
@@ -148,6 +151,7 @@ class Graphics::Text
 
         glm::mat4* projection=nullptr;
         bool fixedGap=false;
+        float wrapWidth = -1;
         float gapSize=0;
 
         float baseSize = 48;

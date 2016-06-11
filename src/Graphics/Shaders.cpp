@@ -21,7 +21,7 @@ void logError( GLuint shader )
         if( infoLogLength > 0 )
         {
             //Print Log
-            printf( "%s\n", infoLog );
+            LOG << "Fatal" << infoLog << std::endl;
         }
 
         //Deallocate string
@@ -29,7 +29,7 @@ void logError( GLuint shader )
     }
     else
     {
-        printf( "Name %d is not a shader\n", shader );
+        LOG << "Fatal" << "Name %d is not a shader" << std::endl;
     }
 }
 GLuint LoadShaderSource(const char * vertex_source,const char * fragment_source)
@@ -41,7 +41,7 @@ GLuint LoadShaderSource(const char * vertex_source,const char * fragment_source)
     GLuint VertexShaderID= glCreateShader(GL_VERTEX_SHADER);
     GLuint FragmentShaderID= glCreateShader(GL_FRAGMENT_SHADER);
     // Compile Vertex Shader
-    printf("Compiling vertex shader\n");
+    LOG << "Compiling vertex shader!" << std::endl;
     glShaderSource(VertexShaderID, 1, &vertex_source , NULL);
     glCompileShader(VertexShaderID);
 
@@ -55,11 +55,11 @@ GLuint LoadShaderSource(const char * vertex_source,const char * fragment_source)
         printf("%s\n", &VertexShaderErrorMessage[0]);
     }
     if (Result != GL_TRUE){
-            printf("[FROM SOURCE] GLSL compilation error: \n");
+            LOG << "Warning" << "[FROM SOURCE] GLSL compilation error:" << std::endl;
             logError(VertexShaderID);
     }
     // Compile Fragment Shader
-    printf("Compiling fragment shader!\n");
+    LOG << "Building" <<"Compiling fragment shader!" << std::endl;
     glShaderSource(FragmentShaderID, 1, &fragment_source , NULL);
     glCompileShader(FragmentShaderID);
 
@@ -73,7 +73,7 @@ GLuint LoadShaderSource(const char * vertex_source,const char * fragment_source)
 
 }
     // Link the program
-    printf("Linking program\n");
+    LOG << "Linking program" << std::endl;
     GLuint ProgramID = glCreateProgram();
     glAttachShader(ProgramID, VertexShaderID);
     glAttachShader(ProgramID, FragmentShaderID);
@@ -85,7 +85,7 @@ GLuint LoadShaderSource(const char * vertex_source,const char * fragment_source)
     if ( InfoLogLength > 0 ){
         std::vector<char> ProgramErrorMessage(InfoLogLength+1);
         glGetProgramInfoLog(ProgramID, InfoLogLength, NULL, &ProgramErrorMessage[0]);
-        printf("%s\n", &ProgramErrorMessage[0]);
+        LOG << "Fatal" << &ProgramErrorMessage[0] << std::endl;
     }
 
     glDetachShader(ProgramID, VertexShaderID);
@@ -101,7 +101,6 @@ void checkBasicBuild(Shader_Vars* v)
 
     if (!Graphics::_Shaders::Basic2D->isBuilt())
     {
-        std::cout << "Building Basic!" << std::endl;
         std::string Vertex =
         "#version 100 \n"
         "attribute vec2 vertex;\n"
@@ -145,16 +144,16 @@ namespace Graphics
     }
     void Shader::build(string Vertex,string Fragment,string name)
     {
-        std::cout << "[--------------------------------]"  << std::endl;
-        std::cout << " Building: " << name << std::endl;
-        std::cout << "=================================="  << std::endl;
+        LOG << "Building" << "[----------Shader-------------]"  << std::endl;
+        LOG << name << std::endl;
+        LOG << "=================================="  << std::endl;
         built = true;
         if (SDL_WasInit(SDL_INIT_EVERYTHING) == 0) {SDL_Init(SDL_INIT_EVERYTHING);};
         programID = LoadShaderSource(Vertex.c_str(),Fragment.c_str());
         if (Vars.get() == nullptr){Vars = std::make_shared<Utils::OpenGL::Shader_Vars>();};
         Vars->setProgram(programID);
         checkBasicBuild(Vars.get());
-        std::cout << "[--------------------------------]" << std::endl;
+        LOG << "[--------------------------------]" << std::endl;
     };
 
     void Shader::fromFile(string Vertex_path,string Fragment_path,string name)
@@ -178,7 +177,7 @@ namespace Graphics
             getchar();
             return;
         }
-        std::cout << "LOADING SHADER FROM SOURCE: " << Vertex_path << " " << Fragment_path << std::endl;
+        LOG << "Building" << "LOADING SHADER FROM SOURCE: " << "\n" << Vertex_path << "\n" << Fragment_path << std::endl;
         // Read the Fragment Shader code from the file
         std::string FragmentShaderCode;
         std::ifstream FragmentShaderStream(fragment_file_path, std::ios::in);

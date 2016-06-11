@@ -15,5 +15,6 @@ inline int startup_tasks()
         return -1;
     }
     #endif
+    return 0;
 }
 #endif // STARTUP_H_INCLUDED

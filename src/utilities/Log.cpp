@@ -64,7 +64,7 @@ void Log::clear()
 {
     cache.clear();
 }
-void Log::write(const char* filename)
+std::string Log::write(const char* filename)
 {
     int edition = 0;
     std::string formated = id;
@@ -81,6 +81,7 @@ void Log::write(const char* filename)
     File.open(fname + ".txt");
     File << std::accumulate(cache.begin(),cache.end(),std::string(""));
     File.close();
+    return fname;
 }
 void Log::send(int severity_no,std::string msg,bool end_line,bool print)
 {
@@ -100,10 +101,10 @@ void Log::send(int severity_no,std::string msg,bool end_line,bool print)
         *this << Log::WHITE;
         std::cout << current_line;
         *this << color;
-        std::cout << "[" + name + "]";
-        if (id != ""){std::cout << "[" + id + "]";};
+        std::cout << "[" + name + "] ";
+        if (id != ""){std::cout << "[" + id + "] ";};
         *this << Log::GRAY;
-        current_line += "[" + name + "]" + msg;
+        current_line += "[" + name + "] " + msg;
     }
     else
     {
@@ -137,16 +138,16 @@ void Log::load(int precentage,const char* msg)
     std::string flush = "";
     std::string cond_flush = "\b";
     std::string a = "[";
-    for (int i=0; i < message.size(); i++)
+    for (unsigned int i=0; i < message.size(); i++)
     {
         cond_flush += "\b";
     }
-    for (int i=0; i < 10; i++)
+    for (unsigned int i=0; i < 10; i++)
     {
         if (i < prc)
         {
             a += full;
-            for (int i=0; i < full.size(); i++)
+            for (unsigned int i=0; i < full.size(); i++)
             {
                 flush += "\b";
             }
@@ -154,7 +155,7 @@ void Log::load(int precentage,const char* msg)
         else
         {
             a += empty;
-            for (int i=0; i < empty.size(); i++)
+            for (unsigned int i=0; i < empty.size(); i++)
             {
                 flush += "\b";
             }
@@ -197,14 +198,30 @@ const char* Log::dump()
     };
     return output.c_str();
 }
+void Log::parse(std::string msg,bool end_line,bool print)
+{
+    if (current_line == "" && !appliedSeverity)
+    {
+        auto s = lookUp(msg);
+        if (s != 0)
+        {
+            severity = s;
+            appliedSeverity = true;
+            return;
+        };
+    };
+    if (end_line){appliedSeverity = false;};
+    send(severity,msg,end_line,print);
+}
 Log& Log::operator<<(std::string msg){
     // do not end the line here and wait for unique notifier! so we pass FALSE to send
-    this->send(this->severity,msg,false);
+    parse(msg,false);
     return *this;
 };
+Log& Log::operator<<(const char* msg)
+{
 
-Log& Log::operator<<(const char* msg){
-    this->send(severity,msg,false,false);
+    parse(std::string(msg),false,false);
     if (current_line != "")
     {
         std::cout << msg;
@@ -213,7 +230,7 @@ Log& Log::operator<<(const char* msg){
 };
 Log& Log::operator<<(std::ostream& (*os)(std::ostream&)){
     // end line notifier found pass TRUE for end line
-    this->send(this->severity,"",true,false);
+    parse(std::string(""),true,false);
     return *this;
 };
 Log& Log::operator<<(Colors color){

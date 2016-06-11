@@ -2629,10 +2629,10 @@
 	<Graphics/Primitives/Quad.h>
 	<Window/Window.h>
 
-1462743305 source:d:\lucy3d\src\graphics\shaders.cpp
+1465409847 source:d:\lucy3d\src\graphics\shaders.cpp
 	"Shaders.h"
 
-1462675900 d:\lucy3d\include\graphics\shaders.h
+1465409268 d:\lucy3d\include\graphics\shaders.h
 	<Settings.h>
 	<string>
 	<vector>
@@ -2643,10 +2643,10 @@
 	<Graphics/Graphics.h>
 	<Utils.h>
 	<utilities/OpenGL.h>
+	<utilities/log.h>
 
-1462732956 d:\lucy3d\include\settings.h
-	<GL/glew.h>
-	<GL/GL.h>
+1465334899 d:\lucy3d\include\settings.h
+	<GLES2/gl2.h>
 
 1439239642 d:\lucy3d\dependencies\glew-1.13.0\include\gl\glew.h
 	<stddef.h>
@@ -3008,7 +3008,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1462675900 d:\lucy3d\include\graphics\graphics.h
+1465585792 d:\lucy3d\include\graphics\graphics.h
 	<Settings.h>
 	<SDL.h>
 	<IL/il.h>
@@ -3510,7 +3510,7 @@
 
 1462675900 d:\lucy3d\include\compatability\gles2\framebuffer.h
 
-1462675900 d:\lucy3d\include\utilities\utils.h
+1465431714 d:\lucy3d\include\utilities\utils.h
 	<string>
 	<ctime>
 	<thread>
@@ -3519,8 +3519,9 @@
 	<map>
 	<vector>
 
-1462675900 d:\lucy3d\include\utilities\opengl.h
+1465588627 d:\lucy3d\include\utilities\opengl.h
 	<Settings.h>
+	<utilities/Log.h>
 	<vector>
 	<memory>
 	<fstream>
@@ -3546,7 +3547,7 @@
 	<Graphics/Graphics.h>
 	<Graphics/Shaders.h>
 
-1462675900 d:\lucy3d\include\graphics\primitives\quad.h
+1465590073 d:\lucy3d\include\graphics\primitives\quad.h
 	<Graphics/Graphics.h>
 	<Graphics/Shaders.h>
 	<utilities/OpenGL.h>
@@ -3568,27 +3569,27 @@
 	<Graphics/Buffers/Canvas.h>
 	<Graphics/Primitives/Quad.h>
 
-1462675901 source:d:\lucy3d\src\graphics\shaders\blur.cpp
+1465409257 source:d:\lucy3d\src\graphics\shaders\blur.cpp
 	"Graphics/Shaders/Blur.h"
 
-1462675901 source:d:\lucy3d\src\graphics\shaders\outline.cpp
+1465409256 source:d:\lucy3d\src\graphics\shaders\outline.cpp
 	"Outline.h"
 
 1462675900 d:\lucy3d\include\graphics\shaders\\outline.h
 	<Graphics/Graphics.h>
 	<Graphics/Shaders/Bases.h>
 
-1462675901 source:d:\lucy3d\src\graphics\text\instance.cpp
+1465595367 source:d:\lucy3d\src\graphics\text\instance.cpp
 	"Graphics/Text/Instance.h"
 	<Graphics/Text/Task.h>
 	<Graphics/Bases/Moveable.h>
 
-1462675900 d:\lucy3d\include\graphics\text\instance.h
+1465392879 d:\lucy3d\include\graphics\text\instance.h
 	<Graphics/Text/Text.h>
 	<Graphics/Buffers/Canvas.h>
 	<Graphics/Bases/Moveable.h>
 
-1462675900 d:\lucy3d\include\graphics\text\text.h
+1465402204 d:\lucy3d\include\graphics\text\text.h
 	<Graphics/Graphics.h>
 	<SDL.h>
 	<ft2build.h>
@@ -3611,7 +3612,7 @@
 	<Graphics/Shaders.h>
 	<Graphics/Shaders/Blur.h>
 
-1462675900 d:\lucy3d\include\graphics\bases\moveable.h
+1465595308 d:\lucy3d\include\graphics\bases\moveable.h
 	<glm.hpp>
 	<gtc/matrix_transform.hpp>
 	<gtc/type_ptr.hpp>
@@ -3645,7 +3646,7 @@
 	<limits>
 	"../gtc/constants.hpp"
 
-1462675900 d:\lucy3d\include\graphics\text\task.h
+1461706321 d:\lucy3d\include\graphics\text\task.h
 	<Graphics/Text/Text.h>
 	<Graphics/Text/Instance.h>
 	<Graphics/Bases/Moveable.h>
@@ -3657,10 +3658,10 @@
 	<queue>
 	<iostream>
 
-1462675901 source:d:\lucy3d\src\graphics\text\task.cpp
+1457874538 source:d:\lucy3d\src\graphics\text\task.cpp
 	"Graphics/Text/Task.h"
 
-1462675901 source:d:\lucy3d\src\graphics\text\text.cpp
+1465403438 source:d:\lucy3d\src\graphics\text\text.cpp
 	"Graphics/Text/Text.h"
 
 1462675901 source:d:\lucy3d\src\maigui\addons\text.cpp
@@ -3716,12 +3717,14 @@
 	<Maigui/Maigui.h>
 	<Graphics/Image.h>
 
-1462675900 d:\lucy3d\include\graphics\image.h
+1465478972 d:\lucy3d\include\graphics\image.h
 	<string>
 	<IL/il.h>
 	<IL/ilu.h>
 	<Graphics/Graphics.h>
 	<Graphics/Bases/Filter.h>
+	<utilities/log.h>
+	<Controll/Safety/Handler.h>
 
 1462675900 d:\lucy3d\include\graphics\bases\filter.h
 
@@ -3817,7 +3820,7 @@
 	<Maigui/Maigui.h>
 	<Collider/Opengl.h>
 
-1462675900 d:\lucy3d\include\collider\opengl.h
+1465409295 d:\lucy3d\include\collider\opengl.h
 	<Settings.h>
 	<Collider/Collider.h>
 	<Collider/Manager.h>
@@ -3825,6 +3828,7 @@
 	<gtc/matrix_transform.hpp>
 	<gtc/type_ptr.hpp>
 	<utilities/OpenGL.h>
+	<utilities/log.h>
 
 1462675901 source:d:\lucy3d\src\network\win32.cpp
 	"win32.h"
@@ -3838,7 +3842,7 @@
 	<string>
 	<map>
 
-1462675900 d:\lucy3d\include\utilities\log.h
+1465408785 d:\lucy3d\include\utilities\log.h
 	<utilities/utils.h>
 	<string>
 	<map>
@@ -3862,11 +3866,12 @@
 	<algorithm>
 	<Threads/Threads.h>
 
-1462733870 d:\lucy3d\include\window\window.h
+1465333325 d:\lucy3d\include\window\window.h
 	<Settings.h>
 	<Startup.h>
 	<Window/Windower.h>
 	<Window/Data.h>
+	<utilities/Log.h>
 
 1462675900 d:\lucy3d\include\window\windower.h
 	<vector>
@@ -3912,23 +3917,22 @@
 1462675900 d:\lucy3d\include\utilities\container.h
 	<initializer_list>
 
-1462675901 source:d:\lucy3d\src\utilities\log.cpp
+1465408777 source:d:\lucy3d\src\utilities\log.cpp
 	"Log.h"
 	<windows.h>
 	<tchar.h>
 	<conio.h>
 	<strsafe.h>
 
-1462744887 source:d:\lucy3d\src\utilities\opengl.cpp
+1465608523 source:d:\lucy3d\src\utilities\opengl.cpp
 	"utilities/OpenGL.h"
 
 1462675901 source:d:\lucy3d\src\utilities\utils.cpp
 	"utilities/Utils.h"
 
-1462733971 source:d:\lucy3d\main.cpp
+1465410586 source:d:\lucy3d\main.cpp
 	<Settings.h>
-	<winsock2.h>
-	<windows.h>
+	<Compatability\Windows.h>
 	<stdio.h>
 	<iostream>
 	<string>
@@ -3947,25 +3951,23 @@
 	<MainGame.h>
 	<Controll/Safety/Lucia.h>
 	<Controll/Safety/GLWrapper.h>
+	<Controll/Safety/Handler.h>
 
-1462675900 d:\lucy3d\include\graphics\scene\instance.h
+1465593757 d:\lucy3d\include\graphics\scene\instance.h
 	<Settings.h>
 	<vector>
 	<map>
 	<Graphics\Graphics.h>
 	<Graphics\Shaders.h>
-	<Graphics\Buffers\Mesh.h>
-	<Graphics\Scene\Model.h>
 	<Graphics\Scene\Object.h>
 	<utilities\Utils.h>
-	<Image.h>
 	<Camera.h>
 	<string>
 	<SDL.h>
 	<memory>
 	<GLES2/gl2.h>
 
-1462675900 d:\lucy3d\include\graphics\buffers\mesh.h
+1465585929 d:\lucy3d\include\graphics\buffers\mesh.h
 	<vector>
 	<string>
 	<iostream>
@@ -3973,31 +3975,29 @@
 	<gtc/matrix_transform.hpp>
 	<gtc/type_ptr.hpp>
 	<Graphics/Graphics.h>
-	<Graphics/Scene/Instance.h>
 	<Graphics/Image.h>
-	<Graphics/Bases/Moveable.h>
-	<Graphics/Bases/DrawMode.h>
-	<Graphics/Bases/ShaderHolder.h>
+	<Graphics/Scene/Object.h>
 	<utilities/OpenGL.h>
+	<utilities/Log.h>
 
-1462732403 d:\lucy3d\include\graphics\bases\drawmode.h
+1465591805 d:\lucy3d\include\graphics\bases\drawmode.h
 	<Settings.h>
 
-1462675900 d:\lucy3d\include\graphics\bases\shaderholder.h
+1465592015 d:\lucy3d\include\graphics\bases\shaderholder.h
 	<Graphics/Graphics.h>
 	<Graphics/Shaders.h>
 	<utilities/OpenGL.h>
 
-1462675900 d:\lucy3d\include\graphics\scene\model.h
-	<Graphics/Bases/Moveable.h>
-	<Graphics/Bases/DrawMode.h>
-	<Graphics/Bases/ShaderHolder.h>
+1465594655 d:\lucy3d\include\graphics\scene\model.h
+	<Graphics/Scene/Object.h>
 	<Graphics/Image.h>
 	<Graphics/Shaders.h>
 	<utilities/OpenGL.h>
+	<utilities/log.h>
 	<assimp/Importer.hpp>
 	<assimp/scene.h>
 	<assimp/postprocess.h>
+	<Controll/Safety/Handler.h>
 
 1462675895 d:\lucy3d\dependencies\assimp-3.2\include\assimp\importer.hpp
 	"types.h"
@@ -4146,14 +4146,14 @@
 1462675895 d:\lucy3d\dependencies\assimp-3.2\include\assimp\postprocess.h
 	"types.h"
 
-1462675900 d:\lucy3d\include\graphics\scene\object.h
+1465592221 d:\lucy3d\include\graphics\scene\object.h
 	<glm.hpp>
 	<gtc/matrix_transform.hpp>
 	<gtc/type_ptr.hpp>
 	<Graphics\Graphics.h>
-	<Graphics\Buffers\Mesh.h>
-	<Graphics\Scene\Model.h>
 	<Graphics\Bases\Moveable.h>
+	<Graphics\Bases\DrawMode.h>
+	<Graphics\Bases\ShaderHolder.h>
 	<Graphics\Scene\Instance.h>
 	<utilities\OpenGL.h>
 	<algorithm>
@@ -4180,7 +4180,7 @@
 	<inttypes.h>
 	<stdint.h>
 
-1462747491 d:\lucy3d\maingame.h
+1465611298 d:\lucy3d\maingame.h
 	<utilities/OpenGL.h>
 	<State/Gamestate.h>
 	<Camera.h>
@@ -4195,6 +4195,8 @@
 	<Graphics/Text/Text.h>
 	<Graphics/Text/Instance.h>
 	<Graphics/Text/Task.h>
+	<Graphics/Buffers/Mesh.h>
+	<Graphics/Buffers/Spritesheet.h>
 	<Collider/Collider.h>
 	<Collider/Manager.h>
 	<Collider/Opengl.h>
@@ -4231,17 +4233,18 @@
 	<memory>
 	<Graphics/Shaders.h>
 
-1462744480 d:\lucy3d\include\controll\safety\lucia.h
+1465410936 d:\lucy3d\include\controll\safety\lucia.h
 	<signal.h>
 	<Threads/Threads.h>
 	<Threads/queque.h>
 	<utilities/Log.h>
 
-1462675900 d:\lucy3d\include\controll\safety\glwrapper.h
+1465413540 d:\lucy3d\include\controll\safety\glwrapper.h
 	<Graphics/Text/Text.h>
 	<Graphics/Text/Instance.h>
 	<Graphics/Primitives/Quad.h>
 	<Window/Window.h>
+	<utilities/log.h>
 
 1462675901 source:d:\lucy3d\src\collider\algorithm\gjk.cpp
 	"GJK.h"
@@ -4254,7 +4257,7 @@
 	<Collider/Shape/Sphere.h>
 	<Collider/Shape/Ray.h>
 
-1462675901 source:d:\lucy3d\src\collider\opengl.cpp
+1465409090 source:d:\lucy3d\src\collider\opengl.cpp
 	<Collider/Opengl.h>
 
 1462675901 source:d:\lucy3d\src\collider\shape.cpp
@@ -4278,22 +4281,22 @@
 1462675901 source:d:\lucy3d\src\compatability\gles2\shaders\basic2d.cpp
 	"Compatability/GLES2/Shaders/Basic2D.h"
 
-1462675901 source:d:\lucy3d\src\compatability\gles2\shaders\blit2d.cpp
+1465409121 source:d:\lucy3d\src\compatability\gles2\shaders\blit2d.cpp
 	"Compatability/GLES2/Shaders/Blit2D.h"
 
 1462675901 source:d:\lucy3d\src\controll\keyboard.cpp
 	"Controll/Keyboard.h"
 
-1462675901 source:d:\lucy3d\src\controll\safety\lucia.cpp
+1465397420 source:d:\lucy3d\src\controll\safety\lucia.cpp
 	"Controll\Safety\Lucia.h"
 
-1462675901 source:d:\lucy3d\src\graphics\bases\moveable.cpp
+1465595316 source:d:\lucy3d\src\graphics\bases\moveable.cpp
 	"Graphics\Bases\Moveable.h"
 
-1462675901 source:d:\lucy3d\src\graphics\buffers\canvas.cpp
+1465508671 source:d:\lucy3d\src\graphics\buffers\canvas.cpp
 	"Graphics\Buffers\Canvas.h"
 
-1462675901 source:d:\lucy3d\src\graphics\buffers\mesh.cpp
+1465595026 source:d:\lucy3d\src\graphics\buffers\mesh.cpp
 	"Graphics/Buffers/Mesh.h"
 	<Graphics/Bases/Moveable.h>
 
@@ -4305,23 +4308,23 @@
 1462675901 source:d:\lucy3d\src\graphics\graphics.cpp
 	<Graphics/Graphics.h>
 
-1462675901 source:d:\lucy3d\src\graphics\image.cpp
+1465508846 source:d:\lucy3d\src\graphics\image.cpp
 	"Image.h"
 	<iostream>
 	<map>
 	<string>
 
-1462675901 source:d:\lucy3d\src\graphics\primitives\quad.cpp
+1465608720 source:d:\lucy3d\src\graphics\primitives\quad.cpp
 	"Graphics\Primitives\Quad.h"
 
-1462675901 source:d:\lucy3d\src\graphics\scene\instance.cpp
+1465595287 source:d:\lucy3d\src\graphics\scene\instance.cpp
 	"Graphics/Scene/Instance.h"
 	<Graphics\Scene\Object.h>
 
-1462745511 source:d:\lucy3d\src\graphics\scene\model.cpp
+1465594799 source:d:\lucy3d\src\graphics\scene\model.cpp
 	"Graphics\Scene\Model.h"
 
-1462675901 source:d:\lucy3d\src\graphics\scene\object.cpp
+1465576567 source:d:\lucy3d\src\graphics\scene\object.cpp
 	"Graphics/Scene/Object.h"
 
 1462675901 source:d:\lucy3d\src\graphics\scene\scene2d.cpp
@@ -4329,12 +4332,87 @@
 
 1462675900 d:\lucy3d\include\graphics\scene\scene2d.h
 
-1462733856 source:d:\lucy3d\src\window\window.cpp
+1465334621 source:d:\lucy3d\src\window\window.cpp
 	"Window.h"
 	"glm.hpp"
 	<iostream>
 
-1462733898 d:\lucy3d\include\startup.h
+1465336819 d:\lucy3d\include\startup.h
 	<Settings.h>
 	<iostream>
+
+1465331040 d:\lucy3d\include\compatability\windows.h
+	<winsock2.h>
+	<windows.h>
+	<Dwmapi.h>
+	<string>
+	<utilities\Log.h>
+
+1465345464 source:d:\lucy3d\src\compatability\windows.cpp
+	<Settings.h>
+	<iostream>
+	"Compatability\Windows.h"
+	<utilities\Log.h>
+
+1465399890 d:\lucy3d\include\controll\safety\handler.h
+	<string>
+	<csignal>
+	<functional>
+
+1465399893 source:d:\lucy3d\src\controll\safety\handler.cpp
+	"Controll\Safety\Handler.h"
+	<iostream>
+
+1465510473 source:d:\lucy3d\src\graphics\tools\spritesheet.cpp
+	"Graphics\Tools\Spritesheet.h"
+
+1465510461 d:\lucy3d\include\graphics\tools\spritesheet.h
+	<Graphics/Image.h>
+	<Graphics/Bases/Moveable.h>
+	<Graphics/Shaders.h>
+	<utilities/tween.h>
+	<utilities/logistics.h>
+	<utilities/OpenGL.h>
+	<Graphics/Primitives/Quad.h>
+
+1465591367 d:\lucy3d\include\utilities\tween.h
+	<string>
+	<functional>
+	<map>
+	<vector>
+	<cmath>
+	<Utils.h>
+
+1465610191 d:\lucy3d\include\utilities\logistics.h
+
+1465511337 source:d:\lucy3d\src\utilities\tween.cpp
+	"utilities\tween.h"
+
+1465592707 source:d:\lucy3d\src\graphics\scene\spritesheet.cpp
+	"Graphics\Scene\Spritesheet.h"
+
+1465592354 d:\lucy3d\include\graphics\scene\spritesheet.h
+	<memory>
+	<Graphics/Image.h>
+	<Graphics/Scene/Object.h>
+	<Graphics/Shaders.h>
+	<Graphics/Bases/ShaderHolder.h>
+	<utilities/tween.h>
+	<utilities/logistics.h>
+	<utilities/OpenGL.h>
+	<Graphics/Primitives/Quad.h>
+
+1465607590 d:\lucy3d\include\graphics\buffers\spritesheet.h
+	<memory>
+	<Graphics/Image.h>
+	<Graphics/Scene/Object.h>
+	<Graphics/Shaders.h>
+	<Graphics/Bases/ShaderHolder.h>
+	<utilities/tween.h>
+	<utilities/logistics.h>
+	<utilities/OpenGL.h>
+	<Graphics/Primitives/Quad.h>
+
+1465610539 source:d:\lucy3d\src\graphics\buffers\spritesheet.cpp
+	"Graphics\Buffers\Spritesheet.h"
 

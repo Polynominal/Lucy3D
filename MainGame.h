@@ -17,6 +17,8 @@
 #include <Graphics/Text/Text.h>
 #include <Graphics/Text/Instance.h>
 #include <Graphics/Text/Task.h>
+#include <Graphics/Buffers/Mesh.h>
+#include <Graphics/Buffers/Spritesheet.h>
 
 #include <Collider/Collider.h>
 #include <Collider/Manager.h>
@@ -53,7 +55,7 @@ class MainGame : public Gamestate
         Graphics::Text::Task* job;
         Graphics::Text::Instance* inst;
 
-        Mesh Block = Mesh();
+        std::shared_ptr<Mesh> Block = std::make_shared<Mesh>();
         int id;
         Keyboard keyboard = Keyboard();
         glm::vec3 positions[10] = {
@@ -109,21 +111,28 @@ class MainGame : public Gamestate
                 //-0.5f,  0.5f, -0.5f, -0.5f, -0.5f, -0.5f, 0.0f, 1.0f
             };
 
-             auto Buffer = Block.addSubBuffer();
+             auto Buffer = Block->addSubBuffer();
              Buffer->setShaderVars(Graphics::_Shaders::DefaultSceneShader->getVars());
              Buffer->setData(vertices,30);
 
-//            Block.addImage("assets/Textures/container.jpg","ourTexture1");
-//            Block.addImage("assets/Textures/smiley.png","ourTexture2");
-//            Block.finalize();
-//
-//            //auto a = newScene.insert(&Block);
-//            //a->scale(-0.5,-0.5,-0.5);
+            Block->addImage("assets/Textures/container.jpg","ourTexture1");
+            Block->addImage("assets/Textures/smiley.png","ourTexture2");
+            Block->finalize();
 
-            auto Model =  new Graphics::Model();
-            Model->fromFile("assets/Models/DELETE/nanosuit.obj");
-            Model->generate();
-            auto b = newScene.insert(Model);
+            auto a = newScene.addObject(Block);
+            a->scaleTo(0.1,0.1,0.1);
+
+//            auto Model =  std::make_shared<Graphics::Model>();
+//            Model->fromFile("assets/Models/DELETE/nanosuit.obj");
+//            Model->generate();
+//            auto b = newScene.addObject(Model);
+            auto sprite = std::make_shared<Graphics::Scene::Spritesheet>();
+            sprite->load("assets/Maigui/default.png");
+            auto block = sprite->create(46,536,36,36);
+            auto c = newScene.addObject(block);
+            c->moveTo(0.5,0.0,0.0);
+            auto blk = sprite->create(0,0,152,152);
+            auto d = newScene.addObject(blk);
 
 
             cam->step(0.0f,0.0f,-3.0f);

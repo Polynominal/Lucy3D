@@ -5,9 +5,9 @@
 // GLEW and opengl
 
 //[-
-#define USE_OPENGL3
-#include <GL/glew.h>
-#include <GL/GL.h>
+//#define USE_OPENGL3
+//#include <GL/glew.h>
+//#include <GL/GL.h>
 
 // when linking with these make sure to add the following to ur linker:
 // -lGLEW -lGL [OR -lopengl32 for WIN32]
@@ -16,7 +16,9 @@
 
 //GLES2
 //[-
-//#define USE_GLES2
-//#include <GLES2/gl2.h>
+#define USE_GLES2
+// Dont forget to unlink the -lgl librares as they will mess with libEGL causing a blackscreen and multiple crashes etc etc.
+// [!!!] You will have to rebuild if this happens D: [!!!]
+#include <GLES2/gl2.h>
 //-]
 #endif // SETTINGS_H_INCLUDED

@@ -43,6 +43,7 @@ class Lucia
             int add(T chunk)
             {
                 chunks.insert({chunks.size(),chunk});
+                return chunks.size();
             };
             bool has(int id)
             {
@@ -90,6 +91,7 @@ class Lucia
         // seperate storage of sensitive data.
 
         //misc
+        void reportError(std::string data="Undefined error",bool crash = false);
         Function* newFunction(std::string name,std::function<void()> fn);
         bool handleException(Function* fn);
         void reportException(Function* fn);

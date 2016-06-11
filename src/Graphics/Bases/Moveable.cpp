@@ -46,7 +46,7 @@ void Moveable::scaleTo(glm::vec3 v)
         needs_refresh = true;
     }
 }
-void Moveable::refresh()
+void Moveable::applyTranslations()
 {
     if (needs_refresh)
     {

@@ -1,8 +1,7 @@
 #include <Settings.h>
 
 #ifdef __WIN32
-#include <winsock2.h>
-#include <windows.h>
+#include <Compatability\Windows.h>
 #endif // __WIN32
 // STL includes [-
 #include <stdio.h>
@@ -38,9 +37,9 @@
 #include <MainGame.h>
 // -]
 #include <Controll/Safety/Lucia.h>
-//
 #include <Controll/Safety/GLWrapper.h>
-
+#include <Controll/Safety/Handler.h>
+//
 #undef main
 void runserver(int a,std::atomic<bool> &finished)
 {
@@ -99,6 +98,7 @@ int main_loop(int argc, char* argv[],Windower::Window* w) {
 
 	LOG.overwrite = true;
 	LOG.addSeverity(1,"Info");
+    LOG.addSeverity(3,"Building",Log::GREEN);
     LOG.addSeverity(2,"Warning",Log::YELLOW);
     LOG.addSeverity(3,"Debug",Log::CYAN);
     LOG.addSeverity(4,"Fatal",Log::BRED,[](){LOG.write();});
@@ -111,8 +111,12 @@ int main_loop(int argc, char* argv[],Windower::Window* w) {
     LOG.send(1,"Program started");
 
     w->create();
-    w->setSize(800,600);
+    //we need the window up for this due to needing a surface and a window handle.
+    // compatability settings eg turn off desktop composition.
+    // platform dependent.
+    Lucy::Compat::patch();
 
+    w->setSize(800,600);
 
     // Done testing the waters, now moving onto the bigger fish!
     //GLenum err = glewInit();
@@ -165,6 +169,10 @@ int main(int argc, char* argv[])
 
 
     Lucia_GLWrapper(&errors,window);
+    Controll::Safety::OnFatalCrash = [&errors](std::string data)
+    {
+        errors.reportError(data,true);
+    };
 
     auto fn = errors.newFunction("main",[argc,argv,window]()
     {

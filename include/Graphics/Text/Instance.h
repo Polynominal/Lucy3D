@@ -52,6 +52,9 @@ namespace Graphics
             float getWidth(){return width;};
             float getHeight(){return height;};
 
+            float getWidth(string s){return parent->getWidth(s);};
+            float getHeight(string s){return parent->getHeight(s);};
+
         private:
             // this is used for keeping information inbetween frames but must be emptied each frame.
             std::shared_ptr<Graphics::Canvas> TextBuffer;

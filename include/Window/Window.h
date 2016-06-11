@@ -4,6 +4,7 @@
 #include <Startup.h>
 #include <Window/Windower.h>
 #include <Window/Data.h>
+#include <utilities/Log.h>
 
 class Windower::Window
 {

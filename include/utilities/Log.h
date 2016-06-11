@@ -66,14 +66,13 @@ class Log
 
         void send(int severity,std::string msg,bool end_line = true,bool print = true);
         void send(int severity,const char* msg,bool end_line = true,bool print = true);
-
         void send(std::string severity_name,const char* msg,bool end_line = true,bool print = true);
-
+        void parse(std::string msg,bool end_line = true,bool print = true);
         void clear();
         void load(int precentage,const char* msg="");
         void buffer();
 
-        void write(const char* filename=("LOG_" + Utils::getCleanDate()).c_str());
+        std::string write(const char* filename=("LOG_" + Utils::getCleanDate()).c_str());
         const char* dump();
 
         // easily accessible cache with output of the messages as you send them via send()
@@ -98,10 +97,14 @@ class Log
         std::string id="";
         std::string formated = "";
         std::string current_line = "";
-        int severity = 0;
-        std::map<int,Severity> severityMap;
         std::string filename = std::string("LOG [") + Utils::getDate() + "]";
         std::string lastFlush="";
+
+        int severity = 0;
+        bool appliedSeverity = false;
+
+        std::map<int,Severity> severityMap;
+
         std::function<void()>last_call=[](){}; // empty lambda for end of the line execution.
 };
 

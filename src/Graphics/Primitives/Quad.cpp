@@ -4,43 +4,36 @@ Quad::Quad()
 {
 
 }
-void Quad::initTasks()
+void Quad::initTasks(int id)
 {
     if (Buff.get() == nullptr)
     {
         auto SVars = std::make_shared<Shader_Vars>();
-        SVars->setProgram(Graphics::_Shaders::Basic2D->programID);
+        SVars->setProgram(id);
         SVars->add("vertex",0,2);
         SVars->add("uv",2,4);
         Buff.reset(new Buffer(SVars));
         Buff->allocateData(6);
-
-        Data.push_back(std::make_shared<Vertex_Buffer>(-1.0f, -1.0f,  0.0f, 0.0f));
-        Data.push_back(std::make_shared<Vertex_Buffer>(1.0f, -1.0f, 1.0f, 0.0f));
-        Data.push_back(std::make_shared<Vertex_Buffer>(1.0f,  1.0f, 1.0f, 1.0f));
-        Data.push_back(std::make_shared<Vertex_Buffer>(1.0f,  1.0f, 1.0f, 1.0f));
-        Data.push_back(std::make_shared<Vertex_Buffer>(-1.0f,  1.0f, 0.0f, 1.0f));
-        Data.push_back(std::make_shared<Vertex_Buffer>(-1.0f, -1.0f, 0.0f, 0.0f));
-
         init = true;
     }
 }
-void Quad::generate(bool t)
+void Quad::generate(unsigned int id)
 {
-    initTasks();
-    Data[0] = std::make_shared<Vertex_Buffer>(-1.0f, -1.0f,  0.0f, 0.0f);
-    Data[1] = std::make_shared<Vertex_Buffer>(1.0f, -1.0f, 1.0f, 0.0f);
-    Data[2] = std::make_shared<Vertex_Buffer>(1.0f,  1.0f, 1.0f, 1.0f);
-    Data[3] = std::make_shared<Vertex_Buffer>(1.0f,  1.0f, 1.0f, 1.0f);
-    Data[4] = std::make_shared<Vertex_Buffer>(-1.0f,  1.0f, 0.0f, 1.0f);
-    Data[5] = std::make_shared<Vertex_Buffer>(-1.0f, -1.0f, 0.0f, 0.0f);
+    if (id == 0){initTasks(Graphics::_Shaders::Basic2D->programID);}else{initTasks(id);};
+    Data.clear();
+    Data.push_back(std::make_shared<Vertex_Buffer>(-1.0f, -1.0f,  0.0f, 0.0f));
+    Data.push_back(std::make_shared<Vertex_Buffer>(1.0f, -1.0f, 1.0f, 0.0f));
+    Data.push_back(std::make_shared<Vertex_Buffer>(1.0f,  1.0f, 1.0f, 1.0f));
 
+    Data.push_back(std::make_shared<Vertex_Buffer>(1.0f,  1.0f, 1.0f, 1.0f));
+    Data.push_back(std::make_shared<Vertex_Buffer>(-1.0f,  1.0f, 0.0f, 1.0f));
+    Data.push_back(std::make_shared<Vertex_Buffer>(-1.0f, -1.0f, 0.0f, 0.0f));
     // Update content of VBO memory
     Buff->sendData(Data,0);
 }
 void Quad::generate(float w,float h,float saw,float sah,float bx,float by,float tx,float ty)
 {
-    initTasks();
+    initTasks(Graphics::_Shaders::Basic2D->programID);
     float degree_x;
     float degree_y;
 
@@ -86,14 +79,14 @@ void Quad::generate(float w,float h,float saw,float sah,float bx,float by,float 
         topx = bottomx + (topx*2.0f);
         topy = bottomy + (topy*2.0f);
     };
+    Data.clear();
+    Data.push_back(std::make_shared<Vertex_Buffer>(bottomx,bottomy,  bx, by));
+    Data.push_back(std::make_shared<Vertex_Buffer>(topx,bottomy,     tx, by));
+    Data.push_back(std::make_shared<Vertex_Buffer>(topx,topy,        tx, ty));
 
-    Data[0] = std::make_shared<Vertex_Buffer>(bottomx,bottomy,  bx, by);
-    Data[1] = std::make_shared<Vertex_Buffer>(topx,bottomy,     tx, by);
-    Data[2] = std::make_shared<Vertex_Buffer>(topx,topy,        tx, ty);
-
-    Data[3] = std::make_shared<Vertex_Buffer>(topx,topy,        tx, ty);
-    Data[4] = std::make_shared<Vertex_Buffer>(bottomx,topx,     bx, ty);
-    Data[5] = std::make_shared<Vertex_Buffer>(bottomx,bottomy,  bx, by);
+    Data.push_back(std::make_shared<Vertex_Buffer>(topx,topy,        tx, ty));
+    Data.push_back(std::make_shared<Vertex_Buffer>(bottomx,topx,     bx, ty));
+    Data.push_back(std::make_shared<Vertex_Buffer>(bottomx,bottomy,  bx, by));
     // Update content of VBO memory
     Buff->sendData(Data,0);
 }
@@ -101,6 +94,10 @@ void Quad::draw()
 {
       Buff->draw(GL_TRIANGLES);
 };
+void Quad::draw(std::shared_ptr<Shader_Vars> vars)
+{
+    Buff->draw(GL_TRIANGLES,vars.get());
+}
 void Quad::setImageRange(float bx,float by,float tx,float ty)
 {
     if (!init)

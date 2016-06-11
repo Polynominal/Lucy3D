@@ -22,7 +22,8 @@ Image::Image(std::string path)
         ILenum ilError = ilGetError();
         if( ilError != IL_NO_ERROR )
         {
-            std::cout << "Error initializing DevIL!" + std::string(iluErrorString( ilError )) << std::endl;
+            LOG << "Fatal" << "Error initializing DevIL!" + std::string(iluErrorString( ilError )) << std::endl;
+            sendErrorSignal("DeviLL (image loading) has failed to initialize!",true);
         };
         ilutInitialized = true;
     }
@@ -37,12 +38,12 @@ Image::Image(std::string path)
 
         if (success == IL_TRUE)
         {
-            std::cout << " -- Creating" << std::endl;
+            LOG << "Building" << "New Image" << std::endl;
             ILinfo ImageInfo;
             iluGetImageInfo(&ImageInfo);
             if (ImageInfo.Origin == IL_ORIGIN_UPPER_LEFT)
             {
-                std::cout << "Flipping image!" << std::endl;
+                LOG << "Warning" << "Flipping image!" << std::endl;
                 iluFlipImage();
             }
 
@@ -54,7 +55,8 @@ Image::Image(std::string path)
             if (!success)
             {
                 error = ilGetError();
-                std::cout << "Image conversion failed - IL reports error: " << error << " - " << iluErrorString(error) << std::endl;
+                LOG << "Fatal" << "Image conversion failed - IL reports error: " << error << " - " << iluErrorString(error) << std::endl;
+                sendErrorSignal("Image conversion failed!- " + std::string(iluErrorString(error)));
             }
             else {
                 success = true;
@@ -64,8 +66,9 @@ Image::Image(std::string path)
         }
         else {
             ILenum  error = ilGetError();
-            std::cout << "[CRITICAL] failed to load: " << path << std::endl;
-            std::cout << "Error: " << error << std::endl;
+            LOG << "Fatal" << "failed to load: " << path << std::endl;
+            LOG << "Fatal" << error << std::endl;
+            sendErrorSignal("Image load failed: \n" + path + "\n Error: " + iluErrorString(error));
         };
         ilBindImage(0);
     }
@@ -88,7 +91,7 @@ void Image::generate()
 {
     if (!generated)
     {
-        std::cout << "GENERATING IMAGE:" << source << std::endl;
+        LOG << "Building" << "IMAGE:" << source << std::endl;
         ilBindImage(imageID);
             height = ilGetInteger(IL_IMAGE_WIDTH);	// Image width
             width  = ilGetInteger(IL_IMAGE_HEIGHT);
@@ -148,7 +151,7 @@ void Image::remove()
 {
     if (generated)
     {
-        std::cout << "Removing image: " << source << std::endl;
+        LOG << "Info" << "Removing image: " << source << std::endl;
         Loaded_Images.erase(source);
         glDeleteTextures(1,&textureID);
         ilDeleteImages(1, &imageID);

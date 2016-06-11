@@ -24,7 +24,7 @@ bool Window::create()
     int major =3;
     int minor =1;
     #if defined USE_GLES2 || defined USE_GLES3
-    major = 2;
+    major = 3;
     minor = 0;
     SDL_GL_SetAttribute( SDL_GL_CONTEXT_PROFILE_MASK,SDL_GL_CONTEXT_PROFILE_ES );
     #elif defined USE_OPENGL3
@@ -44,12 +44,13 @@ bool Window::create()
     glContext = SDL_GL_CreateContext(Core);
     if (glContext == NULL)
     {
-        std::cout << "MAJOR ERROR: " << SDL_GetError() << std::endl;
+        LOG << "Fatal" << SDL_GetError() << std::endl;
     }else
     {
-        std::cout << "Context is up!" << std::endl;
+        LOG << "Info" << "Context created!" << std::endl;
     }
-    std::cout << "Major glVersion: " << glGetString(GL_SHADING_LANGUAGE_VERSION) << std::endl;
+    LOG << "Info" << "Loading GL: " << major << " : " << minor << std::endl;
+    LOG << "Info" << "Graphics: " << glGetString(GL_SHADING_LANGUAGE_VERSION) << std::endl;
     if (Core == NULL)
     {
         return false;

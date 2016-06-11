@@ -6,11 +6,9 @@
 
 #include <Graphics\Graphics.h>
 #include <Graphics\Shaders.h>
-#include <Graphics\Buffers\Mesh.h>
-#include <Graphics\Scene\Model.h>
 #include <Graphics\Scene\Object.h>
+
 #include <utilities\Utils.h>
-#include <Image.h>
 #include <Camera.h>
 
 #include <string>
@@ -29,18 +27,17 @@ namespace Graphics
             public:
                 Instance();
                 virtual ~Instance();
-
-                std::shared_ptr<Object> insert(Mesh* m,float x=0,float y=0,float z=0);
-                std::shared_ptr<Object> insert(Model* m,float x=0,float y=0,float z=0);
-                void insert(Object* o);
+                // add and insert objects.
+                std::shared_ptr<Container> addObject(std::shared_ptr<Object> m);
+                //
 
                 void sort(SORTMODE mode);
                 void preDraw();
                 void draw(glm::mat4* view,glm::mat4* projection);
                 void postDraw();
 
-                void remove(Object* o);
-                void remove(std::shared_ptr<Object> target){remove(target.get());};
+                void remove(Container* o);
+                void remove(std::shared_ptr<Container> target){remove(target.get());};
 
                 void setFilter(std::string mip, std::string mag );
                 void setWrap(std::string s, std::string m);
@@ -49,9 +46,13 @@ namespace Graphics
                 void SetData();
 
             private:
-                std::vector<std::shared_ptr<Object>> Objects;
+                void drawObject(std::shared_ptr<Container> a,glm::mat4* view,glm::mat4* projection);
+                int lastShader=0;
+                void insertTasks();
+                SORTMODE mode;
+                std::vector<std::shared_ptr<Container>> Objects;
+                std::vector<std::shared_ptr<Container>> TransparentObjects;
                 Camera* default_camera;
-
         };
     }
 }

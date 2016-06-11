@@ -3,6 +3,7 @@
 using namespace Graphics;
 Mesh::Mesh()
 {
+    setShaderVars(_Shaders::DefaultSceneShader->getVars());
 }
 void Mesh::generate()
 {
@@ -20,7 +21,7 @@ void Mesh::addImage(std::string path)
     Image* texture  = new Image(path);
     if(!texture)
     {
-        std::cout << "Out of Texture Memory!!" << std::endl;
+        LOG << "Fatal" << "Out of Texture Memory!!" << std::endl;
     }else
     {
         Images.push_back(texture);
@@ -43,8 +44,8 @@ void Mesh::addSubBuffer(Buff* b)
 }
 Buff* Mesh::addSubBuffer()
 {
-    if (Vars.get() == nullptr){Vars = Graphics::_Shaders::DefaultSceneShader->getVars();};
-    Buff* b = new Buff(Vars);
+    if (ShaderVars.get() == nullptr){ShaderVars = Graphics::_Shaders::DefaultSceneShader->getVars();};
+    Buff* b = new Buff(ShaderVars);
     Cores.push_back(b);
     return b;
 }
@@ -59,9 +60,10 @@ void Mesh::finalize()
         Images[i]->generate();
     };
 }
-void Mesh::render(int id)
+void Mesh::render(glm::mat4* model,DRAW draw_mode)
 {
-    refresh();
+    ShaderVars->sendMatrix("model_view",4,4,false,glm::value_ptr(*model));
+    int mech = getMechanicalTarget(draw_mode);
     for (unsigned int i=0; i < Images.size(); i++)
     {
         Images[i]->bind(i);
@@ -70,30 +72,26 @@ void Mesh::render(int id)
     {
         int last_id = 0;
         Cores[0]->attach();
-        Vars->apply();
+        ShaderVars->apply();
         for (auto v: Cores)
         {
-            int id = v->getShaderVars()->getID();
-            if (id != last_id)
+            int nid = v->getShaderVars()->getID();
+            if (nid != last_id)
             {
                 v->getShaderVars()->use();
-                SwapShaders(id,&Model_Matrix);
-                last_id = id;
+                SwapShaders(nid,model);
+                last_id = nid;
             };
             v->attach();
-            v->render(id);
+            v->render(mech);
         };
         Cores[0]->detach();
     };
     for (auto v: Children)
     {
-        v->render(id);
+        //add local transformation here in the future maybe.
+        v->render(model,draw_mode);
     }
-}
-void Mesh::draw(bool a)
-{
-    //if (texture) {texture.bind();};
-    render();
 }
 void Mesh::destroy(bool use_delete)
 {

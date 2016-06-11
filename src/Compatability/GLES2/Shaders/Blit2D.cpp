@@ -11,7 +11,6 @@ Blit2D::Blit2D()
 {
     if (!Graphics::_Shaders::Blit2D->isBuilt())
     {
-        std::cout << "Building Blit2D Shader" << std::endl;
         std::string Vertex =
         "#version 100\n"
         "attribute vec2 vertex;\n"

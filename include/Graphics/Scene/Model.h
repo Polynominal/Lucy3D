@@ -1,36 +1,36 @@
 #ifndef MIKUS_GRAPHICS_MODEL_H
 #define MIKUS_GRAPHICS_MODEL_H
 
-#include <Graphics/Bases/Moveable.h>
-#include <Graphics/Bases/DrawMode.h>
-#include <Graphics/Bases/ShaderHolder.h>
-
+#include <Graphics/Scene/Object.h>
 #include <Graphics/Image.h>
 #include <Graphics/Shaders.h>
 
 #include <utilities/OpenGL.h>
+#include <utilities/log.h>
 
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
+#include <Controll/Safety/Handler.h>
 
 namespace Graphics
 {
     typedef Utils::OpenGL::Buffer Buff;
     typedef Utils::OpenGL::Shader_Vars Shader_Vars;
 
-    class Model: public Graphics::Base::Moveable,public Graphics::Base::DrawMode,
-    public Graphics::Base::ShaderHolder
+    class Model: public Graphics::Scene::Object, public Controll::Safety::Handler
     {
         public:
             Model();
             void draw();
             void generate();
+            void render(glm::mat4* model,DRAW mode);
             void fromFile(std::string path);
             virtual ~Model();
         private:
             Assimp::Importer AssImporter;
+            bool fail = false;
             const aiScene* AssScene;
             std::string Directory = "";
 
