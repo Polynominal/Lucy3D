@@ -2629,10 +2629,10 @@
 	<Graphics/Primitives/Quad.h>
 	<Window/Window.h>
 
-1465409847 source:d:\lucy3d\src\graphics\shaders.cpp
-	"Shaders.h"
+1465782969 source:d:\lucy3d\src\graphics\shaders.cpp
+	"Graphics\Shaders.h"
 
-1465409268 d:\lucy3d\include\graphics\shaders.h
+1465782907 d:\lucy3d\include\graphics\shaders.h
 	<Settings.h>
 	<string>
 	<vector>
@@ -2641,12 +2641,13 @@
 	<SDL.h>
 	<memory>
 	<Graphics/Graphics.h>
-	<Utils.h>
+	<utilities/Utils.h>
 	<utilities/OpenGL.h>
 	<utilities/log.h>
 
-1465334899 d:\lucy3d\include\settings.h
-	<GLES2/gl2.h>
+1466022427 d:\lucy3d\include\settings.h
+	<GLES2\gl2.h>
+	<Startup.h>
 
 1439239642 d:\lucy3d\dependencies\glew-1.13.0\include\gl\glew.h
 	<stddef.h>
@@ -3008,7 +3009,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1465585792 d:\lucy3d\include\graphics\graphics.h
+1465783474 d:\lucy3d\include\graphics\graphics.h
 	<Settings.h>
 	<SDL.h>
 	<IL/il.h>
@@ -3021,6 +3022,7 @@
 	<functional>
 	<vector>
 	<settings.h>
+	<initializer_list>
 	<Compatability/GLES2/Framebuffer.h>
 
 1462675895 d:\lucy3d\dependencies\devil\include\il\il.h
@@ -3510,7 +3512,7 @@
 
 1462675900 d:\lucy3d\include\compatability\gles2\framebuffer.h
 
-1465431714 d:\lucy3d\include\utilities\utils.h
+1465769573 d:\lucy3d\include\utilities\utils.h
 	<string>
 	<ctime>
 	<thread>
@@ -3528,8 +3530,8 @@
 	<iostream>
 	<cstdarg>
 
-1462675901 source:d:\lucy3d\src\graphics\shaders\bases.cpp
-	"Bases.h"
+1465782997 source:d:\lucy3d\src\graphics\shaders\bases.cpp
+	"Graphics\Shaders\Bases.h"
 
 1462675900 d:\lucy3d\include\graphics\shaders\\bases.h
 	<Graphics/Graphics.h>
@@ -3552,8 +3554,8 @@
 	<Graphics/Shaders.h>
 	<utilities/OpenGL.h>
 
-1462675901 source:d:\lucy3d\src\graphics\shaders\bloom.cpp
-	"Bloom.h"
+1465783006 source:d:\lucy3d\src\graphics\shaders\bloom.cpp
+	"Graphics\Shaders\Bloom.h"
 
 1462675900 d:\lucy3d\include\graphics\shaders\\bloom.h
 	<Graphics/Shaders.h>
@@ -3572,8 +3574,8 @@
 1465409257 source:d:\lucy3d\src\graphics\shaders\blur.cpp
 	"Graphics/Shaders/Blur.h"
 
-1465409256 source:d:\lucy3d\src\graphics\shaders\outline.cpp
-	"Outline.h"
+1465783015 source:d:\lucy3d\src\graphics\shaders\outline.cpp
+	"Graphics\Shaders\Outline.h"
 
 1462675900 d:\lucy3d\include\graphics\shaders\\outline.h
 	<Graphics/Graphics.h>
@@ -3646,11 +3648,11 @@
 	<limits>
 	"../gtc/constants.hpp"
 
-1461706321 d:\lucy3d\include\graphics\text\task.h
+1465783028 d:\lucy3d\include\graphics\text\task.h
 	<Graphics/Text/Text.h>
 	<Graphics/Text/Instance.h>
 	<Graphics/Bases/Moveable.h>
-	<queque.h>
+	<Threads\queque.h>
 
 1462675900 d:\lucy3d\include\threads\queque.h
 	<mutex>
@@ -3677,7 +3679,7 @@
 	<Collider/Collider.h>
 	<Collider/Shape/Ray.h>
 
-1462675900 d:\lucy3d\include\collider\collider.h
+1465934609 d:\lucy3d\include\collider\collider.h
 	<cmath>
 	<iostream>
 	<vector>
@@ -3700,9 +3702,9 @@
 	<Collider/Collider.h>
 	<Collider/Shape.h>
 
-1462675900 d:\lucy3d\include\collider\shape.h
+1465782871 d:\lucy3d\include\collider\shape.h
 	<Collider/Collider.h>
-	<GJK.h>
+	<Collider/Algorithm/GJK.h>
 	<utilities/Utils.h>
 
 1462675900 d:\lucy3d\include\collider\manager.h
@@ -3726,7 +3728,8 @@
 	<utilities/log.h>
 	<Controll/Safety/Handler.h>
 
-1462675900 d:\lucy3d\include\graphics\bases\filter.h
+1465930506 d:\lucy3d\include\graphics\bases\filter.h
+	<Settings.h>
 
 1462675900 d:\lucy3d\include\maigui\bases\color.h
 
@@ -3830,11 +3833,11 @@
 	<utilities/OpenGL.h>
 	<utilities/log.h>
 
-1462675901 source:d:\lucy3d\src\network\win32.cpp
+1466022531 source:d:\lucy3d\src\network\win32.cpp
 	"win32.h"
 	<utilities/log.h>
 
-1462675900 d:\lucy3d\include\network\win32.h
+1465929013 d:\lucy3d\include\network\win32.h
 	<winsock2.h>
 	<windows.h>
 	<ws2tcpip.h>
@@ -3842,7 +3845,7 @@
 	<string>
 	<map>
 
-1465408785 d:\lucy3d\include\utilities\log.h
+1465929447 d:\lucy3d\include\utilities\log.h
 	<utilities/utils.h>
 	<string>
 	<map>
@@ -3853,11 +3856,12 @@
 	<sstream>
 	<fstream>
 	<numeric>
+	<Settings.h>
 
 1462675901 source:d:\lucy3d\src\state\gamemanager.cpp
 	"State/GameManager.h"
 
-1462675900 d:\lucy3d\include\state\gamemanager.h
+1465864377 d:\lucy3d\include\state\gamemanager.h
 	<Settings.h>
 	<Window/Window.h>
 	<State\Gamestate.h>
@@ -3866,7 +3870,7 @@
 	<algorithm>
 	<Threads/Threads.h>
 
-1465333325 d:\lucy3d\include\window\window.h
+1465769549 d:\lucy3d\include\window\window.h
 	<Settings.h>
 	<Startup.h>
 	<Window/Windower.h>
@@ -3886,8 +3890,9 @@
 	<Window/Windower.h>
 	<iostream>
 
-1462675900 d:\lucy3d\include\state\gamestate.h
+1466026332 d:\lucy3d\include\state\gamestate.h
 	<Settings.h>
+	<Controll/Keyboard.h>
 	<Window/Window.h>
 	<iostream>
 	<vector>
@@ -3905,20 +3910,20 @@
 1462675901 source:d:\lucy3d\src\state\gamestate.cpp
 	"State/Gamestate.h"
 
-1462675901 source:d:\lucy3d\src\threads\queque.cpp
-	"queque.h"
+1465783074 source:d:\lucy3d\src\threads\queque.cpp
+	"Threads\queque.h"
 
 1462675901 source:d:\lucy3d\src\threads\threads.cpp
 	"Threads/Threads.h"
 
-1462675901 source:d:\lucy3d\src\utilities\container.cpp
-	"Container.h"
+1465783095 source:d:\lucy3d\src\utilities\container.cpp
+	"utilities\Container.h"
 
 1462675900 d:\lucy3d\include\utilities\container.h
 	<initializer_list>
 
-1465408777 source:d:\lucy3d\src\utilities\log.cpp
-	"Log.h"
+1465783101 source:d:\lucy3d\src\utilities\log.cpp
+	"utilities\Log.h"
 	<windows.h>
 	<tchar.h>
 	<conio.h>
@@ -3930,30 +3935,30 @@
 1462675901 source:d:\lucy3d\src\utilities\utils.cpp
 	"utilities/Utils.h"
 
-1465410586 source:d:\lucy3d\main.cpp
-	<Settings.h>
-	<Compatability\Windows.h>
+1466192044 source:d:\lucy3d\main.cpp
+	<Lucia/Settings.h>
+	<Lucia/Compatability\Windows.h>
 	<stdio.h>
 	<iostream>
 	<string>
 	<SDL.h>
-	<Settings.h>
+	<Lucia/Settings.h>
 	"glm.hpp"
 	<IL/il.h>
 	<IL/ilut.h>
-	<utilities/Utils.h>
-	<utilities/Log.h>
-	<Graphics\Scene\Instance.h>
-	<State\GameManager.h>
-	<Network\win32.h>
-	<Collider/Collider.h>
-	<Window/Windower.h>
+	<Lucia/Utils/Utils.h>
+	<Lucia/Utils/Log.h>
+	<Lucia\Graphics\Scene\Instance.h>
+	<Lucia\State\GameManager.h>
+	<Lucia\Network\win32.h>
+	<Lucia\Collider/Collider.h>
+	<Lucia\Window/Context.h>
 	<MainGame.h>
-	<Controll/Safety/Lucia.h>
-	<Controll/Safety/GLWrapper.h>
-	<Controll/Safety/Handler.h>
+	<Lucia/Controll/Safety/Error.h>
+	<Lucia/Controll/Safety/GLWrapper.h>
+	<Lucia/Controll/Safety/Handler.h>
 
-1465593757 d:\lucy3d\include\graphics\scene\instance.h
+1465782928 d:\lucy3d\include\graphics\scene\instance.h
 	<Settings.h>
 	<vector>
 	<map>
@@ -3961,7 +3966,7 @@
 	<Graphics\Shaders.h>
 	<Graphics\Scene\Object.h>
 	<utilities\Utils.h>
-	<Camera.h>
+	<Graphics\Camera.h>
 	<string>
 	<SDL.h>
 	<memory>
@@ -4146,7 +4151,7 @@
 1462675895 d:\lucy3d\dependencies\assimp-3.2\include\assimp\postprocess.h
 	"types.h"
 
-1465592221 d:\lucy3d\include\graphics\scene\object.h
+1465740644 d:\lucy3d\include\graphics\scene\object.h
 	<glm.hpp>
 	<gtc/matrix_transform.hpp>
 	<gtc/type_ptr.hpp>
@@ -4180,37 +4185,20 @@
 	<inttypes.h>
 	<stdint.h>
 
-1465611298 d:\lucy3d\maingame.h
-	<utilities/OpenGL.h>
-	<State/Gamestate.h>
-	<Camera.h>
+1469659225 d:\lucy3d\maingame.h
 	<string>
-	<glm.hpp>
-	<gtc/matrix_transform.hpp>
-	<gtc/type_ptr.hpp>
-	<Controll/Keyboard.h>
-	<Graphics/Graphics.h>
-	<Graphics/Scene/Model.h>
-	<Graphics/Scene/Instance.h>
-	<Graphics/Text/Text.h>
-	<Graphics/Text/Instance.h>
-	<Graphics/Text/Task.h>
-	<Graphics/Buffers/Mesh.h>
-	<Graphics/Buffers/Spritesheet.h>
-	<Collider/Collider.h>
-	<Collider/Manager.h>
-	<Collider/Opengl.h>
-	<Collider/Shape/Polygon.h>
-	<Collider/Shape/Sphere.h>
-	<Collider/Shape/Point.h>
-	<Collider/Shape/Ray.h>
-	<Maigui/Maigui.h>
-	<Maigui/Manager.h>
-	<Maigui/Wrappers/OpenGL.h>
-	<Maigui/Types/Frame.h>
-	<Compatability/GLES2/Shaders/Basic2D.h>
-	<Settings.h>
-	<Maigui\Types\Button.h>
+	<Lucia/Utils/OpenGL.h>
+	<Lucia/State/Gamestate.h>
+	<Lucia/Graphics/Camera.h>
+	<Lucia/Graphics/Graphics.h>
+	<Lucia/Graphics/Scene/Model.h>
+	<Lucia/Graphics/Scene/Instance.h>
+	<Lucia/Graphics/Text/Text.h>
+	<Lucia/Graphics/Text/Instance.h>
+	<Lucia/Graphics/Text/Task.h>
+	<Lucia/Graphics/Buffers/Mesh.h>
+	<Lucia/Graphics/Buffers/Spritesheet.h>
+	<Lucia/Graphics/Scene/Scene2D.h>
 
 1462675900 d:\lucy3d\include\controll\keyboard.h
 	<SDL.h>
@@ -4233,24 +4221,26 @@
 	<memory>
 	<Graphics/Shaders.h>
 
-1465410936 d:\lucy3d\include\controll\safety\lucia.h
+1465931341 d:\lucy3d\include\controll\safety\lucia.h
 	<signal.h>
 	<Threads/Threads.h>
 	<Threads/queque.h>
 	<utilities/Log.h>
+	<exception>
+	<stdexcept>
 
-1465413540 d:\lucy3d\include\controll\safety\glwrapper.h
+1465864019 d:\lucy3d\include\controll\safety\glwrapper.h
 	<Graphics/Text/Text.h>
 	<Graphics/Text/Instance.h>
 	<Graphics/Primitives/Quad.h>
 	<Window/Window.h>
 	<utilities/log.h>
 
-1462675901 source:d:\lucy3d\src\collider\algorithm\gjk.cpp
-	"GJK.h"
+1465783898 source:d:\lucy3d\src\collider\algorithm\gjk.cpp
+	"Collider\Algorithm\GJK.h"
 
-1462675901 source:d:\lucy3d\src\collider\manager.cpp
-	"Manager.h"
+1465782884 source:d:\lucy3d\src\collider\manager.cpp
+	"Collider/Manager.h"
 	<Collider/Shape.h>
 	<Collider/Shape/Polygon.h>
 	<Collider/Shape/Point.h>
@@ -4260,8 +4250,8 @@
 1465409090 source:d:\lucy3d\src\collider\opengl.cpp
 	<Collider/Opengl.h>
 
-1462675901 source:d:\lucy3d\src\collider\shape.cpp
-	"Shape.h"
+1465782894 source:d:\lucy3d\src\collider\shape.cpp
+	"Collider/Shape.h"
 
 1462675901 source:d:\lucy3d\src\collider\shape\point.cpp
 	"Collider/Shape/Point.h"
@@ -4287,37 +4277,37 @@
 1462675901 source:d:\lucy3d\src\controll\keyboard.cpp
 	"Controll/Keyboard.h"
 
-1465397420 source:d:\lucy3d\src\controll\safety\lucia.cpp
+1465930204 source:d:\lucy3d\src\controll\safety\lucia.cpp
 	"Controll\Safety\Lucia.h"
 
-1465595316 source:d:\lucy3d\src\graphics\bases\moveable.cpp
+1465772234 source:d:\lucy3d\src\graphics\bases\moveable.cpp
 	"Graphics\Bases\Moveable.h"
 
-1465508671 source:d:\lucy3d\src\graphics\buffers\canvas.cpp
+1465936101 source:d:\lucy3d\src\graphics\buffers\canvas.cpp
 	"Graphics\Buffers\Canvas.h"
 
 1465595026 source:d:\lucy3d\src\graphics\buffers\mesh.cpp
 	"Graphics/Buffers/Mesh.h"
 	<Graphics/Bases/Moveable.h>
 
-1462675901 source:d:\lucy3d\src\graphics\camera.cpp
-	"Camera.h"
+1465782946 source:d:\lucy3d\src\graphics\camera.cpp
+	"Graphics\Camera.h"
 	<SDL.h>
 	<iostream>
 
-1462675901 source:d:\lucy3d\src\graphics\graphics.cpp
+1465936143 source:d:\lucy3d\src\graphics\graphics.cpp
 	<Graphics/Graphics.h>
 
-1465508846 source:d:\lucy3d\src\graphics\image.cpp
-	"Image.h"
+1465782954 source:d:\lucy3d\src\graphics\image.cpp
+	"Graphics\Image.h"
 	<iostream>
 	<map>
 	<string>
 
-1465608720 source:d:\lucy3d\src\graphics\primitives\quad.cpp
+1465773388 source:d:\lucy3d\src\graphics\primitives\quad.cpp
 	"Graphics\Primitives\Quad.h"
 
-1465595287 source:d:\lucy3d\src\graphics\scene\instance.cpp
+1465770600 source:d:\lucy3d\src\graphics\scene\instance.cpp
 	"Graphics/Scene/Instance.h"
 	<Graphics\Scene\Object.h>
 
@@ -4330,25 +4320,28 @@
 1462675901 source:d:\lucy3d\src\graphics\scene\scene2d.cpp
 	"Graphics\Scene\Scene2D.h"
 
-1462675900 d:\lucy3d\include\graphics\scene\scene2d.h
+1466026215 d:\lucy3d\include\graphics\scene\scene2d.h
+	<Graphics\Scene\Instance.h>
+	<Graphics\Camera.h>
 
-1465334621 source:d:\lucy3d\src\window\window.cpp
-	"Window.h"
+1465783112 source:d:\lucy3d\src\window\window.cpp
+	"Window/Window.h"
 	"glm.hpp"
 	<iostream>
 
-1465336819 d:\lucy3d\include\startup.h
+1465929473 d:\lucy3d\include\startup.h
 	<Settings.h>
 	<iostream>
+	<Compatability/Android.h>
 
-1465331040 d:\lucy3d\include\compatability\windows.h
+1465935932 d:\lucy3d\include\compatability\windows.h
 	<winsock2.h>
 	<windows.h>
 	<Dwmapi.h>
 	<string>
 	<utilities\Log.h>
 
-1465345464 source:d:\lucy3d\src\compatability\windows.cpp
+1466022345 source:d:\lucy3d\src\compatability\windows.cpp
 	<Settings.h>
 	<iostream>
 	"Compatability\Windows.h"
@@ -4375,13 +4368,14 @@
 	<utilities/OpenGL.h>
 	<Graphics/Primitives/Quad.h>
 
-1465591367 d:\lucy3d\include\utilities\tween.h
+1465782937 d:\lucy3d\include\utilities\tween.h
 	<string>
 	<functional>
 	<map>
 	<vector>
 	<cmath>
-	<Utils.h>
+	<math.h>
+	<utilities\Utils.h>
 
 1465610191 d:\lucy3d\include\utilities\logistics.h
 
@@ -4402,7 +4396,7 @@
 	<utilities/OpenGL.h>
 	<Graphics/Primitives/Quad.h>
 
-1465607590 d:\lucy3d\include\graphics\buffers\spritesheet.h
+1465765169 d:\lucy3d\include\graphics\buffers\spritesheet.h
 	<memory>
 	<Graphics/Image.h>
 	<Graphics/Scene/Object.h>
@@ -4413,6 +4407,2270 @@
 	<utilities/OpenGL.h>
 	<Graphics/Primitives/Quad.h>
 
-1465610539 source:d:\lucy3d\src\graphics\buffers\spritesheet.cpp
+1465770576 source:d:\lucy3d\src\graphics\buffers\spritesheet.cpp
 	"Graphics\Buffers\Spritesheet.h"
+
+1462675900 d:\lucy3d\\include\collider\algorithm\gjk.h
+	<Collider/Collider.h>
+	<Collider/Shape.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\stdint.h
+	<stddef.h>
+	<sys/_types.h>
+	<sys/_wchar_limits.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\sys\_types.h
+	<machine/_types.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\machine\_types.h
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\sys\_wchar_limits.h
+	<android/api-level.h>
+
+1459353732 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\android\api-level.h
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\inttypes.h
+	<stdint.h>
+	<sys/cdefs.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\sys\cdefs.h
+	<sys/cdefs_elf.h>
+	<android/api-level.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\sys\cdefs_elf.h
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\iostream
+	<bits/c++config.h>
+	<ostream>
+	<istream>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\libs\armeabi\include\bits\c++config.h
+	<bits/os_defines.h>
+	<bits/cpu_defines.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\libs\armeabi\include\bits\os_defines.h
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\libs\armeabi\include\bits\cpu_defines.h
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\ostream
+	<ios>
+	<bits/ostream_insert.h>
+	<bits/ostream.tcc>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\ios
+	<iosfwd>
+	<exception>
+	<bits/char_traits.h>
+	<bits/localefwd.h>
+	<bits/ios_base.h>
+	<streambuf>
+	<bits/basic_ios.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\iosfwd
+	<bits/c++config.h>
+	<bits/stringfwd.h>
+	<bits/postypes.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\stringfwd.h
+	<bits/c++config.h>
+	<bits/memoryfwd.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\memoryfwd.h
+	<bits/c++config.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\postypes.h
+	<cwchar>
+	<stdint.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\cwchar
+	<bits/c++config.h>
+	<wchar.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\wchar.h
+	<sys/cdefs.h>
+	<stdio.h>
+	<stddef.h>
+	<stdarg.h>
+	<time.h>
+	<malloc.h>
+	<stddef.h>
+	<sys/_wchar_limits.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\stdio.h
+	<sys/cdefs.h>
+	<sys/types.h>
+	<stdarg.h>
+	<stddef.h>
+	<stddef.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\sys\types.h
+	<stddef.h>
+	<stdint.h>
+	<sys/cdefs.h>
+	<linux/posix_types.h>
+	<asm/types.h>
+	<linux/types.h>
+	<machine/kernel.h>
+	<sys/sysmacros.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\linux\posix_types.h
+	<linux/stddef.h>
+	<asm/posix_types.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\linux\stddef.h
+	<linux/compiler.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\linux\compiler.h
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\asm\posix_types.h
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\asm\types.h
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\linux\types.h
+	<linux/posix_types.h>
+	<asm/types.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\machine\kernel.h
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\sys\sysmacros.h
+	<sys/types.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\time.h
+	<sys/cdefs.h>
+	<sys/time.h>
+	<asm/siginfo.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\sys\time.h
+	<sys/cdefs.h>
+	<sys/types.h>
+	<linux/time.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\linux\time.h
+	<linux/types.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\asm\siginfo.h
+	<asm-generic/siginfo.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\asm-generic\siginfo.h
+	<linux/compiler.h>
+	<linux/types.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\malloc.h
+	<sys/cdefs.h>
+	<stddef.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\exception
+	<bits/c++config.h>
+	<bits/atomic_lockfree_defines.h>
+	<bits/exception_ptr.h>
+	<bits/nested_exception.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\atomic_lockfree_defines.h
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\exception_ptr.h
+	<bits/c++config.h>
+	<bits/exception_defines.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\exception_defines.h
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\nested_exception.h
+	<bits/c++0x_warning.h>
+	<bits/c++config.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\c++0x_warning.h
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\char_traits.h
+	<bits/stl_algobase.h>
+	<bits/postypes.h>
+	<cwchar>
+	<cstdint>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\stl_algobase.h
+	<bits/c++config.h>
+	<bits/functexcept.h>
+	<bits/cpp_type_traits.h>
+	<ext/type_traits.h>
+	<ext/numeric_traits.h>
+	<bits/stl_pair.h>
+	<bits/stl_iterator_base_types.h>
+	<bits/stl_iterator_base_funcs.h>
+	<bits/stl_iterator.h>
+	<bits/concept_check.h>
+	<debug/debug.h>
+	<bits/move.h>
+	<bits/predefined_ops.h>
+	<parallel/algobase.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\functexcept.h
+	<bits/c++config.h>
+	<bits/exception_defines.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\cpp_type_traits.h
+	<bits/c++config.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\ext\type_traits.h
+	<bits/c++config.h>
+	<bits/cpp_type_traits.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\ext\numeric_traits.h
+	<bits/cpp_type_traits.h>
+	<ext/type_traits.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\stl_pair.h
+	<bits/move.h>
+	<type_traits>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\move.h
+	<bits/c++config.h>
+	<bits/concept_check.h>
+	<type_traits>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\concept_check.h
+	<bits/c++config.h>
+	<bits/boost_concept_check.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\boost_concept_check.h
+	<bits/c++config.h>
+	<bits/stl_iterator_base_types.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\stl_iterator_base_types.h
+	<bits/c++config.h>
+	<type_traits>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\type_traits
+	<bits/c++0x_warning.h>
+	<bits/c++config.h>
+	<cstdint>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\cstdint
+	<bits/c++0x_warning.h>
+	<bits/c++config.h>
+	<stdint.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\stl_iterator_base_funcs.h
+	<bits/concept_check.h>
+	<debug/debug.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\debug\debug.h
+	<debug/macros.h>
+	<debug/functions.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\debug\macros.h
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\debug\functions.h
+	<bits/c++config.h>
+	<bits/stl_iterator_base_types.h>
+	<bits/cpp_type_traits.h>
+	<bits/move.h>
+	<bits/stl_function.h>
+	<type_traits>
+	<debug/formatter.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\stl_function.h
+	<bits/move.h>
+	<backward/binders.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\backward\binders.h
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\debug\formatter.h
+	<bits/c++config.h>
+	<bits/cpp_type_traits.h>
+	<typeinfo>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\typeinfo
+	<exception>
+	<bits/hash_bytes.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\hash_bytes.h
+	<bits/c++config.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\stl_iterator.h
+	<bits/cpp_type_traits.h>
+	<ext/type_traits.h>
+	<bits/move.h>
+	<bits/ptr_traits.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\ptr_traits.h
+	<type_traits>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\predefined_ops.h
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\algobase.h
+	<bits/stl_algobase.h>
+	<parallel/base.h>
+	<parallel/algorithmfwd.h>
+	<parallel/find.h>
+	<parallel/find_selectors.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\base.h
+	<bits/c++config.h>
+	<bits/stl_function.h>
+	<omp.h>
+	<parallel/features.h>
+	<parallel/basic_iterator.h>
+	<parallel/parallel.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\features.h
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\basic_iterator.h
+	<bits/c++config.h>
+	<bits/stl_iterator_base_types.h>
+	<bits/stl_iterator_base_funcs.h>
+	<bits/stl_iterator.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\parallel.h
+	<parallel/features.h>
+	<parallel/compiletime_settings.h>
+	<parallel/types.h>
+	<parallel/tags.h>
+	<parallel/settings.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\compiletime_settings.h
+	<cstdio>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\cstdio
+	<bits/c++config.h>
+	<stdio.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\types.h
+	<cstdlib>
+	<limits>
+	<tr1/cstdint>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\cstdlib
+	<bits/c++config.h>
+	<stdlib.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\stdlib.h
+	<sys/cdefs.h>
+	<stddef.h>
+	<stddef.h>
+	<string.h>
+	<alloca.h>
+	<strings.h>
+	<memory.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\string.h
+	<sys/cdefs.h>
+	<stddef.h>
+	<malloc.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\alloca.h
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\strings.h
+	<sys/types.h>
+	<sys/cdefs.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\memory.h
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\limits
+	<bits/c++config.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\tr1\cstdint
+	<bits/c++config.h>
+	<stdint.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\tags.h
+	<omp.h>
+	<parallel/types.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\settings.h
+	<parallel/types.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\algorithmfwd.h
+	<parallel/tags.h>
+	<parallel/settings.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\find.h
+	<bits/stl_algobase.h>
+	<parallel/features.h>
+	<parallel/parallel.h>
+	<parallel/compatibility.h>
+	<parallel/equally_split.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\compatibility.h
+	<parallel/types.h>
+	<parallel/base.h>
+	<sched.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\sched.h
+	<sys/cdefs.h>
+	<sys/time.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\equally_split.h
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\find_selectors.h
+	<parallel/tags.h>
+	<parallel/basic_iterator.h>
+	<bits/stl_pair.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\localefwd.h
+	<bits/c++config.h>
+	<bits/c++locale.h>
+	<iosfwd>
+	<cctype>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\libs\armeabi\include\bits\c++locale.h
+	<clocale>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\clocale
+	<bits/c++config.h>
+	<locale.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\locale.h
+	<sys/cdefs.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\cctype
+	<bits/c++config.h>
+	<ctype.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\ctype.h
+	<sys/cdefs.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\ios_base.h
+	<ext/atomicity.h>
+	<bits/localefwd.h>
+	<bits/locale_classes.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\ext\atomicity.h
+	<bits/c++config.h>
+	<bits/gthr.h>
+	<bits/atomic_word.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\libs\armeabi\include\bits\gthr.h
+	<bits/gthr-default.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\libs\armeabi\include\bits\gthr-default.h
+	<pthread.h>
+	<unistd.h>
+	<config.h>
+	<sched.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\pthread.h
+	<time.h>
+	<signal.h>
+	<sched.h>
+	<limits.h>
+	<sys/types.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\signal.h
+	<sys/cdefs.h>
+	<limits.h>
+	<string.h>
+	<sys/types.h>
+	<asm/signal.h>
+	<asm/siginfo.h>
+	<sys/ucontext.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\limits.h
+	<sys/cdefs.h>
+	<sys/limits.h>
+	<sys/syslimits.h>
+	<asm/page.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\sys\limits.h
+	<sys/cdefs.h>
+	<linux/limits.h>
+	<machine/internal_types.h>
+	<machine/limits.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\linux\limits.h
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\machine\internal_types.h
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\machine\limits.h
+	<sys/cdefs.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\sys\syslimits.h
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\asm\page.h
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\asm\signal.h
+	<linux/types.h>
+	<asm-generic/signal.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\asm-generic\signal.h
+	<linux/compiler.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\sys\ucontext.h
+	<signal.h>
+	<sys/user.h>
+	<asm/sigcontext.h>
+	<asm/sigcontext.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\sys\user.h
+	<sys/cdefs.h>
+	<limits.h>
+	<stddef.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\asm\sigcontext.h
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\unistd.h
+	<stddef.h>
+	<sys/cdefs.h>
+	<sys/types.h>
+	<sys/select.h>
+	<sys/sysconf.h>
+	<linux/capability.h>
+	<pathconf.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\sys\select.h
+	<sys/cdefs.h>
+	<sys/time.h>
+	<sys/types.h>
+	<signal.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\sys\sysconf.h
+	<sys/cdefs.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\linux\capability.h
+	<linux/types.h>
+	<linux/compiler.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\pathconf.h
+	<sys/cdefs.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\libs\armeabi\include\bits\atomic_word.h
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\locale_classes.h
+	<bits/localefwd.h>
+	<string>
+	<ext/atomicity.h>
+	<bits/locale_classes.tcc>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\string
+	<bits/c++config.h>
+	<bits/stringfwd.h>
+	<bits/char_traits.h>
+	<bits/allocator.h>
+	<bits/cpp_type_traits.h>
+	<bits/localefwd.h>
+	<bits/ostream_insert.h>
+	<bits/stl_iterator_base_types.h>
+	<bits/stl_iterator_base_funcs.h>
+	<bits/stl_iterator.h>
+	<bits/stl_function.h>
+	<ext/numeric_traits.h>
+	<bits/stl_algobase.h>
+	<bits/range_access.h>
+	<bits/basic_string.h>
+	<bits/basic_string.tcc>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\allocator.h
+	<bits/c++allocator.h>
+	<bits/memoryfwd.h>
+	<type_traits>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\libs\armeabi\include\bits\c++allocator.h
+	<ext/new_allocator.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\ext\new_allocator.h
+	<bits/c++config.h>
+	<new>
+	<bits/functexcept.h>
+	<bits/move.h>
+	<type_traits>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\new
+	<bits/c++config.h>
+	<exception>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\ostream_insert.h
+	<iosfwd>
+	<bits/cxxabi_forced.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\cxxabi_forced.h
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\range_access.h
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\basic_string.h
+	<ext/atomicity.h>
+	<debug/debug.h>
+	<initializer_list>
+	<ext/string_conversions.h>
+	<bits/functional_hash.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\initializer_list
+	<bits/c++0x_warning.h>
+	<bits/c++config.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\ext\string_conversions.h
+	<bits/c++0x_warning.h>
+	<bits/c++config.h>
+	<ext/numeric_traits.h>
+	<bits/functexcept.h>
+	<cstdlib>
+	<cwchar>
+	<cstdio>
+	<cerrno>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\cerrno
+	<errno.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\errno.h
+	<sys/cdefs.h>
+	<linux/errno.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\linux\errno.h
+	<asm/errno.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\asm\errno.h
+	<asm-generic/errno.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\asm-generic\errno.h
+	<asm-generic/errno-base.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\asm-generic\errno-base.h
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\functional_hash.h
+	<bits/hash_bytes.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\basic_string.tcc
+	<bits/cxxabi_forced.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\locale_classes.tcc
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\streambuf
+	<bits/c++config.h>
+	<iosfwd>
+	<bits/localefwd.h>
+	<bits/ios_base.h>
+	<bits/cpp_type_traits.h>
+	<ext/type_traits.h>
+	<bits/streambuf.tcc>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\streambuf.tcc
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\basic_ios.h
+	<bits/localefwd.h>
+	<bits/locale_classes.h>
+	<bits/locale_facets.h>
+	<bits/streambuf_iterator.h>
+	<bits/basic_ios.tcc>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\locale_facets.h
+	<cwctype>
+	<cctype>
+	<bits/ctype_base.h>
+	<iosfwd>
+	<bits/ios_base.h>
+	<streambuf>
+	<bits/cpp_type_traits.h>
+	<ext/type_traits.h>
+	<ext/numeric_traits.h>
+	<bits/streambuf_iterator.h>
+	<bits/ctype_inline.h>
+	<bits/locale_facets.tcc>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\cwctype
+	<bits/c++config.h>
+	<stddef.h>
+	<wctype.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\wctype.h
+	<wchar.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\libs\armeabi\include\bits\ctype_base.h
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\streambuf_iterator.h
+	<streambuf>
+	<debug/debug.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\libs\armeabi\include\bits\ctype_inline.h
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\locale_facets.tcc
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\basic_ios.tcc
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\ostream.tcc
+	<bits/cxxabi_forced.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\istream
+	<ios>
+	<ostream>
+	<bits/istream.tcc>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\istream.tcc
+	<bits/cxxabi_forced.h>
+
+1466022412 d:\lucy3d\include\compatability\android.h
+	<string>
+	<sstream>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\sstream
+	<istream>
+	<ostream>
+	<bits/sstream.tcc>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\sstream.tcc
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\ctime
+	<bits/c++config.h>
+	<time.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\thread
+	<bits/c++0x_warning.h>
+	<chrono>
+	<functional>
+	<memory>
+	<bits/functexcept.h>
+	<bits/functional_hash.h>
+	<bits/gthr.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\chrono
+	<bits/c++0x_warning.h>
+	<ratio>
+	<type_traits>
+	<limits>
+	<ctime>
+	<bits/parse_numbers.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\ratio
+	<bits/c++0x_warning.h>
+	<type_traits>
+	<cstdint>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\parse_numbers.h
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\functional
+	<bits/c++config.h>
+	<bits/stl_function.h>
+	<typeinfo>
+	<new>
+	<tuple>
+	<type_traits>
+	<bits/functexcept.h>
+	<bits/functional_hash.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\tuple
+	<bits/c++0x_warning.h>
+	<utility>
+	<array>
+	<bits/uses_allocator.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\utility
+	<bits/c++config.h>
+	<bits/stl_relops.h>
+	<bits/stl_pair.h>
+	<bits/move.h>
+	<initializer_list>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\stl_relops.h
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\array
+	<bits/c++0x_warning.h>
+	<stdexcept>
+	<bits/stl_algobase.h>
+	<bits/range_access.h>
+	<debug/array>
+	<profile/array>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\stdexcept
+	<exception>
+	<string>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\debug\array
+	<debug/safe_sequence.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\debug\safe_sequence.h
+	<debug/debug.h>
+	<debug/macros.h>
+	<debug/functions.h>
+	<debug/safe_base.h>
+	<debug/safe_sequence.tcc>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\debug\safe_base.h
+	<ext/concurrence.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\ext\concurrence.h
+	<exception>
+	<bits/gthr.h>
+	<bits/functexcept.h>
+	<bits/cpp_type_traits.h>
+	<ext/type_traits.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\debug\safe_sequence.tcc
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\profile\array
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\uses_allocator.h
+	<bits/c++0x_warning.h>
+	<type_traits>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\memory
+	<bits/stl_algobase.h>
+	<bits/allocator.h>
+	<bits/stl_construct.h>
+	<bits/stl_uninitialized.h>
+	<bits/stl_tempbuf.h>
+	<bits/stl_raw_storage_iter.h>
+	<exception>
+	<typeinfo>
+	<iosfwd>
+	<ext/atomicity.h>
+	<ext/concurrence.h>
+	<bits/functexcept.h>
+	<bits/stl_function.h>
+	<bits/uses_allocator.h>
+	<type_traits>
+	<functional>
+	<debug/debug.h>
+	<bits/unique_ptr.h>
+	<bits/shared_ptr.h>
+	<backward/auto_ptr.h>
+	<backward/auto_ptr.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\stl_construct.h
+	<new>
+	<bits/move.h>
+	<ext/alloc_traits.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\ext\alloc_traits.h
+	<bits/move.h>
+	<bits/alloc_traits.h>
+	<bits/allocator.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\alloc_traits.h
+	<bits/memoryfwd.h>
+	<bits/ptr_traits.h>
+	<ext/numeric_traits.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\stl_uninitialized.h
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\stl_tempbuf.h
+	<bits/stl_algobase.h>
+	<bits/stl_construct.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\stl_raw_storage_iter.h
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\unique_ptr.h
+	<bits/c++config.h>
+	<debug/debug.h>
+	<type_traits>
+	<utility>
+	<tuple>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\shared_ptr.h
+	<bits/shared_ptr_base.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\shared_ptr_base.h
+	<ext/aligned_buffer.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\ext\aligned_buffer.h
+	<type_traits>
+	<bits/c++0x_warning.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\backward\auto_ptr.h
+	<bits/c++config.h>
+	<debug/debug.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\fstream
+	<istream>
+	<ostream>
+	<bits/codecvt.h>
+	<cstdio>
+	<bits/basic_file.h>
+	<string>
+	<bits/fstream.tcc>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\codecvt.h
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\libs\armeabi\include\bits\basic_file.h
+	<bits/c++config.h>
+	<bits/c++io.h>
+	<ios>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\libs\armeabi\include\bits\c++io.h
+	<cstdio>
+	<bits/gthr.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\fstream.tcc
+	<bits/cxxabi_forced.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\map
+	<bits/stl_tree.h>
+	<bits/stl_map.h>
+	<bits/stl_multimap.h>
+	<bits/range_access.h>
+	<debug/map>
+	<profile/map>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\stl_tree.h
+	<bits/stl_algobase.h>
+	<bits/allocator.h>
+	<bits/stl_function.h>
+	<bits/cpp_type_traits.h>
+	<ext/alloc_traits.h>
+	<ext/aligned_buffer.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\stl_map.h
+	<bits/functexcept.h>
+	<bits/concept_check.h>
+	<initializer_list>
+	<tuple>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\stl_multimap.h
+	<bits/concept_check.h>
+	<initializer_list>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\debug\map
+	<map>
+	<debug/map.h>
+	<debug/multimap.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\debug\map.h
+	<debug/safe_sequence.h>
+	<debug/safe_iterator.h>
+	<utility>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\debug\safe_iterator.h
+	<debug/debug.h>
+	<debug/macros.h>
+	<debug/functions.h>
+	<debug/safe_base.h>
+	<bits/stl_pair.h>
+	<ext/type_traits.h>
+	<debug/safe_iterator.tcc>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\debug\safe_iterator.tcc
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\debug\multimap.h
+	<debug/safe_sequence.h>
+	<debug/safe_iterator.h>
+	<utility>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\profile\map
+	<map>
+	<profile/map.h>
+	<profile/multimap.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\profile\map.h
+	<utility>
+	<profile/base.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\profile\base.h
+	<functional>
+	<profile/impl/profiler.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\profile\impl\profiler.h
+	<bits/c++config.h>
+	"profile/impl/profiler_hash_func.h"
+	"profile/impl/profiler_hashtable_size.h"
+	"profile/impl/profiler_map_to_unordered_map.h"
+	"profile/impl/profiler_vector_size.h"
+	"profile/impl/profiler_vector_to_list.h"
+	"profile/impl/profiler_list_to_slist.h"
+	"profile/impl/profiler_list_to_vector.h"
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\profile\impl\profiler_hash_func.h
+	"profile/impl/profiler.h"
+	"profile/impl/profiler_node.h"
+	"profile/impl/profiler_trace.h"
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\profile\impl\profiler_node.h
+	<cstdio>
+	<vector>
+	<execinfo.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\vector
+	<bits/stl_algobase.h>
+	<bits/allocator.h>
+	<bits/stl_construct.h>
+	<bits/stl_uninitialized.h>
+	<bits/stl_vector.h>
+	<bits/stl_bvector.h>
+	<bits/range_access.h>
+	<bits/vector.tcc>
+	<debug/vector>
+	<profile/vector>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\stl_vector.h
+	<bits/stl_iterator_base_funcs.h>
+	<bits/functexcept.h>
+	<bits/concept_check.h>
+	<initializer_list>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\stl_bvector.h
+	<initializer_list>
+	<bits/stl_vector.h>
+	<bits/functional_hash.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\vector.tcc
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\debug\vector
+	<vector>
+	<utility>
+	<debug/safe_sequence.h>
+	<debug/safe_iterator.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\profile\vector
+	<vector>
+	<utility>
+	<profile/base.h>
+	<profile/iterator_tracker.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\profile\iterator_tracker.h
+	<ext/type_traits.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\profile\impl\profiler_trace.h
+	<cstdio>
+	<cerrno>
+	<cstdlib>
+	<unordered_map>
+	<tr1/unordered_map>
+	<ext/concurrence.h>
+	<fstream>
+	<string>
+	<utility>
+	<vector>
+	"profile/impl/profiler_algos.h"
+	"profile/impl/profiler_state.h"
+	"profile/impl/profiler_node.h"
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\unordered_map
+	<bits/c++0x_warning.h>
+	<utility>
+	<type_traits>
+	<initializer_list>
+	<tuple>
+	<bits/allocator.h>
+	<ext/alloc_traits.h>
+	<ext/aligned_buffer.h>
+	<bits/stl_function.h>
+	<bits/functional_hash.h>
+	<bits/hashtable.h>
+	<bits/unordered_map.h>
+	<bits/range_access.h>
+	<debug/unordered_map>
+	<profile/unordered_map>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\hashtable.h
+	<bits/hashtable_policy.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\hashtable_policy.h
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\unordered_map.h
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\debug\unordered_map
+	<bits/c++0x_warning.h>
+	<unordered_map>
+	<debug/safe_unordered_container.h>
+	<debug/safe_iterator.h>
+	<debug/safe_local_iterator.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\debug\safe_unordered_container.h
+	<debug/debug.h>
+	<debug/macros.h>
+	<debug/functions.h>
+	<debug/safe_unordered_base.h>
+	<debug/safe_unordered_container.tcc>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\debug\safe_unordered_base.h
+	<debug/safe_base.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\debug\safe_unordered_container.tcc
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\debug\safe_local_iterator.h
+	<debug/debug.h>
+	<debug/macros.h>
+	<debug/functions.h>
+	<debug/safe_unordered_base.h>
+	<ext/type_traits.h>
+	<debug/safe_local_iterator.tcc>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\debug\safe_local_iterator.tcc
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\profile\unordered_map
+	<bits/c++0x_warning.h>
+	<unordered_map>
+	<profile/base.h>
+	<profile/unordered_base.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\profile\unordered_base.h
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\tr1\unordered_map
+	<utility>
+	<bits/stl_algobase.h>
+	<bits/allocator.h>
+	<bits/stl_function.h>
+	<bits/stringfwd.h>
+	<tr1/type_traits>
+	<tr1/functional_hash.h>
+	<tr1/hashtable.h>
+	<tr1/unordered_map.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\tr1\type_traits
+	<bits/c++config.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\tr1\functional_hash.h
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\tr1\hashtable.h
+	<tr1/hashtable_policy.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\tr1\hashtable_policy.h
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\tr1\unordered_map.h
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\profile\impl\profiler_algos.h
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\profile\impl\profiler_state.h
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\profile\impl\profiler_hashtable_size.h
+	"profile/impl/profiler.h"
+	"profile/impl/profiler_node.h"
+	"profile/impl/profiler_trace.h"
+	"profile/impl/profiler_state.h"
+	"profile/impl/profiler_container_size.h"
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\profile\impl\profiler_container_size.h
+	<sstream>
+	"profile/impl/profiler.h"
+	"profile/impl/profiler_node.h"
+	"profile/impl/profiler_trace.h"
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\profile\impl\profiler_map_to_unordered_map.h
+	"profile/impl/profiler.h"
+	"profile/impl/profiler_node.h"
+	"profile/impl/profiler_trace.h"
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\profile\impl\profiler_vector_size.h
+	"profile/impl/profiler.h"
+	"profile/impl/profiler_node.h"
+	"profile/impl/profiler_trace.h"
+	"profile/impl/profiler_state.h"
+	"profile/impl/profiler_container_size.h"
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\profile\impl\profiler_vector_to_list.h
+	"profile/impl/profiler.h"
+	"profile/impl/profiler_node.h"
+	"profile/impl/profiler_trace.h"
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\profile\impl\profiler_list_to_slist.h
+	"profile/impl/profiler.h"
+	"profile/impl/profiler_node.h"
+	"profile/impl/profiler_trace.h"
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\profile\impl\profiler_list_to_vector.h
+	<sstream>
+	"profile/impl/profiler.h"
+	"profile/impl/profiler_node.h"
+	"profile/impl/profiler_trace.h"
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\profile\multimap.h
+	<utility>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\numeric
+	<bits/c++config.h>
+	<bits/stl_iterator_base_types.h>
+	<bits/stl_numeric.h>
+	<parallel/numeric>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\stl_numeric.h
+	<bits/concept_check.h>
+	<debug/debug.h>
+	<bits/move.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\numeric
+	<numeric>
+	<bits/stl_function.h>
+	<parallel/numericfwd.h>
+	<parallel/iterator.h>
+	<parallel/for_each.h>
+	<parallel/for_each_selectors.h>
+	<parallel/partial_sum.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\numericfwd.h
+	<parallel/tags.h>
+	<parallel/settings.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\iterator.h
+	<parallel/basic_iterator.h>
+	<bits/stl_pair.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\for_each.h
+	<parallel/settings.h>
+	<parallel/par_loop.h>
+	<parallel/omp_loop.h>
+	<parallel/workstealing.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\par_loop.h
+	<omp.h>
+	<parallel/settings.h>
+	<parallel/base.h>
+	<parallel/equally_split.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\omp_loop.h
+	<omp.h>
+	<parallel/settings.h>
+	<parallel/basic_iterator.h>
+	<parallel/base.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\workstealing.h
+	<parallel/parallel.h>
+	<parallel/random_number.h>
+	<parallel/compatibility.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\random_number.h
+	<parallel/types.h>
+	<tr1/random>
+	<limits>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\tr1\random
+	<cmath>
+	<cstdio>
+	<cstdlib>
+	<string>
+	<iosfwd>
+	<limits>
+	<ext/type_traits.h>
+	<ext/numeric_traits.h>
+	<bits/concept_check.h>
+	<debug/debug.h>
+	<tr1/type_traits>
+	<tr1/cmath>
+	<tr1/random.h>
+	<tr1/random.tcc>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\cmath
+	<bits/c++config.h>
+	<bits/cpp_type_traits.h>
+	<ext/type_traits.h>
+	<math.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\math.h
+	<sys/cdefs.h>
+	<sys/types.h>
+	<limits.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\tr1\cmath
+	<cmath>
+	<bits/stl_algobase.h>
+	<limits>
+	<tr1/type_traits>
+	<tr1/gamma.tcc>
+	<tr1/bessel_function.tcc>
+	<tr1/beta_function.tcc>
+	<tr1/ell_integral.tcc>
+	<tr1/exp_integral.tcc>
+	<tr1/hypergeometric.tcc>
+	<tr1/legendre_function.tcc>
+	<tr1/modified_bessel_func.tcc>
+	<tr1/poly_hermite.tcc>
+	<tr1/poly_laguerre.tcc>
+	<tr1/riemann_zeta.tcc>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\tr1\gamma.tcc
+	"special_function_util.h"
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\tr1\special_function_util.h
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\tr1\bessel_function.tcc
+	"special_function_util.h"
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\tr1\beta_function.tcc
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\tr1\ell_integral.tcc
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\tr1\exp_integral.tcc
+	"special_function_util.h"
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\tr1\hypergeometric.tcc
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\tr1\legendre_function.tcc
+	"special_function_util.h"
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\tr1\modified_bessel_func.tcc
+	"special_function_util.h"
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\tr1\poly_hermite.tcc
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\tr1\poly_laguerre.tcc
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\tr1\riemann_zeta.tcc
+	"special_function_util.h"
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\tr1\random.h
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\tr1\random.tcc
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\for_each_selectors.h
+	<parallel/basic_iterator.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\partial_sum.h
+	<omp.h>
+	<new>
+	<bits/stl_algobase.h>
+	<parallel/parallel.h>
+	<parallel/numericfwd.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\endian.h
+	<sys/endian.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\sys\endian.h
+	<sys/cdefs.h>
+	<stdint.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\climits
+	<limits.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\cfloat
+	<float.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\cassert
+	<assert.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\assert.h
+	<sys/cdefs.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\cstddef
+	<bits/c++config.h>
+	<stddef.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\sys\ipc.h
+	<sys/cdefs.h>
+	<sys/types.h>
+	<linux/ipc.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\linux\ipc.h
+	<linux/types.h>
+	<asm/ipcbuf.h>
+
+1459351334 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\platforms\android-4\arch-arm\usr\include\asm\ipcbuf.h
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\cstring
+	<bits/c++config.h>
+	<string.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\cstdarg
+	<bits/c++config.h>
+	<stdarg.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\algorithm
+	<utility>
+	<bits/stl_algobase.h>
+	<bits/stl_algo.h>
+	<parallel/algorithm>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\stl_algo.h
+	<cstdlib>
+	<bits/algorithmfwd.h>
+	<bits/stl_heap.h>
+	<bits/stl_tempbuf.h>
+	<bits/predefined_ops.h>
+	<random>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\algorithmfwd.h
+	<bits/c++config.h>
+	<bits/stl_pair.h>
+	<bits/stl_iterator_base_types.h>
+	<initializer_list>
+	<parallel/algorithmfwd.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\stl_heap.h
+	<debug/debug.h>
+	<bits/move.h>
+	<bits/predefined_ops.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\random
+	<bits/c++0x_warning.h>
+	<cmath>
+	<cstdlib>
+	<string>
+	<iosfwd>
+	<limits>
+	<debug/debug.h>
+	<type_traits>
+	<cstdint>
+	<bits/random.h>
+	<bits/opt_random.h>
+	<bits/random.tcc>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\random.h
+	<vector>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\libs\armeabi\include\bits\opt_random.h
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\random.tcc
+	<numeric>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\algorithm
+	<algorithm>
+	<parallel/algorithmfwd.h>
+	<parallel/algobase.h>
+	<parallel/algo.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\algo.h
+	<parallel/algorithmfwd.h>
+	<bits/stl_algobase.h>
+	<bits/stl_algo.h>
+	<parallel/iterator.h>
+	<parallel/base.h>
+	<parallel/sort.h>
+	<parallel/workstealing.h>
+	<parallel/par_loop.h>
+	<parallel/omp_loop.h>
+	<parallel/omp_loop_static.h>
+	<parallel/for_each_selectors.h>
+	<parallel/for_each.h>
+	<parallel/find.h>
+	<parallel/find_selectors.h>
+	<parallel/search.h>
+	<parallel/random_shuffle.h>
+	<parallel/partition.h>
+	<parallel/merge.h>
+	<parallel/unique_copy.h>
+	<parallel/set_operations.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\sort.h
+	<parallel/basic_iterator.h>
+	<parallel/features.h>
+	<parallel/parallel.h>
+	<parallel/checkers.h>
+	<parallel/multiway_mergesort.h>
+	<parallel/quicksort.h>
+	<parallel/balanced_quicksort.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\checkers.h
+	<cstdio>
+	<bits/stl_algobase.h>
+	<bits/stl_function.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\multiway_mergesort.h
+	<vector>
+	<parallel/basic_iterator.h>
+	<bits/stl_algo.h>
+	<parallel/parallel.h>
+	<parallel/multiway_merge.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\multiway_merge.h
+	<vector>
+	<bits/stl_algo.h>
+	<parallel/features.h>
+	<parallel/parallel.h>
+	<parallel/losertree.h>
+	<parallel/multiseq_selection.h>
+	<parallel/checkers.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\losertree.h
+	<bits/stl_algobase.h>
+	<bits/stl_function.h>
+	<parallel/features.h>
+	<parallel/base.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\multiseq_selection.h
+	<vector>
+	<queue>
+	<bits/stl_algo.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\queue
+	<deque>
+	<vector>
+	<bits/stl_heap.h>
+	<bits/stl_function.h>
+	<bits/stl_queue.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\deque
+	<bits/stl_algobase.h>
+	<bits/allocator.h>
+	<bits/stl_construct.h>
+	<bits/stl_uninitialized.h>
+	<bits/stl_deque.h>
+	<bits/range_access.h>
+	<bits/deque.tcc>
+	<debug/deque>
+	<profile/deque>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\stl_deque.h
+	<bits/concept_check.h>
+	<bits/stl_iterator_base_types.h>
+	<bits/stl_iterator_base_funcs.h>
+	<initializer_list>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\deque.tcc
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\debug\deque
+	<deque>
+	<debug/safe_sequence.h>
+	<debug/safe_iterator.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\profile\deque
+	<deque>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\stl_queue.h
+	<bits/concept_check.h>
+	<debug/debug.h>
+	<bits/uses_allocator.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\quicksort.h
+	<parallel/parallel.h>
+	<parallel/partition.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\partition.h
+	<parallel/basic_iterator.h>
+	<parallel/sort.h>
+	<parallel/random_number.h>
+	<bits/stl_algo.h>
+	<parallel/parallel.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\balanced_quicksort.h
+	<parallel/basic_iterator.h>
+	<bits/stl_algo.h>
+	<bits/stl_function.h>
+	<parallel/settings.h>
+	<parallel/partition.h>
+	<parallel/random_number.h>
+	<parallel/queue.h>
+	<parallel/checkers.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\queue.h
+	<parallel/types.h>
+	<parallel/base.h>
+	<parallel/compatibility.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\omp_loop_static.h
+	<omp.h>
+	<parallel/settings.h>
+	<parallel/basic_iterator.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\search.h
+	<bits/stl_algobase.h>
+	<parallel/parallel.h>
+	<parallel/equally_split.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\random_shuffle.h
+	<limits>
+	<bits/stl_numeric.h>
+	<parallel/parallel.h>
+	<parallel/random_number.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\merge.h
+	<parallel/basic_iterator.h>
+	<bits/stl_algo.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\unique_copy.h
+	<parallel/parallel.h>
+	<parallel/multiseq_selection.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\parallel\set_operations.h
+	<omp.h>
+	<parallel/settings.h>
+	<parallel/multiseq_selection.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\mutex
+	<bits/c++0x_warning.h>
+	<tuple>
+	<chrono>
+	<exception>
+	<type_traits>
+	<functional>
+	<system_error>
+	<bits/functexcept.h>
+	<bits/gthr.h>
+	<bits/move.h>
+	<bits/cxxabi_forced.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\system_error
+	<bits/c++0x_warning.h>
+	<bits/c++config.h>
+	<bits/error_constants.h>
+	<iosfwd>
+	<stdexcept>
+	<bits/functional_hash.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\libs\armeabi\include\bits\error_constants.h
+	<bits/c++config.h>
+	<cerrno>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\atomic
+	<bits/c++0x_warning.h>
+	<bits/atomic_base.h>
+
+1459351664 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\bits\atomic_base.h
+	<bits/c++config.h>
+	<stdbool.h>
+	<stdint.h>
+	<bits/atomic_lockfree_defines.h>
+
+1459351666 d:\androidndk\android-ndk-r11c-windows-x86\android-ndk-r11c\sources\cxx-stl\gnu-libstdc++\4.9\include\csignal
+	<bits/c++config.h>
+	<signal.h>
+
+1466036287 d:\lucy3d\include\lucia\settings.h
+	<GLES2\gl2.h>
+	<Lucia\Startup.h>
+
+1466036295 d:\lucy3d\include\lucia\startup.h
+	<Lucia/Settings.h>
+	<iostream>
+	<Lucia/Compatability/Android.h>
+
+1466027214 d:\lucy3d\include\lucia\compatability\android.h
+	<string>
+	<sstream>
+
+1466027238 d:\lucy3d\include\lucia\compatability\windows.h
+	<winsock2.h>
+	<windows.h>
+	<Dwmapi.h>
+	<string>
+	<Lucia\Utils\Log.h>
+
+1466029549 d:\lucy3d\include\lucia\utils\log.h
+	<Lucia/Utils/utils.h>
+	<string>
+	<map>
+	<vector>
+	<iostream>
+	<type_traits>
+	<typeinfo>
+	<sstream>
+	<fstream>
+	<numeric>
+	<Lucia/Settings.h>
+
+1466029751 d:\lucy3d\include\lucia\utils\utils.h
+	<string>
+	<ctime>
+	<thread>
+	<iostream>
+	<fstream>
+	<map>
+	<vector>
+
+1466036248 d:\lucy3d\include\lucia\graphics\scene\instance.h
+	<Lucia/Settings.h>
+	<vector>
+	<map>
+	<Lucia/Graphics/Graphics.h>
+	<Lucia/Graphics/Shaders.h>
+	<Lucia/Graphics/Scene/Object.h>
+	<Lucia/Utils/Utils.h>
+	<Lucia/Graphics/Camera.h>
+	<string>
+	<SDL.h>
+	<memory>
+	<GLES2/gl2.h>
+
+1466036249 d:\lucy3d\include\lucia\graphics\graphics.h
+	<Lucia/Settings.h>
+	<SDL.h>
+	<IL/il.h>
+	<IL/ilut.h>
+	<glm.hpp>
+	<gtc/matrix_transform.hpp>
+	<gtc/type_ptr.hpp>
+	<string>
+	<map>
+	<functional>
+	<vector>
+	<Lucia/Settings.h>
+	<initializer_list>
+	<Lucia/Compatability/GLES2/Framebuffer.h>
+
+1462675900 d:\lucy3d\include\lucia\compatability\gles2\framebuffer.h
+
+1466039417 d:\lucy3d\include\lucia\graphics\shaders.h
+	<Lucia/Settings.h>
+	<string>
+	<vector>
+	<iostream>
+	<fstream>
+	<SDL.h>
+	<memory>
+	<Lucia/Graphics/Graphics.h>
+	<Lucia/Utils/Utils.h>
+	<Lucia/Utils/OpenGL.h>
+	<Lucia/Utils/log.h>
+
+1466036249 d:\lucy3d\include\lucia\utils\opengl.h
+	<Lucia/Settings.h>
+	<Lucia/Utils/Log.h>
+	<vector>
+	<memory>
+	<fstream>
+	<iostream>
+	<cstdarg>
+
+1469660535 d:\lucy3d\include\lucia\graphics\scene\object.h
+	<glm.hpp>
+	<gtc/matrix_transform.hpp>
+	<gtc/type_ptr.hpp>
+	<Lucia\Graphics\Graphics.h>
+	<Lucia\Graphics\Bases\Moveable.h>
+	<Lucia\Graphics\Bases\DrawMode.h>
+	<Lucia\Graphics\Bases\ShaderHolder.h>
+	<Lucia\Graphics\Scene\Instance.h>
+	<Lucia\Utils\OpenGL.h>
+	<algorithm>
+
+1466027675 d:\lucy3d\include\lucia\graphics\bases\moveable.h
+	<glm.hpp>
+	<gtc/matrix_transform.hpp>
+	<gtc/type_ptr.hpp>
+	<gtx/transform.hpp>
+	<gtx/quaternion.hpp>
+	<gtc/quaternion.hpp>
+	<functional>
+
+1469660394 d:\lucy3d\include\lucia\graphics\bases\drawmode.h
+	<Lucia/Settings.h>
+
+1466039425 d:\lucy3d\include\lucia\graphics\bases\shaderholder.h
+	<Lucia/Graphics/Graphics.h>
+	<Lucia/Graphics/Shaders.h>
+	<Lucia/Utils/OpenGL.h>
+
+1466187882 d:\lucy3d\include\lucia\graphics\camera.h
+	<glm.hpp>
+	<gtc/matrix_transform.hpp>
+	<gtc/type_ptr.hpp>
+	<gtx/transform.hpp>
+	<gtx/quaternion.hpp>
+	<gtc/quaternion.hpp>
+	<Lucia/Graphics/Graphics.h>
+	<Lucia/Window/Context.h>
+
+1466035841 d:\lucy3d\include\lucia\window\context.h
+	<vector>
+	<memory>
+	<SDL.h>
+	<string>
+	<vector>
+	<map>
+	<Lucia/Window/Window.h>
+
+1466035890 d:\lucy3d\include\lucia\window\window.h
+	<Lucia/Settings.h>
+	<Lucia/Startup.h>
+	<Lucia/Window/Context.h>
+	<Lucia/Window/Data.h>
+	<Lucia/Utils/Log.h>
+
+1466035879 d:\lucy3d\include\lucia\window\data.h
+	<Lucia/Window/Context.h>
+	<iostream>
+
+1466039440 d:\lucy3d\include\lucia\state\gamemanager.h
+	<Lucia/Settings.h>
+	<Lucia/Window/Window.h>
+	<Lucia/State/Gamestate.h>
+	<Lucia/Threads/Threads.h>
+	<SDL.h>
+	<string>
+	<algorithm>
+
+1466039660 d:\lucy3d\include\lucia\state\gamestate.h
+	<Lucia/Settings.h>
+	<Lucia/Controll/Keyboard.h>
+	<Lucia/Window/Window.h>
+	<iostream>
+	<vector>
+
+1466027580 d:\lucy3d\include\lucia\controll\keyboard.h
+	<SDL.h>
+	<string>
+
+1466041205 d:\lucy3d\include\lucia\threads\threads.h
+	<functional>
+	<thread>
+	<map>
+	<mutex>
+	<atomic>
+	<vector>
+	<memory>
+	<queue>
+
+1466029256 d:\lucy3d\include\lucia\network\win32.h
+	<winsock2.h>
+	<windows.h>
+	<ws2tcpip.h>
+	<iphlpapi.h>
+	<string>
+	<map>
+
+1466039455 d:\lucy3d\include\lucia\collider\collider.h
+	<cmath>
+	<iostream>
+	<vector>
+	<map>
+	<algorithm>
+	<functional>
+	<memory>
+	<math.h>
+	<Lucia/Collider/Tools.h>
+	<Lucia/Collider/Algorithm/GJK.h>
+	<Lucia/Collider/Shape.h>
+	<Lucia/Collider/Manager.h>
+
+1466039630 d:\lucy3d\include\lucia\collider\tools.h
+	<Lucia/Collider/Collider.h>
+
+1466026889 d:\lucy3d\include\lucia\collider\algorithm\gjk.h
+	<Lucia/Collider/Collider.h>
+	<Lucia/Collider/Shape.h>
+
+1466027160 d:\lucy3d\include\lucia\collider\shape.h
+	<Lucia/Collider/Collider.h>
+	<Lucia/Collider/Algorithm/GJK.h>
+	<Lucia/Utils/Utils.h>
+
+1466026911 d:\lucy3d\include\lucia\collider\manager.h
+	<Lucia/Collider/Collider.h>
+	<Lucia/Collider/Tools.h>
+
+1466039493 d:\lucy3d\include\lucia\graphics\scene\model.h
+	<Lucia/Graphics/Scene/Object.h>
+	<Lucia/Graphics/Image.h>
+	<Lucia/Graphics/Shaders.h>
+	<Lucia/Utils/OpenGL.h>
+	<Lucia/Utils/log.h>
+	<Lucia/Controll/Safety/Handler.h>
+	<assimp/Importer.hpp>
+	<assimp/scene.h>
+	<assimp/postprocess.h>
+
+1466028531 d:\lucy3d\include\lucia\graphics\image.h
+	<string>
+	<IL/il.h>
+	<IL/ilu.h>
+	<Lucia/Graphics/Graphics.h>
+	<Lucia/Graphics/Bases/Filter.h>
+	<Lucia/Utils/log.h>
+	<Lucia/Controll/Safety/Handler.h>
+
+1466036249 d:\lucy3d\include\lucia\graphics\bases\filter.h
+	<Lucia/Settings.h>
+
+1466027400 d:\lucy3d\include\lucia\controll\safety\handler.h
+	<string>
+	<csignal>
+	<functional>
+
+1466028400 d:\lucy3d\include\lucia\graphics\text\text.h
+	<Lucia/Graphics/Graphics.h>
+	<SDL.h>
+	<ft2build.h>
+	<memory.h>
+	<gtc/matrix_transform.hpp>
+	<Lucia/Graphics/Shaders.h>
+	<Lucia/Graphics/Shaders/Outline.h>
+	<Lucia/Graphics/Shaders/Bloom.h>
+
+1466028187 d:\lucy3d\include\lucia\graphics\shaders\outline.h
+	<Lucia/Graphics/Graphics.h>
+	<Lucia/Graphics/Shaders/Bases.h>
+
+1466028037 d:\lucy3d\include\lucia\graphics\shaders\bases.h
+	<Lucia/Graphics/Graphics.h>
+	<Lucia/Graphics/Shaders.h>
+	<Lucia/Graphics/Buffers/Canvas.h>
+	<Lucia/Graphics/Primitives/Quad.h>
+
+1466039501 d:\lucy3d\include\lucia\graphics\buffers\canvas.h
+	<Lucia/Graphics/Graphics.h>
+	<Lucia/Graphics/Shaders.h>
+	<Lucia/Compatability/GLES2/Shaders/Blit2D.h>
+	<Lucia/Graphics/Primitives/Quad.h>
+
+1466027333 d:\lucy3d\include\lucia\compatability\gles2\shaders\blit2d.h
+	<Lucia/Graphics/Graphics.h>
+	<Lucia/Graphics/Shaders.h>
+
+1466027884 d:\lucy3d\include\lucia\graphics\primitives\quad.h
+	<Lucia/Graphics/Graphics.h>
+	<Lucia/Graphics/Shaders.h>
+	<Lucia/Utils/OpenGL.h>
+
+1466028060 d:\lucy3d\include\lucia\graphics\shaders\bloom.h
+	<Lucia/Graphics/Shaders.h>
+	<Lucia/Graphics/Shaders/Blur.h>
+
+1466028088 d:\lucy3d\include\lucia\graphics\shaders\blur.h
+	<Lucia/Graphics/Graphics.h>
+	<Lucia/Graphics/Shaders/Bases.h>
+
+1466028268 d:\lucy3d\include\lucia\graphics\text\instance.h
+	<Lucia/Graphics/Text/Text.h>
+	<Lucia/Graphics/Buffers/Canvas.h>
+	<Lucia/Graphics/Bases/Moveable.h>
+
+1466028360 d:\lucy3d\include\lucia\graphics\text\task.h
+	<Lucia/Graphics/Text/Text.h>
+	<Lucia/Graphics/Text/Instance.h>
+	<Lucia/Graphics/Bases/Moveable.h>
+	<Lucia/Threads\queque.h>
+
+1466041371 d:\lucy3d\include\lucia\threads\queque.h
+	<mutex>
+	<atomic>
+	<queue>
+	<iostream>
+
+1466027815 d:\lucy3d\include\lucia\graphics\buffers\mesh.h
+	<vector>
+	<string>
+	<iostream>
+	<glm.hpp>
+	<gtc/matrix_transform.hpp>
+	<gtc/type_ptr.hpp>
+	<Lucia/Graphics/Graphics.h>
+	<Lucia/Graphics/Image.h>
+	<Lucia/Graphics/Scene/Object.h>
+	<Lucia/Utils/OpenGL.h>
+	<Lucia/Utils/Log.h>
+
+1466039684 d:\lucy3d\include\lucia\graphics\buffers\spritesheet.h
+	<memory>
+	<Lucia/Graphics/Image.h>
+	<Lucia/Graphics/Scene/Object.h>
+	<Lucia/Graphics/Shaders.h>
+	<Lucia/Graphics/Bases/ShaderHolder.h>
+	<Lucia/Utils/tween.h>
+	<Lucia/Utils/logistics.h>
+	<Lucia/Utils/OpenGL.h>
+	<Lucia/Graphics/Primitives/Quad.h>
+
+1466029705 d:\lucy3d\include\lucia\utils\tween.h
+	<string>
+	<functional>
+	<map>
+	<vector>
+	<cmath>
+	<math.h>
+	<Lucia\Utils\Utils.h>
+
+1466029581 d:\lucy3d\include\lucia\utils\logistics.h
+
+1466187681 d:\lucy3d\include\lucia\graphics\scene\scene2d.h
+	<Lucia\Graphics\Scene\Instance.h>
+	<Lucia\Graphics\Camera.h>
+
+1466041330 d:\lucy3d\include\lucia\controll\safety\error.h
+	<signal.h>
+	<Lucia/Threads/Threads.h>
+	<Lucia/Threads/queque.h>
+	<Lucia/Utils/Log.h>
+	<exception>
+	<stdexcept>
+
+1466039569 d:\lucy3d\include\lucia\controll\safety\glwrapper.h
+	<Lucia/Graphics/Text/Text.h>
+	<Lucia/Graphics/Text/Instance.h>
+	<Lucia/Graphics/Primitives/Quad.h>
+	<Lucia/Window/Window.h>
+	<Lucia/Utils/log.h>
+
+1466041395 source:d:\lucy3d\src\lucia\collider\algorithm\gjk.cpp
+	"Lucia\Collider\Algorithm\GJK.h"
+
+1466041413 source:d:\lucy3d\src\lucia\collider\manager.cpp
+	"Lucia/Collider/Manager.h"
+	<Lucia/Collider/Shape.h>
+	<Lucia/Collider/Shape/Polygon.h>
+	<Lucia/Collider/Shape/Point.h>
+	<Lucia/Collider/Shape/Sphere.h>
+	<Lucia/Collider/Shape/Ray.h>
+
+1466027070 d:\lucy3d\include\lucia\collider\shape\polygon.h
+	<Lucia/Collider/Shape.h>
+
+1466027053 d:\lucy3d\include\lucia\collider\shape\point.h
+	<Lucia/Collider/Collider.h>
+	<Lucia/Collider/Shape/Polygon.h>
+
+1466027081 d:\lucy3d\include\lucia\collider\shape\sphere.h
+	<Lucia/Collider/Collider.h>
+	<Lucia/Collider/Shape/Polygon.h>
+	<Lucia/Collider/Shape.h>
+
+1466027076 d:\lucy3d\include\lucia\collider\shape\ray.h
+	<Lucia/Collider/Collider.h>
+	<Lucia/Collider/Shape.h>
+
+1466041580 source:d:\lucy3d\src\lucia\collider\opengl.cpp
+	<Lucia/Collider/Opengl.h>
+
+1466041526 d:\lucy3d\include\lucia\collider\opengl.h
+	<Lucia/Settings.h>
+	<Lucia/Collider/Collider.h>
+	<Lucia/Collider/Manager.h>
+	<glm.hpp>
+	<gtc/matrix_transform.hpp>
+	<gtc/type_ptr.hpp>
+	<Lucia/Utils/OpenGL.h>
+	<Lucia/Utils/log.h>
+
+1466041594 source:d:\lucy3d\src\lucia\collider\shape.cpp
+	"Lucia/Collider/Shape.h"
+
+1466041610 source:d:\lucy3d\src\lucia\collider\shape\point.cpp
+	"Lucia/Collider/Shape/Point.h"
+	<Lucia/Collider/Shape/Sphere.h>
+	<Lucia/Collider/Algorithm/GJK.h>
+
+1466041622 source:d:\lucy3d\src\lucia\collider\shape\polygon.cpp
+	"Lucia/Collider/Shape/Polygon.h"
+
+1466041646 source:d:\lucy3d\src\lucia\collider\shape\ray.cpp
+	"Lucia/Collider/Shape/Ray.h"
+	<Lucia/Collider/Algorithm/GJK.h>
+
+1466044636 source:d:\lucy3d\src\lucia\collider\shape\sphere.cpp
+	"Lucia/Collider/Shape/Sphere.h"
+
+1462675901 source:d:\lucy3d\src\lucia\compatability\gles2\framebuffer.cpp
+
+1466044651 source:d:\lucy3d\src\lucia\compatability\gles2\shaders\basic2d.cpp
+	"Lucia/Compatability/GLES2/Shaders/Basic2D.h"
+
+1466027308 d:\lucy3d\include\lucia\compatability\gles2\shaders\basic2d.h
+	<Lucia/Settings.h>
+	<memory>
+	<Lucia/Graphics/Shaders.h>
+
+1466044748 source:d:\lucy3d\src\lucia\compatability\gles2\shaders\blit2d.cpp
+	"Lucia/Compatability/GLES2/Shaders/Blit2D.h"
+
+1466044768 source:d:\lucy3d\src\lucia\compatability\windows.cpp
+	<Lucia\Settings.h>
+	<iostream>
+	"Lucia\Compatability\Windows.h"
+	<Lucia\Utils\Log.h>
+
+1466044796 source:d:\lucy3d\src\lucia\controll\keyboard.cpp
+	"Lucia\Controll/Keyboard.h"
+
+1466044829 source:d:\lucy3d\src\lucia\controll\safety\error.cpp
+	"Lucia\Controll\Safety\Error.h"
+
+1466044844 source:d:\lucy3d\src\lucia\controll\safety\handler.cpp
+	"Lucia\Controll\Safety\Handler.h"
+	<iostream>
+
+1466045773 source:d:\lucy3d\src\lucia\filters\stencil.cpp
+	"Lucia/Filters/Stencil.h"
+
+1466045757 d:\lucy3d\include\lucia\filters\stencil.h
+	<Lucia/Settings.h>
+
+1466045784 source:d:\lucy3d\src\lucia\graphics\bases\moveable.cpp
+	"Lucia\Graphics\Bases\Moveable.h"
+
+1466045793 source:d:\lucy3d\src\lucia\graphics\buffers\canvas.cpp
+	"Lucia\Graphics\Buffers\Canvas.h"
+
+1469660549 source:d:\lucy3d\src\lucia\graphics\buffers\mesh.cpp
+	"Lucia\Graphics/Buffers/Mesh.h"
+	<Lucia\Graphics/Bases/Moveable.h>
+
+1466045828 source:d:\lucy3d\src\lucia\graphics\buffers\spritesheet.cpp
+	"Lucia\Graphics\Buffers\Spritesheet.h"
+
+1466188557 source:d:\lucy3d\src\lucia\graphics\camera.cpp
+	"Lucia\Graphics\Camera.h"
+	<SDL.h>
+	<iostream>
+
+1466045869 source:d:\lucy3d\src\lucia\graphics\graphics.cpp
+	<Lucia/Graphics/Graphics.h>
+
+1466045883 source:d:\lucy3d\src\lucia\graphics\image.cpp
+	"Lucia\Graphics\Image.h"
+	<iostream>
+	<map>
+	<string>
+
+1466045915 source:d:\lucy3d\src\lucia\graphics\primitives\quad.cpp
+	"Lucia\Graphics\Primitives\Quad.h"
+
+1466045942 source:d:\lucy3d\src\lucia\graphics\scene\instance.cpp
+	"Lucia/Graphics/Scene/Instance.h"
+	<Lucia\Graphics\Scene\Object.h>
+
+1469660727 source:d:\lucy3d\src\lucia\graphics\scene\model.cpp
+	"Lucia\Graphics\Scene\Model.h"
+
+1466045975 source:d:\lucy3d\src\lucia\graphics\scene\object.cpp
+	"Lucia/Graphics/Scene/Object.h"
+
+1466197749 source:d:\lucy3d\src\lucia\graphics\scene\scene2d.cpp
+	"Lucia\Graphics\Scene\Scene2D.h"
+
+1466046166 source:d:\lucy3d\src\lucia\graphics\shaders.cpp
+	"Lucia\Graphics\Shaders.h"
+
+1466046177 source:d:\lucy3d\src\lucia\graphics\shaders\bases.cpp
+	"Lucia\Graphics\Shaders\Bases.h"
+
+1466046187 source:d:\lucy3d\src\lucia\graphics\shaders\bloom.cpp
+	"Lucia\Graphics\Shaders\Bloom.h"
+
+1466046217 source:d:\lucy3d\src\lucia\graphics\shaders\blur.cpp
+	"Lucia/Graphics/Shaders/Blur.h"
+
+1466046246 source:d:\lucy3d\src\lucia\graphics\shaders\outline.cpp
+	"Lucia\Graphics\Shaders\Outline.h"
+
+1466046260 source:d:\lucy3d\src\lucia\graphics\text\instance.cpp
+	"Lucia/Graphics/Text/Instance.h"
+	<Lucia/Graphics/Text/Task.h>
+	<Lucia/Graphics/Bases/Moveable.h>
+
+1466046275 source:d:\lucy3d\src\lucia\graphics\text\task.cpp
+	"Lucia/Graphics/Text/Task.h"
+
+1466046298 source:d:\lucy3d\src\lucia\graphics\text\text.cpp
+	"Lucia/Graphics/Text/Text.h"
+
+1466046307 source:d:\lucy3d\src\lucia\maigui\addons\text.cpp
+	"Lucia\Maigui\Addons\Text.h"
+
+1466028585 d:\lucy3d\include\lucia\maigui\addons\text.h
+	<Lucia/Maigui/Maigui.h>
+	<Lucia/Maigui/Skin.h>
+	<Lucia/Maigui/Bases/Color.h>
+	<Lucia/Maigui/Bases/Moveable.h>
+
+1466028955 d:\lucy3d\include\lucia\maigui\maigui.h
+	<Lucia/Collider/Collider.h>
+	<Lucia/Collider/Shape/Ray.h>
+
+1466029098 d:\lucy3d\include\lucia\maigui\skin.h
+	<Lucia/Maigui/Maigui.h>
+	<Lucia/Graphics/Image.h>
+
+1466028670 d:\lucy3d\include\lucia\maigui\bases\color.h
+
+1466028781 d:\lucy3d\include\lucia\maigui\bases\moveable.h
+	<Lucia/Maigui/Maigui.h>
+
+1466046321 source:d:\lucy3d\src\lucia\maigui\addons\titlebar.cpp
+	"Lucia\Maigui\Addons\Titlebar.h"
+	<Lucia\Maigui\Item.h>
+
+1466028613 d:\lucy3d\include\lucia\maigui\addons\titlebar.h
+	<Lucia/Maigui\Item.h>
+	<Lucia/Maigui\Bases\Moveable.h>
+	<Lucia/Maigui\Addons\Text.h>
+
+1466028925 d:\lucy3d\include\lucia\maigui\item.h
+	<Lucia/Maigui/Maigui.h>
+	<Lucia/Maigui/Skin.h>
+	<Lucia/Maigui/Manager.h>
+	<Lucia/Maigui/Bases/Drawable.h>
+	<Lucia/Maigui/Bases/Moveable.h>
+
+1466029068 d:\lucy3d\include\lucia\maigui\manager.h
+	<Lucia/Maigui/Maigui.h>
+	<Lucia/Maigui/Item.h>
+
+1466028749 d:\lucy3d\include\lucia\maigui\bases\drawable.h
+	<Lucia/Maigui/Skin.h>
+	<Lucia/Maigui/Bases/Color.h>
+	<memory>
+	<vector>
+
+1466046341 source:d:\lucy3d\src\lucia\maigui\bases\drawable.cpp
+	<Lucia\Maigui\Bases\Drawable.h>
+
+1466046355 source:d:\lucy3d\src\lucia\maigui\item.cpp
+	"Lucia/Maigui/Item.h"
+
+1466046377 source:d:\lucy3d\src\lucia\maigui\maigui.cpp
+	"Lucia\Maigui\Maigui.h"
+	<Lucia\Maigui\Manager.h>
+
+1466046411 source:d:\lucy3d\src\lucia\maigui\manager.cpp
+	"Lucia/Maigui/Manager.h"
+	<Lucia/Maigui/Types/Container.h>
+	<Lucia/Maigui/Types/Widget.h>
+	<Lucia/Maigui/Types/Frame.h>
+	<Lucia/Maigui/Types/Button.h>
+
+1466028846 d:\lucy3d\include\lucia\maigui\types\container.h
+	<Lucia/Maigui/Maigui.h>
+	<Lucia/Maigui/Item.h>
+
+1466028895 d:\lucy3d\include\lucia\maigui\types\widget.h
+	<Lucia/Maigui/Maigui.h>
+	<Lucia/Maigui/Item.h>
+
+1466028874 d:\lucy3d\include\lucia\maigui\types\frame.h
+	<Lucia/Maigui/Maigui.h>
+	<Lucia/Maigui/Item.h>
+	<Lucia/Maigui/Types/Container.h>
+	<Lucia/Maigui/Addons/Titlebar.h>
+
+1466028812 d:\lucy3d\include\lucia\maigui\types\button.h
+	<Lucia/Maigui/Addons/Text.h>
+	<Lucia/Maigui/Item.h>
+
+1466046435 source:d:\lucy3d\src\lucia\maigui\skin.cpp
+	<Lucia/Maigui/Skin.h>
+	<Lucia/Maigui/Item.h>
+
+1466046445 source:d:\lucy3d\src\lucia\maigui\types\button.cpp
+	"Lucia\Maigui\Types\Button.h"
+
+1466046468 source:d:\lucy3d\src\lucia\maigui\types\container.cpp
+	"Lucia/Maigui/Types/Container.h"
+
+1466046494 source:d:\lucy3d\src\lucia\maigui\types\frame.cpp
+	"Lucia/Maigui/Types/Frame.h"
+
+1466046509 source:d:\lucy3d\src\lucia\maigui\types\widget.cpp
+	"Lucia/Maigui/Types/Widget.h"
+
+1466046542 source:d:\lucy3d\src\lucia\maigui\wrappers\opengl.cpp
+	<Lucia/Maigui/Wrappers/OpenGl.h>
+	<Lucia/Maigui/Skin.h>
+	<Lucia/Utils/OpenGL.h>
+	<Lucia/Graphics/Text/Text.h>
+
+1466029033 d:\lucy3d\include\lucia\maigui\wrappers\opengl.h
+	<Lucia/Maigui/Maigui.h>
+	<Lucia/Collider/Opengl.h>
+
+1466046565 source:d:\lucy3d\src\lucia\network\win32.cpp
+	"Lucia\Network\win32.h"
+	<Lucia/Utils/log.h>
+
+1466046574 source:d:\lucy3d\src\lucia\state\gamemanager.cpp
+	"Lucia\State/GameManager.h"
+
+1466046580 source:d:\lucy3d\src\lucia\state\gamestate.cpp
+	"Lucia/State/Gamestate.h"
+
+1466046586 source:d:\lucy3d\src\lucia\threads\queque.cpp
+	"Lucia\Threads\queque.h"
+
+1466046608 source:d:\lucy3d\src\lucia\threads\threads.cpp
+	"Lucia/Threads/Threads.h"
+
+1466046618 source:d:\lucy3d\src\lucia\utils\container.cpp
+	"Lucia\Utils\Container.h"
+
+1466029507 d:\lucy3d\include\lucia\utils\container.h
+	<initializer_list>
+
+1466046794 source:d:\lucy3d\src\lucia\utils\log.cpp
+	"Lucia\Utils\Log.h"
+	<windows.h>
+	<tchar.h>
+	<conio.h>
+	<strsafe.h>
+
+1469660770 source:d:\lucy3d\src\lucia\utils\opengl.cpp
+	"Lucia/Utils/OpenGL.h"
+
+1466046692 source:d:\lucy3d\src\lucia\utils\tween.cpp
+	"Lucia\Utils\tween.h"
+
+1466046709 source:d:\lucy3d\src\lucia\utils\utils.cpp
+	"Lucia/Utils/Utils.h"
+
+1466046720 source:d:\lucy3d\src\lucia\window\window.cpp
+	"Lucia/Window/Window.h"
+	"glm.hpp"
+	<iostream>
 

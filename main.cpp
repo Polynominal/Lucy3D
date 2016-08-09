@@ -1,8 +1,5 @@
-#include <Settings.h>
 
-#ifdef __WIN32
-#include <Compatability\Windows.h>
-#endif // __WIN32
+
 // STL includes [-
 #include <stdio.h>
 #include <iostream>
@@ -10,8 +7,7 @@
 // -]
 
 // GL stuff [-
-#include <SDL.h>
-#include <Settings.h>
+#include <Lucia/Settings.h>
 #include "glm.hpp"
 // -]
 
@@ -21,79 +17,29 @@
 // -]
 
 // Debug and logging [-
-#include <utilities/Utils.h>
-#include <utilities/Log.h>
+#include <Lucia/Utils/Utils.h>
+#include <Lucia/Utils/Log.h>
 // -]
 
 // Engine specific quirks. [-
-#include <Graphics\Scene\Instance.h>
-#include <State\GameManager.h>
-#include <Network\win32.h>
+#include <Lucia\Graphics\Scene\Instance.h>
+#include <Lucia\State\GameManager.h>
+#include <Lucia\Network\win32.h>
 
 //-]
-#include <Collider/Collider.h>
-#include <Window/Windower.h>
+#include <Lucia\Collider/Collider.h>
+#include <Lucia\Window/Context.h>
 // [- Gamestates -
 #include <MainGame.h>
 // -]
-#include <Controll/Safety/Lucia.h>
-#include <Controll/Safety/GLWrapper.h>
-#include <Controll/Safety/Handler.h>
+#include <Lucia/Controll/Safety/Error.h>
+#include <Lucia/Controll/Safety/GLWrapper.h>
+#include <Lucia/Controll/Safety/Handler.h>
 //
+using namespace Lucia;
+using namespace Lucia::Threading;
 #undef main
-void runserver(int a,std::atomic<bool> &finished)
-{
-    Log newLog = Log("Server");
-    newLog.overwrite = true;
-    int id;
-    std::string msg;
-    Sockets Network = Sockets();
-    if (Network.init())
-    {
-        Sockets::UDPServer Server = Sockets::UDPServer();
-        Server.init();
-        newLog << "Server Online" << newLog.endl;
-        if (Server.bindListener()){
-            newLog << "Server Bound" << newLog.endl;
-            while(finished)
-            {
-                if (Server.receive(id,msg,10)){
-                    newLog << "Server has msg from" << id << newLog.endl;
-                    msg = std::string("Hello user: ") + std::to_string(id);
-                    newLog << "Sending:" << msg << newLog.endl;
-                    Server.dispatch(id,msg,1024);
-                    newLog.write();
-                };
-            }
-        }else{newLog << "Server failed to bind!" << newLog.endl;};
-    }else{newLog << "NETWORK FAILED" << newLog.endl;}
-}
-void runclient(int a,std::atomic<bool> &finished)
-{
-    Log newLog = Log("Sally");
-    Sockets Network = Sockets();
-    std::string msg;
-    if (Network.init())
-    {
-        Sockets::UDPClient Client = Sockets::UDPClient();
-        if (Client.init("127.0.0.1"))
-        {
-            newLog << "Connected to localhost!" << newLog.endl;
-            if (Client.dispatch("Yellow!",10))
-            {
-                newLog << "Packet sent!" << LOG.endl;
-            };
-            while(finished)
-            {
-                if (Client.receive(msg,1024)){
-                    newLog << "Msg arrived in client: " << msg << newLog.endl;
-                    newLog.write();
-                };
-            }
-        }
-    }
-}
-int main_loop(int argc, char* argv[],Windower::Window* w) {
+int main_loop(int argc, char* argv[],Context::Window* w) {
 	 //  ----- Initialise DevIL -----
 
 	LOG.overwrite = true;
@@ -114,7 +60,7 @@ int main_loop(int argc, char* argv[],Windower::Window* w) {
     //we need the window up for this due to needing a surface and a window handle.
     // compatability settings eg turn off desktop composition.
     // platform dependent.
-    Lucy::Compat::patch();
+    Lucia::Compat::patch();
 
     w->setSize(800,600);
 
@@ -127,22 +73,21 @@ int main_loop(int argc, char* argv[],Windower::Window* w) {
     MainGame Test =  MainGame();
     GameManager Gadmin = GameManager(&Test,w);
 
-    double last_time = SDL_GetTicks();
-
+    double last_time = 0;
     while(w->isAlive())
     {
         double current = SDL_GetTicks();
         double elapsed = current - last_time;
+        last_time = current;
 
         SDL_Event event;
         while (SDL_PollEvent(&event))
         {
             Gadmin.event(&event);
         }
-
         w->update();
+        Gadmin.update(elapsed/1000.0d);
 
-        Gadmin.update(elapsed);
         Gadmin.preDraw();
         Gadmin.draw();
         Gadmin.postDraw();
@@ -162,13 +107,14 @@ int main_loop(int argc, char* argv[],Windower::Window* w) {
 
 int main(int argc, char* argv[])
 {
-    Lucia errors;
+    Error errors;
 
-    Windower::Window* window = new Windower::Window();
+    Context::Window* window = new Context::Window();
+
     // this is for gl context / window related functions
 
 
-    Lucia_GLWrapper(&errors,window);
+    Error_GLWrapper(&errors,window);
     Controll::Safety::OnFatalCrash = [&errors](std::string data)
     {
         errors.reportError(data,true);
