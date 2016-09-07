@@ -65,7 +65,7 @@ void Sphere::make(Manager *M,Vertex C,float r)
     Position = C;
     Dimensions = Vertex(r*2,r*2,r*2);
     radius = r;
-    synthesize(Position,Dimensions);
+    generate(Position,Dimensions);
     type = Shape::Type::sphere;
     // make points here use subdivision!
 }

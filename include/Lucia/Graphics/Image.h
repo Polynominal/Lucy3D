@@ -6,30 +6,38 @@
 
 #include <Lucia/Graphics/Graphics.h>
 #include <Lucia/Graphics/Bases/Filter.h>
+#include <Lucia/Graphics/Bases/Texture.h>
 #include <Lucia/Utils/log.h>
 #include <Lucia/Controll/Safety/Handler.h>
+#ifndef LUCIA_USE_GLES2
+    #include <Lucia/Graphics/Buffers/Canvas.h>
+#endif
+
 namespace Lucia {
 namespace Graphics
 {
-    class Image: public Graphics::Base::Filter, public Controll::Safety::Handler
+    class Image: public Controll::Safety::Handler, public Graphics::Base::Texture
     {
         public:
             Image(){};
             Image(std::string path);
-            //get
-            int getHeight(){return height;};
-            int getWidth(){return width;};
-            unsigned int getID();
             //set
-            void setName(std::string name);
-            //misc
-            void bind();
-            void bind(int number);
-            void bind(int number,int shaderID);
-
+            void generate(ImageData* data);
             void generate();
-            void generateMipMap();
             void remove();
+            //GET
+            #ifndef LUCIA_USE_GLES2
+            virtual ImageData getImageData()
+            {
+                Canvas target = Canvas();
+                target.generate(width,height);
+                target.setClearColor(0,0,0,0);
+                target.attach(true,true);
+                renderQuad();
+                target.detach();
+                return target.getImageData();
+            };
+            #endif
             //IS
             bool isGenerated(){return generated;};
             bool isSucessfull(){return success;}
@@ -40,15 +48,10 @@ namespace Graphics
             bool success = false;
             bool generated=false;
             bool ilutInitialized = false;
-
-            int format;
             ILuint imageID;
 
-            float width,height;
-
             float* border_color = 0;
-            GLuint textureID=0;
-            std::string name="";
+            
             std::string source="NULL";
     };
 }

@@ -1,18 +1,15 @@
 #ifndef MIKUS_LUCIA_MAIGUI_H
 #define MIKUS_LUCIA_MAIGUI_H
 #include <Lucia/Collider/Collider.h>
+#include <Lucia/Collider/Manager.h>
+
 #include <Lucia/Collider/Shape/Ray.h>
+#include <Lucia/Maths/Vec2.h>
+
 namespace Lucia {
 namespace Maigui
 {
     typedef unsigned int uint;
-    struct Vec2
-    {
-        Vec2(){};
-        Vec2(float xt,float yt): x(xt),y(yt){};
-        float x;
-        float y;
-    };
     // here we have a multiple inheritance:
     /*
     *                   Item [Abstract base class]

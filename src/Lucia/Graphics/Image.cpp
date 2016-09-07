@@ -80,14 +80,6 @@ Image::Image(std::string path)
         source = path;
     };
 }
-void Image::generateMipMap()
-{
-    #if defined LUCIA_USE_GLES2 || defined LUCIA_USE_GLES3
-    glGenerateMipmap(GL_TEXTURE_2D);
-    #else
-    glTexParameteri(GL_TEXTURE_2D, GL_GENERATE_MIPMAP, GL_TRUE);
-    #endif
-}
 void Image::generate()
 {
     if (!generated)
@@ -101,15 +93,12 @@ void Image::generate()
             // Bind thtexture to a name
             glBindTexture(GL_TEXTURE_2D, textureID);
 
-            glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_CLAMP_TO_EDGE);
-            glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_CLAMP_TO_EDGE);
-            glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
-            glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
+            forceApplyFilters();
 
             // Specify the texture specification
             glTexImage2D(GL_TEXTURE_2D, 				// Type of texture
                          0,				// Pyramid level (for mip-mapping) - 0 is the top level
-                         ilGetInteger(IL_IMAGE_FORMAT),	// Internal pixel format to use. Can be a generic type like GL_RGB or GL_RGBA, or a sized type
+                         format,	// Internal pixel format to use. Can be a generic type like GL_RGB or GL_RGBA, or a sized type
                          width,	// Image width
                          height,	// Image height
                          0,				// Border width in pixels (can either be 1 or 0)
@@ -121,32 +110,34 @@ void Image::generate()
         generated = true;
     }
 };
-void Image::setName(std::string new_mode)
+void Image::generate(ImageData* data)
 {
-    name = new_mode;
-};
-void Image::bind()
-{
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, textureID);
-}
-void Image::bind(int number)
-{
-    GLfloat no = number;
-
-    glActiveTexture(GL_TEXTURE0 + number);
-    glBindTexture(GL_TEXTURE_2D, textureID);
-
-    GLint programID = 0;
-    glGetIntegerv(GL_CURRENT_PROGRAM,&programID);
-    if (name != "")
+    if (!generated)
     {
-        glUniform1i(glGetUniformLocation(programID,name.c_str()),no);
+        width = data->width;
+        height = data->height;
+        glGenTextures(1, &textureID);
+
+        // Bind thtexture to a name
+        glBindTexture(GL_TEXTURE_2D, textureID);
+
+        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
+        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
+
+        // Specify the texture specification
+        glTexImage2D(GL_TEXTURE_2D, 				// Type of texture
+                     0,				// Pyramid level (for mip-mapping) - 0 is the top level
+                     format,
+                     width,	// Image width
+                     height,	// Image height
+                     0,				// Border width in pixels (can either be 1 or 0)
+                     format,	// Format of image pixel data
+                     GL_UNSIGNED_BYTE,		// Image data type
+                     data->getData());			// The actual image data itself
+            if (POT(width) and POT(height)){glGenerateMipmap(GL_TEXTURE_2D);};
     };
-}
-GLuint Image::getID()
-{
-    return textureID;
 }
 void Image::remove()
 {
@@ -154,7 +145,7 @@ void Image::remove()
     {
         LOG << "Info" << "Removing image: " << source << std::endl;
         Loaded_Images.erase(source);
-        glDeleteTextures(1,&textureID);
+        Graphics::Base::Texture::remove();
         ilDeleteImages(1, &imageID);
         generated = false;
     }

@@ -1,38 +1,34 @@
 #include "Lucia\Graphics\Buffers\Canvas.h"
 using namespace Lucia;
 typedef Graphics::Canvas Canvas;
-Canvas::Canvas()
-{
-    //ctor
-}
-bool Canvas::generate(float width,float height)
+bool Canvas::generate(float w,float h)
 {
     if (!Graphics::Shared::Quad->isDone())
     {
         Graphics::Shared::Quad->generate();
     }
-    if (width == 0 or height == 0)
+    if (w == 0 or h == 0)
     {
         GLint d[4];
         glGetIntegerv(GL_VIEWPORT,(GLint*)&d);
-        width = d[2];
-        height = d[3];
+        w = d[2];
+        h = d[3];
     }
     remove();
-    glGenTextures(1,&texture);
+    glGenTextures(1,&textureID);
     glGenFramebuffers(1,&FBO);
     glGenRenderbuffers(1,&RBO);
 
-    lw = width;
-    lh = height;
+    width = w;
+    height = h;
 
     glBindFramebuffer(GL_FRAMEBUFFER,FBO);
-    glBindTexture(GL_TEXTURE_2D,texture);
+    glBindTexture(GL_TEXTURE_2D,textureID);
 
     #ifndef LUCIA_USE_GLES2
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, lw, lh, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, w, h, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
     #else
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, lw, lh, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, w, h, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
     #endif
     //filtering
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -43,13 +39,13 @@ bool Canvas::generate(float width,float height)
 
     glBindTexture(GL_TEXTURE_2D,0);
 
-    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture, 0);
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textureID, 0);
 
     glBindRenderbuffer(GL_RENDERBUFFER, RBO);
     #ifdef LUCIA_USE_GLES2
-        glRenderbufferStorage(GL_RENDERBUFFER,GL_DEPTH_COMPONENT,lw,lh);
+        glRenderbufferStorage(GL_RENDERBUFFER,GL_DEPTH_COMPONENT,width,height);
     #else
-        glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, lw, lh);
+        glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, width, height);
     #endif // LUCIA_USE_GLES2
 
     glBindRenderbuffer(GL_RENDERBUFFER, 0);
@@ -82,7 +78,6 @@ void Canvas::attach(bool clear,bool clearColor)
 {
     // we are going to need to reset the shader to its default state because
     // at this point we are probably reseting the draw sequence.
-    lastShader = -1.0f;
     glBindFramebuffer(GL_FRAMEBUFFER,FBO);
     if (clear){
         if (clearColor)
@@ -99,37 +94,8 @@ void Canvas::remove()
 {
     glDeleteFramebuffers(1, &FBO);
     glDeleteRenderbuffers(1,&RBO);
-    glDeleteTextures(1,&texture);
+    Graphics::Base::Texture::remove();
     passive = true;
-}
-void Canvas::renderQuad(bool ownShader,bool resetShader)
-{
-    GLboolean hasDepth = glIsEnabled(GL_DEPTH_TEST);
-    if (ownShader){
-        if (resetShader or lastShader == -1.0f){glGetIntegerv(GL_CURRENT_PROGRAM,&lastShader);};
-
-        glUseProgram(Graphics::_Shaders::Basic2D->programID);
-        // send necessary parameters such as that we want to use a texture.
-        glUniform1i(glGetUniformLocation(Graphics::_Shaders::Basic2D->programID, "useColor"),false);
-    }
-    GLint lastTexture;
-    glGetIntegerv(GL_TEXTURE_BINDING_2D,&lastTexture);
-
-    glDisable(GL_DEPTH_TEST);
-    glActiveTexture(GL_TEXTURE0);
-
-    glBindTexture(GL_TEXTURE_2D,texture);
-    if (Quad == nullptr)
-    {
-        Graphics::Shared::Quad->draw();
-    }else
-    {
-        Quad->draw();
-    }
-    glBindTexture(GL_TEXTURE_2D,lastTexture);
-
-    if (ownShader and resetShader){glUseProgram(lastShader);}
-    if (hasDepth){glEnable(GL_DEPTH_TEST);};
 }
 void Canvas::detach(int nbuffer)
 {
@@ -140,7 +106,7 @@ void Canvas::resize(float width,float height,bool keepAspect)
     Canvas newImage = Canvas();
     newImage.generate(width,height);
     #ifndef LUCIA_USE_GLES2
-        glBlitNamedFramebuffer(FBO,newImage.FBO,0.0f,0.0f,lw,lh,
+        glBlitNamedFramebuffer(FBO,newImage.FBO,0.0f,0.0f,width,height,
           0.0f,0.0f,width,height,GL_COLOR_BUFFER_BIT, GL_LINEAR);
     #else
     GLint d[4];
@@ -154,8 +120,8 @@ void Canvas::resize(float width,float height,bool keepAspect)
     renderQuad(true);
     newImage.detach();
 
-    tx = (d[2]/lw);
-    ty = (d[3]/lh);
+    tx = (d[2]/width);
+    ty = (d[3]/height);
     Graphics::Shared::Quad->setImageRange(0.0f,0.0f,tx,ty);
 
     attach(true,true);
@@ -165,12 +131,12 @@ void Canvas::resize(float width,float height,bool keepAspect)
     Graphics::Shared::Quad->setImageRange();
     #endif // LUCIA_USE_GLES2
 }
-std::unique_ptr<Canvas> Canvas::getSize(float w,float h,bool keepAspect)
+std::unique_ptr<Canvas> Canvas::getBlitSize(float w,float h,bool keepAspect)
 {
     auto output = std::unique_ptr<Graphics::Canvas>(new Graphics::Canvas());
     output->generate(w,h);
     #ifndef LUCIA_USE_GLES2
-    glBlitNamedFramebuffer(FBO,output->FBO,0.0f,0.0f,lw,lh,
+    glBlitNamedFramebuffer(FBO,output->FBO,0.0f,0.0f,width,height,
                            0.0f,0.0f,w,h,GL_COLOR_BUFFER_BIT, GL_LINEAR);
     #else
     GLint d[4];
@@ -192,21 +158,4 @@ std::unique_ptr<Canvas> Canvas::getSize(float w,float h,bool keepAspect)
     output->remove();
     #endif
     return output;
-}
-float Canvas::getWidth()
-{
-    return lw;
-}
-float Canvas::getHeight()
-{
-    return lh;
-}
-void Canvas::bindTexture()
-{
-    glBindTexture(GL_TEXTURE_2D,texture);
-}
-Canvas::~Canvas()
-{
-    remove();
-    //dtor
 }

@@ -32,19 +32,18 @@ class Graphics::Camera:
 
             void translateLocal(float left=0,float up=0,float forward=0);
 
-            void lookAt(float x,float y,float z); // sets the object the watcher is looking at
+            void rotateByVec(float angle,float x,float y,float z); // sets the object the watcher is looking at
             std::pair<Vertex,Vertex> getRay(float x,float y); // gets the ray from mouse.
 
-            void update(bool send_to_shader=true); // applies all of the translations and sends data to vertex .
+            void update(); // applies all of the translations and sends data to vertex .
 
             void key_controll(const char* key);
             void mouse_controll(const char* button);
 
             void target(float x,float y,float z);
 
-
-            void updateRoll(float speed);
-
+            void lookAt(Quaternion rot, Vertex pos);
+            void lookAt(Vertex eye, Vertex target, Vertex up);
 
             // gets!
             
@@ -65,9 +64,6 @@ class Graphics::Camera:
             virtual ~Camera();
         protected:
         private:
-            void pitch(float p);
-            void yaw(float y);
-            void roll(float r);
             bool orthographic = false;
             bool createMatrix = false;
 
@@ -83,18 +79,15 @@ class Graphics::Camera:
 
             float width = 0;
             float height = 0;
-
-            Vertex yawAxis     = Vertex(0.0f,1.0f,0.0f);;
             
-            Vertex Local       = Vertex(-1.0f,0.0f,0.0f);
+            Vertex yawAxis     = Vertex(0.0f,1.0f,0.0f);
+            
+            Vertex Local       = Vertex(1.0f,0.0f,0.0f);
             Vertex Up          = Vertex(0.0f,1.0f,0.0f);
-            Vertex Forward     = Vertex(0.0f,0.0f,-1.0f);
+            Vertex Forward     = Vertex(0.0f,0.0f,1.0f);
 
             bool clamped = false;
-
             void normal();
-            void regRot();
-            void reset();
     };
 }
 #endif // CAMERA_H

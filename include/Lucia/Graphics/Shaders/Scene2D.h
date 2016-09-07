@@ -24,11 +24,14 @@ namespace Graphics
                         "attribute vec3 vertex;"
                         "attribute vec2 texCord;"
                         "varying vec2 TexCord;"
+                        "varying vec4 color;"
+                        "uniform vec4 Color;"
                         "uniform mat4 model;"
                         "uniform mat4 view;"
                         "uniform mat4 projection;"
                         "void main()";
                         "{"
+                        "   color = Color;"
                         "   TexCord = texCord;"
                         "   gl_Position = model * view * projection * vertex;"
                         "}";
@@ -36,10 +39,11 @@ namespace Graphics
                         "#version 100\n"
                         "precision highp float;"
                         "varying vec2 TexCord;"
+                        "varying vec4 color;"
                         "uniform sampler2D Texture;"
                         "void main()"
                         "{"
-                        "   gl_FragColor = texture2D(Texture,TexCord);"
+                        "   gl_FragColor = color*texture2D(Texture,TexCord);"
                         "}";
                         Graphics::_Shaders::Scene2D.reset(new Graphics::Shader());
                         Graphics::_Shaders::Scene2D->build(Vertex,Fragment,"Scene2D");
@@ -58,8 +62,8 @@ namespace Graphics
                 void send(Maths::Matrix<4> model,Maths::Matrix<4> view,Maths::Matrix<4> projection)
                 {
                     auto ID = Graphics::_Shaders::Scene2D->programID;
-                    glUniformMatrix4fv(glGetAttribLocation(ID,"model"),1,GL_FALSE,model.unpack());
-                    glUniformMatrix4fv(glGetAttribLocation(ID,"view"),1,GL_FALSE,view.unpack());
+                    glUniformMatrix4fv(glGetAttribLocation(ID,"model"),1,GL_TRUE,model.unpack());
+                    glUniformMatrix4fv(glGetAttribLocation(ID,"view"),1,GL_TRUE,view.unpack());
                     glUniformMatrix4fv(glGetAttribLocation(ID,"projection"),1,GL_FALSE,projection.unpack());
                 };
                 virtual ~Scene2D() {

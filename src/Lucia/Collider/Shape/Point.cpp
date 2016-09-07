@@ -7,7 +7,7 @@ void Point::make(Manager *M,Vertex p)
 {
     Parent = M;
     Points.push_back(p);
-    synthesize(p,Vertex(1,1,1));
+    generate(p,Vertex(1,1,1));
 }
 void Point::draw()
 {

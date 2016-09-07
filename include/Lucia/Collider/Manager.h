@@ -2,14 +2,21 @@
 #define MIKUS_LUCIA_COLLIDER_MANAGER_H
 #include <Lucia/Collider/Collider.h>
 #include <Lucia/Collider/Tools.h> // matrix<uint> and inf vector;
+#include <Lucia/Collider/Algorithm/Octtree.h>
+
 namespace Lucia {
 class Collider::Manager
 {
     public:
         friend class Shape;
         Manager();
+        //set
+        void setPrecision(float Precision){precision = Precision;};
+        void setChanged(bool c);
+        //get
+        float getPrecision(){return precision;};
         // when new shape is added it does not cause a collision response, only if its moved!
-        int addShape(std::shared_ptr<Shape>);
+        void addShape(std::shared_ptr<Shape>);
         void removeShape(std::shared_ptr<Shape>);
         void moveShape(std::shared_ptr<Shape>);
         void update();
@@ -26,8 +33,10 @@ class Collider::Manager
         std::shared_ptr<Point> addPoint(Vertex Center);
         std::shared_ptr<Sphere> addSphere(Vertex Center, float radius);
         std::shared_ptr<Ray> addRay(Vertex A,Vertex B);
-
-        std::vector<std::shared_ptr<Shape>> cast(Vertex A,Vertex B);
+        
+        std::pair<float,float> getDepthLimits(){return Broadphase.getDepthLimits();};
+        void cast(Vertex A,Vertex B,std::function <void(Shape *B)> collide,bool infinite_depth=false)
+        {Broadphase.rayCast(A,B,collide,infinite_depth);};
 
         virtual ~Manager();
 
@@ -37,8 +46,9 @@ class Collider::Manager
         // DATA = 1: Position 2: Rotation 3: Scale
 
         // functions for drawing stuff, eg wrappers, should be enough to provide drawing capabilities.
-        std::function <int(std::vector<Vertex>)> CreatePolygon = [](std::vector<Vertex> Points){return -1;}; // returns id of the specific shape
-
+        std::function <int(std::vector<Vertex>)> CreatePolygon = [](std::vector<Vertex>Points){return -1;}; // returns id of the specific shape
+        std::function <void(int)>DeletePolygon = [](int){};
+        
         std::function <void()>PreDraw = [](){};
 
         std::function <void(Matrix<4>,Vertex)> DrawBox =        [](Matrix<4> Data,Vertex Color=Vertex(1.0,0.0,0.0)){};
@@ -57,19 +67,11 @@ class Collider::Manager
         // collision functions:
         std::function <void(Shape*,Shape*)> OnCollision = [](Shape *A,Shape *B){};
         std::function <void(Shape*,Shape*)> OnRelease = [](Shape *A,Shape *B){};
-
-    protected:
+        
+        Algorithm::Octtree Broadphase = Algorithm::Octtree();
+        
     private:
-        void scanShapes();
-        void addToSpace(std::shared_ptr<Shape>A,int degree);
-        // the size of the block, the chunk will be sizeModifier^2
-        int minimumSize = 1;
-        // rule of thumb minimum size should NOT be lower than fusion threshold.
-        int fussionThreshold = 30;
-        int critical_mass = 10000000; // the maximum size and if this size is achieved it will cause the shape to split!
-        // first int stands for degree!
-        // map is required to prevent sorting as space index in the second map is required to be constant!.
-        std::vector <std::shared_ptr<Space>> Spaces;
+        float precision = 0.01f;
 };
 }
 #endif // COLLIDER_MANAGER_H

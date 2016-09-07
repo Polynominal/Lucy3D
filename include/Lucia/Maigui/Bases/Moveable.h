@@ -1,6 +1,8 @@
 #ifndef MIKUS_LUCIA_MAIGUI_BASES_MOVEABLE_H
 #define MIKUS_LUCIA_MAIGUI_BASES_MOVEABLE_H
 #include <Lucia/Maigui/Maigui.h>
+#include <Lucia/Maths/Moveable.h>
+
 namespace Lucia {
 namespace Maigui
 {
@@ -37,6 +39,10 @@ namespace Maigui
                     needsRefresh = true;
                     positionChanged = true;
                     rotationChanged = true;
+                };
+                virtual Vertex getGlobalScale()
+                {
+                    return globalScale;
                 };
                 //TO's
                 virtual float toPrecentage(float val,float outof)
@@ -79,7 +85,7 @@ namespace Maigui
                 };
                 virtual void scale(Vertex v){scale(v.x,v.y,v.z);};
                 virtual void scaleTo(Vertex v){scaleTo(v.x,v.y,v.z);};
-
+                
                 virtual void rotate(float x,float y,float z)
                 {
                     if (!fixedRotation)

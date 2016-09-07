@@ -4,8 +4,10 @@ using namespace Maigui;
 
 void Item::create(Manager *m)
 {
+    
     resetDrawStates();
     setDrawState(Drawable::BASE,Name);
+    std::cout << "Creating item: " << Name << std::endl;
 
     Visible = true;
     Inactive = false;
@@ -123,5 +125,7 @@ void Item::refresh()
             if (checkPointer(b->UserData))
                 {onRelease(static_cast<Item*>(b->UserData));};
             };
+            
+        needsRefresh =false;
     }
 }

@@ -18,7 +18,6 @@ using namespace std;
 namespace Lucia {
 namespace Collider{
     using namespace Lucia::Maths;
-    class BoundingBox;
     class Shape;
     // SHAPES
         class Sphere;
@@ -32,9 +31,4 @@ namespace Collider{
     class Manager;
 }
 }
-#include <Lucia/Collider/Tools.h>
-#include <Lucia/Collider/Algorithm/GJK.h>
-#include <Lucia/Collider/Shape.h>
-#include <Lucia/Collider/Manager.h>
-
 #endif //COLLIDER_MATHS_2_H

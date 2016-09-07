@@ -23,16 +23,20 @@ Instance::Instance()
     };
     //ctor
 }
-std::shared_ptr<Container> Instance::addObject(std::shared_ptr<Object> o)
+std::shared_ptr<Container> Instance::add(std::shared_ptr<Object> o)
 {
     std::shared_ptr<Container> no = std::make_shared<Container>(o);
-    if (o->hasTransparency()){TransparentObjects.push_back(no);}else{Objects.push_back(no);};
-    insertTasks();
+    insertTasks(o.get(),no);
     return no;
 };
+void Instance::insert(std::shared_ptr<Container> o)
+{
+    insertTasks(o->getCore(),o);
+}
 void Instance::remove(Container* subject)
 {
     Utils::erase_if(&Objects,[subject](std::shared_ptr<Container> target){return (target.get() == subject);});
+    needsRefresh = true;
 };
 void Instance::sort(SORTMODE m)
 {
@@ -52,11 +56,11 @@ void Instance::drawObject(std::shared_ptr<Container> a,Maths::Matrix<4>* view,Ma
     if ( id != lastShader){lastShader = id;Core->useShader(view,projection);};
     Core->preDraw();
     a->applyTranslations();
-    Core->render(a->getModelMatrix());
+    Core->render(a.get());
 }
 void Instance::draw(Maths::Matrix<4>* view,Maths::Matrix<4>* projection)
 {
-    lastShader = 0;
+    lastShader = -1;
     view->unpack();
     projection->unpack();
     //draw opaque stuff first.
@@ -75,26 +79,38 @@ void Instance::update(double dt)
 {
     for (auto v: Objects)
     {
-        v->getCore()->update(dt);
+        v->getCore()->update(dt,v);
+        v->updateInstance();
     }
     for (auto v: TransparentObjects)
     {
-        v->getCore()->update(dt);
+        v->getCore()->update(dt,v);
+        v->updateInstance();
     };
 }
-void Instance::insertTasks()
+void Instance::insertTasks(Object* o, std::shared_ptr<Container> no)
 {
-    std::sort(TransparentObjects.begin(),TransparentObjects.end(),[](std::shared_ptr<Container>a,std::shared_ptr<Container>b)
-      {
-        return a->getPosition().z < b->getPosition().z;
-      });
-    std::sort(Objects.begin(),Objects.end(),[](std::shared_ptr<Container>a,std::shared_ptr<Container>b)
-      {
-        return a->getCore()->getShaderVars()->programID < b->getCore()->getShaderVars()->programID;
-      });
+    if (o->hasTransparency()){TransparentObjects.push_back(no);}else{Objects.push_back(no);};
+    needsRefresh = true;
+}
+void Instance::refresh()
+{
+    if (needsRefresh)
+    {
+        std::sort(TransparentObjects.begin(),TransparentObjects.end(),[](std::shared_ptr<Container>a,std::shared_ptr<Container>b)
+          {
+            return a->getPosition().z < b->getPosition().z;
+          });
+        std::sort(Objects.begin(),Objects.end(),[](std::shared_ptr<Container>a,std::shared_ptr<Container>b)
+          {
+            return a->getCore()->getShaderVars()->programID < b->getCore()->getShaderVars()->programID;
+          });
+          needsRefresh = false;
+    }
 }
 void Instance::preDraw()
 {
+    refresh();
     int ProgramID = Graphics::_Shaders::DefaultSceneShader->programID;
     glEnable(GL_DEPTH_TEST);
     glUseProgram(ProgramID);
@@ -102,7 +118,9 @@ void Instance::preDraw()
     ticks = ticks/60;
     GLint u_time = glGetUniformLocation(ProgramID,"time");
     glUniform1f(u_time,ticks);
-    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    
+    auto color = getMechanicalColor();
+    glClearColor(color.r,color.g,color.b,color.a);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 }
 void Instance::postDraw()

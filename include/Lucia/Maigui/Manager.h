@@ -21,7 +21,7 @@ namespace Maigui
             void update(double dt);
 
             Vertex getViewVertex();
-            void   setGlobalScale(float x=1.0f,float y = 1.0f);
+            void setGlobalScale(float x=1.0f,float y = 1.0f);
 
             void mousepressed(string key);
             void mousereleased(string key);
@@ -38,14 +38,17 @@ namespace Maigui
             shared_ptr<Button> addButton(float x,float y,float z,float w,float h,float d=1);
             shared_ptr<Widget> addWidget(float x,float y,float z,float w,float h, float d=1);
             // PUBLIC MEMBERS//
-            Collider::Manager* World;
-            Collider::Manager* getWorld(){return World;};
+            std::shared_ptr<Collider::Manager> World;
+            std::shared_ptr<Collider::Manager> getWorld(){return World;};
             shared_ptr<Collider::Ray> Mouse;
 
             Item* blankCompare(Item* shape1,Item* shape2);
             bool compare(std::shared_ptr<Item> shape);
 
         private:
+            Matrix<4>* Projection = nullptr;
+            Matrix<4>* View = nullptr;
+            
             Vertex globalScale = Vertex(1,1,1);
             shared_ptr<Item> activeItem;
             shared_ptr<Skin> skin;

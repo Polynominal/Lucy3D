@@ -5,19 +5,11 @@ typedef Maigui::Button Button;
 void Button::generate(Vertex position,Vertex dimensions,shared_ptr<Skin> sk)
 {
     Name = "Button";
-    Position = position;
-    Dimensions = dimensions;
     skin = sk;
     CText.generate(position,dimensions,sk);
 }
 void Button::onCreate()
 {
-    refresh();
-}
-float scaleToAspect(float w,float h,float nw)
-{
-    float ratio = w/h;
-    return nw/ratio;
 }
 void Button::resetText()
 {
@@ -28,6 +20,7 @@ void Button::resetText()
 }
 void Button::onMorph()
 {
+    Maigui::Item::onMorph();
     resetText();
 }
 void Button::refresh()
@@ -39,6 +32,7 @@ void Button::refresh()
 }
 void Button::draw()
 {
+    
     Maigui::Item::draw();
     CText.draw();
 }

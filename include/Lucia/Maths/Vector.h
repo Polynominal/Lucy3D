@@ -19,6 +19,7 @@ class Vector
         {
             return value[s];
         };
+        Vector(){};
         Vector(float x,float y,float z=0,float w=0){
             value = std::vector<float>(4);
             value[0] = x;
@@ -28,6 +29,7 @@ class Vector
         };
         Vector(std::initializer_list<float> V)
         {
+            value = std::vector<float>();
             for (auto v: V)
             {
                 value.push_back(v);

@@ -57,7 +57,13 @@ const char* gluErrorString(GLenum s)
 #endif // LUCIA_USE_GLES2
 void GameManager::update(double dt)
 {
+    Active_Gamestate->preUpdate(dt);
+    Active_Gamestate->internalUpdate(dt);
+    
     Active_Gamestate->update(dt);
+    
+    Active_Gamestate->postUpdate(dt);
+    
     int err;
     if ((err = glGetError()) != last_case)
     {
@@ -161,6 +167,7 @@ void GameManager::event(SDL_Event *event)
             int relativex   = event->motion.xrel;
             int relativey   = event->motion.yrel;
 
+            Active_Gamestate->internalMousemotion(x,y,relativex,relativey);
             Active_Gamestate->mousemotion(x,y,relativex,relativey);
 
             break;

@@ -2,14 +2,14 @@
 #define MIKUS_LUCIA_MAIGUI_TEXT_H
 #include <Lucia/Maigui/Maigui.h>
 #include <Lucia/Maigui/Skin.h>
-#include <Lucia/Maigui/Bases/Color.h>
+#include <Lucia/Graphics/Bases/Color.h>
 #include <Lucia/Maigui/Bases/Moveable.h>
 namespace Lucia {
 namespace Maigui
 {
     namespace Addon
     {
-        class Text : public Maigui::Base::Moveable, Maigui::Base::Color
+        class Text : public Maigui::Base::Moveable, Graphics::Base::Color
         {
             public:
                 Text();

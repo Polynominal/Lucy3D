@@ -1,5 +1,4 @@
 #include <Lucia/Collider/Opengl.h>
-
 using namespace Lucia;
 using namespace Collider;
 using namespace Utils;
@@ -14,9 +13,11 @@ namespace Collider_OpenGL
     int draw_mode = GL_STATIC_DRAW;
     // vector here is {VAO,VBO,EBO};
     std::map<Shape::Type,Buffer*> BufferIDs;
-    std::vector<Buffer*> polygonBufferIDs;
+    std::map<unsigned int,Buffer*> polygonBufferIDs;
     std::shared_ptr<Vars> SVars;
+    std::shared_ptr<Vars> PVars;
     GLuint programID=0;
+    GLuint polygonID=0;
 
 
     Buffer* makeSquare()
@@ -65,19 +66,103 @@ namespace Collider_OpenGL
     };
     int makePolygon(Collider::Manager *M, std::vector<Collider::Vertex> Points)
     {
+        struct Triangle
+        {
+            Triangle(){};
+            void add(Vertex v,int index)
+            {
+                Core.push_back(v);
+                Index.push_back(index);
+            };
+            void add(Triangle v){Adjacent.push_back(v);};
+            std::vector<Triangle> Adjacent;
+            std::vector<Vertex> Core;
+            std::vector<int> Index;
+            Vertex* operator [](unsigned int i)
+            {
+                return &Core[i];
+            }
+        };
+        
         std::vector<float> data;
+        std::vector<GLuint> indicies;
+        
+        std::vector<Triangle> Triangles;
+        
+        for (unsigned int i = 0; i < Points.size(); i=i+3)
+        {
+            auto triangle = Triangle();
+            triangle.add(Points[i],i);
+            triangle.add(Points[i+1],i+1);
+            triangle.add(Points[i+2],i+2);
+            
+            Triangles.push_back(triangle);
+        };
         for (auto v: Points)
         {
             data.push_back(v.x);
             data.push_back(v.y);
             data.push_back(v.z);
+        }
+        for (unsigned int i = 0; i < Triangles.size(); i++)
+        {
+            auto me = Triangles[i];
+            for (unsigned int j = 0; j < Triangles.size(); j++)
+            {
+                if (i != j)
+                {
+                    auto other = Triangles[j];
+                    unsigned int common = 0;
+                    for (auto v: other.Core)
+                    {
+                        for (auto n: me.Core)
+                        {
+                            if (v == n){common++;};
+                            if (common == 2)
+                            {
+                                Triangles[i].add(other);
+                                break;
+                            }; 
+                        }
+                    }
+                }
+            }
+        }
+        
+        for (auto v: Triangles)
+        {
+            indicies.push_back(v.Index[0]);
+            indicies.push_back(v.Index[1]);
         };
+        auto v = Triangles[Triangles.size() - 1];
+        auto target = v.Core[2];
+        for (auto w: v.Adjacent)
+        {
+            //auto 
+            for (auto n: w.Core)
+            {
+                if (target == n)
+                {
+                    indicies.push_back(w.Index[1]);
+                    indicies.push_back(w.Index[2]);
+                }
+            }
+        }
+        
+         
 
         Buffer* Buff = new Buffer(SVars);
         Buff->setData(Buff->convertToData(&data));
-
-        polygonBufferIDs.push_back(Buff);
-        return polygonBufferIDs.size()-1;
+        Buff->setIndices(indicies);
+        
+        auto id = polygonBufferIDs.size();
+        polygonBufferIDs.insert({id,Buff});
+        return id;
+    };
+    void removePolygon(int id)
+    {
+        if (id == -1){return;};
+        polygonBufferIDs.erase(id);
     };
     Buffer* makeSphere(int subdiv_x,int subdiv_y)
     {
@@ -179,7 +264,7 @@ namespace Collider_OpenGL
         {A.x,A.y,A.z,
         B.x,B.y,B.z};
         glBindBuffer(GL_ARRAY_BUFFER,Buff->vbo);
-        glBufferSubData(GL_ARRAY_BUFFER,0,6*sizeof(float),&data[0]);
+        glBufferSubData(GL_ARRAY_BUFFER,0,6*sizeof(GLfloat),&data[0]);
         #ifndef LUCIA_USE_GLES2
         glBindBuffer(GL_ARRAY_BUFFER,0);
         glBindVertexArray(Buff->vao);
@@ -247,6 +332,10 @@ namespace Collider_OpenGL
             M->CreatePolygon = [M](std::vector<Collider::Vertex> Points){
                 return makePolygon(M,Points);
             };
+            M->DeletePolygon = [](int id)
+            {
+                removePolygon(id);
+            };
             // pre draw functions use them to encompass the other draw calls.
 
             M->PreDraw = [setLine,programID,view,projection](){
@@ -259,23 +348,31 @@ namespace Collider_OpenGL
 
                 GLuint var=0;
                 var = glGetUniformLocation(programID,"view");
-                glUniformMatrix4fv(var,1,GL_FALSE,view->unpack());
-
+                glUniformMatrix4fv(var,1,GL_TRUE,view->unpack());
                 var = glGetUniformLocation(programID,"projection");
                 glUniformMatrix4fv(var,1,GL_FALSE,projection->unpack());
+                
+                glDisable(GL_POLYGON_OFFSET_FILL);
             };
             M->PostDraw = [](){
+                glEnable(GL_POLYGON_OFFSET_FILL);
+                glPolygonOffset(0.49f,0.49f);
+                
                 glUseProgram(0);
             };
-            M->DrawPolygon = [programID](Matrix<4> Data,int id,Vertex Color){
-                //color data
+            M->DrawPolygon = [M,view,projection](Matrix<4> Data,int id,Vertex Color){
+
                 auto d = polygonBufferIDs[id];
-                GLint var = glGetUniformLocation(programID,"color");
+                
+                GLuint var = glGetUniformLocation(programID,"color");
                 glUniform3f(var,Color.x,Color.y,Color.z);
+                
                 // position data
                 var = glGetUniformLocation(programID,"model");
-                glUniformMatrix4fv(var,1,GL_FALSE,Data.unpack());
-                d->draw(GL_LINE_STRIP);
+                glUniformMatrix4fv(var,1,GL_TRUE,Data.unpack());
+                
+                d->draw(GL_LINES);
+                    
             };
             auto Buff = makePoint();
             M->DrawPoint = [Buff,programID](Matrix<4> Data,Vertex Color){
@@ -284,7 +381,7 @@ namespace Collider_OpenGL
                 glUniform3f(var,Color.x,Color.y,Color.z);
                 // position data
                 var = glGetUniformLocation(programID,"model");
-                glUniformMatrix4fv(var,1,GL_FALSE,Data.unpack());
+                glUniformMatrix4fv(var,1,GL_TRUE,Data.unpack());
 
                 Buff->draw(GL_LINE_STRIP);
             };
@@ -294,7 +391,7 @@ namespace Collider_OpenGL
                 glUniform3f(var,Color.x,Color.y,Color.z);
                 // position data
                 var = glGetUniformLocation(programID,"model");
-                glUniformMatrix4fv(var,1,GL_FALSE,Data.unpack());
+                glUniformMatrix4fv(var,1,GL_TRUE,Data.unpack());
                 Buff->draw(GL_LINE_STRIP);
             };
 
@@ -305,7 +402,7 @@ namespace Collider_OpenGL
                 glUniform3f(var,Color.x,Color.y,Color.z);
                 // position data
                 var = glGetUniformLocation(programID,"model");
-                glUniformMatrix4fv(var,1,GL_FALSE,Data.unpack());
+                glUniformMatrix4fv(var,1,GL_TRUE,Data.unpack());
 
                 Buff->draw(GL_LINE_STRIP);
             };
@@ -318,7 +415,7 @@ namespace Collider_OpenGL
                 var = glGetUniformLocation(programID,"model");
                 // empty matrix here.
                 auto m = Matrix<4>();
-                glUniformMatrix4fv(var,1,GL_FALSE,m.unpack());
+                glUniformMatrix4fv(var,1,GL_TRUE,m.unpack());
                 drawRay(p2,A,B);
             };
             clean = false;
@@ -335,8 +432,8 @@ namespace Collider_OpenGL
         //clear buffer ids
         for (auto v: polygonBufferIDs)
         {
-            v->destroy();
-            delete v;
+            v.second->destroy();
+            delete v.second;
         };
         BufferIDs.clear();
         polygonBufferIDs.clear();

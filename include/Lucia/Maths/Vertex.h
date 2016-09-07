@@ -79,11 +79,11 @@ class Vertex
         inline Vertex operator * (const Vertex& A){validate(); return Vertex(x*A.x,y*A.y,z*A.z);};
         inline Vertex operator * (float A){validate(); return Vertex(x*A,y*A,z*A);};
 
-        inline bool operator < (const Vertex& A){return (x < A.x && y < A.y && z < A.z);};
-        inline bool operator > (const Vertex& A){return (x > A.x && y > A.y && z > A.z);};
+        inline bool operator < (const Vertex& A) const {return (x < A.x && y < A.y && z < A.z);};
+        inline bool operator > (const Vertex& A) const {return (x > A.x && y > A.y && z > A.z);};
 
-        inline bool operator <= (const Vertex& A){return (x <= A.x && y <= A.y && z <= A.z);};
-        inline bool operator >= (const Vertex& A){return (x >= A.x && y >= A.y && z >= A.z);};
+        inline bool operator <= (const Vertex& A) const {return (x <= A.x && y <= A.y && z <= A.z);};
+        inline bool operator >= (const Vertex& A) const {return (x >= A.x && y >= A.y && z >= A.z);};
 
         Vertex distance(Vertex& A){return Vertex(Maths::distance(x,A.x),Maths::distance(y,A.y),Maths::distance(z,A.z));};
         double magnitude(){validate(); return sqrt(pow(x,2) + pow(y,2) + pow(z,2));};

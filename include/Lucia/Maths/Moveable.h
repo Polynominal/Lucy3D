@@ -20,7 +20,12 @@ namespace Maths{
                 {
                     return q.toAxis();
                 };
+                virtual void moveOffset(Vertex p){moveOffsetTo(Offset + p);};
+                virtual void moveOffset(float x,float y,float z=0.0f){moveOffset(Vertex(x,y,z));};
 
+                virtual void moveOffsetTo(Vertex p);
+                virtual void moveOffsetTo(float x,float y,float z=0.0f){moveOffsetTo(Vertex(x,y,z));};
+                
                 virtual void move(Vertex p){moveTo(Position + p);};
                 virtual void move(float x,float y,float z=0.0f){move(Vertex(x,y,z));};
 
@@ -39,7 +44,7 @@ namespace Maths{
                 };
                 virtual void rotateTo(float x,float y,float z=0.0f){rotateTo(Vertex(x,y,z));};
 
-                virtual void rotate(Quaternion q){rotateTo(Rotation + q);};
+                virtual void rotate(Quaternion q){rotateTo(q + Rotation);};
                 virtual void rotateTo(Quaternion q);
 
                 virtual void scale(Vertex p){scaleTo(Scale + p);};
@@ -47,7 +52,8 @@ namespace Maths{
 
                 virtual void scaleTo(Vertex p);
                 virtual void scaleTo(float x,float y,float z=1.0f){scaleTo(Vertex(x,y,z));};
-
+                //original fraction is the size of the model relative to the screen so if your model ranges from 0.5 to -0.5 then set the original fraction to 0.5/
+                virtual void scaleToPixels(float w,float h,float screen_w,float screen_h,float original_fraction=0.5f){scaleTo((w/screen_w)*(1/original_fraction),(h/screen_h)*(1/original_fraction),Scale.z);};
                 virtual void setDimensions(Vertex p);
                 virtual void setDimensions(float x,float y,float z){setDimensions(Vertex(x,y,z));};
                 
@@ -67,6 +73,11 @@ namespace Maths{
                 bool canScale(){return can_scale;};
                 bool canRotate(){return can_rotate;};
                 bool canMorph(){return (can_move and can_scale and can_rotate);};
+                
+                //has
+                bool hasMoved(){return position_changed;};
+                bool hasScaled(){return scale_changed;};
+                bool hasRotated(){return rotation_changed;};
                 //misc
                 bool needsRefresh(){return needs_refresh;};
                 void enableImplicitTranslation(bool b){applyTranslationWithoutRequest = b;};
@@ -89,8 +100,9 @@ namespace Maths{
                 Matrix<4> Model_Matrix = Matrix<4>(4);
 
                 Quaternion Rotation = Quaternion(0,0,0,0);
-                Vertex Position  = Vertex(0.0f,0.0f,0.0f);
-                Vertex Scale     = Vertex(1.0f,1.0f,1.0f);
+                Vertex Offset     = Vertex(0.0f,0.0f,0.0f);
+                Vertex Position   = Vertex(0.0f,0.0f,0.0f);
+                Vertex Scale      = Vertex(1.0f,1.0f,1.0f);
                 Vertex Dimensions = Vertex(1.0f,1.0f,1.0f);
 
             private:
@@ -99,11 +111,11 @@ namespace Maths{
                 bool can_scale  = true;
                 bool can_move   = true;
 
-                bool position_changed = false;
-                bool scale_changed = false;
-                bool rotation_changed = false;
+                bool position_changed = true;
+                bool scale_changed = true;
+                bool rotation_changed = true;
 
-                bool needs_refresh=false;
+                bool needs_refresh=true;
         };
 }}
 

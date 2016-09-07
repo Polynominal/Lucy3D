@@ -5,27 +5,69 @@ using namespace Collider;
 void Polygon::make(Manager* P,std::vector<Vertex> Points)
 {
     Parent = P;
-    create(Points);
+    //create(Points);
+}
+bool removeDuplicates(std::vector<Vertex>* v,int start)
+{
+    auto one = v[0][start];
+    int id = 0;
+    bool hit = false;
+    for (auto m: *v)
+    {
+        if (m == one and id != start)
+        {
+            hit = true;
+            v->erase(v->begin() + id);
+            return true;
+        }
+        id++;
+    }
+    if (not hit)
+    {
+        int n = start + 1;
+        if (v->size() > n)
+        {
+            return removeDuplicates(v,n);
+        }
+    }
+    return false;
+}
+void removeDuplicatesAgent(std::vector<Vertex>* v)
+{
+    int id = 0;
+    for (auto m: *v)
+    {
+       if (removeDuplicates(v,id))
+       {
+           removeDuplicatesAgent(v);
+       }
+        id++;
+    };
 }
 void Polygon::Polygon::create(std::vector<Vertex>P)
 {
-    Points = P;
-    auto Extremes = extremes(Points);
+    if (polygonID != -1){Parent->DeletePolygon(polygonID);};
+    polygonID = -1;
+    
+    auto Extremes = extremes(P);
     auto Min = Extremes.first;
     auto Max = Extremes.second;
+
     Vertex Dimensions = Max - Min;
-    Vertex Center = Max - Dimensions/2;
-    synthesize(Center,Dimensions);
+    generate(getPosition(),Dimensions);
+    //generate(getPorition(),Dimensions);
+    triangulated = P;
+    Points = triangulated;
+    removeDuplicatesAgent(&Points);
     type = Shape::Type::polygon;
 }
 void Polygon::draw()
 {
+    if (polygonID == -1){
+        polygonID = Parent->CreatePolygon(triangulated);
+    }
     drawBox();
     Parent->DrawPolygon(*getMatrix(),polygonID,Vertex(1.0,0,0));
-}
-void Polygon::link(Manager *m)
-{
-    Parent = m;
 }
 bool Polygon::collidesWith(std::shared_ptr<Shape> A)
 {

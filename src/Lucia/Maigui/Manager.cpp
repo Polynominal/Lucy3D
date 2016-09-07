@@ -3,16 +3,18 @@
 #include <Lucia/Maigui/Types/Widget.h>
 #include <Lucia/Maigui/Types/Frame.h>
 #include <Lucia/Maigui/Types/Button.h>
+
 using namespace Lucia;
+using namespace Maths;
 namespace Lucia {
 namespace Maigui
 {
     Manager::Manager()
     {
         skin = Maigui::Default::Skin;
-        World = new Collider::Manager;
+        World = std::make_shared<Collider::Manager>();
     //ctor
-    }
+    }    
     void Manager::formDefaultSkin()
     {
         Maigui::Default::form();
@@ -177,7 +179,12 @@ namespace Maigui
         i->setSkin(skin);
         i->create(this);
         i->setGlobalScale(globalScale);
+        
         Children.push_back(i->getPtr());
+        std::sort(Children.begin(),Children.end(),[](std::shared_ptr<Item> a,std::shared_ptr<Item> b)
+        {
+            return a->getPosition().z < b->getPosition().z;
+        });
     }
     void Manager::addItem(Maigui::Item* i,Vertex v,Vertex b)
     {
@@ -201,13 +208,8 @@ namespace Maigui
     shared_ptr<Button> Manager::addButton(float x,float y,float z,float w,float h,float d)
     {
         auto c = std::make_shared<Button>();
-        c->setSkin(skin);
-        c->create(this);
-        c->moveTo(x,y,z);
-        c->scaleTo(w,h,d);
-        c->setGlobalScale(globalScale);
-        Children.push_back(c);
-
+        c->generate(Vertex(x,y,z),Vertex(w,h,d),Maigui::Default::Skin);
+        addItem(dynamic_cast<Maigui::Item*>(c.get()),Vertex(x,y,z),Vertex(w,h,d));
         return c;
     };
     shared_ptr<Widget> Manager::addWidget(float x,float y,float z,float w,float h, float d)
@@ -217,8 +219,6 @@ namespace Maigui
 
     Manager::~Manager()
     {
-        delete World;
-        //dtor
     }
 }
 }

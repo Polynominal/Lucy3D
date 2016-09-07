@@ -11,6 +11,7 @@ void Ray::make(Manager *M,Vertex a,Vertex b)
 {
     A = a;
     B = b;
+    type = Collider::Shape::ray;
     Vertex Max = a.max(b);
     Vertex Min = a.min(b);
     Parent = M;
@@ -18,7 +19,7 @@ void Ray::make(Manager *M,Vertex a,Vertex b)
     Dimensions = (Max-Min);
     Position = Max - Dimensions/2;
 
-    synthesize(Position,Dimensions);
+    generate(Position,Dimensions);
 }
 void Ray::draw()
 {
@@ -26,7 +27,7 @@ void Ray::draw()
 }
 bool Ray::collidesWith(std::shared_ptr<Shape> A)
 {
-    GJK test = GJK();
+    GJK test = GJK(); 
     if (test.collidesWith(this,A.get()))
     {
         return true;

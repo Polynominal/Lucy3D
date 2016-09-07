@@ -24,7 +24,7 @@ void Scene2D::generate(Context::Window* Window)
 void Scene2D::preDraw()
 {
     Instance::preDraw();
-    cam->update(true);
+    cam->update();
 }
 void Scene2D::draw()
 {

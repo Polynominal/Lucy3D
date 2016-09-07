@@ -46,7 +46,7 @@ void Bloom::parse(unsigned int degree,float fsize,Graphics::Canvas* canvas,bool 
                 unsigned int size = fsize*(i+1);
                 if (lw < size or lh < size){break;};
 
-                auto Buffer = canvas->getSize(size,size);
+                auto Buffer = canvas->getBlitSize(size,size);
                 Graphics::Canvas  Buff = Graphics::Canvas();
                 Buff.generate(size,size);
 
@@ -60,7 +60,7 @@ void Bloom::parse(unsigned int degree,float fsize,Graphics::Canvas* canvas,bool 
 
                 Buff.attach();
                 Buffer->renderQuad();
-                auto nBuffer = Buff.getSize(lw,lh);
+                auto nBuffer = Buff.getBlitSize(lw,lh);
 
                 Canvas->attach();
                 nBuffer->renderQuad(true);

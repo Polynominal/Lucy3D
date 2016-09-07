@@ -35,7 +35,7 @@ void logError( GLuint shader )
 }
 GLuint LoadShaderSource(const char * vertex_source,const char * fragment_source)
 {
-
+    bool fail = false;
     GLint Result = GL_FALSE;
     int InfoLogLength;
 
@@ -54,10 +54,12 @@ GLuint LoadShaderSource(const char * vertex_source,const char * fragment_source)
         std::vector<char> VertexShaderErrorMessage(InfoLogLength+1);
         glGetShaderInfoLog(VertexShaderID, InfoLogLength, NULL, &VertexShaderErrorMessage[0]);
         printf("%s\n", &VertexShaderErrorMessage[0]);
+        fail = true;
     }
     if (Result != GL_TRUE){
-            LOG << "Warning" << "[FROM SOURCE] GLSL compilation error:" << std::endl;
-            logError(VertexShaderID);
+        LOG << "Warning" << "[FROM SOURCE] GLSL compilation error:" << std::endl;
+        logError(VertexShaderID);
+        fail = true;
     }
     // Compile Fragment Shader
     LOG << "Building" <<"Compiling fragment shader!" << std::endl;
@@ -71,8 +73,8 @@ GLuint LoadShaderSource(const char * vertex_source,const char * fragment_source)
         std::vector<char> FragmentShaderErrorMessage(InfoLogLength+1);
         glGetShaderInfoLog(FragmentShaderID, InfoLogLength, NULL, &FragmentShaderErrorMessage[0]);
         printf("%s\n", &FragmentShaderErrorMessage[0]);
-
-}
+        fail = true;
+    }
     // Link the program
     LOG << "Linking program" << std::endl;
     GLuint ProgramID = glCreateProgram();
@@ -87,6 +89,7 @@ GLuint LoadShaderSource(const char * vertex_source,const char * fragment_source)
         std::vector<char> ProgramErrorMessage(InfoLogLength+1);
         glGetProgramInfoLog(ProgramID, InfoLogLength, NULL, &ProgramErrorMessage[0]);
         LOG << "Fatal" << &ProgramErrorMessage[0] << std::endl;
+        fail = true;
     }
 
     glDetachShader(ProgramID, VertexShaderID);
@@ -94,7 +97,8 @@ GLuint LoadShaderSource(const char * vertex_source,const char * fragment_source)
 
     glDeleteShader(VertexShaderID);
     glDeleteShader(FragmentShaderID);
-
+    
+    if (fail){return 0;};
     return ProgramID;
 }
 void checkBasicBuild(Shader_Vars* v)

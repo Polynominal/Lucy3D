@@ -13,65 +13,59 @@ Camera::Camera(float w,float h)
     rotate(0,0,0);
     //ctor
 }
-void Camera::update(bool b)
+//Massive thanks to joe stevens for mentioning this method: http://joestevens.net/post/20063172257/alternate-view-matrix-construction
+void Camera::lookAt(Quaternion rot, Vertex Pos)
 {
-    applyTranslations();
-    view = Model_Matrix;
+    view = Matrix<4>();
     
-    if (b)
-    {
-        GLint programID = 0;
-        glGetIntegerv(GL_CURRENT_PROGRAM,&programID);
-        GLuint var=0;
-        var = glGetUniformLocation(programID,"view");
-        glUniformMatrix4fv(var,1,GL_FALSE,this->getView().unpack());
-
-        var = glGetUniformLocation(programID,"projection");
-        glUniformMatrix4fv(var,1,GL_FALSE,projection.unpack());
-    }else
-    {
-        this->getView();
-    }
-
-
-}; // applies all of the translations and sends data to vertex shader .
-void Camera::pitch(float degrees)
-{
-    auto rad = radians(degrees);
-    auto q = Quaternion(rad,-Local);
-    Up    = q.rotate(Up);
-    Local = q.rotate(Local);
-
-    Rotation = q * Rotation;
-
-    regRot();
-};
-void Camera::yaw(float degrees)
-{
-    float rad = radians(degrees);
-    auto q = Quaternion(rad,Up);
-    Local   = q.rotate(Local);
-    Forward = q.rotate(Forward);
-
-    Rotation = q * Rotation;
-
-    regRot();
-};
-void Camera::roll(float degrees)
-{
-    float rad = radians(degrees);
-    auto q = Quaternion(rad,Forward);
-    Up    = q.rotate(Up);
-    Forward = q.rotate(Forward);
-
-    Rotation = q * Rotation;
-
-    regRot();
-};
-void Camera::strafe(std::string direction)
-{
-
+    Vertex v1 = (rot*Vertex(0.0f,0.0f,1.0f)).normalize(); // foeward
+    Vertex v2 = (rot*Vertex(0.0f,1.0f,0.0f)).normalize().cross(v1); // up
+    Vertex v3 = v1.cross(v2);
+    
+    view[0][0] = v2.x;
+    view[0][1] = v3.x;
+    view[0][2] = v1.x;
+    
+    view[1][0] = v2.y;
+    view[1][1] = v3.y;
+    view[1][2] = v1.y;
+    
+    view[2][0] = v2.z;
+    view[2][1] = v3.z;
+    view[2][2] = v1.z;
+    
+    view[3][0] = -v2.dot(Pos);
+    view[3][1] = -v3.dot(Pos);
+    view[3][2] = -v1.dot(Pos);
+    
+    view = view.transpose();
 }
+void Camera::lookAt(Vertex eye, Vertex target, Vertex up)
+{
+    view = Matrix<4>();
+    Vertex f = (eye - target).normalize();    
+    Vertex s = (up.cross(f)).normalize();
+    Vertex u = f.cross(s);     
+    
+    view[0][0] = s.x;
+    view[1][0] = s.y;
+    view[2][0] = s.z;
+    view[0][1] = u.x;
+    view[1][1] = u.y;
+    view[2][1] = u.z;
+    view[0][2] = f.x;
+    view[1][2] = f.y;
+    view[2][2] = f.z;
+    view[3][0] = -s.dot(eye);
+    view[3][1] = -u.dot(eye);
+    view[3][2] = -f.dot(eye);
+    
+    view = view.transpose();
+}
+void Camera::update()
+{
+    lookAt(Rotation,Position);
+}; // applies all of the translations and sends data to vertex shader .
 void Camera::strafe(std::string direction,float speed)
 {
     if (direction == "right")
@@ -92,20 +86,28 @@ void Camera::strafe(std::string direction,float speed)
         }
     else if (direction == "up")
         {
-            this->translateLocal(0.0f,-speed,0.0f);
+            this->translateLocal(0.0f,speed,0.0f);
         }
     else if (direction == "down")
         {
-            this->translateLocal(0.0f,speed,0.0f);
+            this->translateLocal(0.0f,-speed,0.0f);
         }
     else if (direction == "roll_left")
         {
-            this->updateRoll(speed);
+            rotate(-speed,0,0);
         }
     else if (direction == "roll_right")
         {
-            this->updateRoll(-speed);
-        };
+            rotate(speed,0,0);
+        }
+    else if (direction == "pitch_up")
+    {
+        rotate(0,0,speed);
+    }
+    else if (direction == "pitch_down")
+    {
+        rotate(0,0,-speed);
+    };
 }
 
 void Camera::mousemotion(Context::Window *W,float x,float y,float relx,float rely)
@@ -142,10 +144,6 @@ std::pair<Vertex,Vertex> Camera::getRay(float x,float y)
     //         -
     return std::pair<Vertex,Vertex>(eye,world);
 }
-void Camera::lookAt(float x,float y,float z)
-{
-
-};
 // translations.
 void Camera::setRange(float a,float min,float max)
 {
@@ -180,26 +178,7 @@ void Camera::setPerspective()
 }
 Matrix<4> Camera::getView()
 {
-    view = Model_Matrix;
-    if (createMatrix)
-    {
-//        pitch(Rotation.x);
-//        yaw(Rotation.y);
-//        roll(Rotation.z);
-//        
-//        Quaternion q = Rotation;
-//        q.x *= -1.0f;
-//        q.y *= -1.0f;
-//        q.z *= -1.0f;
-//        view.rotate(q.toAxis());
-
-//        Vertex v = -Position;
-//        Matrix<4> m = view;
-//        view[0][3] = (m[0][0] * v.x) + (m[0][1] * v.y) + (m[0][2] * v.z) + m[0][3];
-
-        createMatrix  = false;
-    }
-    
+    lookAt(Rotation,Position);
     return view;
 }
 Matrix<4> Camera::getProjection()
@@ -219,31 +198,15 @@ void Camera::normal()
     Up = Forward.cross(Local);
     yawAxis = Up;
 }
-void Camera::regRot()
-{
-    rotations++;
-    if (rotations > max_rotations)
-    {
-        rotations = 0;
-        this->normal();
-    };
-}
-void Camera::updateRoll(float speed)
-{
-    rotate(0,0,speed);
-    
-    Quaternion q = Quaternion(speed,Forward);
-    yawAxis = q.rotate(yawAxis);
-    
-    applyTranslations();
-    view = Model_Matrix;
-    createMatrix = true;
-}
 void Camera::translateLocal(float left,float up,float forward)
 {
+    Local       = (Rotation*Vertex(1.0f,0.0f,0.0f)).normalize();
+    Up          = (Rotation*Vertex(0.0f,1.0f,0.0f)).normalize();
+    Forward     = (Rotation*Vertex(0.0f,0.0f,1.0f)).normalize();
+    
     Position += Up * up;
     Position += Local*left;
-    Position += (Rotation * Vertex(0.0f,0.0f,-1.0f))*(forward);
+    Position += Forward*(forward);
     createMatrix = true;
     //needed to refresh the move stack.
     moveTo(Position);

@@ -24,8 +24,11 @@ float Text::getWidth()
 void Text::setSize(int s)
 {
     size = s;
-    Vertex dimensions = Vertex(skin->getTextWidth(text,s),(skin->getFontHeight(s))*getLines(),Dimensions.z);
-    scaleTo(dimensions);
+    if (skin.get())
+    {
+        Vertex dimensions = Vertex(skin->getTextWidth(text,s),(skin->getFontHeight(s))*getLines(),Dimensions.z);
+        scaleTo(dimensions);
+    }
 }
 int Text::getLines()
 {
@@ -54,21 +57,30 @@ void Text::remove()
 void Text::setSkin(std::shared_ptr<Maigui::Skin> s)
 {
     skin=s;
+    setText(text);
 }
 void Text::setText(string T)
 {
     remove();
     text = T;
-    id = skin->bufferText(T);
-    width = skin->getTextWidth(text,size);
-    height = skin->getFontHeight(size);
-    setSize(size);
+    if (skin.get())
+    {
+        id = skin->bufferText(T);
+        std::cout << id << std::endl;
+        width = skin->getTextWidth(text,size);
+        height = skin->getFontHeight(size);
+        setSize(size);
+    }
 };
 void Text::draw()
 {
     if (id == -1){setText(text);};
-    skin->setTextColor(cr,cg,cb,ca);
-    skin->printBufferedText(id,Translation);
+    auto c = getColor();
+    if (skin.get())
+    {
+        skin->setTextColor(c.r,c.g,c.b,c.a);
+        skin->printBufferedText(id,Translation);
+    }
 };
 Text::~Text()
 {

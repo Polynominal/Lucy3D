@@ -2,6 +2,8 @@
 #define MIKUS_LUCIA_MAIGUI_SKIN_H_INCLUDED
 #include <Lucia/Maigui/Maigui.h>
 #include <Lucia/Graphics/Image.h>
+#include <Lucia/Maths/SpriteSheet.h>
+
 namespace Lucia {
 class Maigui::Skin
 {
@@ -19,33 +21,24 @@ class Maigui::Skin
             LINE
         };
         void setPath(string path_to_image);
-        struct Drawable // used for a quad
+        class Drawable: // used for a quad
+        public Lucia::Maths::Sprite
         {
-            // x and y from the top
-            // w and h of the size of the quad
-            float x;
-            float y;
-            float w;
-            float h;
-            Shapes type = Shapes::None;
-            uint id; // id for shaders and so on.
-            // machine cords
-            Vec2 top = Vec2(0,0);
-            Vec2 bottom = Vec2(0,0);
-            //
-            const char* Vertex_s = nullptr;
-            const char* Vertex_f = nullptr;
-            //
-            Drawable(float nx,float ny,float nw,float nh) : x(nx),y(ny),w(nw),h(nh){};
+            public:
+                Drawable(){};
+                virtual ~Drawable(){};
+                Shapes type = Shapes::None;
+                uint id; // id for shaders and so on.
         };
         // item reference
         Vec2 toMechanical(float nx,float ny);
         Drawable form(string item,float x,float y,float w,float h);// make a quad
         Drawable form(string item,Shapes shape_type=Shapes::Rectangle,float r=1.0f,float g=0.0f,float b=0.0f,float a=0.0f);// make a quad
         void draw(string item,float r=1.0f,float g=1.0f,float b=1.0f,float a=1.0f);
-
+        void draw(Maths::Sprite* s,float r=1.0f,float g=1.0f,float b=1.0f,float a=1.0f);
+        
         void clear();
-        Graphics::Image* getData(){return ImageData;};
+        std::shared_ptr<Graphics::Image> getData(){return ImageData;};
 
         virtual ~Skin();
 
@@ -56,6 +49,7 @@ class Maigui::Skin
         std::function<void()>                                                   PreDraw  = [](){};
         std::function<void()>                                                   PostDraw = [](){};
         std::function<void(Matrix<4>)>                                          setMatrix= [](Matrix<4> translation){};
+        std::function<void(Graphics::Image*,Maths::Sprite*,float,float,float,float)>                    drawImageItem=[](Graphics::Image* img,Maths::Sprite* s,float r,float g,float b,float a){};
         std::function<void(Drawable*)>                                          drawItem = [](Drawable *d){};
         std::function<void(Drawable*,float,float,float,float)>                  drawColoredItem = [](Drawable *d,float r,float g,float b,float a){};
         std::function<void(float,float,float,float)>                            drawColoredRectangle =[](float r,float g,float b,float a){};
@@ -71,7 +65,7 @@ class Maigui::Skin
 
         std::function<void(string,int)>                                         DrawState = [](string s,int state){};
 
-        Graphics::Image* ImageData;
+        std::shared_ptr<Graphics::Image> ImageData;
 };
 }
 #endif // MIKUS_MAIGUI_SKIN_H_INCLUDED

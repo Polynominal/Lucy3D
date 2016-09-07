@@ -89,6 +89,7 @@ class Graphics::Text
                     float baseSize = 0;
                     std::map<Type,std::shared_ptr<subfont>> Family;
             };
+        class Simple;
         class Instance;
         class Render;
         class Task;

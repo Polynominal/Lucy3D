@@ -1,33 +1,12 @@
 #ifndef MIKUS_LUCIA_COLLIDER_SHAPE_H
 #define MIKUS_LUCIA_COLLIDER_SHAPE_H
 #include <Lucia/Collider/Collider.h>
+#include <Lucia/Collider/Manager.h>
 #include <Lucia/Collider/Algorithm/GJK.h>
 #include <Lucia/Utils/Utils.h>
 #include <Lucia/Maths/Moveable.h>
+#include <Lucia/Collider/BoundingBox.h>
 namespace Lucia {
-class Collider::BoundingBox
-{
-    public:
-        BoundingBox();
-        BoundingBox(float x,float y,float z,float w,float h,float d);
-        bool collidesWith(BoundingBox *Box);
-        bool engulfs(BoundingBox *Box);
-        bool contains(float x,float y,float z);
-        bool contains(Vertex v){return contains(v.x,v.y,v.z);};
-        void refresh();
-        Vertex getDimensions(); // width,height,depth
-        Vertex getMaxDimensions(); // width height and depth and rotation.
-        virtual ~BoundingBox();
-
-        std::vector<Vertex> Points = std::vector<Vertex>();
-        std::vector<Vertex> Faces = std::vector<Vertex>();
-        Matrix<4> Transformation = Matrix<4>();
-        
-        Vertex Center;
-        Vertex Min;
-        Vertex Max;
-        Vertex Dimensions;
-};
 class Collider::Shape
 : public std::enable_shared_from_this<Collider::Shape>,
 public Lucia::Maths::Moveable
@@ -52,8 +31,9 @@ public Lucia::Maths::Moveable
 
         Shape(){};
         Shape(Manager *Colly);
+        void link(Manager *Colly);
         // Manager works only with moveTo, it does not passively check collision
-        void synthesize(Vertex Center,Vertex Dimensions,bool t=true);
+        void generate(Vertex Center,Vertex Dimensions,bool t=true);
         virtual void onMove();
         virtual void onScale();
         
@@ -79,7 +59,7 @@ public Lucia::Maths::Moveable
         */
         virtual Vertex support(Vertex dir);
         virtual void draw();
-
+        virtual void onMorph(){refresh();};
         // translations
         void update_translation(bool a=false);
         void refresh(); // used for applying translations to non-translated points!
@@ -89,8 +69,8 @@ public Lucia::Maths::Moveable
         // Gets
         BoundingBox* getBox();
         Vertex getMaxDimensions();// the maximum dimensions of the shape
+        Vertex getDimensions(){return Size*getScale();};
         //sets 
-        void setSpace(std::shared_ptr<Space> s);
         Vertex Color =  Vertex(0.0,0.0,1.0);
 
         //lambdas
@@ -102,45 +82,27 @@ public Lucia::Maths::Moveable
 
         std::vector<Vertex> Points;
         std::vector<Vertex> Translated;
-        
+        Vertex Size;
+        float BBoxSize=1;
+
         void* UserData;
 
         // destructors
         void remove(); // required to mark for removal.
         virtual ~Shape();
+        
+        void push(std::shared_ptr<Shape> B);    // pushes the specific shape to collision list.
+        void pop(std::shared_ptr<Shape> B);    // pops
 
     protected:
-        int polygonID=0;
         BoundingBox Box = BoundingBox(0,0,0,10,10,1);
 
     private:
         void cleanCollisions();
         void sendMoveSignal();
 
-        void push(std::shared_ptr<Shape> B);    // pushes the specific shape to collision list.
-        void pop(std::shared_ptr<Shape> B);    // pops
-
-        // Translation = the above combined.
-        std::shared_ptr<Space> space;
-        //scale,rotation and position
         bool removed = true;
         Manager *Parent=nullptr;
-};
-class Collider::Space
-{
-    public:
-
-        Space(Vertex Center,int degree); // the degree to which you wish to divide
-        Space(Vertex Center,Vertex dim); // dimensions for ghosts
-        void erase(Manager &Manager);
-        void setGhost(bool t);
-        ~Space();
-
-        BoundingBox Box;
-        std::vector<std::shared_ptr<Shape>>Shapes; // the shapes within the spaces.
-        int degree =0;
-        bool changed = true;
-        bool ghost = false;
 };
 }
 #endif // COLLIDER_SHAPE_H

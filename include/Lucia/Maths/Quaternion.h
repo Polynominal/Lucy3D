@@ -3,6 +3,7 @@
 
 #include <Lucia\Maths\Vertex.h>
 #include <Lucia\Maths\Vector.h>
+#include <Lucia\Maths\Matrix.h>
 
 namespace Lucia{
 namespace Maths{
@@ -27,10 +28,10 @@ public:
     //
     
     Vertex multiplyOut(Vertex v){
-        Quaternion Q;
-        Q.x = v.x;Q.y = v.y;Q.z = v.z;Q.w = 0;
-        Quaternion nQ = *this * Q * this->conjugate();
-        return Vertex(nQ.x,nQ.y,nQ.z);
+        Vertex spoof = Vertex(x,y,z);
+        Vertex uv = spoof.cross(v);
+        Vertex uuv = spoof.cross(uv); 
+        return v + ((uv * w) + uuv)*2;
     };
     Vertex rotate(Vertex v)
     {
@@ -97,6 +98,33 @@ public:
         yaw = asin(2*test/unit);
         roll = atan2(2*x*w-2*y*z , -sqx + sqy - sqz + sqw);
         return Vertex(Maths::degrees(pitch),Maths::degrees(yaw),Maths::degrees(roll));
+    };
+    Maths::Matrix<4> toMatrix()
+    {
+        Maths::Matrix<4> mat = Maths::Matrix<4>();
+        float qxx(x * x);
+        float qyy(y * y);
+        float qzz(z * z);
+        float qxz(x * z);
+        float qxy(x * y);
+        float qyz(y * z);
+        float qwx(w * x);
+        float qwy(w * y);
+        float qwz(w * z);
+
+        mat[0][0] = 1 - 2 * (qyy +  qzz);
+        mat[0][1] = 2 * (qxy + qwz);
+        mat[0][2] = 2 * (qxz - qwy);
+
+        mat[1][0] = 2 * (qxy - qwz);
+        mat[1][1] = 1 - 2 * (qxx +  qzz);
+        mat[1][2] = 2 * (qyz + qwx);
+
+        mat[2][0] = 2 * (qxz + qwy);
+        mat[2][1] = 2 * (qyz - qwx);
+        mat[2][2] = 1 - 2 * (qxx +  qyy);
+        
+        return mat.transpose();
     };
     Quaternion fromAngleAxis(float angle,Vertex normal)
     {

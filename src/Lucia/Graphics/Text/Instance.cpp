@@ -61,7 +61,7 @@ void Render::print(string str)
     if (applyTranslations())
     {
         glUniformMatrix4fv(glGetUniformLocation(Graphics::textShader->programID, "model"),
-        1,GL_FALSE,Model_Matrix.unpack());
+        1,GL_TRUE,Model_Matrix.unpack());
     }
     auto of = parent->renderString(str,offset_x,0.0f,gapSize,fixedGap,activeSub);
     offset_x = of.first;
@@ -124,12 +124,10 @@ void Render::pre()
 
     // lets start with white!
     glUniform4f(glGetUniformLocation(programID, "textColor"), 1.0f,1.0f,1.0f,1.0f);
-    glUniformMatrix4fv(glGetUniformLocation(programID, "projection"),
-    1,GL_FALSE,parent->projection->unpack());
+    glUniformMatrix4fv(glGetUniformLocation(programID, "projection"),1,GL_FALSE,parent->projection->unpack());
 
     applyTranslations();
-    glUniformMatrix4fv(glGetUniformLocation(programID, "model"),
-    1,GL_FALSE,Model_Matrix.unpack());
+    glUniformMatrix4fv(glGetUniformLocation(programID, "model"),1,GL_TRUE,Model_Matrix.unpack());
 }
 void Render::post()
 {

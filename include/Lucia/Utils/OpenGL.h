@@ -66,6 +66,12 @@ namespace Utils
 
             Shader_Vars(){};
             int find(std::string name);
+            
+            void send(std::string name,double v0){send(name,float(v0));};
+            void send(std::string name,double v0,double v1){send(name,float(v0),float(v1));};
+            void send(std::string name,double v0,double v1,double v2){send(name,float(v0),float(v1),float(v2));};
+            void send(std::string name,double v0,double v1,double v2,double v3){send(name,float(v0),float(v1),float(v2),float(v3));};
+            
             void send(std::string name,float v0);
             void send(std::string name,float v0,float v1);
             void send(std::string name,float v0,float v1,float v2);

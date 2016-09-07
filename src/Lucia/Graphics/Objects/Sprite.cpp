@@ -1,0 +1,1 @@
+#include <Lucia/Graphics/Objects/Sprite.h>

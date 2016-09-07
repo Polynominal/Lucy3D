@@ -29,7 +29,7 @@ namespace Lucia
                         virtual bool hasMouse(){return false;};
                         virtual bool hasFocus(){return currentFocus;};
                         //misc 
-                        virtual bool checkFocus(){return hasMouse();};
+                        virtual bool checkFocus(){return hasFocus();};
                         //events
                         virtual void mousepressed(std::string key);
                         virtual void mousereleased(std::string key);

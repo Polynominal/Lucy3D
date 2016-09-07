@@ -28,6 +28,7 @@ namespace Graphics
                 return GL_NEAREST;
             }
         }
+        return GL_NEAREST;
     };
     inline int getMechanicalWrap(WRAP f)
     {
@@ -62,20 +63,12 @@ namespace Graphics
                 int getUpFilter(){return uFilter;};
                 std::pair<int,int> getFilter(){return std::pair<int,int>(getDownFilter(),getUpFilter());};
                 //sets
-                void setFilterObject(Filter* f)
-                {
-                    for (unsigned int i=0; i < 3; i++){Color[i] = f->Color[i];}
-                    dFilter=f->dFilter;
-                    uFilter=f->uFilter;
-                    HorizontalW=f->HorizontalW;
-                    VerticalW=f->VerticalW;
-                };
-                void setUpFilter(FILTER f){uFilter = f;};
-                void setDownFilter(FILTER f){dFilter = f;};
+                void setUpFilter(FILTER f){uFilter = f;needsRefresh=true;};
+                void setDownFilter(FILTER f){dFilter = f; needsRefresh=true;};
                 void setFilter(FILTER f){setUpFilter(f);setDownFilter(f);};
 
-                void setHorizWrap(WRAP w){VerticalW = w;};
-                void setVertWrap (WRAP w){HorizontalW = w;};
+                void setHorizWrap(WRAP w){VerticalW = w; needsRefresh=true;};
+                void setVertWrap (WRAP w){HorizontalW = w; needsRefresh=true;};
                 void setWrap(WRAP wrap){setHorizWrap(wrap);setVertWrap(wrap);};
                 //apply
                 void applyWrap()
@@ -107,16 +100,26 @@ namespace Graphics
                     };
                     #endif
                 };
-                void applyFilters()
+                void forceApplyFilters()
                 {
                     applyWrap();
                     applyFilter();
                     applyBorderColor();
                 };
+                void applyFilters()
+                {
+                    if (needsRefresh)
+                    {
+                        forceApplyFilters();
+                    }
+                };
                 //[!] Must have bound image with glBindTexture [!]
                 virtual ~Filter(){};
 
+            private:
+                bool needsRefresh = true;
             protected:
+                
                 float Color[4] = {1.0f,1.0f,1.0f,1.0f};
 
                 FILTER dFilter=FILTER::NEAREST;

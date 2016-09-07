@@ -21,6 +21,19 @@ void Moveable::rotateTo(Quaternion q)
         }
     }
 }
+void Moveable::moveOffsetTo(Vertex v)
+{
+    if (can_move)
+    {
+        Offset = v;
+        position_changed = true;
+        needs_refresh = true;
+        if (applyTranslationWithoutRequest)
+        {
+            applyTranslations();
+        }
+    }
+}
 void Moveable::moveTo(Vertex v)
 {
     if (can_move)
@@ -56,6 +69,7 @@ bool Moveable::applyTranslations(bool b)
         
         Vertex v = Dimensions*Scale;
         auto rot = Rotation.toAxis();
+        Model_Matrix.translate(Offset);
         Model_Matrix.rotate(rot);
         Model_Matrix.scale(v);
         Model_Matrix.translate(Position);

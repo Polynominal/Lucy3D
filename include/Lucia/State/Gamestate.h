@@ -27,14 +27,18 @@ namespace Lucia
             // 3D cords in the world. as such <screen> [x,y], <world> [x,y,z]
             virtual void mousepressed(std::string key,int x,int y){};
             virtual void mousereleased(std::string key, int x ,int y ){};
+            virtual void internalMousemotion(int x,int y,int relx,int rely){};
             virtual void mousemotion(int x,int y,int relx,int rely){};
 
             virtual void keypressed(std::string key){};
             virtual void keyreleased(std::string key){};
             virtual void textinput(std::string t){};
 
+            virtual void preUpdate(double delta_time){};
+            virtual void internalUpdate(double delta_time){};
             virtual void update(double delta_time){};
-
+            virtual void postUpdate(double delta_time){};
+            
             virtual void preDraw();
             virtual void draw(){};
             virtual void postDraw(){};

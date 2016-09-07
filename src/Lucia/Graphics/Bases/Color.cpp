@@ -3,7 +3,7 @@
 using namespace Lucia;
 using namespace Maths;
 using namespace Graphics;
-using namespace Bases;
+using namespace Base;
 
 Color::Color(Color::COLOR c)
 {
@@ -130,11 +130,16 @@ Color::rgba Color::getColor()
 {
     return toRGBA(Core);
 }
-Color::hsv Color::getColorHSV()
+Color::hsv Color::getHSVColor()
 {
    return toHSV(Core); 
 }
-Color::mech Color::getColorMechanical()
+Color::mech Color::getMechanicalColor()
 {
     return Core;
 }
+bool Color::applyColor(std::shared_ptr<Shader_Vars> vars, Color::mech m)
+{
+    if (vars->find("Color") != -1){vars->send("Color",m.r,m.g,m.b,m.a);return true;};
+    return false;
+};

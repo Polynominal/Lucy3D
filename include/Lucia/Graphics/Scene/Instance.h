@@ -10,6 +10,7 @@
 
 #include <Lucia/Utils/Utils.h>
 #include <Lucia/Graphics/Camera.h>
+#include <Lucia/Graphics/Bases/Color.h>
 
 #include <string>
 #include <SDL.h>
@@ -24,16 +25,20 @@ namespace Lucia
     {
         namespace Scene
         {
-            class Instance
+            class Instance:
+            public
+            Graphics::Base::Color
             {
                 public:
                     Instance();
                     virtual ~Instance();
                     // add and insert objects.
-                    std::shared_ptr<Container> addObject(std::shared_ptr<Object> m);
+                    std::shared_ptr<Container> add(std::shared_ptr<Object> m);
+                    void insert(std::shared_ptr<Container> m);
                     //
 
                     void sort(SORTMODE mode);
+                    void refresh();
                     void preDraw();
                     void draw(Maths::Matrix<4>* view,Maths::Matrix<4>* projection);
                     void update(double dt);
@@ -50,8 +55,9 @@ namespace Lucia
 
                 private:
                     void drawObject(std::shared_ptr<Container> a,Maths::Matrix<4>* view,Maths::Matrix<4>* projection);
+                    bool needsRefresh = true;
                     int lastShader=0;
-                    void insertTasks();
+                    void insertTasks(Object* o, std::shared_ptr<Container> no);
                     SORTMODE mode;
                     std::vector<std::shared_ptr<Container>> Objects;
                     std::vector<std::shared_ptr<Container>> TransparentObjects;

@@ -332,8 +332,7 @@ namespace Graphics
             1,GL_FALSE,projection->unpack());
         }
         Maths::Matrix<4> mat = Maths::Matrix<4>();
-        glUniformMatrix4fv(glGetUniformLocation(Graphics::textShader->programID, "model"),
-        1,GL_FALSE,mat.unpack());
+        glUniformMatrix4fv(glGetUniformLocation(Graphics::textShader->programID, "model"),1,GL_TRUE,mat.unpack());
 
         canvas->attach(true,true);
         renderString(text,0.0f,pair.second - sf->getMaxHeight()*size,gapSize,fixedGap,sf);

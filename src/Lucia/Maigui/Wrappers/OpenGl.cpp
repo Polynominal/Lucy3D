@@ -45,27 +45,33 @@ namespace Maigui
             "attribute vec3 vertex;"
             "attribute vec2 texCord;"
             "varying vec2 TexCord;"
+            "varying float usecolor;"
+            "varying vec4 Color;"
             "uniform mat4 model;"
             "uniform mat4 projection;"
             "uniform mat4 view;"
+            "uniform float useColor;"
+            "uniform vec4 color;"
             "void main()"
             "{"
             "   TexCord = texCord;"
             "   gl_Position = projection * view * model * vec4(vertex, 1.0f);"
+            "   usecolor = useColor;"
+            "   Color = color;"
             "}";
             string Fragment =
             "#version 100 \n"
             "precision highp float;"
             "varying vec2 TexCord;"
+            "varying float usecolor;"
+            "varying vec4 Color;"
             "uniform sampler2D Texture;"
-            "uniform int useColor;"
-            "uniform vec4 color;"
             "void main()"
             "{"
-            "   if (useColor==1)"
+            "   if (usecolor==1.0f)"
             "   {"
-            "       gl_FragColor = color;"
-            "   }else{gl_FragColor = color*texture2D(Texture,TexCord);};"
+            "       gl_FragColor = Color;"
+            "   }else{gl_FragColor = Color*texture2D(Texture,TexCord);};"
             "}";
             tProgramID = Collider_OpenGL::LoadShaderSource(Vertex.c_str(),Fragment.c_str());
             auto Vars = std::make_shared<Utils::OpenGL::Shader_Vars>();
@@ -223,12 +229,12 @@ namespace Maigui
                 activeShader = Shader::TEXT;
 
                 var = glGetUniformLocation(tProgramID,"model");
-                glUniformMatrix4fv(var,1,GL_FALSE,translation.unpack());
+                glUniformMatrix4fv(var,1,GL_TRUE,translation.unpack());
                 var = glGetUniformLocation(tProgramID,"view");
-                glUniformMatrix4fv(var,1,GL_FALSE,view->unpack());
+                glUniformMatrix4fv(var,1,GL_TRUE,view->unpack());
                 var = glGetUniformLocation(tProgramID,"projection");
                 glUniformMatrix4fv(var,1,GL_FALSE,projection->unpack());
-                glUniform1i(glGetUniformLocation(programID,"useColor"),false);
+                glUniform1f(glGetUniformLocation(programID,"useColor"),false);
                 var = glGetUniformLocation(tProgramID,"color");
                 glUniform4f(var,currentColor->r,currentColor->g,currentColor->b,currentColor->a);
 
@@ -244,7 +250,7 @@ namespace Maigui
             glUseProgram(tProgramID);
 
             auto var = glGetUniformLocation(tProgramID,"model");
-            glUniformMatrix4fv(var,1,GL_FALSE,translation.unpack());
+            glUniformMatrix4fv(var,1,GL_TRUE,translation.unpack());
 
             var = glGetUniformLocation(tProgramID,"color");
             glUniform4f(var,currentColor->r,currentColor->g,currentColor->b,currentColor->a);
@@ -255,16 +261,17 @@ namespace Maigui
         }
         void drawColoredRectangle(float r,float g,float b,float a,Matrix<4> translation)
         {
-            glUniform1i(glGetUniformLocation(tProgramID,"useColor"),1);
+            glUniform1f(glGetUniformLocation(tProgramID,"useColor"),1);
             auto var = glGetUniformLocation(tProgramID,"color");
             glUniform4f(var,r,g,b,a);
             Quad2D->draw(GL_TRIANGLES);
-            glUniform1i(glGetUniformLocation(tProgramID,"useColor"),0);
+            glUniform1f(glGetUniformLocation(tProgramID,"useColor"),0);
             glUniform4f(var,0.0f,0.0f,0.0f,1.0f);
         };
         void attachGraphicalShader(Skin *s,Maths::Matrix<4> *view,Maths::Matrix<4> *projection)
         {
-                Graphics::Image* Image = s->getData();
+                auto Image = s->getData();
+                Image->setFilter(Graphics::FILTER::LINEAR);
                 glEnable(GL_DEPTH_TEST);
                 glDepthFunc(GL_LEQUAL);
                 glEnable(GL_BLEND);
@@ -275,11 +282,12 @@ namespace Maigui
 
                 GLuint var=0;
                 var = glGetUniformLocation(programID,"view");
-                glUniformMatrix4fv(var,1,GL_FALSE,view->unpack());
+                glUniformMatrix4fv(var,1,GL_TRUE,view->unpack());
                 var = glGetUniformLocation(programID,"projection");
                 glUniformMatrix4fv(var,1,GL_FALSE,projection->unpack());
 
                 Image->bind();
+                Image->forceApplyFilters();
         }
         void attachWrappers(Skin *s,Maths::Matrix<4> *view,Maths::Matrix<4> *projection)
         {
@@ -288,10 +296,14 @@ namespace Maigui
             {
                 glClear(GL_DEPTH_BUFFER_BIT);
                 attachGraphicalShader(s,view,projection);
+                glEnable(GL_BLEND);
+                glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+            
             };
             s->PostDraw = []()
             {
                 activeShader = Shader::NIL;
+                glDisable(GL_BLEND);
                 glUseProgram(0);
             };
             s->setTextColor = [](float r,float g,float b,float a)
@@ -346,6 +358,57 @@ namespace Maigui
                 }
             };
             s->setMatrix = [](Matrix<4> Mat){translation = Mat;};
+            s->drawImageItem=[s,view,projection](Graphics::Image* image,Maths::Sprite* sprite,float r,float g,float b,float a)
+            {
+                auto Image = image;
+                if(Image == nullptr)
+                {
+                    Image = s->getData().get();
+                };
+                Image->bind();
+                
+                Maths::Sprite* d;
+                if (sprite == nullptr)
+                {
+                    d = new Maths::Sprite(0,0,Image->getWidth(),Image->getHeight(),Image->getWidth(),Image->getHeight());
+                }else
+                {
+                    d = sprite;
+                };
+                if (activeShader != Shader::ITEM){attachGraphicalShader(s,view,projection);};
+                Vertex scale = translation.getScale();
+                Vec2 extension = toMechanical((scale.x - d->w),(scale.y - d->h),scale.x,scale.y);
+                extension = Vec2((d->bottom.x - d->top.x)*extension.x,(d->bottom.y - d->top.y)*extension.y);
+                // position data
+                GLuint var=0;
+                var = glGetUniformLocation(programID,"Color");
+                glUniform4f(var,r,g,b,a);
+
+                var = glGetUniformLocation(programID,"model");
+                glUniformMatrix4fv(var,1,GL_TRUE,translation.unpack());
+
+                var = glGetUniformLocation(programID,"Range");
+                glUniform4f(var,d->top.x,d->top.y,d->bottom.x,d->bottom.y);
+
+                var = glGetUniformLocation(programID,"Extension");
+                glUniform2f(var,extension.x,extension.y);
+                var = glGetUniformLocation(programID,"Aspect");
+                glUniform2f(var,scale.x/Image->getWidth(),scale.y/Image->getHeight());
+
+                #ifndef LUCIA_USE_GLES2
+                glBindVertexArray(VaoID);
+                #endif
+                createFromUV(d->top.x,d->top.y,d->bottom.x,d->bottom.y);
+                glDrawArrays(GL_TRIANGLES,0,data.size());
+                #ifndef LUCIA_USE_GLES2
+                glBindVertexArray(0);
+                #endif
+                if (sprite == nullptr)
+                {
+                    delete d;
+                };
+            };
+            
             s->drawColoredItem = [s,view,projection](Skin::Drawable *d,float r,float g,float b,float a)
             {
                     switch(d->type)
@@ -360,7 +423,7 @@ namespace Maigui
                         {
 
                             if (activeShader != Shader::ITEM){attachGraphicalShader(s,view,projection);};
-                            Graphics::Image* Image = s->getData();
+                            auto Image = s->getData();
                             Vertex scale = translation.getScale();
                             Vec2 extension = toMechanical((scale.x - d->w),(scale.y - d->h),scale.x,scale.y);
                             extension = Vec2((d->bottom.x - d->top.x)*extension.x,(d->bottom.y - d->top.y)*extension.y);
@@ -371,7 +434,7 @@ namespace Maigui
                             glUniform4f(var,r,g,b,a);
 
                             var = glGetUniformLocation(programID,"model");
-                            glUniformMatrix4fv(var,1,GL_FALSE,translation.unpack());
+                            glUniformMatrix4fv(var,1,GL_TRUE,translation.unpack());
 
                             var = glGetUniformLocation(programID,"Range");
                             glUniform4f(var,d->top.x,d->top.y,d->bottom.x,d->bottom.y);
@@ -399,6 +462,7 @@ namespace Maigui
             };
             s->drawColoredRectangle = [view,projection](float r,float g,float b,float a)
             {
+                
                 setTextShader(translation,view,projection);
                 drawColoredRectangle(r,g,b,a,translation);
             };

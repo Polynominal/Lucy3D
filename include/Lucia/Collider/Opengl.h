@@ -3,6 +3,7 @@
 #define MIKUS_LUCIA_OPENGL_COLLIDER_WRAPPER_H_INCLUDED
 
 #include <Lucia/Collider/Collider.h>
+#include <Lucia/Collider/Shape.h>
 #include <Lucia/Collider/Manager.h>
 
 #include <Lucia/Maths/Matrix.h>
@@ -21,14 +22,17 @@ namespace Lucia {
         extern bool clean;
         extern int draw_mode;
         extern std::map<Shape::Type,Buffer*> BufferIDs;
-        extern std::vector<Buffer*> polygonBufferIDs;
+        extern std::map<unsigned int,Buffer*> polygonBufferIDs;
 
         Buffer* makeSquare();
         int makePolygon(Collider::Manager &M, std::vector<Collider::Vertex> Points);
         Buffer* makeSphere(int subdiv_x,int subdiv_y);
         Buffer* makePoint();
         Buffer* makeRay();
-
+        
+        void removePolygon(int id);
+        
+        
         void drawRay(Buffer* Buff,Collider::Vertex A,Collider::Vertex B);
         void createWrappers(Collider::Manager *M,Maths::Matrix<4> *view,Maths::Matrix<4> *projection,bool setLine =true);
         void cleanup();

@@ -100,7 +100,7 @@ class Matrix
         //
         void preparePackage()
         {
-            delete Core;
+            if (Core != nullptr){delete Core; Core = nullptr;};
             Core = new float[N*N];
             unsigned int index = 0;
             for (unsigned int i =0; i < N;i++)
@@ -115,11 +115,23 @@ class Matrix
             preparePackage();
             return Core;
         };
+        Matrix<N> transpose()
+        {
+            Matrix<N> newmat = Matrix<N>(N);
+            for (auto i =0;i < N;i++)
+            {
+                for (auto j =0;j < N;j++)
+                {
+                    newmat[i][j] = array[j][i];
+                };
+            };
+            return newmat;
+        };
         Vertex multiplyOut(Vertex& v){
-              return Vertex(
-                (v.x * array[0][0]) + (v.y * array[1][0]) + (v.z * array[2][0]) + array[3][0],
-                (v.x * array[0][1]) + (v.y * array[1][1]) + (v.z * array[2][1]) + array[3][1],
-                (v.x * array[0][2]) + (v.y * array[1][2]) + (v.z * array[2][2]) + array[3][2]
+              return Vertex(                
+                (v.x * array[0][0]) + (v.y * array[0][1]) + (v.z * array[0][2]) + array[0][3],
+                (v.x * array[1][0]) + (v.y * array[1][1]) + (v.z * array[1][2]) + array[1][3],
+                (v.x * array[2][0]) + (v.y * array[2][1]) + (v.z * array[2][2]) + array[2][3]
             );  
         };
         Vertex getScale()
@@ -361,9 +373,9 @@ public Matrix<4>
         array[0][0] = 1 / (aspect * tanHalfFovy);
         array[1][1] = 1 / (tanHalfFovy);
         
-        array[2][3] = -1;
+        array[2][3] = 1;
         
-        array[2][2] = - (zFar + zNear) / (zFar - zNear);
+        array[2][2] = (zFar + zNear) / (zFar - zNear);
         array[3][2] = - (2 * zFar * zNear) / (zFar - zNear);
     };
     void make(float fov,float width,float height,float zNear,float zFar){
@@ -377,7 +389,7 @@ public Matrix<4>
         array[0][0] = w;
         array[1][1] = h;
         
-        array[2][3] = -1;
+        array[2][3] = 1;
         
         array[2][2] = (zFar + zNear) / (zFar - zNear);
         array[3][2] = - (2 * zFar * zNear) / (zFar - zNear);

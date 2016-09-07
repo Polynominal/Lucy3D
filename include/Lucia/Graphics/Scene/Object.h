@@ -7,47 +7,57 @@
 #include <Lucia\Graphics\Graphics.h>
 #include <Lucia\Graphics\Bases\DrawMode.h>
 #include <Lucia\Graphics\Bases\ShaderHolder.h>
+#include <Lucia\Graphics\Bases\Color.h>
 #include <Lucia\Graphics\Scene\Instance.h>
 #include <Lucia\Utils\OpenGL.h>
+#include <memory>
+
 #include <algorithm>
 
-#include <glm.hpp>
-#include <gtc/matrix_transform.hpp>
-#include <gtc/type_ptr.hpp>
-#include <gtx/string_cast.hpp>
 
 namespace Lucia {
 namespace Graphics
 {
     namespace Scene
     {
+        //VTABLE!
+        class Container;
+        
         class Object:
         public Graphics::Base::DrawMode,
-        public Graphics::Base::ShaderHolder,
-        public std::enable_shared_from_this<Object>
+        public Graphics::Base::ShaderHolder
         {
             public:
                 Object(){};
                 virtual ~Object(){};
                 //set
                 virtual void setScene(Graphics::Scene::Instance* s){Core_Scene = s;};
+                virtual Graphics::Scene::Instance* getScene(){return Core_Scene;};
                 //these must be provided to you by the item object is attached to.
                 virtual void useShader(Maths::Matrix<4>* view,Maths::Matrix<4>* projection)
                 {
                     auto vars = getShaderVars();
                     vars->use();
-
                     vars->sendMatrix("view",4,4,true,view->unpack());
                     vars->sendMatrix("projection",4,4,false,projection->unpack());
                 };
                 virtual void preDraw(){}; // put your image binding here works like bind but I decided that bind is too common causing name clashes.
-                virtual void render(Maths::Matrix<4>* model,DRAW mode)=0; // rendering assuming that everything is bound correctly.
+                //VTABLE FUNC
+                
+                virtual void render(Container* c,DRAW mode){render(c->getModelMatrix(),c->getDrawMode());};
+                //legacy. support becomes discontinued when u use the render method above this.
+                virtual void render(Maths::Matrix<4>* model, DRAW mode){};
+                
                 virtual void update(double dt){};
+                virtual void update(double dt,Container *c){update(dt);};
                 //
-
-                virtual void render(Maths::Matrix<4>* model){render(model,getDrawMode());};
-                //get
-                std::shared_ptr<Object> getObjectPtr(){return shared_from_this();};
+                virtual void onMorph(Container*){};
+                virtual void onMove(Container*){};
+                virtual void onScale(Container*){};
+                virtual void onRotate(Container*){};
+                virtual void updateInstance(Container*){};
+                
+                virtual void render(Container* c){render(c,getDrawMode());};
                 //
                 //has
                 bool hasTransparency(){return transparency;};
@@ -58,14 +68,31 @@ namespace Graphics
                 std::function<void()> OnDraw=[](){};
                 Graphics::Scene::Instance* Core_Scene=nullptr;
         };
-        class Container: public Maths::Moveable, public Graphics::Base::DrawMode
+        class Container: public Maths::Moveable, public Graphics::Base::DrawMode, public Graphics::Base::Color
         {
-        public:
-            Container(std::shared_ptr<Object> o){Core = o;};
-            std::shared_ptr<Object> getCore(){return Core;};
-            virtual ~Container(){};
-        private:
-            std::shared_ptr<Object> Core;
+            public:
+                Container(std::shared_ptr<Object> o){Core = o;};
+                Container(){};
+                //get
+                virtual Object* getCore(){return Core.get();};
+                virtual void remove(){scene->remove(this);};
+                virtual void onMorph(){if (Core.get()){Core->onMorph(this);};};
+                virtual void onMove(){if (Core.get()){Core->onMove(this);};};
+                virtual void onScale(){if (Core.get()){Core->onScale(this);};};
+                virtual void onRotate(){if (Core.get()){Core->onRotate(this);};};
+                virtual void updateInstance(){if (Core.get()){Core->updateInstance(this);};};
+                
+                virtual ~Container(){};
+            private:
+                std::shared_ptr<Object> Core;
+        };
+        class Item: public Object, public Container, public std::enable_shared_from_this<Item>
+        {
+            public: 
+                Item(){};
+                virtual ~Item(){};
+                std::shared_ptr<Item> getSceneNode(){return std::enable_shared_from_this<Item>::shared_from_this();};
+                Object* getCore(){return this;};
         };
     }
 }}
