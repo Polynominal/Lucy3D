@@ -1,6 +1,7 @@
 #ifndef MIKUS_LUCIA_GAMEMANAGER_H
 #define MIKUS_LUCIA_GAMEMANAGER_H
 #include <Lucia/Settings.h>
+#include <Lucia/Maths/General.h>
 #include <Lucia/Window/Window.h>
 #include <Lucia/State/Gamestate.h>
 #include <Lucia/Threads/Threads.h>

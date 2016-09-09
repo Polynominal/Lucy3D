@@ -59,8 +59,8 @@ namespace Graphics
 
         private:
             // this is used for keeping information inbetween frames but must be emptied each frame.
-            std::shared_ptr<Graphics::Canvas> TextBuffer;
-            std::shared_ptr<Graphics::Canvas> EffectsBuffer;
+            std::shared_ptr<Graphics::Buffer::Canvas> TextBuffer;
+            std::shared_ptr<Graphics::Buffer::Canvas> EffectsBuffer;
             std::unique_ptr<Utils::OpenGL::Buffer> Buffer;
 
             std::pair<float,float> renderString(string str,float offsetx,Font::subfont* sub);

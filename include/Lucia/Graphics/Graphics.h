@@ -8,6 +8,9 @@
 #include <IL/ilut.h>
 
 #include <Lucia/Maths/Matrix.h>
+#include <Lucia/Maths/Vertex.h>
+#include <Lucia/Maths/Vector.h>
+#include <Lucia/Maths/Vec2.h>
 #include <string>
 #include <map>
 #include <functional>
@@ -53,6 +56,9 @@ namespace Lucia
         void clear(std::initializer_list<BUFFER> b);
 
         void destroy();
+        
+        Vector getViewMode();
+        Vec2 getDimensions();
     };
 }
 

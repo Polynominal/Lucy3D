@@ -20,13 +20,13 @@ namespace Graphics
                     virtual void remove(); // removes the buffer completely and sets the class in passive mode
                     virtual GLuint getTextureID();
                     virtual bool done(){return !passive;};
-                    virtual std::shared_ptr<Graphics::Canvas> getCanvas(){return Canvas;};
+                    virtual std::shared_ptr<Graphics::Buffer::Canvas> getCanvas(){return Canvas;};
                     // [!]Your draw function should have a variable for passing a user canvas in[!]
                     // eg:  draw(x1,x2 ... , canvas* c);
                     virtual void attach();
                     virtual void detach();
                 protected:
-                    std::shared_ptr<Graphics::Canvas> Canvas;
+                    std::shared_ptr<Graphics::Buffer::Canvas> Canvas;
                     float lw;
                     float lh;
                     bool passive = true;

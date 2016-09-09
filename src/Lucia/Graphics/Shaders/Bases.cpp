@@ -6,7 +6,7 @@ bool CanvasBase::generate(float w,float h)
 {
     if (Canvas.get() == nullptr)
     {
-        Canvas = std::make_shared<Graphics::Canvas>();
+        Canvas = std::make_shared<Graphics::Buffer::Canvas>();
     }
     Canvas->generate(w,h);
     lw = Canvas->getWidth();

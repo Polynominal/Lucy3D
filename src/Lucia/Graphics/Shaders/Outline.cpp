@@ -90,10 +90,10 @@ Outline::Outline()
     //ctor
 }
 
-void Outline::draw(float thickness,float r,float g,float b,float a,Graphics::Canvas* c)
+void Outline::draw(float thickness,float r,float g,float b,float a,Graphics::Buffer::Canvas* c)
 {
 
-    Graphics::Canvas *canvas=nullptr;
+    Graphics::Buffer::Canvas *canvas=nullptr;
     if (c == nullptr){canvas = Canvas.get();}else{canvas = c;};
 
     GLint last;

@@ -7,7 +7,7 @@ Bloom::Bloom()
     Blur->setMode(Blur::Gaus5x5);
     //ctor
 }
-void Bloom::parse(unsigned int degree,float fsize,Graphics::Canvas* canvas,bool reset)
+void Bloom::parse(unsigned int degree,float fsize,Graphics::Buffer::Canvas* canvas,bool reset)
 {
     // get: last shader, if blend is on, blend function
     generate();
@@ -47,7 +47,7 @@ void Bloom::parse(unsigned int degree,float fsize,Graphics::Canvas* canvas,bool 
                 if (lw < size or lh < size){break;};
 
                 auto Buffer = canvas->getBlitSize(size,size);
-                Graphics::Canvas  Buff = Graphics::Canvas();
+                Graphics::Buffer::Canvas  Buff = Graphics::Buffer::Canvas();
                 Buff.generate(size,size);
 
                 auto Quad = new Graphics::Primitive::Quad();

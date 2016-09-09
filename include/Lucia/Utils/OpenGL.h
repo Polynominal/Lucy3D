@@ -120,13 +120,18 @@ namespace Utils
 
                 void generate(bool genEBO=false);
                 void setData(std::vector<ptr<Vertex_Buffer>> Data);
-                void setData(GLfloat *array,uint number_of_vertexes);
+                void setData(std::vector<Vertex_Buffer> Data);
+                void setData(float *array,uint number_of_vertexes);
 
                 void allocateData(uint number_of_vertexes);
+                
+                void applyData(uint VertexSize, uint size,GLfloat* array,uint datasize);
+                void applyDynamicData(uint index,uint VertexSize, uint size,GLfloat* array,uint datasize);
                 void sendData(std::vector<ptr<Vertex_Buffer>> Data,uint index=0);
-                void sendData(GLfloat *array,uint number_of_vertexes,uint index=0);
+                void sendData(std::vector<Vertex_Buffer> Data,uint index=0);
+                void sendData(float *array,uint number_of_vertexes,uint index=0);
 
-                void setIndices(std::vector<GLuint> indicies);
+                void setIndices(std::vector<GLint> indicies);
                 void allocateIndices(uint size);
                 void sendIndices(GLint* data, uint number,uint index=0);
                 void setIndices(GLint* data, uint size);
@@ -178,14 +183,14 @@ namespace Utils
                     return convertToData(data,0,siz/getShaderVars()->getVertexSize());
                 };
                 template <typename T>
-                std::vector<GLfloat> converToIndicies(T f,uint start,uint finish)
+                std::vector<int> converToIndicies(T f,uint start,uint finish)
                 {
-                    std::vector <GLfloat> Data;
-                    for (uint i = start;i < finish;i++){Data.push_back((GLfloat)f[i]);};
+                    std::vector <int> Data;
+                    for (uint i = start;i < finish;i++){Data.push_back((int)f[i]);};
                     return Data;
                 };
                 template <typename T>
-                std::vector<GLfloat> converToIndicies(std::vector<T>s){return converToIndicies(s,0,s.size());};
+                std::vector<int> converToIndicies(std::vector<T>s){return converToIndicies(s,0,s.size());};
 
                 void destroy();
                 //constructors

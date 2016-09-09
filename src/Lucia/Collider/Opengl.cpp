@@ -48,7 +48,7 @@ namespace Collider_OpenGL
             -0.5f, -0.5f, -0.5f,
             -0.5f,  0.5f, -0.5f
         };
-        std::vector<GLuint> indicies{
+        std::vector<int> indicies{
 
             //front
             1,2,3,0,
@@ -85,7 +85,7 @@ namespace Collider_OpenGL
         };
         
         std::vector<float> data;
-        std::vector<GLuint> indicies;
+        std::vector<int> indicies;
         
         std::vector<Triangle> Triangles;
         
@@ -173,7 +173,7 @@ namespace Collider_OpenGL
         };
 
         std::vector<float> data;
-        std::vector<GLuint> indicies;
+        std::vector<int> indicies;
         for (int i=0;i <= subdiv_y; i++)
         {
             float v = i/(float)subdiv_y;

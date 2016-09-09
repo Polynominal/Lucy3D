@@ -81,7 +81,10 @@ namespace Maths{
                 //misc
                 bool needsRefresh(){return needs_refresh;};
                 void enableImplicitTranslation(bool b){applyTranslationWithoutRequest = b;};
+                //Set
+                void setModelMatrix(Matrix<4> mat){Model_Matrix = mat;};
                 // Get
+                Matrix<4> getModelMatrixCopy(){return Model_Matrix;};
                 Matrix<4>* getModelMatrix(){return &Model_Matrix;};
                 Matrix<4>* getMatrix(){return &Model_Matrix;};
                 Vertex getDimensions(){return Dimensions*Scale;};

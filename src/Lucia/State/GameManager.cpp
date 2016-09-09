@@ -7,6 +7,7 @@ GameManager::GameManager(Gamestate *state,Context::Window *w)
     state->setWindow(w);
     state->enter();
     Active_Gamestate = state;
+    Maths::randomSeed();
     //ctor
 }
 GameManager::GameManager()

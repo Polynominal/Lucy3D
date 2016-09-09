@@ -7,8 +7,9 @@
 #endif
 #include <Lucia/Graphics/Bases/Texture.h>
 namespace Lucia {
-namespace Graphics
-{
+namespace Graphics{
+namespace Buffer{
+    
     class Canvas:
     public Lucia::Graphics::Base::Texture
     {
@@ -33,7 +34,7 @@ namespace Graphics
             void attach(bool clear=false,bool clearColor=false);
             void detach(int nbuffer=1.0f);
             void resize(float w,float h,bool keepAspect=false);
-            std::unique_ptr<Graphics::Canvas> getBlitSize(float w,float h,bool keepAspect=false);
+            std::unique_ptr<Graphics::Buffer::Canvas> getBlitSize(float w,float h,bool keepAspect=false);
             bool isDone(){return !passive;};
             //set
             void setClearColor(float r=0.0f,float g=0.0f,float b=0.0f,float a=0.0f){Color[0]=r;Color[1]=g;Color[2]=b;Color[3]=a;};
@@ -46,5 +47,5 @@ namespace Graphics
 
             float Color[4]{0.0f,0.0f,0.0f,0.0f};
     };
-}}
+}}}
 #endif // MIKUS_GRAPHICS_CANVAS_H

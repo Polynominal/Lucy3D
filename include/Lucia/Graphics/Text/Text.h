@@ -104,7 +104,7 @@ class Graphics::Text
         std::pair<float,float> calculateSize(string text,int size);
         //virtuals
 
-        virtual std::shared_ptr<Graphics::Canvas> render(string text,bool sendmatrix=true);
+        virtual std::shared_ptr<Graphics::Buffer::Canvas> render(string text,bool sendmatrix=true);
         // sets
         virtual void setWrapWidth(float width=-1){wrapWidth = width;};
         virtual void setSize(float s){size = s/baseSize;};
@@ -146,7 +146,7 @@ class Graphics::Text
         //
     private:
         std::unique_ptr<Utils::OpenGL::Buffer> Buffer;
-        std::unique_ptr<Graphics::Canvas> lastCanvas;
+        std::unique_ptr<Graphics::Buffer::Canvas> lastCanvas;
 
         static FT_Library ft;
         std::shared_ptr<Font> activeFont;

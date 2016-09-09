@@ -420,6 +420,18 @@ public Matrix<4>
         {
             make(left,right,bottom,top);
         };
+        Ortho(
+            float width,
+            float height,
+            float range
+        )
+        {
+            make(width,height,range);
+        };
+        void make(float width,float height,float range)
+        {
+            make(0.0f,width,0.0f,height,0.0f,range);
+        };
         void make(float left,float right,float bottom,float top)
         {
             buildShell(left,right,bottom,top);

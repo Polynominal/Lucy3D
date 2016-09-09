@@ -17,7 +17,7 @@ namespace Graphics
                     Gaus
                 };
                 Blur();
-                void draw(Graphics::Canvas* c,int Passes,float degree);
+                void draw(Graphics::Buffer::Canvas* c,int Passes,float degree);
                 void setMode(Mode m){mode = m;};
                 virtual ~Blur();
             private:

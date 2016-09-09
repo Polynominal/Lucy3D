@@ -16,7 +16,7 @@ namespace Graphics
                 // it is limited to the initial size of the texture
                 // what it does is it resizes the texture like this:
                 // for each degree
-                void parse(unsigned int degree,float firstSize=16.0f, Graphics::Canvas* c=nullptr,bool reset_blend=true);
+                void parse(unsigned int degree,float firstSize=16.0f, Graphics::Buffer::Canvas* c=nullptr,bool reset_blend=true);
                 void draw();
 
                 virtual ~Bloom();

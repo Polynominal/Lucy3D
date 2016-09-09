@@ -304,12 +304,12 @@ namespace Graphics
         auto sf = activeFont->find(activeType);
         return sf->getMaxHeight()*nsize;
     };
-    std::shared_ptr<Graphics::Canvas> Text::render(string text,bool sendmatrix)
+    std::shared_ptr<Graphics::Buffer::Canvas> Text::render(string text,bool sendmatrix)
     {
         auto sf = activeFont->find(activeType);
         auto pair = calculateSize(text,baseSize);
         float height =  pair.second;
-        auto canvas = std::make_shared<Graphics::Canvas>();
+        auto canvas = std::make_shared<Graphics::Buffer::Canvas>();
         canvas->generate(std::max(pair.first,1.0f),height);
 
         glUseProgram(Graphics::textShader->programID);

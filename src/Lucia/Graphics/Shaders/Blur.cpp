@@ -239,9 +239,9 @@ Blur::Blur()
     }
     //ctor
 }
-void Blur::draw(Graphics::Canvas* c,int Passes,float degree)
+void Blur::draw(Graphics::Buffer::Canvas* c,int Passes,float degree)
 {
-    Graphics::Canvas *canvas=nullptr;
+    Graphics::Buffer::Canvas *canvas=nullptr;
     if (c == nullptr){canvas = Canvas.get();}else{canvas = c;};
 
     GLint last;

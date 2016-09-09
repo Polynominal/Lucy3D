@@ -1,6 +1,7 @@
 #include "Lucia\Graphics\Buffers\Canvas.h"
 using namespace Lucia;
-typedef Graphics::Canvas Canvas;
+using namespace Graphics;
+using namespace Buffer;
 bool Canvas::generate(float w,float h)
 {
     if (!Graphics::Shared::Quad->isDone())
@@ -133,7 +134,7 @@ void Canvas::resize(float width,float height,bool keepAspect)
 }
 std::unique_ptr<Canvas> Canvas::getBlitSize(float w,float h,bool keepAspect)
 {
-    auto output = std::unique_ptr<Graphics::Canvas>(new Graphics::Canvas());
+    auto output = std::unique_ptr<Graphics::Buffer::Canvas>(new Graphics::Buffer::Canvas());
     output->generate(w,h);
     #ifndef LUCIA_USE_GLES2
     glBlitNamedFramebuffer(FBO,output->FBO,0.0f,0.0f,width,height,

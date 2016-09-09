@@ -14,9 +14,6 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 
-# cpp related
-*.obj
-
 # Windows shortcuts
 *.lnk
 

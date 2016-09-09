@@ -379,9 +379,32 @@ void getDataFromPtrs(std::vector<std::shared_ptr<Utils::OpenGL::Vertex_Buffer>> 
         no++;
     }
 }
+void getData(std::vector<Utils::OpenGL::Vertex_Buffer> Data,uint VertexSize,GLfloat* compiled)
+{
+    uint no = 0;
+    for (auto v: Data)
+    {
+        addArrays(compiled,no*VertexSize,v.Data,VertexSize);
+        no++;
+    }
+}
 void getDataFromPtrs(GLfloat *Data,uint size,uint VertexSize,GLfloat* compiled)
 {
     addArrays(compiled,0,Data,VertexSize*size);
+}
+void Buffer::applyData(uint VertexSize, uint size,GLfloat* array,uint datasize)
+{
+    attach(true);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * VertexSize * size,&array[0],GL_STATIC_DRAW);
+    //set attribs
+    getShaderVars()->apply();
+    setSize(datasize);
+}
+void Buffer::applyDynamicData(uint index,uint VertexSize, uint size,GLfloat* array,uint datasize)
+{
+    uint offset = index*VertexSize*sizeof(GLfloat);
+    glBufferSubData(GL_ARRAY_BUFFER,offset,sizeof(GLfloat) *VertexSize*datasize,&array[0]);
+    getShaderVars()->apply();
 }
 void Buffer::setData(std::vector<ptr<Vertex_Buffer>> Data)
 {
@@ -389,24 +412,22 @@ void Buffer::setData(std::vector<ptr<Vertex_Buffer>> Data)
     uint size = Data.size();
     GLfloat compiled[VertexSize*size];
     getDataFromPtrs(Data,VertexSize,compiled);
-
-    attach(true);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * VertexSize * size,&compiled[0],GL_STATIC_DRAW);
-    //set attribs
-    getShaderVars()->apply();
-    setSize(Data.size());
+    applyData(VertexSize,size,compiled,Data.size());
 }
-void Buffer::setData(GLfloat *Data,uint size)
+void Buffer::setData(std::vector<Vertex_Buffer> Data)
+{
+    uint VertexSize = getShaderVars()->getVertexSize();
+    uint size = Data.size();
+    GLfloat compiled[VertexSize*size];
+    getData(Data,VertexSize,compiled);
+    applyData(VertexSize,size,compiled,Data.size());
+}
+void Buffer::setData(float *Data,uint size)
 {
     uint VertexSize = getShaderVars()->getVertexSize();
     GLfloat compiled[VertexSize*size];
     getDataFromPtrs(Data,size,VertexSize,compiled);
-
-    attach(true);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * VertexSize * size,&compiled[0],GL_STATIC_DRAW);
-    //set attribs
-    getShaderVars()->apply();
-    setSize(size);
+    applyData(VertexSize,size,compiled,size);
 }
 void Buffer::allocateData(uint size)
 {
@@ -414,7 +435,6 @@ void Buffer::allocateData(uint size)
     attach(true);
     glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) *(size * VertexSize),NULL,GL_DYNAMIC_DRAW);
     getShaderVars()->apply();
-
     setSize(size);
 }
 void Buffer::sendData(std::vector<ptr<Vertex_Buffer>> Data,uint index)
@@ -423,10 +443,7 @@ void Buffer::sendData(std::vector<ptr<Vertex_Buffer>> Data,uint index)
     uint VertexSize = getShaderVars()->getVertexSize();
     GLfloat compiled[VertexSize*Data.size()];
     getDataFromPtrs(Data,VertexSize,compiled);
-
-    uint offset = index*VertexSize*sizeof(GLfloat);
-    glBufferSubData(GL_ARRAY_BUFFER,offset,sizeof(GLfloat) *VertexSize*Data.size(),&compiled[0]);
-    getShaderVars()->apply();
+    applyDynamicData(index,VertexSize,size,compiled,Data.size());
 }
 void Buffer::sendData(GLfloat *Data,uint size,uint index)
 {
@@ -434,10 +451,7 @@ void Buffer::sendData(GLfloat *Data,uint size,uint index)
     uint VertexSize = getShaderVars()->getVertexSize();
     GLfloat compiled[VertexSize*size];
     getDataFromPtrs(Data,size,VertexSize,compiled);
-
-    uint offset = index*VertexSize*sizeof(GLfloat);
-    glBufferSubData(GL_ARRAY_BUFFER,offset,sizeof(GLfloat) *VertexSize*size,&compiled[0]);
-    getShaderVars()->apply();
+    applyDynamicData(index,VertexSize,size,compiled,size);
 }
 void Buffer::allocateIndices(uint size)
 {
@@ -467,7 +481,7 @@ void Buffer::setIndices(GLint *Data,uint size)
 
     setSize(size);
 }
-void Buffer::setIndices(std::vector<GLuint> indicies)
+void Buffer::setIndices(std::vector<GLint> indicies)
 {
     attach();
 

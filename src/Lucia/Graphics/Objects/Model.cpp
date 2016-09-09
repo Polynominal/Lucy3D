@@ -126,7 +126,7 @@ Model::DataHolder Model::processMesh(aiMesh* mesh)
 
     };
     // indicies
-    std::vector<GLuint> indicies;
+    std::vector<int> indicies;
     for (unsigned int i=0; i < mesh->mNumFaces; i++)
     {
         aiFace face = mesh->mFaces[i];

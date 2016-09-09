@@ -32,6 +32,7 @@ std::shared_ptr<Container> Instance::add(std::shared_ptr<Object> o)
 void Instance::insert(std::shared_ptr<Container> o)
 {
     insertTasks(o->getCore(),o);
+    o->setScene(this);
 }
 void Instance::remove(Container* subject)
 {
@@ -79,12 +80,12 @@ void Instance::update(double dt)
 {
     for (auto v: Objects)
     {
-        v->getCore()->update(dt,v);
+        v->getCore()->update(dt,v.get());
         v->updateInstance();
     }
     for (auto v: TransparentObjects)
     {
-        v->getCore()->update(dt,v);
+        v->getCore()->update(dt,v.get());
         v->updateInstance();
     };
 }

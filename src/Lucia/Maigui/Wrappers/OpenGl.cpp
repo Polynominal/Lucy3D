@@ -34,7 +34,7 @@ namespace Maigui
 
         Utils::OpenGL::Buffer* Quad2D;
         std::unique_ptr<Graphics::Text> tx;
-        std::map<int,std::shared_ptr<Graphics::Canvas>> BufferedTexts;
+        std::map<int,std::shared_ptr<Graphics::Buffer::Canvas>> BufferedTexts;
 
         void init()
         {

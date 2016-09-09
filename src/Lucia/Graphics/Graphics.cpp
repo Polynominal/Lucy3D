@@ -40,5 +40,16 @@ namespace Graphics
     {
 
     };
+    Vec2 getDimensions()
+    {
+        auto v = getViewMode();
+        return Vec2(v[2],v[3]);
+    };
+    Vector getViewMode()
+    {
+        GLint v[4];
+        glGetIntegerv( GL_VIEWPORT,v);
+        return Vector(v[0],v[1],v[2],v[3]);
+    };
 }
 }

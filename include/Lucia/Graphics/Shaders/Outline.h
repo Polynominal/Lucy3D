@@ -12,7 +12,7 @@ namespace Graphics
         {
             public:
                 Outline();
-                void draw(float thickness=2.0f,float r=0.0f,float g=0.0f,float b=0.0f,float a=1.0f,Graphics::Canvas* c=nullptr);
+                void draw(float thickness=2.0f,float r=0.0f,float g=0.0f,float b=0.0f,float a=1.0f,Graphics::Buffer::Canvas* c=nullptr);
                 virtual ~Outline();
         };
     }

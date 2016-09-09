@@ -9,6 +9,7 @@
 #include <Lucia\Graphics\Bases\ShaderHolder.h>
 #include <Lucia\Graphics\Bases\Color.h>
 #include <Lucia\Graphics\Scene\Instance.h>
+#include <Lucia\Graphics\Scene\Container.h>
 #include <Lucia\Utils\OpenGL.h>
 #include <memory>
 
@@ -20,9 +21,6 @@ namespace Graphics
 {
     namespace Scene
     {
-        //VTABLE!
-        class Container;
-        
         class Object:
         public Graphics::Base::DrawMode,
         public Graphics::Base::ShaderHolder
@@ -67,24 +65,6 @@ namespace Graphics
                 std::function<void()> OnPreDraw=[](){};
                 std::function<void()> OnDraw=[](){};
                 Graphics::Scene::Instance* Core_Scene=nullptr;
-        };
-        class Container: public Maths::Moveable, public Graphics::Base::DrawMode, public Graphics::Base::Color
-        {
-            public:
-                Container(std::shared_ptr<Object> o){Core = o;};
-                Container(){};
-                //get
-                virtual Object* getCore(){return Core.get();};
-                virtual void remove(){scene->remove(this);};
-                virtual void onMorph(){if (Core.get()){Core->onMorph(this);};};
-                virtual void onMove(){if (Core.get()){Core->onMove(this);};};
-                virtual void onScale(){if (Core.get()){Core->onScale(this);};};
-                virtual void onRotate(){if (Core.get()){Core->onRotate(this);};};
-                virtual void updateInstance(){if (Core.get()){Core->updateInstance(this);};};
-                
-                virtual ~Container(){};
-            private:
-                std::shared_ptr<Object> Core;
         };
         class Item: public Object, public Container, public std::enable_shared_from_this<Item>
         {
