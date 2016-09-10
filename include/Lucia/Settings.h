@@ -24,8 +24,10 @@
 //-]
 #include <SDL.h>
 
+#define LUCY_PLEASE_USE_STARTUP
+#define GENERATE_SHARED_RECOURCES
+
 #endif // SETTINGS_H_INCLUDED
-#include <Lucia\Startup.h>
 
 #ifdef __WIN32
 #include <Lucia/Compatability\Windows.h>

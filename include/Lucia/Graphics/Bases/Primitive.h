@@ -6,6 +6,7 @@
 #include <Lucia/Graphics/Bases/ShaderHolder.h>
 #include <Lucia/Graphics/Bases/InstantDraw.h>
 #include <Lucia/Graphics/Bases/DrawMode.h>
+#include <Lucia/Graphics/Bases/Filter.h>
 
 namespace Lucia{
 namespace Graphics{
@@ -20,41 +21,36 @@ namespace Base{
         public Graphics::Base::InstantDraw
         
         {
-            typedef Utils::OpenGL::Buffer Buffer;
-            typedef Utils::OpenGL::Shader_Vars Shader_Vars;
-            
-            Primitive();
-            virtual ~Primitive();
-            
             public:
-                virtual void generate(unsigned int id)
-                {
-                        
-                };
-                virtual void draw(unsigned int id=-1){
-                    if (Buf->get()){
-                        if (id == -1){Buf->draw(getMechanicalTarget(drawMode));}else{generate(id);};
-                    }
-                };
-                virtual void isDone(){return complete;};
-            
-            private: 
-                std::unique_ptr<Buffer> Buf;
-                bool complete = false;
-            
+                Primitive(){};
+                virtual ~Primitive(){};
+                
+                virtual void generate(unsigned int id){};
+                
+                virtual void draw()
+                {Buf->draw(getMechanicalTarget(getDrawMode()));};
+                
+                virtual void draw(std::shared_ptr<Utils::OpenGL::Shader_Vars> vars)
+                {Buf->draw(GL_TRIANGLES,vars.get());};
+                
+                virtual bool isDone(){return complete;};
+                
             protected:
-                virtual void makeBuffer(Shader_Vars v)
+                std::unique_ptr<Utils::OpenGL::Buffer> Buf;
+                bool complete = false;
+                
+                virtual void makeBuffer(std::shared_ptr<Utils::OpenGL::Shader_Vars> v)
                 {
-                    Buf.reset(new Buffer(SVars));
+                    Buf.reset(new Utils::OpenGL::Buffer(v));
                     complete = true;
                 };
                 virtual void instant_draw(Maths::Matrix<4> viewport,Maths::Matrix<4> model)
                 {
                     auto s = getShaderVars();
-                    s->sendMatrix(viewport.unpack(),4,4,false,"view");
-                    s->sendMatrix(model.unpack(),4,4,false,"model");
-                    draw(s->getID());
+                    s->sendMatrix("view",4,4,false,viewport.unpack());
+                    s->sendMatrix("model",4,4,false,model.unpack());
+                    draw(s);
                 };
-        }
+        };
 }}};
 #endif

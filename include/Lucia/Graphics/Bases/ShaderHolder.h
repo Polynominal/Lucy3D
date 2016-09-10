@@ -8,17 +8,16 @@ namespace Graphics
 {
     namespace Base
     {
-        typedef Utils::OpenGL::Shader_Vars Shader_Vars;
         class ShaderHolder
         {
             public:
                 //sets
-                virtual void setShaderVars(std::shared_ptr<Shader_Vars> v){ShaderVars = v;};
+                virtual void setShaderVars(std::shared_ptr<Utils::OpenGL::Shader_Vars> v){ShaderVars = v;};
                 //gets
-                virtual std::shared_ptr<Shader_Vars> getShaderVars(){return ShaderVars;};
+                virtual std::shared_ptr<Utils::OpenGL::Shader_Vars> getShaderVars(){return ShaderVars;};
                 //
             protected:
-                std::shared_ptr<Shader_Vars> ShaderVars;
+                std::shared_ptr<Utils::OpenGL::Shader_Vars> ShaderVars;
         };
     }
 }}

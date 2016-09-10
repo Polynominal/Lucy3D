@@ -71,6 +71,7 @@ void Instance::draw(Maths::Matrix<4>* view,Maths::Matrix<4>* projection)
     };
     // our stuff is sorted by furtherest away first so we dont need to do anything here.
     // Draw all sorted transparent objects.
+    glEnable(GL_BLEND);
     for (auto v: TransparentObjects)
     {
         drawObject(v,view,projection);

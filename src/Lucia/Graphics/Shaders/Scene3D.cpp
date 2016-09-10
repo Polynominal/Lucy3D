@@ -17,7 +17,7 @@ Scene3D::Scene3D()
         string Vertex =
         "#version 100\n"
         "attribute vec3 vertex;"
-        "attribute vec2 texCord;"
+        "attribute vec2 uv;"
         "varying vec2 TexCord;"
         "varying vec4 color;"
         "uniform vec4 Color;"
@@ -27,8 +27,8 @@ Scene3D::Scene3D()
         "void main()"
         "{"
         "   color = Color;"
-        "   TexCord = texCord;"
-        "   gl_Position = model * view * projection * vertex;"
+        "   TexCord = uv;"
+        "   gl_Position = projection*view*model*vec4(vertex,1.0f);"
         "}";
         string Fragment =
         "#version 100\n"
@@ -43,7 +43,7 @@ Scene3D::Scene3D()
         Graphics::_Shaders::Scene3D.reset(new Graphics::Shader());
         Graphics::_Shaders::Scene3D->build(Vertex,Fragment,"Scene3D");
         Graphics::_Shaders::Scene3D->addVar("vertex",0,3);
-        Graphics::_Shaders::Scene3D->addVar("texCord",3,5);
+        Graphics::_Shaders::Scene3D->addVar("uv",3,5);
     }
 };
 void Scene3D::Use()

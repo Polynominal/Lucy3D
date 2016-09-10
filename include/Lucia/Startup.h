@@ -6,6 +6,10 @@
 #ifdef ANDROID_5
 #include <Lucia/Compatability/Android.h>
 #endif
+#ifdef GENERATE_SHARED_RECOURCES
+    #include <Lucia/Graphics/Shaders/Scene3D.h>
+    #include <Lucia/Graphics/Primitives/Plate.h>
+#endif
 namespace Lucia {
 inline int startup_tasks()
 {
@@ -18,6 +22,13 @@ inline int startup_tasks()
         std::cout << "Failed to initialize GLEW: " << err << std::endl;
         return -1;
     }
+    #endif
+    
+    #ifdef GENERATE_SHARED_RECOURCES
+        auto id = Graphics::Shaders::Scene3D().getVars()->programID;
+        std::cout << "GENERATING RESOURCE" <<id<< std::endl;
+        Graphics::Shared::Plate.reset(new Graphics::Primitive::Plate());
+        Graphics::Shared::Plate->generate(id);
     #endif
     return 0;
 }}

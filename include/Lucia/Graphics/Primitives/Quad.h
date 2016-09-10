@@ -4,13 +4,11 @@
 #include <Lucia/Graphics/Shaders.h>
 #include <Lucia/Utils/OpenGL.h>
 namespace Lucia {
-namespace Graphics
-{
+namespace Graphics{
+    
     namespace Primitive
     {
-        typedef Utils::OpenGL::Vertex_Buffer Vertex_Buffer;
-        typedef Utils::OpenGL::Buffer Buffer;
-        typedef Utils::OpenGL::Shader_Vars Shader_Vars;
+        using namespace Utils::OpenGL;
         class Quad
         {
             public:

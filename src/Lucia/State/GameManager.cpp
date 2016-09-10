@@ -27,9 +27,7 @@ void GameManager::shift(Gamestate *target)
     Active_Gamestate = target;
 
 }
-#if defined LUCIA_USE_GLES2 || defined LUCIA_USE_GLES3
-
-const char* gluErrorString(GLenum s)
+const char* errorToString(GLenum s)
 {
     const char* output;
     switch(s)
@@ -55,7 +53,6 @@ const char* gluErrorString(GLenum s)
     }
     return output;
 };
-#endif // LUCIA_USE_GLES2
 void GameManager::update(double dt)
 {
     Active_Gamestate->preUpdate(dt);
@@ -68,7 +65,7 @@ void GameManager::update(double dt)
     int err;
     if ((err = glGetError()) != last_case)
     {
-        std::cerr << "OpenGL error: " << err << gluErrorString(err) << std::endl;
+        std::cerr << "OpenGL error: " << err << errorToString(err) << std::endl;
         last_case = err;
     }
 }

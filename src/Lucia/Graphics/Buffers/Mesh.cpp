@@ -38,14 +38,14 @@ void Mesh::addImage(Image img,std::string reference_name)
     this->addImage(img);
     Images[Images.size()-1]->setName(reference_name);
 }
-void Mesh::addSubBuffer(Buff* b)
+void Mesh::addSubBuffer(Buffer* b)
 {
     Cores.push_back(b);
 }
-Buff* Mesh::addSubBuffer()
+Buffer* Mesh::addSubBuffer()
 {
     if (ShaderVars.get() == nullptr){ShaderVars = Graphics::_Shaders::DefaultSceneShader->getVars();};
-    Buff* b = new Buff(ShaderVars);
+    Buffer* b = new Buffer(ShaderVars);
     Cores.push_back(b);
     return b;
 }
@@ -103,7 +103,7 @@ void Mesh::destroy(bool use_delete)
             {
                 delete v;
             };
-            for (Buff* v: Cores)
+            for (Buffer* v: Cores)
             {
                 delete v;
             };

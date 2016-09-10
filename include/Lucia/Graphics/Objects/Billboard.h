@@ -9,7 +9,8 @@ namespace Graphics{
 namespace Object{
     
     typedef Utils::OpenGL::Buffer Buff;
-    typedef Utils::OpenGL::Shader_Vars Shader_Vars;
+    using namespace Utils::OpenGL;
+    
     class Billboard:
     public Scene::Object
     {

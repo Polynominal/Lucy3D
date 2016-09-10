@@ -25,6 +25,8 @@ namespace Maths
         Sprite(float nx,float ny,float nw,float nh){create(nx,ny,nw,nh);};
         Sprite(float ix,float iy,float iw,float ih,float imgw,float imgh){create(ix,iy,iw,ih,imgw,imgh);};
         
+        float getWidth(){return w;};
+        float getHeight(){return h;};
         virtual void create(float nx,float ny,float nw,float nh)
         {
             x = nx;y = ny;w = nw;h = nh;

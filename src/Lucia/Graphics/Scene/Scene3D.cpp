@@ -10,9 +10,9 @@ void Scene3D::generate(Context::Window* Window)
 {
     float w = Window->getWidth();
     float h = Window->getHeight();
-    cam.reset(new Graphics::Camera(800,600));
+    cam.reset(new Graphics::Camera(w,h));
 
-    float prc = 800.0f/600.0f;
+    float prc = w/h;
     float prc2 = w/h;
     float actual = prc2/prc;
 

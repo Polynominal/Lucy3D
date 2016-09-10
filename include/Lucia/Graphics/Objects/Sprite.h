@@ -16,6 +16,7 @@ class Sprite: public Graphics::Scene::Object,public Lucia::Maths::Sprite
         Sprite(std::shared_ptr<Buffer::Spritesheet> Parent,float x,float y,float w,float h)
         {
             create(parent,x,y,w,h);
+            setTransparency(true);
         };
         void create(std::shared_ptr<Buffer::Spritesheet> Parent,float x,float y,float w,float h)
         {

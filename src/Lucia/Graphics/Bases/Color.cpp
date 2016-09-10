@@ -138,7 +138,7 @@ Color::mech Color::getMechanicalColor()
 {
     return Core;
 }
-bool Color::applyColor(std::shared_ptr<Shader_Vars> vars, Color::mech m)
+bool Color::applyColor(std::shared_ptr<Utils::OpenGL::Shader_Vars> vars, Color::mech m)
 {
     if (vars->find("Color") != -1){vars->send("Color",m.r,m.g,m.b,m.a);return true;};
     return false;

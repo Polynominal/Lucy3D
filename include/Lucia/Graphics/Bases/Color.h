@@ -9,7 +9,6 @@
 namespace Lucia{
 namespace Graphics{
 namespace Base{
-    typedef Utils::OpenGL::Shader_Vars Shader_Vars;
     class Color
     {
         public:
@@ -86,10 +85,10 @@ namespace Base{
             mech getMechanicalColor();
             
             //
-            bool applyColor(std::shared_ptr<Shader_Vars> vars,mech colors);
-            bool applyColor(std::shared_ptr<Shader_Vars> vars){return applyColor(vars,Core);};
-            bool applyColor(std::shared_ptr<Shader_Vars> vars,rgba color){return applyColor(vars,toMech(color));};
-            bool applyColor(std::shared_ptr<Shader_Vars> vars,hsv color){return applyColor(vars,toMech(color));};
+            bool applyColor(std::shared_ptr<Utils::OpenGL::Shader_Vars> vars,mech colors);
+            bool applyColor(std::shared_ptr<Utils::OpenGL::Shader_Vars> vars){return applyColor(vars,Core);};
+            bool applyColor(std::shared_ptr<Utils::OpenGL::Shader_Vars> vars,rgba color){return applyColor(vars,toMech(color));};
+            bool applyColor(std::shared_ptr<Utils::OpenGL::Shader_Vars> vars,hsv color){return applyColor(vars,toMech(color));};
             
         private:
             mech Core = mech(1.0f,1.0f,1.0f);

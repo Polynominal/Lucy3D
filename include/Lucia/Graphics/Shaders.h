@@ -1,5 +1,5 @@
-#ifndef MIKUS_LUCIA_GRAPHICS_SHADERS_H
-#define MIKUS_LUCIA_GRAPHICS_SHADERS_H
+#ifndef MIKUS_LUCIA_GRAPHICS_SHADERS_H_
+#define MIKUS_LUCIA_GRAPHICS_SHADERS_H_
 #include <Lucia/Settings.h>
 #include <string>
 #include <vector>
@@ -11,6 +11,7 @@
 #include <Lucia/Utils/Utils.h>
 #include <Lucia/Utils/OpenGL.h>
 #include <Lucia/Utils/log.h>
+
 namespace Lucia {
 namespace Graphics
 {

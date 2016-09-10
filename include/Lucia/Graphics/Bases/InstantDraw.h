@@ -1,11 +1,14 @@
 #ifndef MIKUS_LUCIA_GRAPHICS_BASES_INSTANTDRAW_H
 #define MIKUS_LUCIA_GRAPHICS_BASES_INSTANTDRAW_H
-#include <Graphics/Maths/Matrix.h>
-#include <Graphics/Shaders.h>
+#include <Lucia/Maths/Matrix.h>
+#include <Lucia/Maths/Vertex.h>
+#include <Lucia/Graphics/Shaders.h>
+
 namespace Lucia{
 namespace Graphics{
+using namespace Maths;
     namespace Base{
-        class InstantDraw:
+        class InstantDraw
         {
             private:
             protected:

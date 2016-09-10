@@ -31,6 +31,7 @@ namespace Graphics
                 //set
                 virtual void setScene(Graphics::Scene::Instance* s){Core_Scene = s;};
                 virtual Graphics::Scene::Instance* getScene(){return Core_Scene;};
+                void setTransparency(bool b){transparency=b;};
                 //these must be provided to you by the item object is attached to.
                 virtual void useShader(Maths::Matrix<4>* view,Maths::Matrix<4>* projection)
                 {
@@ -60,6 +61,7 @@ namespace Graphics
                 //has
                 bool hasTransparency(){return transparency;};
                 //
+            
             private:
                 bool transparency = false;
                 std::function<void()> OnPreDraw=[](){};

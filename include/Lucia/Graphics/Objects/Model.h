@@ -21,7 +21,7 @@ namespace Graphics{
 namespace Object{
     
     typedef Utils::OpenGL::Buffer Buff;
-    typedef Utils::OpenGL::Shader_Vars Shader_Vars;
+    using namespace Utils::OpenGL;
 
     class Model: public Graphics::Scene::Object, public Controll::Safety::Handler
     {
