@@ -7,11 +7,28 @@ void Moveable::setDimensions(Vertex v)
     Dimensions = v;
     scaleTo(Vertex(1,1,1));
 }
+void Moveable::rotate(Vertex p)
+{
+    //apply rotation one by one.
+    auto pitch = Quaternion(Vertex(p.x,0.0f,0.0f));
+    auto yaw = Quaternion(Vertex(0.0f,p.y,0.0f));
+    auto roll = Quaternion(Vertex(0.0f,0.0f,p.z));
+    if (Rotation == Quaternion(0,0,0,0))
+    {
+        rotateTo(pitch*yaw*roll);
+        
+    }else
+    {
+        rotateTo(pitch*Rotation*yaw*roll);
+    }
+    
+};
+void Moveable::rotate(Quaternion q){rotateTo(q*Rotation);}
+
 void Moveable::rotateTo(Quaternion q)
 {
     if (can_rotate)
     {
-        auto axis = Rotation.toAxis();
         Rotation = q;
         rotation_changed=true;
         needs_refresh = true;
@@ -21,6 +38,7 @@ void Moveable::rotateTo(Quaternion q)
         }
     }
 }
+
 void Moveable::moveOffsetTo(Vertex v)
 {
     if (can_move)
@@ -47,6 +65,7 @@ void Moveable::moveTo(Vertex v)
         }
     }
 }
+
 void Moveable::scaleTo(Vertex v)
 {
     if (can_scale)
@@ -59,6 +78,18 @@ void Moveable::scaleTo(Vertex v)
             applyTranslations();
         }
     }
+}
+void Moveable::moveToLocal(Vertex v)
+{
+    
+    auto Local       = (Rotation*Vertex(1.0f,0.0f,0.0f)).normalize();
+    auto Up          = (Rotation*Vertex(0.0f,1.0f,0.0f)).normalize();
+    auto Forward     = (Rotation*Vertex(0.0f,0.0f,1.0f)).normalize();
+    
+    Position += Up*v.y;
+    Position += Local*v.x;
+    Position += Forward*v.z;
+    moveTo(Position);
 }
 bool Moveable::applyTranslations(bool b)
 {
@@ -95,7 +126,7 @@ bool Moveable::applyTranslations(bool b)
             OnRotate();
             onRotate();
         }
-        if (t){onMorph();};
+        if (t){onMorph();OnMorph();};
         needs_refresh=false;
         return true;
     }

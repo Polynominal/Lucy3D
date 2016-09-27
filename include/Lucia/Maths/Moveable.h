@@ -20,6 +20,11 @@ namespace Maths{
                 {
                     return q.toAxis();
                 };
+                virtual void moveLocal(float x=0,float y=0,float z=0){moveLocal(Vertex(x,y,z));};
+                virtual void moveLocal(Vertex v){moveToLocal(Position + v);};
+                virtual void moveToLocal(float x=0,float y=0,float z=0){moveToLocal(Vertex(x,y,z));};
+                virtual void moveToLocal(Vertex v);
+                
                 virtual void moveOffset(Vertex p){moveOffsetTo(Offset + p);};
                 virtual void moveOffset(float x,float y,float z=0.0f){moveOffset(Vertex(x,y,z));};
 
@@ -32,10 +37,7 @@ namespace Maths{
                 virtual void moveTo(Vertex p);
                 virtual void moveTo(float x,float y,float z=0.0f){moveTo(Vertex(x,y,z));};
 
-                virtual void rotate(Vertex p)
-                {
-                    rotateTo(toEularFromQuat(Rotation) + p);
-                };
+                virtual void rotate(Vertex p);
                 virtual void rotate(float x,float y,float z=0.0f){rotate(Vertex(x,y,z));};
                 
                 virtual void rotateTo(Vertex p)
@@ -44,7 +46,7 @@ namespace Maths{
                 };
                 virtual void rotateTo(float x,float y,float z=0.0f){rotateTo(Vertex(x,y,z));};
 
-                virtual void rotate(Quaternion q){rotateTo(q + Rotation);};
+                virtual void rotate(Quaternion q);
                 virtual void rotateTo(Quaternion q);
 
                 virtual void scale(Vertex p){scaleTo(Scale + p);};
@@ -94,9 +96,9 @@ namespace Maths{
                 Quaternion getQuaternion(){return Rotation;};
                 // user functions
                 std::function<void()> OnMove   = [](){};
-                std::function<void()> OnRotate = [](){} ;
+                std::function<void()> OnRotate = [](){};
                 std::function<void()> OnScale  = [](){};
-                std::function<void()> OnMoprh  = [](){};
+                std::function<void()> OnMorph  = [](){};
 
             protected:
 

@@ -30,8 +30,6 @@ class Graphics::Camera:
             void strafe(std::string direction);
             void strafe(std::string direction,float speed);
 
-            void translateLocal(float left=0,float up=0,float forward=0);
-
             void rotateByVec(float angle,float x,float y,float z); // sets the object the watcher is looking at
             std::pair<Vertex,Vertex> getRay(float x,float y); // gets the ray from mouse.
 
@@ -57,7 +55,6 @@ class Graphics::Camera:
             float getFar(){return maxRange;};
 
             // public
-            void onMorph(){createMatrix = true;};
             Matrix<4> view = Matrix<4>();
             Matrix<4> projection = Matrix<4>();
 
@@ -65,7 +62,6 @@ class Graphics::Camera:
         protected:
         private:
             bool orthographic = false;
-            bool createMatrix = false;
 
             float fov = radians(40.0f);
             float minRange = 0.1f;

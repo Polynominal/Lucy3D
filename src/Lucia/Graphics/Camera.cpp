@@ -18,7 +18,7 @@ void Camera::lookAt(Quaternion rot, Vertex Pos)
 {
     view = Matrix<4>();
     
-    Vertex v1 = (rot*Vertex(0.0f,0.0f,1.0f)).normalize(); // foeward
+    Vertex v1 = (rot*Vertex(0.0f,0.0f,1.0f)).normalize(); // forward
     Vertex v2 = (rot*Vertex(0.0f,1.0f,0.0f)).normalize().cross(v1); // up
     Vertex v3 = v1.cross(v2);
     
@@ -70,27 +70,27 @@ void Camera::strafe(std::string direction,float speed)
 {
     if (direction == "right")
         {
-            this->translateLocal(speed);
+            this->moveToLocal(speed,0.0f,0.0f);
         }
     else if (direction == "left")
         {
-            this->translateLocal(-speed);
+            this->moveToLocal(-speed,0.0f,0.0f);
         }
     else if (direction == "forward")
         {
-            this->translateLocal(0.0f,0.0f,speed);
+            this->moveToLocal(0.0f,0.0f,speed);
         }
     else if (direction == "backward")
         {
-            this->translateLocal(0.0f,0.0f,-speed);
+            this->moveToLocal(0.0f,0.0f,-speed);
         }
     else if (direction == "up")
         {
-            this->translateLocal(0.0f,speed,0.0f);
+            this->moveToLocal(0.0f,speed,0.0f);
         }
     else if (direction == "down")
         {
-            this->translateLocal(0.0f,-speed,0.0f);
+            this->moveToLocal(0.0f,-speed,0.0f);
         }
     else if (direction == "roll_left")
         {
@@ -161,20 +161,16 @@ void Camera::resize(float width,float height)
     {
         projection = Ortho(0.0f,width,0.0f,height,0.0f,maxRange*10000000);
     }
-
-    createMatrix = true;
 }
 void Camera::setOrtho()
 {
     orthographic = true;
     projection = Ortho(0.0f,width,0.0f,height,0.0f,maxRange*10000000);
-    createMatrix = true;
 }
 void Camera::setPerspective()
 {
     orthographic = false;
     projection = Perspective(fov,float(width/height),minRange,maxRange);
-    createMatrix = true;
 }
 Matrix<4> Camera::getView()
 {
@@ -198,21 +194,20 @@ void Camera::normal()
     Up = Forward.cross(Local);
     yawAxis = Up;
 }
-void Camera::translateLocal(float left,float up,float forward)
-{
-    Local       = (Rotation*Vertex(1.0f,0.0f,0.0f)).normalize();
-    Up          = (Rotation*Vertex(0.0f,1.0f,0.0f)).normalize();
-    Forward     = (Rotation*Vertex(0.0f,0.0f,1.0f)).normalize();
-    
-    Position += Up * up;
-    Position += Local*left;
-    Position += Forward*(forward);
-    createMatrix = true;
-    //needed to refresh the move stack.
-    moveTo(Position);
-    applyTranslations();
-    view = Model_Matrix;
-}
+//void Camera::moveToLocal(Vertex v)
+//{
+//    Local       = (Rotation*Vertex(1.0f,0.0f,0.0f)).normalize();
+//    Up          = (Rotation*Vertex(0.0f,1.0f,0.0f)).normalize();
+//    Forward     = (Rotation*Vertex(0.0f,0.0f,1.0f)).normalize();
+//    
+//    Position += Up * v.y;
+//    Position += Local*v.x;
+//    Position += Forward*v.z;
+//    //needed to refresh the move stack.
+//    moveTo(Position);
+//    applyTranslations();
+//    view = Model_Matrix;
+//}
 Camera::~Camera()
 {
     //dtor

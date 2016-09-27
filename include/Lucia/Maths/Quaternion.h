@@ -52,7 +52,7 @@ public:
         return getNormal();
     };
     Quaternion fromAxis(float dx,float dy,float dz)
-    {
+    {        
         float nx = Maths::radians(dx);
         float ny = Maths::radians(dy);
         float nz = Maths::radians(dz);
@@ -85,14 +85,13 @@ public:
         float test = x*y + z*w;
         if (test > 0.499f*unit) { // singularity at north pole
             pitch = 2.0f * atan2(x,w);
-            yaw = 3.14159265f/2.0f;
             roll = 0.0f;
-            return Vertex(pitch,yaw,roll);
+            return Vertex(Maths::degrees(pitch),-88,Maths::degrees(roll));
         }
-        if (test < -0.499*unit) { // singularity at south pole
-            pitch = -2 * atan2(x,w);
-            yaw = -3.14159265f/2;
+        if (test < -0.499f*unit) { // singularity at south pole
+            pitch = -2.0f * atan2(x,w);
             roll = 0.0f;
+            return Vertex(Maths::degrees(pitch),90,Maths::degrees(roll));
         }
         pitch = atan2(2*y*w-2*x*z , sqx - sqy - sqz + sqw);
         yaw = asin(2*test/unit);
@@ -149,6 +148,10 @@ public:
         Q.z = z+A.z;
         return Q;
     };
+    bool operator == (const Quaternion &A)
+    {
+        return A.x == x and A.y == y and A.z == z and A.w == w;
+    }
 };
 
 }}
