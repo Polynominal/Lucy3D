@@ -1,6 +1,7 @@
 #ifndef MIKUS_LUCIA_GRAPHICS_CAMERA_H
 #define MIKUS_LUCIA_GRAPHICS_CAMERA_H
 
+#include <Lucia\Settings.h>
 #include <Lucia/Maths/Vertex.h>
 #include <Lucia/Maths/Matrix.h>
 #include <Lucia/Maths/Quaternion.h>

@@ -8,6 +8,8 @@
 #include <functional>
 #include <math.h>
 #include <Lucia/Maths/General.h>
+#include <Lucia\Settings.h>
+
 namespace Lucia
 {
 namespace Maths
@@ -121,7 +123,12 @@ class Vertex
 
         float min() {return std::max(x,std::min(y,z));};
         Vertex min(Vertex &B) {return Vertex(std::min(x, B.x),std::min(y, B.y),std::min(z, B.z));};
-
+        
+        Vertex clamp(double min,double max){return Vertex(Maths::clamp(x,min,max),Maths::clamp(y,min,max),Maths::clamp(z,min,max));};
+        Vertex loop(double min,double max)
+        {
+            return Vertex(Maths::loop(x,min,max),Maths::loop(y,min,max),Maths::loop(z,min,max));
+        };
         double dot(const Vertex& A){return x*A.x + y*A.y + z*A.z;};
         Vertex cross(const Vertex& A){return Vertex(
             (y*A.z) - (z*A.y),
@@ -130,6 +137,20 @@ class Vertex
         Vertex doubleCross(const Vertex& A){
             Vertex Cross = this->cross(A);
             return cross(Cross);
+        };
+        Vertex radians(){return Vertex(Maths::radians(x),Maths::radians(y),Maths::radians(z));};
+        Vertex degrees(){return Vertex(Maths::degrees(x),Maths::degrees(y),Maths::degrees(z));};
+        Vertex sin()
+        {
+            return Vertex(std::sin(x),std::sin(y),std::sin(z));
+        };
+        Vertex cos()
+        {
+            return Vertex(std::cos(x),std::cos(y),std::cos(z));
+        };
+        Vertex tan()
+        {
+            return Vertex(std::tan(x),std::tan(y),std::tan(z));
         };
         double size(){return abs(x)+abs(y)+abs(z);};
         // The sum of the vector

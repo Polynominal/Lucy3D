@@ -66,7 +66,6 @@ void Text::setText(string T)
     if (skin.get())
     {
         id = skin->bufferText(T);
-        std::cout << id << std::endl;
         width = skin->getTextWidth(text,size);
         height = skin->getFontHeight(size);
         setSize(size);

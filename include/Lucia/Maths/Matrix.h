@@ -10,6 +10,7 @@
 
 #include <Lucia\Maths\Vector.h>
 #include <Lucia\Maths\Vertex.h>
+#include <Lucia\Settings.h>
 
 
 //TODO
@@ -179,8 +180,14 @@ class Matrix
         void translate(Vertex A){translate(Vector(A.x,A.y,A.z));};
         void rotx(float angle)
         {
-            float c = cosf(Maths::radians(angle));
-            float s = sinf(Maths::radians(angle));
+            auto a = 
+            #ifdef LUCIA_USE_DEGREES
+            angle;
+            #else 
+            Maths::radians(angle);
+            #endif
+            float c = cosf(a);
+            float s = sinf(a);
             float m1  = array[0][1],  m2  = array[0][2],
                   m5  = array[1][1],  m6  = array[1][2],
                   m9  = array[2][1],  m10 = array[2][2],
@@ -197,8 +204,14 @@ class Matrix
         };
         void roty(float angle)
         {
-            float c = cosf(Maths::radians(angle));
-            float s = sinf(Maths::radians(angle));
+            auto a = 
+            #ifdef LUCIA_USE_DEGREES
+            angle;
+            #else 
+            Maths::radians(angle);
+            #endif
+            float c = cosf(a);
+            float s = sinf(a);
             float m0  = array[0][0],  m2  = array[0][2],
                   m4  = array[1][0],  m6  = array[1][2],
                   m8  = array[2][0],  m10 = array[2][2],
@@ -215,8 +228,15 @@ class Matrix
         };
         void rotz(float angle)
         {
-            float c = cosf(Maths::radians(angle));
-            float s = sinf(Maths::radians(angle));
+            auto a = 
+            #ifdef LUCIA_USE_DEGREES
+            angle;
+            #else 
+            Maths::radians(angle);
+            #endif
+            
+            float c = cosf(a);
+            float s = sinf(a);
             float m0  = array[0][0], m1 = array[0][1],
                   m4  = array[1][0], m5 = array[1][1],
                   m8  = array[2][0], m9 = array[2][1],

@@ -1,4 +1,9 @@
 #include "Lucia\Maths\Moveable.h"
+#include <glm.hpp>
+#include <ext.hpp>
+#include <gtc/quaternion.hpp>
+#include <gtx/quaternion.hpp>
+
 using namespace Lucia;
 using namespace Maths;
 typedef Maths::Moveable Moveable;
@@ -7,21 +12,53 @@ void Moveable::setDimensions(Vertex v)
     Dimensions = v;
     scaleTo(Vertex(1,1,1));
 }
+void Moveable::pitch(float angle,Vertex local)
+{
+    angle = Maths::getAngle(angle);
+    if (angle > 0)
+    {
+        Rotation = Rotation.pitch(angle,local,Forward,Up);
+    }
+    rotateTo(Rotation);
+}
+void Moveable::yaw(float angle,Vertex upper)
+{
+    angle = Maths::getAngle(angle);
+    if (angle > 0)
+    {
+        Rotation = Rotation.yaw(angle,Local,Forward,upper);
+    }
+    rotateTo(Rotation);
+}
+void Moveable::roll(float angle,Vertex forward)
+{
+    angle = Maths::getAngle(angle);
+    if (angle > 0)
+    {
+        Rotation = Rotation.roll(angle,Local,forward,Up);
+    }
+    rotateTo(Rotation);
+}
 void Moveable::rotate(Vertex p)
 {
-    //apply rotation one by one.
-    auto pitch = Quaternion(Vertex(p.x,0.0f,0.0f));
-    auto yaw = Quaternion(Vertex(0.0f,p.y,0.0f));
-    auto roll = Quaternion(Vertex(0.0f,0.0f,p.z));
+    auto angle = p.loop(0.0f,360.0f);
     if (Rotation == Quaternion(0,0,0,0))
     {
-        rotateTo(pitch*yaw*roll);
-        
-    }else
-    {
-        rotateTo(pitch*Rotation*yaw*roll);
+        Rotation = Quaternion(Vertex(0,0,0));
     }
-    
+    if (angle.x > 0)
+    {
+        Rotation = Rotation.pitch(angle.x,Local,Forward,Up);
+    }
+    if (angle.y > 0)
+    {
+        Rotation = Rotation.yaw(angle.y,Local,Forward,Up);
+    }
+    if (angle.z > 0)
+    {
+        Rotation = Rotation.roll(angle.z,Local,Forward,Up);
+    };
+    rotateTo(Rotation);
 };
 void Moveable::rotate(Quaternion q){rotateTo(q*Rotation);}
 
@@ -81,14 +118,10 @@ void Moveable::scaleTo(Vertex v)
 }
 void Moveable::moveToLocal(Vertex v)
 {
-    
-    auto Local       = (Rotation*Vertex(1.0f,0.0f,0.0f)).normalize();
-    auto Up          = (Rotation*Vertex(0.0f,1.0f,0.0f)).normalize();
-    auto Forward     = (Rotation*Vertex(0.0f,0.0f,1.0f)).normalize();
-    
-    Position += Up*v.y;
-    Position += Local*v.x;
+    Position += Local*v.y;
+    Position += Up*v.x;
     Position += Forward*v.z;
+    
     moveTo(Position);
 }
 bool Moveable::applyTranslations(bool b)
@@ -99,9 +132,8 @@ bool Moveable::applyTranslations(bool b)
         Model_Matrix = Matrix<4>();
         
         Vertex v = Dimensions*Scale;
-        auto rot = Rotation.toAxis();
         Model_Matrix.translate(Offset);
-        Model_Matrix.rotate(rot);
+        Model_Matrix = Model_Matrix*Rotation.toMatrix();
         Model_Matrix.scale(v);
         Model_Matrix.translate(Position);
         bool t = false;

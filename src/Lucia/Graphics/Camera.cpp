@@ -65,7 +65,7 @@ void Camera::lookAt(Vertex eye, Vertex target, Vertex up)
 void Camera::update()
 {
     lookAt(Rotation,Position);
-}; // applies all of the translations and sends data to vertex shader .
+};
 void Camera::strafe(std::string direction,float speed)
 {
     if (direction == "right")

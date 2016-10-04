@@ -80,7 +80,7 @@ void Manager::drawChunks(bool blocks)
     });
     PostDraw();
 }
-std::shared_ptr<Polygon> Manager::addPolygon(std::vector<Vertex>Points)
+std::shared_ptr<Collider::Polygon> Manager::addPolygon(std::vector<Vertex>Points)
 {
     auto a = std::make_shared<Polygon>();
     a->make(this,Points);

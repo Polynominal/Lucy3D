@@ -24,6 +24,7 @@ void Scene3D::generate(Context::Window* Window)
 void Scene3D::preDraw()
 {
     Instance::preDraw();
+    glDepthFunc(GL_LEQUAL);
     cam->update();
 }
 void Scene3D::draw()

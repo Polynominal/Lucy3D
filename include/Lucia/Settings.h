@@ -1,5 +1,7 @@
 #ifndef MIKUS_LUCIA_SETTINGS_H_INCLUDED
 #define MIKUS_LUCIA_SETTINGS_H_INCLUDED
+// Maths specific.
+#define LUCIA_USE_DEGREES
 // use these at ur own risk:
 
 // GLEW and opengl

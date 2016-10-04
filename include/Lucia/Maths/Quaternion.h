@@ -4,6 +4,7 @@
 #include <Lucia\Maths\Vertex.h>
 #include <Lucia\Maths\Vector.h>
 #include <Lucia\Maths\Matrix.h>
+#include <Lucia\Settings.h>
 
 namespace Lucia{
 namespace Maths{
@@ -39,7 +40,7 @@ public:
     };
     Quaternion conjugate()
     {
-        return Quaternion(-x,-y,-z,-w);
+        return Quaternion(-x,-y,-z,w);
     };
     Quaternion getNormal()
     {
@@ -53,9 +54,14 @@ public:
     };
     Quaternion fromAxis(float dx,float dy,float dz)
     {        
-        float nx = Maths::radians(dx);
-        float ny = Maths::radians(dy);
-        float nz = Maths::radians(dz);
+        float nx = dx;
+        float ny = dy;
+        float nz = dz;
+        #ifdef LUCIA_USE_DEGREES
+        nx =  Maths::radians(dx);
+        ny =  Maths::radians(dy);
+        nz =  Maths::radians(dz);
+        #endif
         float c1 = cos(nx/2);
         float s1 = sin(nx/2);
         float c2 = cos(ny/2);
@@ -71,33 +77,7 @@ public:
 
         return *this;
     };
-    Vertex toAxis() 
-    {
-        float pitch  = 0;
-        float yaw = 0;
-        float roll = 0;
-        
-        float sqw = w*w;
-        float sqx = x*x;
-        float sqy = y*y;
-        float sqz = z*z;
-        float unit = sqx + sqy + sqz + sqw; // if normalised is one, otherwise is correction factor
-        float test = x*y + z*w;
-        if (test > 0.499f*unit) { // singularity at north pole
-            pitch = 2.0f * atan2(x,w);
-            roll = 0.0f;
-            return Vertex(Maths::degrees(pitch),-88,Maths::degrees(roll));
-        }
-        if (test < -0.499f*unit) { // singularity at south pole
-            pitch = -2.0f * atan2(x,w);
-            roll = 0.0f;
-            return Vertex(Maths::degrees(pitch),90,Maths::degrees(roll));
-        }
-        pitch = atan2(2*y*w-2*x*z , sqx - sqy - sqz + sqw);
-        yaw = asin(2*test/unit);
-        roll = atan2(2*x*w-2*y*z , -sqx + sqy - sqz + sqw);
-        return Vertex(Maths::degrees(pitch),Maths::degrees(yaw),Maths::degrees(roll));
-    };
+    Vertex toAxis();
     Maths::Matrix<4> toMatrix()
     {
         Maths::Matrix<4> mat = Maths::Matrix<4>();
@@ -125,10 +105,47 @@ public:
         
         return mat.transpose();
     };
+    
     Quaternion fromAngleAxis(float angle,Vertex normal)
     {
-        return fromAxis(normal.x*angle,normal.y*angle,normal.z*angle);
-    }
+        Quaternion q = Quaternion();
+        auto a = 
+        #ifdef LUCIA_USE_DEGREES
+        Maths::radians(angle);
+        #else
+        angle;
+        #endif
+        
+        auto s = std::sin(a * 0.5f);
+
+        q.w = std::cos(a * 0.5f);
+        q.x = normal.x * s;
+        q.y = normal.y * s;
+        q.z = normal.z * s;
+        return q;
+    };
+    Quaternion pitch(float angle,Vertex l,Vertex& f,Vertex& u)
+    {
+        auto q = Quaternion().fromAngleAxis(angle,-l);
+        f = q*f;
+        u = q*u;
+        return q*(*this);
+    };
+    Quaternion yaw(float angle,Vertex &l,Vertex &f,Vertex u)
+    {
+        auto q = Quaternion();
+        q = q.fromAngleAxis(angle,u);
+        l = q*l;
+        f = q*f;
+        return q*(*this);
+    };
+    Quaternion roll(float angle,Vertex &l,Vertex f,Vertex &u)
+    {
+        auto q = Quaternion().fromAngleAxis(angle,f);
+        u = q*u;
+        l = q*u;
+        return q*(*this);
+    };
     Vertex operator* (const Vertex &A){return rotate(A);};
     Quaternion operator* (const Quaternion &A)
     {

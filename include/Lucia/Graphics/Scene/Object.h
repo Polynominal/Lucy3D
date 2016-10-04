@@ -50,6 +50,7 @@ namespace Graphics
                 virtual void update(double dt){};
                 virtual void update(double dt,Container *c){update(dt);};
                 //
+                virtual void onCreate(Container*){};
                 virtual void onMorph(Container*){};
                 virtual void onMove(Container*){};
                 virtual void onScale(Container*){};

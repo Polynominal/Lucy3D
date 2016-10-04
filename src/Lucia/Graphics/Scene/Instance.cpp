@@ -31,8 +31,11 @@ std::shared_ptr<Container> Instance::add(std::shared_ptr<Object> o)
 };
 void Instance::insert(std::shared_ptr<Container> o)
 {
-    insertTasks(o->getCore(),o);
+    auto core = o->getCore();
+    insertTasks(core,o);
     o->setScene(this);
+    core->onCreate(o.get());
+    
 }
 void Instance::remove(Container* subject)
 {
@@ -71,7 +74,7 @@ void Instance::draw(Maths::Matrix<4>* view,Maths::Matrix<4>* projection)
     };
     // our stuff is sorted by furtherest away first so we dont need to do anything here.
     // Draw all sorted transparent objects.
-    glEnable(GL_BLEND);
+    glEnable( GL_BLEND );
     for (auto v: TransparentObjects)
     {
         drawObject(v,view,projection);
@@ -101,7 +104,7 @@ void Instance::refresh()
     {
         std::sort(TransparentObjects.begin(),TransparentObjects.end(),[](std::shared_ptr<Container>a,std::shared_ptr<Container>b)
           {
-            return a->getPosition().z < b->getPosition().z;
+            return a->getPosition().z > b->getPosition().z;
           });
         std::sort(Objects.begin(),Objects.end(),[](std::shared_ptr<Container>a,std::shared_ptr<Container>b)
           {

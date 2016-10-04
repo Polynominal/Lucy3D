@@ -8,7 +8,7 @@ namespace Maths{
        class Moveable
         {
             public:
-                Moveable(){};
+                Moveable(){Rotation = Quaternion(Vertex(0,0,0));};
                 virtual ~Moveable(){};
                 // [*]you should ask neil armstrong why this is bad.[*]
                 // The moon landing had a few issues because of this! [^]
@@ -37,6 +37,9 @@ namespace Maths{
                 virtual void moveTo(Vertex p);
                 virtual void moveTo(float x,float y,float z=0.0f){moveTo(Vertex(x,y,z));};
 
+                virtual void pitch(float angle,Vertex local=Vertex(1.0f,0.0f,0.0f));
+                virtual void yaw(float angle,Vertex up=Vertex(0.0f,1.0f,0.0f));
+                virtual void roll(float angle,Vertex forward=Vertex(0.0f,0.0f,1.0f));
                 virtual void rotate(Vertex p);
                 virtual void rotate(float x,float y,float z=0.0f){rotate(Vertex(x,y,z));};
                 
@@ -105,11 +108,16 @@ namespace Maths{
                 Matrix<4> Model_Matrix = Matrix<4>(4);
 
                 Quaternion Rotation = Quaternion(0,0,0,0);
+                //locals.
+                Vertex Local      = Vertex(1.0f,0.0f,0.0f);
+                Vertex Up         = Vertex(0.0f,1.0f,0.0f);
+                Vertex Forward    = Vertex(0.0f,0.0f,1.0f);
+                //global cords.
                 Vertex Offset     = Vertex(0.0f,0.0f,0.0f);
                 Vertex Position   = Vertex(0.0f,0.0f,0.0f);
                 Vertex Scale      = Vertex(1.0f,1.0f,1.0f);
                 Vertex Dimensions = Vertex(1.0f,1.0f,1.0f);
-
+                
             private:
                 bool applyTranslationWithoutRequest = false;
                 bool can_rotate = true;
