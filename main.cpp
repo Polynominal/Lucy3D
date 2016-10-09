@@ -1,5 +1,5 @@
 
-
+#ifdef LUCIA_USE_OPENGL3#endif
 // STL includes [-
 #include <stdio.h>
 #include <iostream>
@@ -8,7 +8,6 @@
 
 // GL stuff [-
 #include <Lucia/Settings.h>
-#include "glm.hpp"
 // -]
 
 // Devill [-
@@ -30,7 +29,7 @@
 #include <Lucia\Collider/Collider.h>
 #include <Lucia\Window/Context.h>
 // [- Gamestates -
-#include <MainGame.h>
+#include <Editor.h>
 // -]
 #include <Lucia/Controll/Safety/Error.h>
 #include <Lucia/Controll/Safety/GLWrapper.h>
@@ -132,3 +131,4 @@ int main(int argc, char* argv[])
     window->destroy();
     delete window;
 }
+#endif

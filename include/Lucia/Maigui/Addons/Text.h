@@ -9,7 +9,7 @@ namespace Maigui
 {
     namespace Addon
     {
-        class Text : public Maigui::Base::Moveable, Graphics::Base::Color
+        class Text : public Maigui::Base::Moveable, public Graphics::Base::Color
         {
             public:
                 Text();

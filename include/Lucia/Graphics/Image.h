@@ -9,7 +9,7 @@
 #include <Lucia/Graphics/Bases/Texture.h>
 #include <Lucia/Utils/log.h>
 #include <Lucia/Controll/Safety/Handler.h>
-#ifndef LUCIA_USE_GLES2
+#ifdef LUCIA_USE_GLES2
     #include <Lucia/Graphics/Buffers/Canvas.h>
 #endif
 
@@ -25,8 +25,9 @@ namespace Graphics
             void generate(ImageData* data);
             void generate();
             void remove();
-            //GET
-            #ifndef LUCIA_USE_GLES2
+            //GET 
+            //TODO Please use a new method for get image data
+            #ifdef LUCIA_USE_GLES2
             virtual ImageData getImageData()
             {
                 Canvas target = Canvas();

@@ -25,8 +25,8 @@ namespace Graphics
             void generate();
 
             void addImage(Image img);
-            void addSubBuffer(Buffer* UBuffer);
-            Buffer* addSubBuffer();
+            void addSubBuffer(Utils::OpenGL::Buffer* UBuffer);
+            Utils::OpenGL::Buffer* addSubBuffer();
             void addSubMesh(Mesh* m);
             // path to the file
             void addImage(std::string path);
@@ -37,7 +37,7 @@ namespace Graphics
             void finalize();
             virtual void render(Maths::Matrix<4>* model,DRAW mode); // rendering assuming that everything is bound correctly.
             //sets
-            Buffer*  getSubBuffer(int id=0){return Cores[id];};
+            Utils::OpenGL::Buffer*  getSubBuffer(int id=0){return Cores[id];};
             Image* getImage(int id=0){return Images[id];};
 
             void destroy(bool use_delete=false);
@@ -45,7 +45,7 @@ namespace Graphics
             virtual ~Mesh();
         private:
             std::vector<Mesh*>  Children;
-            std::vector<Buffer*>  Cores;
+            std::vector<Utils::OpenGL::Buffer*>  Cores;
             std::vector<Image*> Images;
             bool cleanTexture = false;
     };

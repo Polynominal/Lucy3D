@@ -7,7 +7,6 @@
 #include <freetype/freetype.h>
 
 #include <memory.h>
-#include <gtc/matrix_transform.hpp>
 
 
 #include <Lucia/Graphics/Shaders.h>

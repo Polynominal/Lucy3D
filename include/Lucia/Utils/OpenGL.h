@@ -1,5 +1,5 @@
-#ifndef LUCIA_UTILITIES_OPENGL_H
-#define LUCIA_UTILITIES_OPENGL_H
+#ifndef LUCIA_UTILITIES_OPENGL_ANDBUFFER_H
+#define LUCIA_UTILITIES_OPENGL_ANDBUFFER_H
 #include <Lucia/Settings.h>
 #include <Lucia/Utils/Log.h>
 #include <vector>

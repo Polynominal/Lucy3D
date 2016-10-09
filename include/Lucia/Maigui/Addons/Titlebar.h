@@ -3,6 +3,7 @@
 #include <Lucia/Maigui\Item.h>
 #include <Lucia/Maigui\Bases\Moveable.h>
 #include <Lucia/Maigui\Addons\Text.h>
+#include <Lucia/Graphics/Bases/Color.h>
 
 namespace Lucia {
 namespace Maigui
@@ -15,7 +16,8 @@ namespace Maigui
                 Titlebar();
 
                 void generate(Vertex position,Vertex dimensions,shared_ptr<Skin> sk);
-
+                void drag(int x,int y){if (Parent){Parent->drag(x,y);};};
+                
                 virtual void draw();
                 virtual void close();
 
@@ -23,8 +25,8 @@ namespace Maigui
 
 
                 virtual void refresh();
-
-                virtual Text* getTextItem(){return &text;};
+                
+                virtual Text* getText(){return &text;};
                 virtual string getTitle(){return text.getText();};
 
                 virtual void setTitle(string Title);
