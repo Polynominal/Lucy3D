@@ -91,7 +91,7 @@ void Item::draw()
 void Item::update(double dt)
 {
     OnUpdate(dt);
-    if (needsRefresh){refresh();};
+    refresh();
     for (auto v: Children)
     {
         v->update(dt);
@@ -109,7 +109,7 @@ bool checkPointer(void *b)
 }
 void Item::refresh()
 {
-    if (needsRefresh)
+    if (Base::Moveable::needsRefresh)
     {
         Maigui::Base::Moveable::refresh();
 
@@ -126,6 +126,6 @@ void Item::refresh()
                 {onRelease(static_cast<Item*>(b->UserData));};
             };
             
-        needsRefresh =false;
+        Base::Moveable::needsRefresh =false;
     }
 }

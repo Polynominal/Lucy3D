@@ -1,5 +1,7 @@
 #ifndef MIKUS_LUCIA_SETTINGS_H_INCLUDED
 #define MIKUS_LUCIA_SETTINGS_H_INCLUDED
+//Would you like Lucia to build main functio for you?
+//#define LUCIA_INCLUDE_MAIN
 // Maths specific.
 #define LUCIA_USE_DEGREES
 // use these at ur own risk:
@@ -7,22 +9,28 @@
 // GLEW and opengl
 
 //[-
-//#define LUCIA_USE_OPENGL3
-//#include <GL/glew.h>
-//#include <GL/GL.h>
+#define LUCIA_USE_OPENGL3
+
 
 // when linking with these make sure to add the following to ur linker:
 // -lGLEW -lGL [OR -lopengl32 for WIN32]
 // and Dependencies/build/<your compiler>/lib
 //-]
 
-//GLES2
+//OPEN GL ES
 //[-
 //#define ANDROID_5
-#define LUCIA_USE_GLES2
+//#define LUCIA_USE_GLES2
+
 // Dont forget to unlink the -lgl librares as they will mess with libEGL causing a blackscreen and multiple crashes etc etc.
 // [!!!] You will have to rebuild if this happens D: [!!!]
-#include <GLES2\gl2.h>
+#ifdef LUCIA_USE_OPENGL3
+    #include <GL/glew.h>
+    #include <GL/GL.h>
+#endif
+#ifdef LUCIA_USE_GLES2
+    #include <GLES2\gl2.h>
+#endif
 //-]
 #include <SDL.h>
 

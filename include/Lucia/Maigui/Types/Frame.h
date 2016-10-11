@@ -4,6 +4,7 @@
 #include <Lucia/Maigui/Item.h>
 #include <Lucia/Maigui/Types/Container.h>
 #include <Lucia/Maigui/Addons/Titlebar.h>
+#include <Lucia/Graphics/Bases/Color.h>
 namespace Lucia {
 namespace Maigui
 {
@@ -21,6 +22,8 @@ namespace Maigui
 
                 virtual string getTitle(){return titleBar->getTitle();};
                 virtual void setTitle(string text);
+                virtual void setTitleTextColor(float r,float g,float b,float a=255){setTitleTextColor(Graphics::Base::Color(r,g,b,a));};
+                virtual void setTitleTextColor(Graphics::Base::Color c){titleBar->getText()->setColor(c);};
                 virtual void onMorph();
                 virtual void onCreate();
                 virtual ~Frame(){remove();};

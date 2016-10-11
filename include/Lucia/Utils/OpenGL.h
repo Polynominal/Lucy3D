@@ -1,5 +1,5 @@
-#ifndef LUCIA_UTILITIES_OPENGL_H
-#define LUCIA_UTILITIES_OPENGL_H
+#ifndef LUCIA_UTILITIES_OPENGL_ANDBUFFER_H
+#define LUCIA_UTILITIES_OPENGL_ANDBUFFER_H
 #include <Lucia/Settings.h>
 #include <Lucia/Utils/Log.h>
 #include <vector>
@@ -110,6 +110,7 @@ namespace Utils
             public:
                 GLuint vao=0;
                 GLuint vbo=0;
+                GLuint Ivbo=0; //instanced VBO
                 GLuint ebo=0;
                 uint size;
                 std::shared_ptr<Shader_Vars> Vars;

@@ -10,6 +10,8 @@
 
 #include <Lucia\Graphics\Camera.h>
 
+#include <Lucia\Controll\Mouse.h>
+
 #if defined LUCIA_USE_GLES2 || defined LUCIA_USE_OPENGL3
     #include <Lucia\Maigui\Wrappers\OpenGL.h>
     #include <Lucia\Collider\OpenGL.h>

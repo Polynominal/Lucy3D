@@ -22,7 +22,8 @@ namespace Maigui
 
             Vertex getViewVertex();
             void setGlobalScale(float x=1.0f,float y = 1.0f);
-
+            
+            void mousemoved(int* keys_down,int x,int y,int dx,int dy);
             void mousepressed(string key);
             void mousereleased(string key);
             void keypressed(string key);
@@ -33,10 +34,10 @@ namespace Maigui
             // ADD's
             void addItem(Maigui::Item*);
             void addItem(Maigui::Item*,Vertex p,Vertex d);
-            shared_ptr<Container> addContainer(float x,float y,float z,float w,float h, float d=1);
-            shared_ptr<Containers::Frame> addFrame(float x,float y,float z,float w,float h,float d=1);
-            shared_ptr<Button> addButton(float x,float y,float z,float w,float h,float d=1);
-            shared_ptr<Widget> addWidget(float x,float y,float z,float w,float h, float d=1);
+            shared_ptr<Container> addContainer(float x,float y,float z,float w,float h, float d=1,bool add=true);
+            shared_ptr<Containers::Frame> addFrame(float x,float y,float z,float w,float h,float d=1,bool add=true);
+            shared_ptr<Button> addButton(float x,float y,float z,float w,float h,float d=1,bool add=true);
+            shared_ptr<Widget> addWidget(float x,float y,float z,float w,float h, float d=1,bool add=true);
             // PUBLIC MEMBERS//
             std::shared_ptr<Collider::Manager> World;
             std::shared_ptr<Collider::Manager> getWorld(){return World;};

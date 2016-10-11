@@ -129,7 +129,7 @@ void Extended::internalMousemotion(int x,int y,int relx,int rely)
             a = ray.first;
             b = ray.second;
         }
-        
+        UserInterface->mousemoved(mouse.getKeys(),x,y,relx,rely);
     }
     
 };

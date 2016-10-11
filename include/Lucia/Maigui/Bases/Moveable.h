@@ -32,6 +32,7 @@ namespace Maigui
                 {
                     parentWidth = v.x;
                     parentHeight = v.y;
+                    needsRefresh = true;
                 }
                 virtual void setGlobalScale(Vertex s)
                 {

@@ -25,12 +25,13 @@ void Titlebar::setSkin(shared_ptr<Skin>s)
 }
 void Titlebar::onMorph()
 {
+    auto s = text.getText().size();
     Maigui::Item::onMorph();
-    Vertex dimensions = Vertex(fontSize*text.getText().size(),size,Dimensions.z);
+    Vertex dimensions = Vertex(fontSize*s,size,Dimensions.z);
     text.rotateTo(Rotation);
     text.scaleTo(dimensions);
     Vertex pos = Position;
-    pos.y = pos.y - 1;
+    pos.y += (s/2.0f);
     text.moveTo(pos);
 }
 void Titlebar::draw()

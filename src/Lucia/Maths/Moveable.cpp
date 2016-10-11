@@ -1,8 +1,4 @@
 #include "Lucia\Maths\Moveable.h"
-#include <glm.hpp>
-#include <ext.hpp>
-#include <gtc/quaternion.hpp>
-#include <gtx/quaternion.hpp>
 
 using namespace Lucia;
 using namespace Maths;

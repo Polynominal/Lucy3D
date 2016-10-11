@@ -2,6 +2,7 @@
 #define MIKUS_LUCIA_GAMESTATE_H
 #include <Lucia/Settings.h>
 #include <Lucia/Controll/Keyboard.h>
+#include <Lucia/Controll/Mouse.h>
 #include <Lucia/Window/Window.h>
 #include <iostream>
 #include <vector>
@@ -51,6 +52,7 @@ namespace Lucia
 
         protected:
             Controll::Keyboard keyboard = Controll::Keyboard();
+            Controll::Mouse mouse = Controll::Mouse();
             Context::Window *Window;
     };
 }

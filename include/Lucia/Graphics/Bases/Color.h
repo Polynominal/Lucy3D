@@ -76,6 +76,7 @@ namespace Base{
             void setColor(mech m);
             void setColor(hsv h);
             void setColor(COLOR c);
+            void setColor(Color c){Core = c.Core;};
             void setColorHSV(float h,float s,float v);
             void setColorMechanical(float r,float g,float b,float a=1.0f);
             

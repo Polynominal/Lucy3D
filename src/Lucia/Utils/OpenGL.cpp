@@ -491,6 +491,32 @@ void Buffer::setIndices(std::vector<GLint> indicies)
 
     setSize(indicies.size());
 }
+void Buffer::setInstanced(std::vector<float> data,std::string where,int perNThInstance,int m)
+{
+    glGenBuffers(1, &Ivbo);
+    glBindBuffer(GL_ARRAY_BUFFER, buffer);
+    auto mode = (m == 1) ? GL_STATIC_DRAW : GL_STREAM_DRAW;
+    if (m == 3){mode = GL_DYNAMIC_DRAW;};
+    
+    glBufferData(GL_ARRAY_BUFFER, amount * sizeof(data), &data[0], mode);
+    auto size = data.size();
+    addInstanced()
+}
+void Buffer::addInstanced(int id,int size,std::string where,int perNThInstance)
+{
+    
+    auto vars = Vars.get();
+    auto id = glGetUniformLocation(vars->programID,where.c_str());
+    if (id < 0)
+    {
+        LOG << "Warning" << "Instanced: " << where << " is not found." << std::endl;
+    }else
+    {
+        glEnableVertexAttribArray(id); 
+        glVertexAttribPointer(id, size, GL_FLOAT, GL_FALSE, size * sizeof(float), (GLvoid*)0);
+    }
+    glVertexAttribDivisor(id, perNThInstance);
+}
 void Buffer::setSize(uint s)
 {
     size = s;
