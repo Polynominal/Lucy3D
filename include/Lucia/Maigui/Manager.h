@@ -11,32 +11,39 @@ namespace Maigui
         public:
             Manager();
             void formDefaultSkin();
-            void setRay(Vertex Eye,Vertex Forward);
-
+            
+            
             void remove();
             void remove(shared_ptr<Maigui::Item>i);
-
+        
             void draw();
             void drawSkeleton();
             void update(double dt);
-
+            
+            //GET
             Vertex getViewVertex();
+            shared_ptr<Skin> getSkin(){return skin;};
+            
+            Maigui::Item* findItem(string name);
+            //SET
+            void setRay(Vertex Eye,Vertex Forward);
             void setGlobalScale(float x=1.0f,float y = 1.0f);
-
+            
+            void mousemoved(bool* keys_down,int x,int y,int dx,int dy);
             void mousepressed(string key);
             void mousereleased(string key);
             void keypressed(string key);
             void textinput(char c);
-            shared_ptr<Skin> getSkin(){return skin;};
+            
             void eraseFromCollisions(Item* itemData);
             virtual ~Manager();
             // ADD's
             void addItem(Maigui::Item*);
             void addItem(Maigui::Item*,Vertex p,Vertex d);
-            shared_ptr<Container> addContainer(float x,float y,float z,float w,float h, float d=1);
-            shared_ptr<Containers::Frame> addFrame(float x,float y,float z,float w,float h,float d=1);
-            shared_ptr<Button> addButton(float x,float y,float z,float w,float h,float d=1);
-            shared_ptr<Widget> addWidget(float x,float y,float z,float w,float h, float d=1);
+            shared_ptr<Container> addContainer(float x,float y,float z,float w,float h, float d=1,bool add=true);
+            shared_ptr<Containers::Frame> addFrame(float x,float y,float z,float w,float h,float d=1,bool add=true);
+            shared_ptr<Button> addButton(float x,float y,float z,float w,float h,float d=1,bool add=true);
+            shared_ptr<Widget> addWidget(float x,float y,float z,float w,float h, float d=1,bool add=true);
             // PUBLIC MEMBERS//
             std::shared_ptr<Collider::Manager> World;
             std::shared_ptr<Collider::Manager> getWorld(){return World;};

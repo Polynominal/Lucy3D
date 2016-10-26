@@ -1,0 +1,2 @@
+Recompile libraries and add them as git repositories.
+Compile using the new mingw64.

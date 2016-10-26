@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="luajit" InternalType="">
+  <VirtualDirectory Name="src">
+    <File Name="../src/host/buildvm.c"/>
+    <File Name="../src/host/buildvm_asm.c"/>
+    <File Name="../src/host/buildvm_fold.c"/>
+    <File Name="../src/host/buildvm_lib.c"/>
+    <File Name="../src/host/buildvm_peobj.c"/>
+    <File Name="../src/host/minilua.c"/>
+    <File Name="../src/lib_aux.c"/>
+    <File Name="../src/lib_base.c"/>
+    <File Name="../src/lib_bit.c"/>
+    <File Name="../src/lib_debug.c"/>
+    <File Name="../src/lib_ffi.c"/>
+    <File Name="../src/lib_init.c"/>
+    <File Name="../src/lib_io.c"/>
+    <File Name="../src/lib_jit.c"/>
+    <File Name="../src/lib_math.c"/>
+    <File Name="../src/lib_os.c"/>
+    <File Name="../src/lib_package_rel.c"/>
+    <File Name="../src/lib_string.c"/>
+    <File Name="../src/lib_table.c"/>
+    <File Name="../src/lj_alloc.c"/>
+    <File Name="../src/lj_api.c"/>
+    <File Name="../src/lj_asm.c"/>
+    <File Name="../src/lj_bc.c"/>
+    <File Name="../src/lj_bcread.c"/>
+    <File Name="../src/lj_bcwrite.c"/>
+    <File Name="../src/lj_carith.c"/>
+    <File Name="../src/lj_ccall.c"/>
+    <File Name="../src/lj_ccallback.c"/>
+    <File Name="../src/lj_cconv.c"/>
+    <File Name="../src/lj_cdata.c"/>
+    <File Name="../src/lj_char.c"/>
+    <File Name="../src/lj_clib.c"/>
+    <File Name="../src/lj_cparse.c"/>
+    <File Name="../src/lj_crecord.c"/>
+    <File Name="../src/lj_ctype.c"/>
+    <File Name="../src/lj_debug.c"/>
+    <File Name="../src/lj_dispatch.c"/>
+    <File Name="../src/lj_err.c"/>
+    <File Name="../src/lj_ffrecord.c"/>
+    <File Name="../src/lj_func.c"/>
+    <File Name="../src/lj_gc.c"/>
+    <File Name="../src/lj_gdbjit.c"/>
+    <File Name="../src/lj_ir.c"/>
+    <File Name="../src/lj_lex.c"/>
+    <File Name="../src/lj_lib.c"/>
+    <File Name="../src/lj_load.c"/>
+    <File Name="../src/lj_mcode.c"/>
+    <File Name="../src/lj_meta.c"/>
+    <File Name="../src/lj_obj.c"/>
+    <File Name="../src/lj_opt_dce.c"/>
+    <File Name="../src/lj_opt_fold.c"/>
+    <File Name="../src/lj_opt_loop.c"/>
+    <File Name="../src/lj_opt_mem.c"/>
+    <File Name="../src/lj_opt_narrow.c"/>
+    <File Name="../src/lj_opt_sink.c"/>
+    <File Name="../src/lj_opt_split.c"/>
+    <File Name="../src/lj_parse.c"/>
+    <File Name="../src/lj_record.c"/>
+    <File Name="../src/lj_snap.c"/>
+    <File Name="../src/lj_state.c"/>
+    <File Name="../src/lj_str.c"/>
+    <File Name="../src/lj_strscan.c"/>
+    <File Name="../src/lj_tab.c"/>
+    <File Name="../src/lj_trace.c"/>
+    <File Name="../src/lj_udata.c"/>
+    <File Name="../src/lj_vmevent.c"/>
+    <File Name="../src/lj_vmmath.c"/>
+    <File Name="../src/luajit.c"/>
+    <File Name="../src/wmain.c"/>
+  </VirtualDirectory>
+  <VirtualDirectory Name="include">
+    <File Name="lj_bcdef.h"/>
+    <File Name="lj_bcdef.h.rule"/>
+    <File Name="lj_ffdef.h"/>
+    <File Name="lj_ffdef.h.rule"/>
+    <File Name="lj_folddef.h"/>
+    <File Name="lj_folddef.h.rule"/>
+    <File Name="lj_libdef.h"/>
+    <File Name="lj_libdef.h.rule"/>
+    <File Name="lj_recdef.h"/>
+    <File Name="lj_recdef.h.rule"/>
+    <File Name="lj_vm.obj"/>
+    <File Name="lj_vm.obj.rule"/>
+    <File Name="../src/host/buildvm.h"/>
+    <File Name="../src/host/buildvm_arch.h"/>
+    <File Name="../src/host/buildvm_arch.h.rule"/>
+    <File Name="../src/lj_alloc.h"/>
+    <File Name="../src/lj_asm.h"/>
+    <File Name="../src/lj_bc.h"/>
+    <File Name="../src/lj_carith.h"/>
+    <File Name="../src/lj_ccall.h"/>
+    <File Name="../src/lj_ccallback.h"/>
+    <File Name="../src/lj_cconv.h"/>
+    <File Name="../src/lj_cdata.h"/>
+    <File Name="../src/lj_char.h"/>
+    <File Name="../src/lj_clib.h"/>
+    <File Name="../src/lj_cparse.h"/>
+    <File Name="../src/lj_crecord.h"/>
+    <File Name="../src/lj_ctype.h"/>
+    <File Name="../src/lj_debug.h"/>
+    <File Name="../src/lj_dispatch.h"/>
+    <File Name="../src/lj_err.h"/>
+    <File Name="../src/lj_ffrecord.h"/>
+    <File Name="../src/lj_func.h"/>
+    <File Name="../src/lj_gc.h"/>
+    <File Name="../src/lj_gdbjit.h"/>
+    <File Name="../src/lj_ir.h"/>
+    <File Name="../src/lj_lex.h"/>
+    <File Name="../src/lj_lib.h"/>
+    <File Name="../src/lj_mcode.h"/>
+    <File Name="../src/lj_meta.h"/>
+    <File Name="../src/lj_obj.h"/>
+    <File Name="../src/lj_parse.h"/>
+    <File Name="../src/lj_record.h"/>
+    <File Name="../src/lj_snap.h"/>
+    <File Name="../src/lj_state.h"/>
+    <File Name="../src/lj_str.h"/>
+    <File Name="../src/lj_strscan.h"/>
+    <File Name="../src/lj_tab.h"/>
+    <File Name="../src/lj_trace.h"/>
+    <File Name="../src/lj_udata.h"/>
+    <File Name="../src/lj_vmevent.h"/>
+    <File Name="../src/luajit.h"/>
+    <File Name="../src/luajit.rc"/>
+  </VirtualDirectory>
+
+  <Settings Type="Executable">
+    <Configuration Name="NoConfig" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g" Required="yes" PreCompiledHeader="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="" Required="yes"/>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./" Command="./$(ProjectName)" CommandArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>C:/mingw64/bin/mingw32-make.exe -j 4 clean &amp;&amp; C:/mingw64/bin/mingw32-make.exe -j 4</RebuildCommand>
+        <CleanCommand>C:/mingw64/bin/mingw32-make.exe -j 4 clean</CleanCommand>
+        <BuildCommand>C:/mingw64/bin/mingw32-make.exe -j 4</BuildCommand>
+        <SingleFileCommand>C:/mingw64/bin/mingw32-make.exe -f$(ProjectPath)/Makefile $(CurrentFileName).cpp.o</SingleFileCommand>
+        <PreprocessFileCommand/>
+        <WorkingDirectory>$(WorkspacePath)</WorkingDirectory>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+    </Configuration>
+    <GlobalSettings>
+      <Compiler Options="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value="."/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+  </Settings>
+</CodeLite_Project>

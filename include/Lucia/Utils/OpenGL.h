@@ -1,5 +1,5 @@
-#ifndef LUCIA_UTILITIES_OPENGL_H
-#define LUCIA_UTILITIES_OPENGL_H
+#ifndef LUCIA_UTILITIES_OPENGL_ANDBUFFER_H
+#define LUCIA_UTILITIES_OPENGL_ANDBUFFER_H
 #include <Lucia/Settings.h>
 #include <Lucia/Utils/Log.h>
 #include <vector>
@@ -66,6 +66,7 @@ namespace Utils
 
             Shader_Vars(){};
             int find(std::string name);
+            int findAttribute(std::string name);
             
             void send(std::string name,double v0){send(name,float(v0));};
             void send(std::string name,double v0,double v1){send(name,float(v0),float(v1));};
@@ -110,8 +111,13 @@ namespace Utils
             public:
                 GLuint vao=0;
                 GLuint vbo=0;
+                #ifndef LUCIA_USE_GLES2
+                GLuint ivbo=0; //instanced VBO
+                #endif
                 GLuint ebo=0;
                 uint size;
+                uint boundInstanceSize = 0;
+                std::vector<std::shared_ptr<Buffer>> Buffers;
                 std::shared_ptr<Shader_Vars> Vars;
                 bool Attached = false;
 
@@ -130,7 +136,17 @@ namespace Utils
                 void sendData(std::vector<ptr<Vertex_Buffer>> Data,uint index=0);
                 void sendData(std::vector<Vertex_Buffer> Data,uint index=0);
                 void sendData(float *array,uint number_of_vertexes,uint index=0);
-
+                
+                #ifndef LUCIA_USE_GLES2
+                void bindInstanced(uint componentNo,uint size,std::string where,uint nth);
+                void setInstanced(std::vector<ptr<Buffer>> items,float* data,std::string where,uint componentNo,uint size,uint perNThInstance);
+                void setInstanced(std::vector<ptr<Buffer>> items,std::vector<Vertex_Buffer> data,std::string where,int componentNo,uint perNThInstance);
+                void addInstanced(float* data,std::string where,uint componentNo,uint size,uint perNthInstance);
+                void addInstanced(std::vector<Vertex_Buffer> data,std::string where,uint componentNo,uint perNthInstance);
+                void allocateInstanced(uint number_of_values,uint value_size);
+                void addInstancedAssisted(int id,int componentNo,int size,int stride,int perNThInstance);
+                #endif
+                
                 void setIndices(std::vector<GLint> indicies);
                 void allocateIndices(uint size);
                 void sendIndices(GLint* data, uint number,uint index=0);
@@ -141,18 +157,24 @@ namespace Utils
                 void attach(bool attachVBO=false);
                 void render(GLenum mode,uint start,uint lenght);
                 void render(GLenum mode);
+                
+                #ifndef LUCIA_USE_GLES2
+                void renderInstanced(GLenum mode);
+                void renderInstanced(GLenum mode,uint totalitems);
+                void renderInstanced(GLenum mode,uint totalitems,uint start,uint lenght);
+                #endif
                 void draw(GLenum mode);
                 void draw(GLenum mode,Shader_Vars *Vars);
                 void draw(GLenum mode,uint start,uint lenght,Shader_Vars *Vars);
                 void detach(bool detachVBO=false);
 
                 template <typename T>
-                std::vector<ptr<Vertex_Buffer>> convertToData(const T* f,uint start,uint finish=-1)
+                std::vector<ptr<Vertex_Buffer>> convertToData(const T* f,uint start,int finish=-1)
                 {
                     if (finish == -1){start = 0; finish = start;};
                     uint VertexSize = getShaderVars()->getVertexSize();
                     std::vector<ptr<Vertex_Buffer>> output;
-                    for (uint i = start; i < finish;i++)
+                    for (uint i = start; i < (uint)finish;i++)
                     {
                         auto buff = std::make_shared<Vertex_Buffer>();
                         for (uint j=0;j < VertexSize; j++)

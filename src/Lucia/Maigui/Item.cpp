@@ -35,6 +35,7 @@ void Item::remove()
     Instance->remove(shared_from_this());
     if(Parent != nullptr){Parent->remove(this);Parent=nullptr;};
 };
+void Item::addItem(Item* item){auto p = item->getPosition(); addItem(item,p.x,p.y,p.z);};
 // for example you can remove the shape from one manager and add it to the other.
 void Item::addItem(Item* item,float x,float y,float z)
 {
@@ -91,7 +92,7 @@ void Item::draw()
 void Item::update(double dt)
 {
     OnUpdate(dt);
-    if (needsRefresh){refresh();};
+    refresh();
     for (auto v: Children)
     {
         v->update(dt);
@@ -109,7 +110,7 @@ bool checkPointer(void *b)
 }
 void Item::refresh()
 {
-    if (needsRefresh)
+    if (Base::Moveable::needsRefresh)
     {
         Maigui::Base::Moveable::refresh();
 
@@ -126,6 +127,6 @@ void Item::refresh()
                 {onRelease(static_cast<Item*>(b->UserData));};
             };
             
-        needsRefresh =false;
+        Base::Moveable::needsRefresh =false;
     }
 }

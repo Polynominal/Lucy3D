@@ -159,6 +159,12 @@ int Shader_Vars::find(string name)
     if (id < 0 and programID != 0){ LOG << "Warning" << " Shader var: " << name << " is not found!" << std::endl;};
     return id;
 }
+int Shader_Vars::findAttribute(string name)
+{
+    auto id = glGetAttribLocation(programID,name.c_str());
+    if (id < 0 and programID != 0){ LOG << "Warning" << " Shader attribute: " << name << " is not found!" << std::endl;};
+    return id;
+}
 // float
 void Shader_Vars::send(string name,float v0)
 {
@@ -335,8 +341,9 @@ void Shader_Vars::apply()
 */
 void Buffer::generate(bool genEBO)
 {
-    #ifdef LUCIA_USE_OPENGL3
+    #ifndef LUCIA_USE_GLES2
     glGenVertexArrays(1,&vao);
+    boundInstanceSize = (uint)((GLvoid*)0);
     #endif // LUCIA_USE_GLES2
     glGenBuffers(1,&vbo);
     if (genEBO)
@@ -405,6 +412,7 @@ void Buffer::applyDynamicData(uint index,uint VertexSize, uint size,GLfloat* arr
     uint offset = index*VertexSize*sizeof(GLfloat);
     glBufferSubData(GL_ARRAY_BUFFER,offset,sizeof(GLfloat) *VertexSize*datasize,&array[0]);
     getShaderVars()->apply();
+
 }
 void Buffer::setData(std::vector<ptr<Vertex_Buffer>> Data)
 {
@@ -491,22 +499,123 @@ void Buffer::setIndices(std::vector<GLint> indicies)
 
     setSize(indicies.size());
 }
+#ifndef LUCIA_USE_GLES2
+void Buffer::bindInstanced(uint componentNo,uint size,std::string where,uint nth)
+{
+    auto id = Vars->findAttribute(where);
+    if (id < 0)
+    {
+        LOG << "Error" << "Instanced: " << where << " is not found." << std::endl;
+    }else
+    {
+        for (auto v: Buffers)
+        {
+            v->addInstancedAssisted(id,componentNo,size,boundInstanceSize,nth);
+        }
+    }
+}
+void Buffer::setInstanced(std::vector<ptr<Buffer>> items,float* data,std::string where,uint componentNo,uint size,uint perNthInstance)
+{
+    boundInstanceSize = (uint)((GLvoid*)0);;
+    Buffers = items;
+    glDeleteBuffers(1,&ivbo);
+    glGenBuffers(1, &ivbo);
+    glBindBuffer(GL_ARRAY_BUFFER, ivbo);
+    if (data == nullptr)
+    {
+        glBufferSubData(GL_ARRAY_BUFFER, boundInstanceSize,sizeof(data), NULL);
+    }else 
+    {
+        glBufferSubData(GL_ARRAY_BUFFER,boundInstanceSize, sizeof(data), &data[0]);
+    }
+    bindInstanced(componentNo,size,where,perNthInstance);
+}
+void Buffer::setInstanced(std::vector<ptr<Buffer>> items,std::vector<Vertex_Buffer> data,std::string where,int componentNo,uint perNthInstance)
+{
+    uint size=data.size();
+    float compiled[componentNo*size];
+    getData(data,componentNo,compiled);
+    setInstanced(items,compiled,where,componentNo,size,perNthInstance);
+}
+void Buffer::addInstanced(float* data,std::string where,uint componentNo,uint size,uint perNthInstance)
+{
+    glBindBuffer(GL_ARRAY_BUFFER, ivbo);
+    glBufferSubData(GL_ARRAY_BUFFER,boundInstanceSize,sizeof(data), &data[0]);
+    auto id = Vars->findAttribute(where);
+    if (id < 0)
+    {
+        LOG << "Error" << "Instanced: " << where << " is not found." << std::endl;
+    }else
+    {
+        for (auto v: Buffers)
+        {
+            v->addInstancedAssisted(id,componentNo,size,boundInstanceSize,perNthInstance);
+            boundInstanceSize += size;
+        }
+    }
+    bindInstanced(componentNo,size,where,perNthInstance);
+}
+void Buffer::addInstanced(std::vector<Vertex_Buffer> data,std::string where,uint componentNo,uint perNthInstance)
+{
+    uint size=data.size();
+    float compiled[componentNo*size];
+    getData(data,componentNo,compiled);
+    addInstanced(compiled,where,componentNo,size,perNthInstance);
+}
+void Buffer::allocateInstanced(uint number_of_values,uint value_size)
+{
+    if (ivbo < 0)
+    {
+        glGenBuffers(1, &ivbo);
+    };
+    
+    glBindBuffer(GL_ARRAY_BUFFER, ivbo);
+    glBufferData(GL_ARRAY_BUFFER,number_of_values*value_size,NULL,GL_DYNAMIC_DRAW);
+}
+//private
+void Buffer::addInstancedAssisted(int id,int componentNo,int size,int stride,int perNthInstance)
+{
+    glBindVertexArray(vao);
+    glEnableVertexAttribArray(id);
+    glVertexAttribPointer(id, componentNo, GL_FLOAT, GL_FALSE, size, (GLvoid*)stride);
+    glVertexAttribDivisor(id,perNthInstance);
+}
+#endif
 void Buffer::setSize(uint s)
 {
     size = s;
 }
 void Buffer::attach(bool t)
 {
-        #ifndef LUCIA_USE_GLES2
-        glBindVertexArray(vao);
-        #else
-        glBindBuffer(GL_ARRAY_BUFFER,vbo);
-        #endif // LUCIA_USE_GLES2
-        if (ebo != 0 ){glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,ebo);};
-        if (t){glBindBuffer(GL_ARRAY_BUFFER,vbo);};
+    #ifndef LUCIA_USE_GLES2
+    glBindVertexArray(vao);
+    #else
+    glBindBuffer(GL_ARRAY_BUFFER,vbo);
+    #endif // LUCIA_USE_GLES2
+    if (ebo != 0 ){glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,ebo);};
+    if (t){glBindBuffer(GL_ARRAY_BUFFER,vbo);};
 };
 void Buffer::render(GLenum mode,uint start,uint lenght)
 {
+    #ifndef LUCIA_USE_GLES2
+    if (ivbo != 0 )
+    {
+        for (auto item: Buffers)
+        {
+            item->renderInstanced(mode,Buffers.size(),start,lenght);
+        }
+    }
+    else
+    {
+        if (ebo != 0)
+        {
+            glDrawElements(mode,lenght,GL_UNSIGNED_INT,0);
+        }else
+        {
+            glDrawArrays(mode,start,lenght);
+        };
+    }
+    #else
     if (ebo != 0)
     {
         glDrawElements(mode,lenght,GL_UNSIGNED_INT,0);
@@ -514,15 +623,65 @@ void Buffer::render(GLenum mode,uint start,uint lenght)
     {
         glDrawArrays(mode,start,lenght);
     };
+    #endif
 }
 void Buffer::render(GLenum mode)
 {
+    #ifndef LUCIA_USE_GLES2
+    if (ivbo != 0 )
+    {
+        for (auto item: Buffers)
+        {
+            item->renderInstanced(mode);
+        }
+    }else
+    {
+        render(mode,0,size);
+    }
+    #else 
     render(mode,0,size);
+    #endif
 }
+#ifndef LUCIA_USE_GLES2
+void Buffer::renderInstanced(GLenum mode)
+{
+    renderInstanced(mode,Buffers.size());
+}
+void Buffer::renderInstanced(GLenum mode,uint totalitems)
+{
+    renderInstanced(totalitems,mode,0,size);
+}
+void Buffer::renderInstanced(GLenum mode,uint totalitems,uint start,uint lenght)
+{
+    attach();
+    if (ebo != 0)
+    {
+        glDrawElementsInstanced(mode, lenght, GL_UNSIGNED_INT, 0, totalitems);
+    }else
+    {
+        glDrawArraysInstanced(mode,start,lenght,totalitems);
+    };
+}
+#endif
 void Buffer::draw(GLenum mode,Shader_Vars *v)
 {
     if (v == nullptr){LOG << "Fatal" << "NULL SHADER!" << std::endl;};
+    #ifndef LUCIA_USE_GLES2
+    if (ivbo != 0 )
+    {
+        v->apply();
+        for (auto item: Buffers)
+        {
+            item->renderInstanced(mode);
+        };
+    }
+    else
+    {
+        draw(mode,0,size,v);
+    }
+    #else 
     draw(mode,0,size,v);
+    #endif
 };
 void Buffer::draw(GLenum mode,uint start,uint lenght,Shader_Vars *v)
 {
@@ -537,17 +696,18 @@ void Buffer::draw(GLenum mode,uint start,uint lenght,Shader_Vars *v)
 void Buffer::draw(GLenum mode){draw(mode,0,size,Vars.get());};
 void Buffer::detach(bool t)
 {
-        #ifdef LUCIA_USE_OPENGL3
-        glBindVertexArray(0);
-        #else
-        if (ebo != 0 ){glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,ebo);};
-        glBindBuffer(GL_ARRAY_BUFFER,0);
-        #endif // LUCIA_USE_GLES2
+    #ifndef LUCIA_USE_GLES2
+    glBindVertexArray(0);
+    #else
+    if (ebo != 0 ){glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,ebo);};
+    glBindBuffer(GL_ARRAY_BUFFER,0);
+    #endif // LUCIA_USE_GLES2
 };
 void Buffer::destroy()
 {
-    #ifdef LUCIA_USE_OPENGL3
+    #ifndef LUCIA_USE_GLES2
     glDeleteVertexArrays(1,&vao);
+    glDeleteBuffers(1,&ivbo);
     #endif
     glDeleteBuffers(1,&vbo);
     glDeleteBuffers(1,&ebo);

@@ -1,0 +1,8 @@
+# Hashes of file build rules.
+017f2a4e59745683a604593e722e9c30 ../src/host/buildvm_arch.h
+cad9dd8e76e24e736d76b37948d6263c lj_bcdef.h
+3c9fd9cf94844465de331d1e34351a09 lj_ffdef.h
+b9f6acec59f9fe94816cb8c59f474732 lj_folddef.h
+7c57e6055e063d32e77a063328f9f4e6 lj_libdef.h
+6464ab2a5bcc5f7d25a447cf3df626d4 lj_recdef.h
+be9f3a7c3c99436df026af05f3a37670 lj_vm.obj

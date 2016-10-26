@@ -172,7 +172,20 @@ namespace Maigui
     {
         if (checkPointer(activeItem)){activeItem->keypressed(key);};
     }
-
+    
+    
+    Maigui::Item* Manager::findItem(string name)
+    {
+        auto it = std::find_if(Children.begin(), Children.end(), [name](std::shared_ptr<Item> i){return i->getReference() == name;});
+        if (it != Children.end())
+        {
+            return it->get();
+            
+        }else
+        {
+            return nullptr;
+        }
+    }
     // ADDS
     void Manager::addItem(Maigui::Item* i)
     {
@@ -192,27 +205,35 @@ namespace Maigui
         i->moveTo(v);
         i->scaleTo(b);
     }
-
-    shared_ptr<Container> Manager::addContainer(float x,float y,float z,float w,float h, float d)
+    void Manager::mousemoved(bool* key,int x,int y,int dx,int dy)
+    {
+        if (key[0])//l key is down
+        {
+            if (activeItem.get() and activeItem->hasFocus()){
+                activeItem->drag(dx,-dy);
+            }
+        }
+    }
+    shared_ptr<Container> Manager::addContainer(float x,float y,float z,float w,float h, float d,bool add)
     {
         auto c = std::make_shared<Container>();
-        addItem(dynamic_cast<Maigui::Item*>(c.get()),Vertex(x,y,z),Vertex(w,h,d));
+        if (add){addItem(dynamic_cast<Maigui::Item*>(c.get()),Vertex(x,y,z),Vertex(w,h,d));};
         return c;
     };
-    shared_ptr<Containers::Frame> Manager::addFrame(float x,float y,float z,float w,float h,float d)
+    shared_ptr<Containers::Frame> Manager::addFrame(float x,float y,float z,float w,float h,float d,bool add)
     {
         auto c = std::make_shared<Maigui::Containers::Frame>();
-        addItem(dynamic_cast<Maigui::Item*>(c.get()),Vertex(x,y,z),Vertex(w,h,d));
+        if (add){addItem(dynamic_cast<Maigui::Item*>(c.get()),Vertex(x,y,z),Vertex(w,h,d));};
         return c;
     };
-    shared_ptr<Button> Manager::addButton(float x,float y,float z,float w,float h,float d)
+    shared_ptr<Button> Manager::addButton(float x,float y,float z,float w,float h,float d,bool add)
     {
         auto c = std::make_shared<Button>();
         c->generate(Vertex(x,y,z),Vertex(w,h,d),Maigui::Default::Skin);
-        addItem(dynamic_cast<Maigui::Item*>(c.get()),Vertex(x,y,z),Vertex(w,h,d));
+        if (add){addItem(dynamic_cast<Maigui::Item*>(c.get()),Vertex(x,y,z),Vertex(w,h,d));};
         return c;
     };
-    shared_ptr<Widget> Manager::addWidget(float x,float y,float z,float w,float h, float d)
+    shared_ptr<Widget> Manager::addWidget(float x,float y,float z,float w,float h, float d,bool add)
     {
 
     };

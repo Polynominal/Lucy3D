@@ -27,13 +27,19 @@ namespace Maigui
             // these do not necesarily remove the shape programatically, these are used alongside manager.
             virtual void create(Manager *m);
             virtual void create(Item *m); // creation within another item. Allows for recrusion
+            
             // SET's
             virtual void setSkin(shared_ptr<Skin> skin);
             virtual void setSkinReference(string name){Name = name;};
+            virtual void setReference(string name){personalReference = name;};
+            virtual void setDrag(bool b){canDrag = b;};
+            
             // GET's
             shared_ptr<Item> getPtr(){return shared_from_this();};
+            virtual string getReference(){return personalReference;};
             //Constructors and destructors
             virtual void addItem(Item* item,float x,float y,float z=0);
+            virtual void addItem(Item* item);
             virtual void remove(Item* w);
             virtual void remove();
             // VOIDS
@@ -41,24 +47,29 @@ namespace Maigui
             virtual void update(double dt);
             virtual void refresh();
 
-
+            virtual void drag(int dx,int dy){if(canDrag){move(dx,dy,0);onDrag(dx,dy);OnDrag(dx,dy);}};
+            //IS
+            virtual bool hasDrag(){return canDrag;}
             // ON's
             virtual void onCreate(){};
             virtual void onRelease(Item *b){};
             virtual void onCollide(Item *b){};
-
+            virtual void onDrag(int x,int y){};
+            
             std::function<void()>OnDrawPre = [](){};
             std::function<void()>OnDrawAfter = [](){};
+            std::function<void(int,int)>OnDrag = [](int dx,int dy){};
             std::function<void(double)>OnUpdate = [](double dt){};
 
 
         protected:
             string Name="Plate"; // this is used to navigate the skin.
+            string personalReference = "null";
             Manager *Instance;
             Item    *Parent;
             
             vector<shared_ptr<Item>> Children;
-            bool needsRefresh=true;
+            bool canDrag=false;
     };
 }
 }

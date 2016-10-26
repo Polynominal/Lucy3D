@@ -29,10 +29,10 @@ class Matrix
         void createArray(bool identity = false)
         {
             array = std::vector<std::vector<float>>(N);
-            for (auto i=0;i < N;i++)
+            for (unsigned int  i=0;i < N;i++)
             {
                 array[i] = std::vector<float>(N);
-                for (auto j=0; j < N;j++)
+                for (unsigned int j=0; j < N;j++)
                 {
                     array[i][j] = 0;
                     if (i == j and identity){
@@ -119,9 +119,9 @@ class Matrix
         Matrix<N> transpose()
         {
             Matrix<N> newmat = Matrix<N>(N);
-            for (auto i =0;i < N;i++)
+            for (unsigned int i =0;i < N;i++)
             {
-                for (auto j =0;j < N;j++)
+                for (unsigned int j =0;j < N;j++)
                 {
                     newmat[i][j] = array[j][i];
                 };
@@ -163,7 +163,7 @@ class Matrix
             auto V = A.value;
             unsigned int limit =  min(V.size(),N);
             
-            for (auto i=0;i <limit;i++)
+            for (unsigned int i=0;i <limit;i++)
             {
                 array[i][i] *= V[i];
             };
@@ -172,7 +172,7 @@ class Matrix
         void translate(Vector A)
         {
             auto V = A.value;
-            for (auto j=0;j < min(V.size(),N);j++)
+            for (unsigned int j=0;j < min(V.size(),N);j++)
             {
                 array[j][N-1] += V[j];
             };
@@ -321,11 +321,11 @@ class Matrix
         Vertex operator * (Vertex A){return multiplyOut(A);};
         Matrix<N> operator * (Matrix<N> A){
             Matrix<N> nMat(N);
-            for (auto i=0;i < N; i++)
+            for (unsigned int i=0;i < N; i++)
             {
-                for (auto j=0;j < N; j++)
+                for (unsigned int j=0;j < N; j++)
                 {
-                    for (auto v=0; v < N;v++)
+                    for (unsigned int v=0; v < N;v++)
                     {
                         nMat[i][j] += array[i][v] * A[v][j];
                     }
