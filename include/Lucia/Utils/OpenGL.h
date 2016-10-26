@@ -111,9 +111,13 @@ namespace Utils
             public:
                 GLuint vao=0;
                 GLuint vbo=0;
+<<<<<<< HEAD
                 #ifndef LUCIA_USE_GLES2
                 GLuint ivbo=0; //instanced VBO
                 #endif
+=======
+                GLuint Ivbo=0; //instanced VBO
+>>>>>>> dd48432476c1400a2c8d402d5f0074a5083831c7
                 GLuint ebo=0;
                 uint size;
                 uint boundInstanceSize = 0;
