@@ -18,7 +18,6 @@ namespace Lucia {
                     if (key == "x1"){return state & SDL_BUTTON(SDL_BUTTON_LEFT);};
                     if (key == "x2"){return state & SDL_BUTTON(SDL_BUTTON_LEFT);};
                 };
-<<<<<<< HEAD
                 void getKeys(bool* buttons)
                 {
                     auto state = SDL_GetMouseState(NULL, NULL);
@@ -27,20 +26,6 @@ namespace Lucia {
                     buttons[2] =  (unsigned int)(state & SDL_BUTTON(SDL_BUTTON_RIGHT)) == 4;
                     buttons[3] =  (unsigned int)(state & SDL_BUTTON(SDL_BUTTON_X1)) == 8;
                     buttons[4] =  (unsigned int)(state & SDL_BUTTON(SDL_BUTTON_X2)) == 16;
-=======
-                int* getKeys()
-                {
-                    auto state = SDL_GetMouseState(NULL, NULL);
-                    int buttons[5] = 
-                    {
-                        state & SDL_BUTTON(SDL_BUTTON_LEFT),
-                        state & SDL_BUTTON(SDL_BUTTON_MIDDLE),
-                        state & SDL_BUTTON(SDL_BUTTON_RIGHT),
-                        state & SDL_BUTTON(SDL_BUTTON_X1),
-                        state & SDL_BUTTON(SDL_BUTTON_X2)
-                    };
-                    return buttons;
->>>>>>> dd48432476c1400a2c8d402d5f0074a5083831c7
                 };
                 virtual ~Mouse(){};
         };

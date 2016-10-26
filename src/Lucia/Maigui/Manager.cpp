@@ -205,11 +205,7 @@ namespace Maigui
         i->moveTo(v);
         i->scaleTo(b);
     }
-<<<<<<< HEAD
     void Manager::mousemoved(bool* key,int x,int y,int dx,int dy)
-=======
-    void Manager::mousemoved(int* key,int x,int y,int dx,int dy)
->>>>>>> dd48432476c1400a2c8d402d5f0074a5083831c7
     {
         if (key[0])//l key is down
         {

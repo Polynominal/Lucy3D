@@ -31,10 +31,7 @@ namespace Maigui
             // SET's
             virtual void setSkin(shared_ptr<Skin> skin);
             virtual void setSkinReference(string name){Name = name;};
-<<<<<<< HEAD
             virtual void setReference(string name){personalReference = name;};
-=======
->>>>>>> dd48432476c1400a2c8d402d5f0074a5083831c7
             virtual void setDrag(bool b){canDrag = b;};
             
             // GET's

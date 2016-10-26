@@ -29,11 +29,7 @@ namespace Maigui
             void setRay(Vertex Eye,Vertex Forward);
             void setGlobalScale(float x=1.0f,float y = 1.0f);
             
-<<<<<<< HEAD
             void mousemoved(bool* keys_down,int x,int y,int dx,int dy);
-=======
-            void mousemoved(int* keys_down,int x,int y,int dx,int dy);
->>>>>>> dd48432476c1400a2c8d402d5f0074a5083831c7
             void mousepressed(string key);
             void mousereleased(string key);
             void keypressed(string key);
