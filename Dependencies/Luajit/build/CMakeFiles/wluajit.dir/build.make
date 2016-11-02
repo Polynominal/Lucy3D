@@ -42,10 +42,10 @@ RM = "C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit
+CMAKE_SOURCE_DIR = D:\Lucia\Dependencies\Luajit
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build
+CMAKE_BINARY_DIR = D:\Lucia\Dependencies\Luajit\build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/wluajit.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/wluajit.dir/flags.make
 CMakeFiles/wluajit.dir/src/wmain.c.obj: CMakeFiles/wluajit.dir/flags.make
 CMakeFiles/wluajit.dir/src/wmain.c.obj: CMakeFiles/wluajit.dir/includes_C.rsp
 CMakeFiles/wluajit.dir/src/wmain.c.obj: ../src/wmain.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/wluajit.dir/src/wmain.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\wluajit.dir\src\wmain.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\wmain.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/wluajit.dir/src/wmain.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\wluajit.dir\src\wmain.c.obj   -c D:\Lucia\Dependencies\Luajit\src\wmain.c
 
 CMakeFiles/wluajit.dir/src/wmain.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/wluajit.dir/src/wmain.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\wmain.c > CMakeFiles\wluajit.dir\src\wmain.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\wmain.c > CMakeFiles\wluajit.dir\src\wmain.c.i
 
 CMakeFiles/wluajit.dir/src/wmain.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/wluajit.dir/src/wmain.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\wmain.c -o CMakeFiles\wluajit.dir\src\wmain.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\wmain.c -o CMakeFiles\wluajit.dir\src\wmain.c.s
 
 CMakeFiles/wluajit.dir/src/wmain.c.obj.requires:
 
@@ -84,16 +84,16 @@ CMakeFiles/wluajit.dir/src/wmain.c.obj.provides.build: CMakeFiles/wluajit.dir/sr
 CMakeFiles/wluajit.dir/src/luajit.c.obj: CMakeFiles/wluajit.dir/flags.make
 CMakeFiles/wluajit.dir/src/luajit.c.obj: CMakeFiles/wluajit.dir/includes_C.rsp
 CMakeFiles/wluajit.dir/src/luajit.c.obj: ../src/luajit.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/wluajit.dir/src/luajit.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\wluajit.dir\src\luajit.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\luajit.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/wluajit.dir/src/luajit.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\wluajit.dir\src\luajit.c.obj   -c D:\Lucia\Dependencies\Luajit\src\luajit.c
 
 CMakeFiles/wluajit.dir/src/luajit.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/wluajit.dir/src/luajit.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\luajit.c > CMakeFiles\wluajit.dir\src\luajit.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\luajit.c > CMakeFiles\wluajit.dir\src\luajit.c.i
 
 CMakeFiles/wluajit.dir/src/luajit.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/wluajit.dir/src/luajit.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\luajit.c -o CMakeFiles\wluajit.dir\src\luajit.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\luajit.c -o CMakeFiles\wluajit.dir\src\luajit.c.s
 
 CMakeFiles/wluajit.dir/src/luajit.c.obj.requires:
 
@@ -108,8 +108,8 @@ CMakeFiles/wluajit.dir/src/luajit.c.obj.provides.build: CMakeFiles/wluajit.dir/s
 
 CMakeFiles/wluajit.dir/src/luajit.rc.obj: CMakeFiles/wluajit.dir/flags.make
 CMakeFiles/wluajit.dir/src/luajit.rc.obj: ../src/luajit.rc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building RC object CMakeFiles/wluajit.dir/src/luajit.rc.obj"
-	C:\mingw64\bin\windres.exe  -O coff $(RC_DEFINES) $(RC_INCLUDES) $(RC_FLAGS) D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\luajit.rc CMakeFiles\wluajit.dir\src\luajit.rc.obj
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building RC object CMakeFiles/wluajit.dir/src/luajit.rc.obj"
+	C:\mingw64\mingw64\bin\windres.exe  -O coff $(RC_DEFINES) $(RC_INCLUDES) $(RC_FLAGS) D:\Lucia\Dependencies\Luajit\src\luajit.rc CMakeFiles\wluajit.dir\src\luajit.rc.obj
 
 CMakeFiles/wluajit.dir/src/luajit.rc.obj.requires:
 
@@ -139,7 +139,7 @@ wluajit.exe: liblua.dll.a
 wluajit.exe: CMakeFiles/wluajit.dir/linklibs.rsp
 wluajit.exe: CMakeFiles/wluajit.dir/objects1.rsp
 wluajit.exe: CMakeFiles/wluajit.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable wluajit.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable wluajit.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\wluajit.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -158,6 +158,6 @@ CMakeFiles/wluajit.dir/clean:
 .PHONY : CMakeFiles/wluajit.dir/clean
 
 CMakeFiles/wluajit.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles\wluajit.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\Lucia\Dependencies\Luajit D:\Lucia\Dependencies\Luajit D:\Lucia\Dependencies\Luajit\build D:\Lucia\Dependencies\Luajit\build D:\Lucia\Dependencies\Luajit\build\CMakeFiles\wluajit.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/wluajit.dir/depend
 

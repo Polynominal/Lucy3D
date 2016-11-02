@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/src/host/minilua.c" "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/CMakeFiles/minilua.dir/src/host/minilua.c.obj"
+  "D:/Lucia/Dependencies/Luajit/src/host/minilua.c" "D:/Lucia/Dependencies/Luajit/build/CMakeFiles/minilua.dir/src/host/minilua.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

@@ -42,10 +42,10 @@ RM = "C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit
+CMAKE_SOURCE_DIR = D:\Lucia\Dependencies\Luajit
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build
+CMAKE_BINARY_DIR = D:\Lucia\Dependencies\Luajit\build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/buildvm.dir/depend.make
@@ -57,22 +57,22 @@ include CMakeFiles/buildvm.dir/progress.make
 include CMakeFiles/buildvm.dir/flags.make
 
 ../src/host/buildvm_arch.h: minilua.exe
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating ../src/host/buildvm_arch.h"
-	cd /d D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\dynasm && D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\minilua.exe D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/dynasm/dynasm.lua -D FPU -D HFABI -D WIN -D JIT -D FFI -D SSE2 -D VER= -o D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/src/host/buildvm_arch.h D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/src/vm_x86.dasc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating ../src/host/buildvm_arch.h"
+	cd /d D:\Lucia\Dependencies\Luajit\dynasm && D:\Lucia\Dependencies\Luajit\build\minilua.exe D:/Lucia/Dependencies/Luajit/dynasm/dynasm.lua -D FPU -D HFABI -D WIN -D P64 -D JIT -D FFI -D SSE2 -D VER= -o D:/Lucia/Dependencies/Luajit/src/host/buildvm_arch.h D:/Lucia/Dependencies/Luajit/src/vm_x86.dasc
 
 CMakeFiles/buildvm.dir/src/host/buildvm.c.obj: CMakeFiles/buildvm.dir/flags.make
 CMakeFiles/buildvm.dir/src/host/buildvm.c.obj: CMakeFiles/buildvm.dir/includes_C.rsp
 CMakeFiles/buildvm.dir/src/host/buildvm.c.obj: ../src/host/buildvm.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/buildvm.dir/src/host/buildvm.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\buildvm.dir\src\host\buildvm.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\host\buildvm.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/buildvm.dir/src/host/buildvm.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\buildvm.dir\src\host\buildvm.c.obj   -c D:\Lucia\Dependencies\Luajit\src\host\buildvm.c
 
 CMakeFiles/buildvm.dir/src/host/buildvm.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/buildvm.dir/src/host/buildvm.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\host\buildvm.c > CMakeFiles\buildvm.dir\src\host\buildvm.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\host\buildvm.c > CMakeFiles\buildvm.dir\src\host\buildvm.c.i
 
 CMakeFiles/buildvm.dir/src/host/buildvm.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/buildvm.dir/src/host/buildvm.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\host\buildvm.c -o CMakeFiles\buildvm.dir\src\host\buildvm.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\host\buildvm.c -o CMakeFiles\buildvm.dir\src\host\buildvm.c.s
 
 CMakeFiles/buildvm.dir/src/host/buildvm.c.obj.requires:
 
@@ -88,16 +88,16 @@ CMakeFiles/buildvm.dir/src/host/buildvm.c.obj.provides.build: CMakeFiles/buildvm
 CMakeFiles/buildvm.dir/src/host/buildvm_asm.c.obj: CMakeFiles/buildvm.dir/flags.make
 CMakeFiles/buildvm.dir/src/host/buildvm_asm.c.obj: CMakeFiles/buildvm.dir/includes_C.rsp
 CMakeFiles/buildvm.dir/src/host/buildvm_asm.c.obj: ../src/host/buildvm_asm.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/buildvm.dir/src/host/buildvm_asm.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\buildvm.dir\src\host\buildvm_asm.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\host\buildvm_asm.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/buildvm.dir/src/host/buildvm_asm.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\buildvm.dir\src\host\buildvm_asm.c.obj   -c D:\Lucia\Dependencies\Luajit\src\host\buildvm_asm.c
 
 CMakeFiles/buildvm.dir/src/host/buildvm_asm.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/buildvm.dir/src/host/buildvm_asm.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\host\buildvm_asm.c > CMakeFiles\buildvm.dir\src\host\buildvm_asm.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\host\buildvm_asm.c > CMakeFiles\buildvm.dir\src\host\buildvm_asm.c.i
 
 CMakeFiles/buildvm.dir/src/host/buildvm_asm.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/buildvm.dir/src/host/buildvm_asm.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\host\buildvm_asm.c -o CMakeFiles\buildvm.dir\src\host\buildvm_asm.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\host\buildvm_asm.c -o CMakeFiles\buildvm.dir\src\host\buildvm_asm.c.s
 
 CMakeFiles/buildvm.dir/src/host/buildvm_asm.c.obj.requires:
 
@@ -113,16 +113,16 @@ CMakeFiles/buildvm.dir/src/host/buildvm_asm.c.obj.provides.build: CMakeFiles/bui
 CMakeFiles/buildvm.dir/src/host/buildvm_fold.c.obj: CMakeFiles/buildvm.dir/flags.make
 CMakeFiles/buildvm.dir/src/host/buildvm_fold.c.obj: CMakeFiles/buildvm.dir/includes_C.rsp
 CMakeFiles/buildvm.dir/src/host/buildvm_fold.c.obj: ../src/host/buildvm_fold.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/buildvm.dir/src/host/buildvm_fold.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\buildvm.dir\src\host\buildvm_fold.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\host\buildvm_fold.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/buildvm.dir/src/host/buildvm_fold.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\buildvm.dir\src\host\buildvm_fold.c.obj   -c D:\Lucia\Dependencies\Luajit\src\host\buildvm_fold.c
 
 CMakeFiles/buildvm.dir/src/host/buildvm_fold.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/buildvm.dir/src/host/buildvm_fold.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\host\buildvm_fold.c > CMakeFiles\buildvm.dir\src\host\buildvm_fold.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\host\buildvm_fold.c > CMakeFiles\buildvm.dir\src\host\buildvm_fold.c.i
 
 CMakeFiles/buildvm.dir/src/host/buildvm_fold.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/buildvm.dir/src/host/buildvm_fold.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\host\buildvm_fold.c -o CMakeFiles\buildvm.dir\src\host\buildvm_fold.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\host\buildvm_fold.c -o CMakeFiles\buildvm.dir\src\host\buildvm_fold.c.s
 
 CMakeFiles/buildvm.dir/src/host/buildvm_fold.c.obj.requires:
 
@@ -138,16 +138,16 @@ CMakeFiles/buildvm.dir/src/host/buildvm_fold.c.obj.provides.build: CMakeFiles/bu
 CMakeFiles/buildvm.dir/src/host/buildvm_lib.c.obj: CMakeFiles/buildvm.dir/flags.make
 CMakeFiles/buildvm.dir/src/host/buildvm_lib.c.obj: CMakeFiles/buildvm.dir/includes_C.rsp
 CMakeFiles/buildvm.dir/src/host/buildvm_lib.c.obj: ../src/host/buildvm_lib.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/buildvm.dir/src/host/buildvm_lib.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\buildvm.dir\src\host\buildvm_lib.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\host\buildvm_lib.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/buildvm.dir/src/host/buildvm_lib.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\buildvm.dir\src\host\buildvm_lib.c.obj   -c D:\Lucia\Dependencies\Luajit\src\host\buildvm_lib.c
 
 CMakeFiles/buildvm.dir/src/host/buildvm_lib.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/buildvm.dir/src/host/buildvm_lib.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\host\buildvm_lib.c > CMakeFiles\buildvm.dir\src\host\buildvm_lib.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\host\buildvm_lib.c > CMakeFiles\buildvm.dir\src\host\buildvm_lib.c.i
 
 CMakeFiles/buildvm.dir/src/host/buildvm_lib.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/buildvm.dir/src/host/buildvm_lib.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\host\buildvm_lib.c -o CMakeFiles\buildvm.dir\src\host\buildvm_lib.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\host\buildvm_lib.c -o CMakeFiles\buildvm.dir\src\host\buildvm_lib.c.s
 
 CMakeFiles/buildvm.dir/src/host/buildvm_lib.c.obj.requires:
 
@@ -163,16 +163,16 @@ CMakeFiles/buildvm.dir/src/host/buildvm_lib.c.obj.provides.build: CMakeFiles/bui
 CMakeFiles/buildvm.dir/src/host/buildvm_peobj.c.obj: CMakeFiles/buildvm.dir/flags.make
 CMakeFiles/buildvm.dir/src/host/buildvm_peobj.c.obj: CMakeFiles/buildvm.dir/includes_C.rsp
 CMakeFiles/buildvm.dir/src/host/buildvm_peobj.c.obj: ../src/host/buildvm_peobj.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/buildvm.dir/src/host/buildvm_peobj.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\buildvm.dir\src\host\buildvm_peobj.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\host\buildvm_peobj.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/buildvm.dir/src/host/buildvm_peobj.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\buildvm.dir\src\host\buildvm_peobj.c.obj   -c D:\Lucia\Dependencies\Luajit\src\host\buildvm_peobj.c
 
 CMakeFiles/buildvm.dir/src/host/buildvm_peobj.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/buildvm.dir/src/host/buildvm_peobj.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\host\buildvm_peobj.c > CMakeFiles\buildvm.dir\src\host\buildvm_peobj.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\host\buildvm_peobj.c > CMakeFiles\buildvm.dir\src\host\buildvm_peobj.c.i
 
 CMakeFiles/buildvm.dir/src/host/buildvm_peobj.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/buildvm.dir/src/host/buildvm_peobj.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\host\buildvm_peobj.c -o CMakeFiles\buildvm.dir\src\host\buildvm_peobj.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\host\buildvm_peobj.c -o CMakeFiles\buildvm.dir\src\host\buildvm_peobj.c.s
 
 CMakeFiles/buildvm.dir/src/host/buildvm_peobj.c.obj.requires:
 
@@ -205,7 +205,7 @@ buildvm.exe: CMakeFiles/buildvm.dir/build.make
 buildvm.exe: CMakeFiles/buildvm.dir/linklibs.rsp
 buildvm.exe: CMakeFiles/buildvm.dir/objects1.rsp
 buildvm.exe: CMakeFiles/buildvm.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable buildvm.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable buildvm.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\buildvm.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -226,6 +226,6 @@ CMakeFiles/buildvm.dir/clean:
 .PHONY : CMakeFiles/buildvm.dir/clean
 
 CMakeFiles/buildvm.dir/depend: ../src/host/buildvm_arch.h
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles\buildvm.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\Lucia\Dependencies\Luajit D:\Lucia\Dependencies\Luajit D:\Lucia\Dependencies\Luajit\build D:\Lucia\Dependencies\Luajit\build D:\Lucia\Dependencies\Luajit\build\CMakeFiles\buildvm.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/buildvm.dir/depend
 

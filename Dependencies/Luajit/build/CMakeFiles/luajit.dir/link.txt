@@ -1,3 +1,3 @@
 "C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f CMakeFiles\luajit.dir/objects.a
-C:\mingw64\bin\ar.exe cr CMakeFiles\luajit.dir/objects.a @CMakeFiles\luajit.dir\objects1.rsp
-C:\mingw64\bin\gcc.exe     -Wl,--whole-archive CMakeFiles\luajit.dir/objects.a -Wl,--no-whole-archive  -o luajit.exe -Wl,--out-implib,libluajit.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\luajit.dir\linklibs.rsp
+C:\mingw64\mingw64\bin\ar.exe cr CMakeFiles\luajit.dir/objects.a @CMakeFiles\luajit.dir\objects1.rsp
+C:\mingw64\mingw64\bin\gcc.exe     -Wl,--whole-archive CMakeFiles\luajit.dir/objects.a -Wl,--no-whole-archive  -o luajit.exe -Wl,--out-implib,libluajit.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\luajit.dir\linklibs.rsp

@@ -3,7 +3,7 @@
 Open Asset Import Library (assimp)
 ---------------------------------------------------------------------------
 
-Copyright (c) 2006-2015, assimp team
+Copyright (c) 2006-2016, assimp team
 
 All rights reserved.
 
@@ -44,9 +44,11 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #ifndef ASSIMP_BUILD_NO_COLLADA_IMPORTER
 
-#include "../include/assimp/anim.h"
-#include "../include/assimp/scene.h"
 #include "ColladaLoader.h"
+#include <assimp/anim.h>
+#include <assimp/scene.h>
+#include <assimp/DefaultLogger.hpp>
+#include <assimp/Importer.hpp>
 #include "ColladaParser.h"
 
 #include "fast_atof.h"
@@ -55,14 +57,13 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "Defines.h"
 
 #include "time.h"
-#include <boost/foreach.hpp>
-#include "../include/assimp/DefaultLogger.hpp"
-#include "../include/assimp/Importer.hpp"
+#include "math.h"
 #include <numeric>
 #include "Defines.h"
 
 
 using namespace Assimp;
+using namespace Assimp::Formatter;
 
 static const aiImporterDesc desc = {
     "Collada Importer",
@@ -77,14 +78,21 @@ static const aiImporterDesc desc = {
     "dae"
 };
 
-
 // ------------------------------------------------------------------------------------------------
 // Constructor to be privately used by Importer
 ColladaLoader::ColladaLoader()
-    : noSkeletonMesh()
+    : mFileName()
+	, mMeshIndexByID()
+	, mMaterialIndexByName()
+	, mMeshes()
+	, newMats()
+	, mCameras()
+	, mLights()
+	, mTextures()
+	, mAnims()
+	, noSkeletonMesh( false )
     , ignoreUpDirection(false)
-    , invertTransparency(false)
-    , mNodeNameCounter()
+    , mNodeNameCounter( 0 )
 {}
 
 // ------------------------------------------------------------------------------------------------
@@ -120,7 +128,6 @@ void ColladaLoader::SetupProperties(const Importer* pImp)
 {
     noSkeletonMesh = pImp->GetPropertyInteger(AI_CONFIG_IMPORT_NO_SKELETON_MESHES,0) != 0;
     ignoreUpDirection = pImp->GetPropertyInteger(AI_CONFIG_IMPORT_COLLADA_IGNORE_UP_DIRECTION,0) != 0;
-    invertTransparency = pImp->GetPropertyInteger(AI_CONFIG_IMPORT_COLLADA_INVERT_TRANSPARENCY,0) != 0;
 }
 
 
@@ -269,21 +276,20 @@ void ColladaLoader::ResolveNodeInstances( const ColladaParser& pParser, const Co
     resolved.reserve(pNode->mNodeInstances.size());
 
     // ... and iterate through all nodes to be instanced as children of pNode
-    for (std::vector<Collada::NodeInstance>::const_iterator it = pNode->mNodeInstances.begin(),
-         end = pNode->mNodeInstances.end(); it != end; ++it)
+    for (const auto &nodeInst: pNode->mNodeInstances)
     {
         // find the corresponding node in the library
-        const ColladaParser::NodeLibrary::const_iterator itt = pParser.mNodeLibrary.find((*it).mNode);
+        const ColladaParser::NodeLibrary::const_iterator itt = pParser.mNodeLibrary.find(nodeInst.mNode);
         const Collada::Node* nd = itt == pParser.mNodeLibrary.end() ? NULL : (*itt).second;
 
         // FIX for http://sourceforge.net/tracker/?func=detail&aid=3054873&group_id=226462&atid=1067632
         // need to check for both name and ID to catch all. To avoid breaking valid files,
         // the workaround is only enabled when the first attempt to resolve the node has failed.
         if (!nd) {
-            nd = FindNode(pParser.mRootNode,(*it).mNode);
+            nd = FindNode(pParser.mRootNode, nodeInst.mNode);
         }
         if (!nd)
-            DefaultLogger::get()->error("Collada: Unable to resolve reference to instanced node " + (*it).mNode);
+            DefaultLogger::get()->error("Collada: Unable to resolve reference to instanced node " + nodeInst.mNode);
 
         else {
             //  attach this node to the list of children
@@ -310,7 +316,7 @@ void ColladaLoader::ApplyVertexToEffectSemanticMapping(Collada::Sampler& sampler
 // Builds lights for the given node and references them
 void ColladaLoader::BuildLightsForNode( const ColladaParser& pParser, const Collada::Node* pNode, aiNode* pTarget)
 {
-    BOOST_FOREACH( const Collada::LightInstance& lid, pNode->mLights)
+    for( const Collada::LightInstance& lid : pNode->mLights)
     {
         // find the referred light
         ColladaParser::LightLibrary::const_iterator srcLightIt = pParser.mLightLibrary.find( lid.mLight);
@@ -378,7 +384,7 @@ void ColladaLoader::BuildLightsForNode( const ColladaParser& pParser, const Coll
 // Builds cameras for the given node and references them
 void ColladaLoader::BuildCamerasForNode( const ColladaParser& pParser, const Collada::Node* pNode, aiNode* pTarget)
 {
-    BOOST_FOREACH( const Collada::CameraInstance& cid, pNode->mCameras)
+    for( const Collada::CameraInstance& cid : pNode->mCameras)
     {
         // find the referred light
         ColladaParser::CameraLibrary::const_iterator srcCameraIt = pParser.mCameraLibrary.find( cid.mCamera);
@@ -414,13 +420,13 @@ void ColladaLoader::BuildCamerasForNode( const ColladaParser& pParser, const Col
             out->mHorizontalFOV = srcCamera->mHorFov;
 
             if (srcCamera->mVerFov != 10e10f && srcCamera->mAspect == 10e10f) {
-                out->mAspect = tan(AI_DEG_TO_RAD(srcCamera->mHorFov)) /
-                    tan(AI_DEG_TO_RAD(srcCamera->mVerFov));
+                out->mAspect = std::tan(AI_DEG_TO_RAD(srcCamera->mHorFov)) /
+                    std::tan(AI_DEG_TO_RAD(srcCamera->mVerFov));
             }
         }
         else if (srcCamera->mAspect != 10e10f && srcCamera->mVerFov != 10e10f)  {
-            out->mHorizontalFOV = 2.0f * AI_RAD_TO_DEG(atan(srcCamera->mAspect *
-                tan(AI_DEG_TO_RAD(srcCamera->mVerFov) * 0.5f)));
+            out->mHorizontalFOV = 2.0f * AI_RAD_TO_DEG(std::atan(srcCamera->mAspect *
+                std::tan(AI_DEG_TO_RAD(srcCamera->mVerFov) * 0.5f)));
         }
 
         // Collada uses degrees, we use radians
@@ -440,7 +446,7 @@ void ColladaLoader::BuildMeshesForNode( const ColladaParser& pParser, const Coll
     newMeshRefs.reserve(pNode->mMeshes.size());
 
     // add a mesh for each subgroup in each collada mesh
-    BOOST_FOREACH( const Collada::MeshInstance& mid, pNode->mMeshes)
+    for( const Collada::MeshInstance& mid : pNode->mMeshes)
     {
         const Collada::Mesh* srcMesh = NULL;
         const Collada::Controller* srcController = NULL;
@@ -461,7 +467,7 @@ void ColladaLoader::BuildMeshesForNode( const ColladaParser& pParser, const Coll
 
             if( !srcMesh)
             {
-                DefaultLogger::get()->warn( boost::str( boost::format( "Collada: Unable to find geometry for ID \"%s\". Skipping.") % mid.mMeshOrController));
+                DefaultLogger::get()->warn( format() << "Collada: Unable to find geometry for ID \"" << mid.mMeshOrController << "\". Skipping." );
                 continue;
             }
         } else
@@ -490,7 +496,7 @@ void ColladaLoader::BuildMeshesForNode( const ColladaParser& pParser, const Coll
             }
             else
             {
-                DefaultLogger::get()->warn( boost::str( boost::format( "Collada: No material specified for subgroup <%s> in geometry <%s>.") % submesh.mMaterial % mid.mMeshOrController));
+                DefaultLogger::get()->warn( format() << "Collada: No material specified for subgroup <" << submesh.mMaterial << "> in geometry <" << mid.mMeshOrController << ">." );
                 if( !mid.mMaterials.empty() )
                     meshMaterial = mid.mMaterials.begin()->second.mMatName;
             }
@@ -656,7 +662,7 @@ aiMesh* ColladaLoader::CreateMesh( const ColladaParser& pParser, const Collada::
         // joint vertex_weight name list - should refer to the same list as the joint names above. If not, report and reconsider
         const Collada::Accessor& weightNamesAcc = pParser.ResolveLibraryReference( pParser.mAccessorLibrary, pSrcController->mWeightInputJoints.mAccessor);
         if( &weightNamesAcc != &jointNamesAcc)
-            throw DeadlyImportError( "Temporary implementational lazyness. If you read this, please report to the author.");
+            throw DeadlyImportError( "Temporary implementational laziness. If you read this, please report to the author.");
         // vertex weights
         const Collada::Accessor& weightsAcc = pParser.ResolveLibraryReference( pParser.mAccessorLibrary, pSrcController->mWeightInputWeights.mAccessor);
         const Collada::Data& weights = pParser.ResolveLibraryReference( pParser.mDataLibrary, weightsAcc.mSource);
@@ -698,7 +704,7 @@ aiMesh* ColladaLoader::CreateMesh( const ColladaParser& pParser, const Collada::
                 size_t jointIndex = iit->first;
                 size_t vertexIndex = iit->second;
 
-                float weight = ReadFloat( weightsAcc, weights, vertexIndex, 0);
+                ai_real weight = ReadFloat( weightsAcc, weights, vertexIndex, 0);
 
                 // one day I gonna kill that XSI Collada exporter
                 if( weight > 0.0f)
@@ -778,7 +784,7 @@ aiMesh* ColladaLoader::CreateMesh( const ColladaParser& pParser, const Collada::
             if( bnode)
                 bone->mName.Set( FindNameForNode( bnode));
             else
-                DefaultLogger::get()->warn( boost::str( boost::format( "ColladaLoader::CreateMesh(): could not find corresponding node for joint \"%s\".") % bone->mName.data));
+                DefaultLogger::get()->warn( format() << "ColladaLoader::CreateMesh(): could not find corresponding node for joint \"" << bone->mName.data << "\"." );
 
             // and insert bone
             dstMesh->mBones[boneCount++] = bone;
@@ -998,7 +1004,7 @@ void ColladaLoader::CreateAnimation( aiScene* pScene, const ColladaParser& pPars
                 else if( subElement == "Z")
                     entry.mSubElement = 2;
                 else
-                    DefaultLogger::get()->warn( boost::str( boost::format( "Unknown anim subelement <%s>. Ignoring") % subElement));
+                    DefaultLogger::get()->warn( format() << "Unknown anim subelement <" << subElement << ">. Ignoring" );
             } else
             {
                 // no subelement following, transformId is remaining string
@@ -1065,7 +1071,7 @@ void ColladaLoader::CreateAnimation( aiScene* pScene, const ColladaParser& pPars
             continue;
 
         // resolve the data pointers for all anim channels. Find the minimum time while we're at it
-        float startTime = 1e20f, endTime = -1e20f;
+        ai_real startTime = 1e20, endTime = -1e20;
         for( std::vector<Collada::ChannelEntry>::iterator it = entries.begin(); it != entries.end(); ++it)
         {
             Collada::ChannelEntry& e = *it;
@@ -1076,7 +1082,7 @@ void ColladaLoader::CreateAnimation( aiScene* pScene, const ColladaParser& pPars
 
             // time count and value count must match
             if( e.mTimeAccessor->mCount != e.mValueAccessor->mCount)
-                throw DeadlyImportError( boost::str( boost::format( "Time count / value count mismatch in animation channel \"%s\".") % e.mChannel->mTarget));
+                throw DeadlyImportError( format() << "Time count / value count mismatch in animation channel \"" << e.mChannel->mTarget << "\"." );
 
       if( e.mTimeAccessor->mCount > 0 )
       {
@@ -1094,7 +1100,7 @@ void ColladaLoader::CreateAnimation( aiScene* pScene, const ColladaParser& pPars
 
           // now for every unique point in time, find or interpolate the key values for that time
           // and apply them to the transform chain. Then the node's present transformation can be calculated.
-          float time = startTime;
+          ai_real time = startTime;
           while( 1)
           {
               for( std::vector<Collada::ChannelEntry>::iterator it = entries.begin(); it != entries.end(); ++it)
@@ -1103,7 +1109,7 @@ void ColladaLoader::CreateAnimation( aiScene* pScene, const ColladaParser& pPars
 
                   // find the keyframe behind the current point in time
                   size_t pos = 0;
-                  float postTime = 0.f;
+                  ai_real postTime = 0.0;
                   while( 1)
                   {
                       if( pos >= e.mTimeAccessor->mCount)
@@ -1117,19 +1123,19 @@ void ColladaLoader::CreateAnimation( aiScene* pScene, const ColladaParser& pPars
                   pos = std::min( pos, e.mTimeAccessor->mCount-1);
 
                   // read values from there
-                  float temp[16];
+                  ai_real temp[16];
                   for( size_t c = 0; c < e.mValueAccessor->mSize; ++c)
                       temp[c] = ReadFloat( *e.mValueAccessor, *e.mValueData, pos, c);
 
                   // if not exactly at the key time, interpolate with previous value set
                   if( postTime > time && pos > 0)
                   {
-                      float preTime = ReadFloat( *e.mTimeAccessor, *e.mTimeData, pos-1, 0);
-                      float factor = (time - postTime) / (preTime - postTime);
+                      ai_real preTime = ReadFloat( *e.mTimeAccessor, *e.mTimeData, pos-1, 0);
+                      ai_real factor = (time - postTime) / (preTime - postTime);
 
                       for( size_t c = 0; c < e.mValueAccessor->mSize; ++c)
                       {
-                          float v = ReadFloat( *e.mValueAccessor, *e.mValueData, pos-1, c);
+                          ai_real v = ReadFloat( *e.mValueAccessor, *e.mValueData, pos-1, c);
                           temp[c] += (v - temp[c]) * factor;
                       }
                   }
@@ -1141,21 +1147,21 @@ void ColladaLoader::CreateAnimation( aiScene* pScene, const ColladaParser& pPars
               // Calculate resulting transformation
               aiMatrix4x4 mat = pParser.CalculateResultTransform( transforms);
 
-              // out of lazyness: we store the time in matrix.d4
+              // out of laziness: we store the time in matrix.d4
               mat.d4 = time;
               resultTrafos.push_back( mat);
 
               // find next point in time to evaluate. That's the closest frame larger than the current in any channel
-              float nextTime = 1e20f;
+              ai_real nextTime = 1e20;
               for( std::vector<Collada::ChannelEntry>::iterator it = entries.begin(); it != entries.end(); ++it)
               {
-                  Collada::ChannelEntry& e = *it;
+                  Collada::ChannelEntry& channelElement = *it;
 
                   // find the next time value larger than the current
                   size_t pos = 0;
-                  while( pos < e.mTimeAccessor->mCount)
+                  while( pos < channelElement.mTimeAccessor->mCount)
                   {
-                      float t = ReadFloat( *e.mTimeAccessor, *e.mTimeData, pos, 0);
+                      const ai_real t = ReadFloat( *channelElement.mTimeAccessor, *channelElement.mTimeData, pos, 0);
                       if( t > time)
                       {
                           nextTime = std::min( nextTime, t);
@@ -1163,6 +1169,25 @@ void ColladaLoader::CreateAnimation( aiScene* pScene, const ColladaParser& pPars
                       }
                       ++pos;
                   }
+
+				  // https://github.com/assimp/assimp/issues/458
+			  	  // Sub-sample axis-angle channels if the delta between two consecutive
+                  // key-frame angles is >= 180 degrees.
+				  if (transforms[channelElement.mTransformIndex].mType == Collada::TF_ROTATE && channelElement.mSubElement == 3 && pos > 0 && pos < channelElement.mTimeAccessor->mCount) {
+					  const ai_real cur_key_angle = ReadFloat(*channelElement.mValueAccessor, *channelElement.mValueData, pos, 0);
+                      const ai_real last_key_angle = ReadFloat(*channelElement.mValueAccessor, *channelElement.mValueData, pos - 1, 0);
+                      const ai_real cur_key_time = ReadFloat(*channelElement.mTimeAccessor, *channelElement.mTimeData, pos, 0);
+                      const ai_real last_key_time = ReadFloat(*channelElement.mTimeAccessor, *channelElement.mTimeData, pos - 1, 0);
+                      const ai_real last_eval_angle = last_key_angle + (cur_key_angle - last_key_angle) * (time - last_key_time) / (cur_key_time - last_key_time);
+                      const ai_real delta = std::abs(cur_key_angle - last_eval_angle);
+				      if (delta >= 180.0) {
+						const int subSampleCount = static_cast<int>(std::floor(delta / 90.0));
+						if (cur_key_time != time) {
+							const ai_real nextSampleTime = time + (cur_key_time - time) / subSampleCount;
+							nextTime = std::min(nextTime, nextSampleTime);
+						  }
+					  }
+				  }
               }
 
               // no more keys on any channel after the current time -> we're done
@@ -1264,11 +1289,11 @@ void ColladaLoader::AddTexture ( aiMaterial& mat, const ColladaParser& pParser,
         _AI_MATKEY_TEXBLEND_BASE, type, idx);
 
     // Blend factor
-    mat.AddProperty((float*)&sampler.mWeighting , 1,
+    mat.AddProperty((ai_real*)&sampler.mWeighting , 1,
         _AI_MATKEY_TEXBLEND_BASE, type, idx);
 
     // UV source index ... if we didn't resolve the mapping, it is actually just
-    // a guess but it works in most cases. We search for the frst occurence of a
+    // a guess but it works in most cases. We search for the frst occurrence of a
     // number in the channel name. We assume it is the zero-based index into the
     // UV channel array of all corresponding meshes. It could also be one-based
     // for some exporters, but we won't care of it unless someone complains about.
@@ -1294,11 +1319,10 @@ void ColladaLoader::AddTexture ( aiMaterial& mat, const ColladaParser& pParser,
 // Fills materials from the collada material definitions
 void ColladaLoader::FillMaterials( const ColladaParser& pParser, aiScene* /*pScene*/)
 {
-    for (std::vector<std::pair<Collada::Effect*, aiMaterial*> >::iterator it = newMats.begin(),
-        end = newMats.end(); it != end; ++it)
+    for (auto &elem : newMats)
     {
-        aiMaterial&  mat = (aiMaterial&)*it->second;
-        Collada::Effect& effect = *it->first;
+        aiMaterial&  mat = (aiMaterial&)*elem.second;
+        Collada::Effect& effect = *elem.first;
 
         // resolve shading mode
         int shadeMode;
@@ -1341,7 +1365,6 @@ void ColladaLoader::FillMaterials( const ColladaParser& pParser, aiScene* /*pSce
         mat.AddProperty( &effect.mDiffuse, 1, AI_MATKEY_COLOR_DIFFUSE);
         mat.AddProperty( &effect.mSpecular, 1,AI_MATKEY_COLOR_SPECULAR);
         mat.AddProperty( &effect.mEmissive, 1,  AI_MATKEY_COLOR_EMISSIVE);
-        mat.AddProperty( &effect.mTransparent, 1, AI_MATKEY_COLOR_TRANSPARENT);
         mat.AddProperty( &effect.mReflective, 1, AI_MATKEY_COLOR_REFLECTIVE);
 
         // scalar properties
@@ -1354,20 +1377,29 @@ void ColladaLoader::FillMaterials( const ColladaParser& pParser, aiScene* /*pSce
         // therefore, we let the opportunity for the user to manually invert
         // the transparency if necessary and we add preliminary support for RGB_ZERO mode
         if(effect.mTransparency >= 0.f && effect.mTransparency <= 1.f) {
-            // Trying some support for RGB_ZERO mode
+            // handle RGB transparency completely, cf Collada specs 1.5.0 pages 249 and 304
             if(effect.mRGBTransparency) {
-                effect.mTransparency = 1.f - effect.mTransparent.a;
+				// use luminance as defined by ISO/CIE color standards (see ITU-R Recommendation BT.709-4)
+                effect.mTransparency *= (
+                    0.212671f * effect.mTransparent.r +
+                    0.715160f * effect.mTransparent.g +
+                    0.072169f * effect.mTransparent.b
+                );
+
+                effect.mTransparent.a = 1.f;
+
+                mat.AddProperty( &effect.mTransparent, 1, AI_MATKEY_COLOR_TRANSPARENT );
+            } else {
+                effect.mTransparency *=  effect.mTransparent.a;
             }
 
-            // Global option
-            if(invertTransparency) {
+            if(effect.mInvertTransparency) {
                 effect.mTransparency = 1.f - effect.mTransparency;
             }
 
             // Is the material finally transparent ?
             if (effect.mHasTransparency || effect.mTransparency < 1.f) {
                 mat.AddProperty( &effect.mTransparency, 1, AI_MATKEY_OPACITY );
-                mat.AddProperty( &effect.mTransparent, 1, AI_MATKEY_COLOR_TRANSPARENT );
             }
         }
 
@@ -1432,11 +1464,11 @@ void ColladaLoader::BuildMaterials( ColladaParser& pParser, aiScene* /*pScene*/)
 
         const int shadeMode = aiShadingMode_Phong;
         mat->AddProperty<int>( &shadeMode, 1, AI_MATKEY_SHADING_MODEL);
-        aiColor4D colAmbient( 0.2f, 0.2f, 0.2f, 1.0f), colDiffuse( 0.8f, 0.8f, 0.8f, 1.0f), colSpecular( 0.5f, 0.5f, 0.5f, 0.5f);
+        aiColor4D colAmbient( 0.2, 0.2, 0.2, 1.0), colDiffuse( 0.8, 0.8, 0.8, 1.0), colSpecular( 0.5, 0.5, 0.5, 0.5);
         mat->AddProperty( &colAmbient, 1, AI_MATKEY_COLOR_AMBIENT);
         mat->AddProperty( &colDiffuse, 1, AI_MATKEY_COLOR_DIFFUSE);
         mat->AddProperty( &colSpecular, 1, AI_MATKEY_COLOR_SPECULAR);
-        const float specExp = 5.0f;
+        const ai_real specExp = 5.0;
         mat->AddProperty( &specExp, 1, AI_MATKEY_SHININESS);
     }
 #endif
@@ -1465,8 +1497,8 @@ aiString ColladaLoader::FindFilenameForEffectTexture( const ColladaParser& pPars
     ColladaParser::ImageLibrary::const_iterator imIt = pParser.mImageLibrary.find( name);
     if( imIt == pParser.mImageLibrary.end())
     {
-        throw DeadlyImportError( boost::str( boost::format(
-            "Collada: Unable to resolve effect texture entry \"%s\", ended up at ID \"%s\".") % pName % name));
+        throw DeadlyImportError( format() <<
+            "Collada: Unable to resolve effect texture entry \"" << pName << "\", ended up at ID \"" << name << "\"." );
     }
 
     aiString result;
@@ -1555,7 +1587,7 @@ void ColladaLoader::ConvertPath (aiString& ss)
 
 // ------------------------------------------------------------------------------------------------
 // Reads a float value from an accessor and its data array.
-float ColladaLoader::ReadFloat( const Collada::Accessor& pAccessor, const Collada::Data& pData, size_t pIndex, size_t pOffset) const
+ai_real ColladaLoader::ReadFloat( const Collada::Accessor& pAccessor, const Collada::Data& pData, size_t pIndex, size_t pOffset) const
 {
     // FIXME: (thom) Test for data type here in every access? For the moment, I leave this to the caller
     size_t pos = pAccessor.mStride * pIndex + pAccessor.mOffset + pOffset;
@@ -1632,7 +1664,7 @@ std::string ColladaLoader::FindNameForNode( const Collada::Node* pNode)
     {
         // No need to worry. Unnamed nodes are no problem at all, except
         // if cameras or lights need to be assigned to them.
-    return boost::str( boost::format( "$ColladaAutoName$_%d") % mNodeNameCounter++);
+    return format() << "$ColladaAutoName$_" << mNodeNameCounter++;
     }
 }
 

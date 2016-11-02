@@ -42,10 +42,10 @@ RM = "C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Lucy3D\Dependencies\glew-1.13.0\build\cmake
+CMAKE_SOURCE_DIR = D:\Lucia\Dependencies\glew\build\cmake
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\Lucy3D\Dependencies\glew-1.13.0\mingw64
+CMAKE_BINARY_DIR = D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\glew\mingw64
 
 # Include any dependencies generated for this target.
 include CMakeFiles/glew_s.dir/depend.make
@@ -56,42 +56,42 @@ include CMakeFiles/glew_s.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/glew_s.dir/flags.make
 
-CMakeFiles/glew_s.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.obj: CMakeFiles/glew_s.dir/flags.make
-CMakeFiles/glew_s.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.obj: CMakeFiles/glew_s.dir/includes_C.rsp
-CMakeFiles/glew_s.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.obj: D:/Lucy3D/Dependencies/glew-1.13.0/src/glew.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucy3D\Dependencies\glew-1.13.0\mingw64\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/glew_s.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\glew_s.dir\D_\Lucy3D\Dependencies\glew-1.13.0\src\glew.obj   -c D:\Lucy3D\Dependencies\glew-1.13.0\src\glew.c
+CMakeFiles/glew_s.dir/D_/Lucia/Dependencies/glew/src/glew.obj: CMakeFiles/glew_s.dir/flags.make
+CMakeFiles/glew_s.dir/D_/Lucia/Dependencies/glew/src/glew.obj: CMakeFiles/glew_s.dir/includes_C.rsp
+CMakeFiles/glew_s.dir/D_/Lucia/Dependencies/glew/src/glew.obj: D:/Lucia/Dependencies/glew/src/glew.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\glew\mingw64\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/glew_s.dir/D_/Lucia/Dependencies/glew/src/glew.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\glew_s.dir\D_\Lucia\Dependencies\glew\src\glew.obj   -c D:\Lucia\Dependencies\glew\src\glew.c
 
-CMakeFiles/glew_s.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glew_s.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucy3D\Dependencies\glew-1.13.0\src\glew.c > CMakeFiles\glew_s.dir\D_\Lucy3D\Dependencies\glew-1.13.0\src\glew.i
+CMakeFiles/glew_s.dir/D_/Lucia/Dependencies/glew/src/glew.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glew_s.dir/D_/Lucia/Dependencies/glew/src/glew.i"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\glew\src\glew.c > CMakeFiles\glew_s.dir\D_\Lucia\Dependencies\glew\src\glew.i
 
-CMakeFiles/glew_s.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glew_s.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucy3D\Dependencies\glew-1.13.0\src\glew.c -o CMakeFiles\glew_s.dir\D_\Lucy3D\Dependencies\glew-1.13.0\src\glew.s
+CMakeFiles/glew_s.dir/D_/Lucia/Dependencies/glew/src/glew.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glew_s.dir/D_/Lucia/Dependencies/glew/src/glew.s"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\glew\src\glew.c -o CMakeFiles\glew_s.dir\D_\Lucia\Dependencies\glew\src\glew.s
 
-CMakeFiles/glew_s.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.obj.requires:
+CMakeFiles/glew_s.dir/D_/Lucia/Dependencies/glew/src/glew.obj.requires:
 
-.PHONY : CMakeFiles/glew_s.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.obj.requires
+.PHONY : CMakeFiles/glew_s.dir/D_/Lucia/Dependencies/glew/src/glew.obj.requires
 
-CMakeFiles/glew_s.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.obj.provides: CMakeFiles/glew_s.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.obj.requires
-	$(MAKE) -f CMakeFiles\glew_s.dir\build.make CMakeFiles/glew_s.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.obj.provides.build
-.PHONY : CMakeFiles/glew_s.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.obj.provides
+CMakeFiles/glew_s.dir/D_/Lucia/Dependencies/glew/src/glew.obj.provides: CMakeFiles/glew_s.dir/D_/Lucia/Dependencies/glew/src/glew.obj.requires
+	$(MAKE) -f CMakeFiles\glew_s.dir\build.make CMakeFiles/glew_s.dir/D_/Lucia/Dependencies/glew/src/glew.obj.provides.build
+.PHONY : CMakeFiles/glew_s.dir/D_/Lucia/Dependencies/glew/src/glew.obj.provides
 
-CMakeFiles/glew_s.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.obj.provides.build: CMakeFiles/glew_s.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.obj
+CMakeFiles/glew_s.dir/D_/Lucia/Dependencies/glew/src/glew.obj.provides.build: CMakeFiles/glew_s.dir/D_/Lucia/Dependencies/glew/src/glew.obj
 
 
 # Object files for target glew_s
 glew_s_OBJECTS = \
-"CMakeFiles/glew_s.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.obj"
+"CMakeFiles/glew_s.dir/D_/Lucia/Dependencies/glew/src/glew.obj"
 
 # External object files for target glew_s
 glew_s_EXTERNAL_OBJECTS =
 
-lib/libglew32.a: CMakeFiles/glew_s.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.obj
+lib/libglew32.a: CMakeFiles/glew_s.dir/D_/Lucia/Dependencies/glew/src/glew.obj
 lib/libglew32.a: CMakeFiles/glew_s.dir/build.make
 lib/libglew32.a: CMakeFiles/glew_s.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\Lucy3D\Dependencies\glew-1.13.0\mingw64\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library lib\libglew32.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\glew\mingw64\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library lib\libglew32.a"
 	$(CMAKE_COMMAND) -P CMakeFiles\glew_s.dir\cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\glew_s.dir\link.txt --verbose=$(VERBOSE)
 
@@ -100,7 +100,7 @@ CMakeFiles/glew_s.dir/build: lib/libglew32.a
 
 .PHONY : CMakeFiles/glew_s.dir/build
 
-CMakeFiles/glew_s.dir/requires: CMakeFiles/glew_s.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.obj.requires
+CMakeFiles/glew_s.dir/requires: CMakeFiles/glew_s.dir/D_/Lucia/Dependencies/glew/src/glew.obj.requires
 
 .PHONY : CMakeFiles/glew_s.dir/requires
 
@@ -109,6 +109,6 @@ CMakeFiles/glew_s.dir/clean:
 .PHONY : CMakeFiles/glew_s.dir/clean
 
 CMakeFiles/glew_s.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\Lucy3D\Dependencies\glew-1.13.0\build\cmake D:\Lucy3D\Dependencies\glew-1.13.0\build\cmake D:\Lucy3D\Dependencies\glew-1.13.0\mingw64 D:\Lucy3D\Dependencies\glew-1.13.0\mingw64 D:\Lucy3D\Dependencies\glew-1.13.0\mingw64\CMakeFiles\glew_s.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\Lucia\Dependencies\glew\build\cmake D:\Lucia\Dependencies\glew\build\cmake D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\glew\mingw64 D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\glew\mingw64 D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\glew\mingw64\CMakeFiles\glew_s.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/glew_s.dir/depend
 

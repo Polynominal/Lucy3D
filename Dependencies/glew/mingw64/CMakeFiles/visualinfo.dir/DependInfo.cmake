@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "D:/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.c" "D:/Lucy3D/Dependencies/glew-1.13.0/mingw64/CMakeFiles/visualinfo.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.obj"
+  "D:/Lucia/Dependencies/glew/src/visualinfo.c" "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/glew/mingw64/CMakeFiles/visualinfo.dir/D_/Lucia/Dependencies/glew/src/visualinfo.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -15,12 +15,12 @@ set(CMAKE_TARGET_DEFINITIONS_C
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
-  "D:/Lucy3D/Dependencies/glew-1.13.0/build/cmake/../../include"
+  "D:/Lucia/Dependencies/glew/build/cmake/../../include"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "D:/Lucy3D/Dependencies/glew-1.13.0/mingw64/CMakeFiles/glew.dir/DependInfo.cmake"
+  "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/glew/mingw64/CMakeFiles/glew.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

@@ -1,0 +1,6 @@
+D:/Lucia/Dependencies/glew/build/CMakeFiles/glewmx_s.dir
+D:/Lucia/Dependencies/glew/build/CMakeFiles/glewinfo.dir
+D:/Lucia/Dependencies/glew/build/CMakeFiles/glew_s.dir
+D:/Lucia/Dependencies/glew/build/CMakeFiles/glewmx.dir
+D:/Lucia/Dependencies/glew/build/CMakeFiles/visualinfo.dir
+D:/Lucia/Dependencies/glew/build/CMakeFiles/glew.dir

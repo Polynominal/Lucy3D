@@ -2,7 +2,7 @@
 Open Asset Import Library (assimp)
 ----------------------------------------------------------------------
 
-Copyright (c) 2006-2015, assimp team
+Copyright (c) 2006-2016, assimp team
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -160,7 +160,7 @@ void AnimResolver::UpdateAnimRangeSetup()
             case LWO::PrePostBehaviour_Repeat:
             case LWO::PrePostBehaviour_Oscillate:
                 {
-                const double start_time = delta - fmod(my_first-first,delta);
+                const double start_time = delta - std::fmod(my_first-first,delta);
                 std::vector<LWO::Key>::iterator n = std::find_if((*it).keys.begin(),(*it).keys.end(),
                     std::bind1st(std::greater<double>(),start_time)),m;
 
@@ -328,7 +328,12 @@ void AnimResolver::DoInterpolation2(std::vector<LWO::Key>::const_iterator beg,
             break;
     }
     // linear interpolation - default
-    fill = (*beg).value + ((*end).value - (*beg).value)*(float)(((time - (*beg).time) / ((*end).time - (*beg).time)));
+    double duration = (*end).time - (*beg).time;
+    if (duration > 0.0) {
+        fill = (*beg).value + ((*end).value - (*beg).value)*(float)(((time - (*beg).time) / duration));
+    } else {
+        fill = (*beg).value;
+    }
 }
 
 // ------------------------------------------------------------------------------------------------

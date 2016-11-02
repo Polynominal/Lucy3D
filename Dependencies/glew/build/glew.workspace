@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Workspace Name="glew">
+  <Project Name="glew" Path="glew.project" Active="Yes"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Project Name="glew" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>

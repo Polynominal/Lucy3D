@@ -2,7 +2,7 @@
 Open Asset Import Library (assimp)
 ----------------------------------------------------------------------
 
-Copyright (c) 2006-2015, assimp team
+Copyright (c) 2006-2016, assimp team
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -42,7 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *  @brief Implementation of a little class to construct a dummy mesh for a skeleton
  */
 
-#include "../include/assimp/scene.h"
+#include <assimp/scene.h>
 #include "SkeletonMeshBuilder.h"
 
 using namespace Assimp;
@@ -73,9 +73,11 @@ SkeletonMeshBuilder::SkeletonMeshBuilder( aiScene* pScene, aiNode* root, bool bK
     root->mMeshes[0] = 0;
 
     // create a dummy material for the mesh
-    pScene->mNumMaterials = 1;
-    pScene->mMaterials = new aiMaterial*[1];
-    pScene->mMaterials[0] = CreateMaterial();
+    if(pScene->mNumMaterials==0){
+		pScene->mNumMaterials = 1;
+		pScene->mMaterials = new aiMaterial*[1];
+		pScene->mMaterials[0] = CreateMaterial();
+    }
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -94,31 +96,31 @@ void SkeletonMeshBuilder::CreateGeometry( const aiNode* pNode)
             // find a suitable coordinate system
             const aiMatrix4x4& childTransform = pNode->mChildren[a]->mTransformation;
             aiVector3D childpos( childTransform.a4, childTransform.b4, childTransform.c4);
-            float distanceToChild = childpos.Length();
-            if( distanceToChild < 0.0001f)
+            ai_real distanceToChild = childpos.Length();
+            if( distanceToChild < 0.0001)
                 continue;
             aiVector3D up = aiVector3D( childpos).Normalize();
 
-            aiVector3D orth( 1.0f, 0.0f, 0.0f);
-            if( std::fabs( orth * up) > 0.99f)
-                orth.Set( 0.0f, 1.0f, 0.0f);
+            aiVector3D orth( 1.0, 0.0, 0.0);
+            if( std::fabs( orth * up) > 0.99)
+                orth.Set( 0.0, 1.0, 0.0);
 
             aiVector3D front = (up ^ orth).Normalize();
             aiVector3D side = (front ^ up).Normalize();
 
             unsigned int localVertexStart = mVertices.size();
-            mVertices.push_back( -front * distanceToChild * 0.1f);
+            mVertices.push_back( -front * distanceToChild * (ai_real)0.1);
             mVertices.push_back( childpos);
-            mVertices.push_back( -side * distanceToChild * 0.1f);
-            mVertices.push_back( -side * distanceToChild * 0.1f);
+            mVertices.push_back( -side * distanceToChild * (ai_real)0.1);
+            mVertices.push_back( -side * distanceToChild * (ai_real)0.1);
             mVertices.push_back( childpos);
-            mVertices.push_back( front * distanceToChild * 0.1f);
-            mVertices.push_back( front * distanceToChild * 0.1f);
+            mVertices.push_back( front * distanceToChild * (ai_real)0.1);
+            mVertices.push_back( front * distanceToChild * (ai_real)0.1);
             mVertices.push_back( childpos);
-            mVertices.push_back( side * distanceToChild * 0.1f);
-            mVertices.push_back( side * distanceToChild * 0.1f);
+            mVertices.push_back( side * distanceToChild * (ai_real)0.1);
+            mVertices.push_back( side * distanceToChild * (ai_real)0.1);
             mVertices.push_back( childpos);
-            mVertices.push_back( -front * distanceToChild * 0.1f);
+            mVertices.push_back( -front * distanceToChild * (ai_real)0.1);
 
             mFaces.push_back( Face( localVertexStart + 0, localVertexStart + 1, localVertexStart + 2));
             mFaces.push_back( Face( localVertexStart + 3, localVertexStart + 4, localVertexStart + 5));
@@ -130,33 +132,33 @@ void SkeletonMeshBuilder::CreateGeometry( const aiNode* pNode)
     {
         // if the node has no children, it's an end node. Put a little knob there instead
         aiVector3D ownpos( pNode->mTransformation.a4, pNode->mTransformation.b4, pNode->mTransformation.c4);
-        float sizeEstimate = ownpos.Length() * 0.18f;
+        ai_real sizeEstimate = ownpos.Length() * 0.18;
 
-        mVertices.push_back( aiVector3D( -sizeEstimate, 0.0f, 0.0f));
-        mVertices.push_back( aiVector3D( 0.0f, sizeEstimate, 0.0f));
-        mVertices.push_back( aiVector3D( 0.0f, 0.0f, -sizeEstimate));
-        mVertices.push_back( aiVector3D( 0.0f, sizeEstimate, 0.0f));
-        mVertices.push_back( aiVector3D( sizeEstimate, 0.0f, 0.0f));
-        mVertices.push_back( aiVector3D( 0.0f, 0.0f, -sizeEstimate));
-        mVertices.push_back( aiVector3D( sizeEstimate, 0.0f, 0.0f));
-        mVertices.push_back( aiVector3D( 0.0f, -sizeEstimate, 0.0f));
-        mVertices.push_back( aiVector3D( 0.0f, 0.0f, -sizeEstimate));
-        mVertices.push_back( aiVector3D( 0.0f, -sizeEstimate, 0.0f));
-        mVertices.push_back( aiVector3D( -sizeEstimate, 0.0f, 0.0f));
-        mVertices.push_back( aiVector3D( 0.0f, 0.0f, -sizeEstimate));
+        mVertices.push_back( aiVector3D( -sizeEstimate, 0.0, 0.0));
+        mVertices.push_back( aiVector3D( 0.0, sizeEstimate, 0.0));
+        mVertices.push_back( aiVector3D( 0.0, 0.0, -sizeEstimate));
+        mVertices.push_back( aiVector3D( 0.0, sizeEstimate, 0.0));
+        mVertices.push_back( aiVector3D( sizeEstimate, 0.0, 0.0));
+        mVertices.push_back( aiVector3D( 0.0, 0.0, -sizeEstimate));
+        mVertices.push_back( aiVector3D( sizeEstimate, 0.0, 0.0));
+        mVertices.push_back( aiVector3D( 0.0, -sizeEstimate, 0.0));
+        mVertices.push_back( aiVector3D( 0.0, 0.0, -sizeEstimate));
+        mVertices.push_back( aiVector3D( 0.0, -sizeEstimate, 0.0));
+        mVertices.push_back( aiVector3D( -sizeEstimate, 0.0, 0.0));
+        mVertices.push_back( aiVector3D( 0.0, 0.0, -sizeEstimate));
 
-        mVertices.push_back( aiVector3D( -sizeEstimate, 0.0f, 0.0f));
-        mVertices.push_back( aiVector3D( 0.0f, 0.0f, sizeEstimate));
-        mVertices.push_back( aiVector3D( 0.0f, sizeEstimate, 0.0f));
-        mVertices.push_back( aiVector3D( 0.0f, sizeEstimate, 0.0f));
-        mVertices.push_back( aiVector3D( 0.0f, 0.0f, sizeEstimate));
-        mVertices.push_back( aiVector3D( sizeEstimate, 0.0f, 0.0f));
-        mVertices.push_back( aiVector3D( sizeEstimate, 0.0f, 0.0f));
-        mVertices.push_back( aiVector3D( 0.0f, 0.0f, sizeEstimate));
-        mVertices.push_back( aiVector3D( 0.0f, -sizeEstimate, 0.0f));
-        mVertices.push_back( aiVector3D( 0.0f, -sizeEstimate, 0.0f));
-        mVertices.push_back( aiVector3D( 0.0f, 0.0f, sizeEstimate));
-        mVertices.push_back( aiVector3D( -sizeEstimate, 0.0f, 0.0f));
+        mVertices.push_back( aiVector3D( -sizeEstimate, 0.0, 0.0));
+        mVertices.push_back( aiVector3D( 0.0, 0.0, sizeEstimate));
+        mVertices.push_back( aiVector3D( 0.0, sizeEstimate, 0.0));
+        mVertices.push_back( aiVector3D( 0.0, sizeEstimate, 0.0));
+        mVertices.push_back( aiVector3D( 0.0, 0.0, sizeEstimate));
+        mVertices.push_back( aiVector3D( sizeEstimate, 0.0, 0.0));
+        mVertices.push_back( aiVector3D( sizeEstimate, 0.0, 0.0));
+        mVertices.push_back( aiVector3D( 0.0, 0.0, sizeEstimate));
+        mVertices.push_back( aiVector3D( 0.0, -sizeEstimate, 0.0));
+        mVertices.push_back( aiVector3D( 0.0, -sizeEstimate, 0.0));
+        mVertices.push_back( aiVector3D( 0.0, 0.0, sizeEstimate));
+        mVertices.push_back( aiVector3D( -sizeEstimate, 0.0, 0.0));
 
         mFaces.push_back( Face( vertexStartIndex + 0, vertexStartIndex + 1, vertexStartIndex + 2));
         mFaces.push_back( Face( vertexStartIndex + 3, vertexStartIndex + 4, vertexStartIndex + 5));
@@ -185,7 +187,7 @@ void SkeletonMeshBuilder::CreateGeometry( const aiNode* pNode)
         bone->mNumWeights = numVertices;
         bone->mWeights = new aiVertexWeight[numVertices];
         for( unsigned int a = 0; a < numVertices; a++)
-            bone->mWeights[a] = aiVertexWeight( vertexStartIndex + a, 1.0f);
+            bone->mWeights[a] = aiVertexWeight( vertexStartIndex + a, 1.0);
 
         // HACK: (thom) transform all vertices to the bone's local space. Should be done before adding
         // them to the array, but I'm tired now and I'm annoyed.
@@ -230,8 +232,8 @@ aiMesh* SkeletonMeshBuilder::CreateMesh()
         aiVector3D nor = ((mVertices[inface.mIndices[2]] - mVertices[inface.mIndices[0]]) ^
             (mVertices[inface.mIndices[1]] - mVertices[inface.mIndices[0]]));
 
-        if (nor.Length() < 1e-5f) /* ensure that FindInvalidData won't remove us ...*/
-            nor = aiVector3D(1.f,0.f,0.f);
+        if (nor.Length() < 1e-5) /* ensure that FindInvalidData won't remove us ...*/
+            nor = aiVector3D(1.0,0.0,0.0);
 
         for (unsigned int n = 0; n < 3; ++n)
             mesh->mNormals[inface.mIndices[n]] = nor;

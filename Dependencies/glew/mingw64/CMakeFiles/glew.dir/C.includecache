@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-D:/Lucy3D/Dependencies/glew-1.13.0/build/cmake/../../include/GL/glew.h
+D:/Lucia/Dependencies/glew/build/cmake/../../include/GL/glew.h
 stddef.h
 -
 inttypes.h
@@ -22,7 +22,7 @@ OpenGL/glu.h
 GL/glu.h
 -
 
-D:/Lucy3D/Dependencies/glew-1.13.0/build/cmake/../../include/GL/glxew.h
+D:/Lucia/Dependencies/glew/build/cmake/../../include/GL/glxew.h
 X11/Xlib.h
 -
 X11/Xutil.h
@@ -32,11 +32,11 @@ X11/Xmd.h
 GL/glew.h
 -
 
-D:/Lucy3D/Dependencies/glew-1.13.0/build/cmake/../../include/GL/wglew.h
+D:/Lucia/Dependencies/glew/build/cmake/../../include/GL/wglew.h
 windows.h
 -
 
-D:/Lucy3D/Dependencies/glew-1.13.0/src/glew.c
+D:/Lucia/Dependencies/glew/src/glew.c
 GL/glew.h
 -
 GL/wglew.h

@@ -197,12 +197,12 @@
 #endif//ILUT_USE_DIRECTX9
 
 #ifdef ILUT_USE_DIRECTX10
-	#pragma warning(push)
-	#pragma warning(disable : 4201)  // Disables 'nonstandard extension used : nameless struct/union' warning
+	//#pragma warning(push)
+	//#pragma warning(disable : 4201)  // Disables 'nonstandard extension used : nameless struct/union' warning
 	#include <rpcsal.h>
 	#include <sal.h>
 	#include <d3d10.h>
-	#pragma warning(pop)
+	//#pragma warning(pop)
 #endif//ILUT_USE_DIRECTX10
 
 #ifdef ILUT_USE_X11
@@ -330,8 +330,8 @@ ILAPI ILboolean     ILAPIENTRY ilutRenderer(ILenum Renderer);
 #endif//ILUT_USE_DIRECTX8
 
 #ifdef ILUT_USE_DIRECTX9
-	#pragma warning(push)
-	#pragma warning(disable : 4115)  // Disables 'named type definition in parentheses' warning
+	//#pragma warning(push)
+	//#pragma warning(disable : 4115)  // Disables 'named type definition in parentheses' warning
 //	ILAPI void  ILAPIENTRY ilutD3D9MipFunc(ILuint NumLevels);
 	ILAPI struct IDirect3DTexture9*       ILAPIENTRY ilutD3D9Texture         (struct IDirect3DDevice9* Device);
 	ILAPI struct IDirect3DVolumeTexture9* ILAPIENTRY ilutD3D9VolumeTexture   (struct IDirect3DDevice9* Device);
@@ -353,7 +353,7 @@ ILAPI ILboolean     ILAPIENTRY ilutRenderer(ILenum Renderer);
 	ILAPI ILboolean ILAPIENTRY ilutD3D9TexFromResource(struct IDirect3DDevice9 *Device, HMODULE SrcModule, ILconst_string SrcResource, struct IDirect3DTexture9 **Texture);
 	ILAPI ILboolean ILAPIENTRY ilutD3D9VolTexFromResource(struct IDirect3DDevice9 *Device, HMODULE SrcModule, ILconst_string SrcResource, struct IDirect3DVolumeTexture9 **Texture);
 	ILAPI ILboolean ILAPIENTRY ilutD3D9LoadSurface(struct IDirect3DDevice9 *Device, struct IDirect3DSurface9 *Surface);
-	#pragma warning(pop)
+	//#pragma warning(pop)
 #endif//ILUT_USE_DIRECTX9
 
 #ifdef ILUT_USE_DIRECTX10

@@ -161,7 +161,7 @@ class Matrix
         }
         void scale(Vector A){
             auto V = A.value;
-            unsigned int limit =  min(V.size(),N);
+            unsigned int limit =  min((unsigned int)V.size(),N);
             
             for (unsigned int i=0;i <limit;i++)
             {
@@ -172,7 +172,7 @@ class Matrix
         void translate(Vector A)
         {
             auto V = A.value;
-            for (unsigned int j=0;j < min(V.size(),N);j++)
+            for (unsigned int j=0;j < min((unsigned int)V.size(),N);j++)
             {
                 array[j][N-1] += V[j];
             };

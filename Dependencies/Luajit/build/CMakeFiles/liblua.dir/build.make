@@ -42,10 +42,10 @@ RM = "C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit
+CMAKE_SOURCE_DIR = D:\Lucia\Dependencies\Luajit
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build
+CMAKE_BINARY_DIR = D:\Lucia\Dependencies\Luajit\build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/liblua.dir/depend.make
@@ -57,8 +57,8 @@ include CMakeFiles/liblua.dir/progress.make
 include CMakeFiles/liblua.dir/flags.make
 
 lj_vm.obj: buildvm.exe
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating lj_vm.obj"
-	cd /d D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit && D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\buildvm.exe -m peobj -o D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/lj_vm.obj
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating lj_vm.obj"
+	cd /d D:\Lucia\Dependencies\Luajit && D:\Lucia\Dependencies\Luajit\build\buildvm.exe -m peobj -o D:/Lucia/Dependencies/Luajit/build/lj_vm.obj
 
 lj_ffdef.h: buildvm.exe
 lj_ffdef.h: ../src/lib_base.c
@@ -72,8 +72,8 @@ lj_ffdef.h: ../src/lib_debug.c
 lj_ffdef.h: ../src/lib_jit.c
 lj_ffdef.h: ../src/lib_ffi.c
 lj_ffdef.h: ../src/lib_package_rel.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating lj_ffdef.h"
-	cd /d D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit && D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\buildvm.exe -m ffdef -o D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/lj_ffdef.h src/lib_base.c src/lib_math.c src/lib_bit.c src/lib_string.c src/lib_table.c src/lib_io.c src/lib_os.c src/lib_debug.c src/lib_jit.c src/lib_ffi.c src/lib_package_rel.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating lj_ffdef.h"
+	cd /d D:\Lucia\Dependencies\Luajit && D:\Lucia\Dependencies\Luajit\build\buildvm.exe -m ffdef -o D:/Lucia/Dependencies/Luajit/build/lj_ffdef.h src/lib_base.c src/lib_math.c src/lib_bit.c src/lib_string.c src/lib_table.c src/lib_io.c src/lib_os.c src/lib_debug.c src/lib_jit.c src/lib_ffi.c src/lib_package_rel.c
 
 lj_bcdef.h: buildvm.exe
 lj_bcdef.h: ../src/lib_base.c
@@ -87,8 +87,8 @@ lj_bcdef.h: ../src/lib_debug.c
 lj_bcdef.h: ../src/lib_jit.c
 lj_bcdef.h: ../src/lib_ffi.c
 lj_bcdef.h: ../src/lib_package_rel.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating lj_bcdef.h"
-	cd /d D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit && D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\buildvm.exe -m bcdef -o D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/lj_bcdef.h src/lib_base.c src/lib_math.c src/lib_bit.c src/lib_string.c src/lib_table.c src/lib_io.c src/lib_os.c src/lib_debug.c src/lib_jit.c src/lib_ffi.c src/lib_package_rel.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating lj_bcdef.h"
+	cd /d D:\Lucia\Dependencies\Luajit && D:\Lucia\Dependencies\Luajit\build\buildvm.exe -m bcdef -o D:/Lucia/Dependencies/Luajit/build/lj_bcdef.h src/lib_base.c src/lib_math.c src/lib_bit.c src/lib_string.c src/lib_table.c src/lib_io.c src/lib_os.c src/lib_debug.c src/lib_jit.c src/lib_ffi.c src/lib_package_rel.c
 
 lj_libdef.h: buildvm.exe
 lj_libdef.h: ../src/lib_base.c
@@ -102,8 +102,8 @@ lj_libdef.h: ../src/lib_debug.c
 lj_libdef.h: ../src/lib_jit.c
 lj_libdef.h: ../src/lib_ffi.c
 lj_libdef.h: ../src/lib_package_rel.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating lj_libdef.h"
-	cd /d D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit && D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\buildvm.exe -m libdef -o D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/lj_libdef.h src/lib_base.c src/lib_math.c src/lib_bit.c src/lib_string.c src/lib_table.c src/lib_io.c src/lib_os.c src/lib_debug.c src/lib_jit.c src/lib_ffi.c src/lib_package_rel.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating lj_libdef.h"
+	cd /d D:\Lucia\Dependencies\Luajit && D:\Lucia\Dependencies\Luajit\build\buildvm.exe -m libdef -o D:/Lucia/Dependencies/Luajit/build/lj_libdef.h src/lib_base.c src/lib_math.c src/lib_bit.c src/lib_string.c src/lib_table.c src/lib_io.c src/lib_os.c src/lib_debug.c src/lib_jit.c src/lib_ffi.c src/lib_package_rel.c
 
 lj_recdef.h: buildvm.exe
 lj_recdef.h: ../src/lib_base.c
@@ -117,27 +117,27 @@ lj_recdef.h: ../src/lib_debug.c
 lj_recdef.h: ../src/lib_jit.c
 lj_recdef.h: ../src/lib_ffi.c
 lj_recdef.h: ../src/lib_package_rel.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating lj_recdef.h"
-	cd /d D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit && D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\buildvm.exe -m recdef -o D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/lj_recdef.h src/lib_base.c src/lib_math.c src/lib_bit.c src/lib_string.c src/lib_table.c src/lib_io.c src/lib_os.c src/lib_debug.c src/lib_jit.c src/lib_ffi.c src/lib_package_rel.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating lj_recdef.h"
+	cd /d D:\Lucia\Dependencies\Luajit && D:\Lucia\Dependencies\Luajit\build\buildvm.exe -m recdef -o D:/Lucia/Dependencies/Luajit/build/lj_recdef.h src/lib_base.c src/lib_math.c src/lib_bit.c src/lib_string.c src/lib_table.c src/lib_io.c src/lib_os.c src/lib_debug.c src/lib_jit.c src/lib_ffi.c src/lib_package_rel.c
 
 lj_folddef.h: buildvm.exe
 lj_folddef.h: ../src/lj_opt_fold.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating lj_folddef.h"
-	cd /d D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit && D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\buildvm.exe -m folddef -o D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/lj_folddef.h src/lj_opt_fold.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating lj_folddef.h"
+	cd /d D:\Lucia\Dependencies\Luajit && D:\Lucia\Dependencies\Luajit\build\buildvm.exe -m folddef -o D:/Lucia/Dependencies/Luajit/build/lj_folddef.h src/lj_opt_fold.c
 
 CMakeFiles/liblua.dir/src/lj_gc.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_gc.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_gc.c.obj: ../src/lj_gc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/liblua.dir/src/lj_gc.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_gc.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_gc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/liblua.dir/src/lj_gc.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_gc.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_gc.c
 
 CMakeFiles/liblua.dir/src/lj_gc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_gc.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_gc.c > CMakeFiles\liblua.dir\src\lj_gc.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_gc.c > CMakeFiles\liblua.dir\src\lj_gc.c.i
 
 CMakeFiles/liblua.dir/src/lj_gc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_gc.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_gc.c -o CMakeFiles\liblua.dir\src\lj_gc.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_gc.c -o CMakeFiles\liblua.dir\src\lj_gc.c.s
 
 CMakeFiles/liblua.dir/src/lj_gc.c.obj.requires:
 
@@ -153,16 +153,16 @@ CMakeFiles/liblua.dir/src/lj_gc.c.obj.provides.build: CMakeFiles/liblua.dir/src/
 CMakeFiles/liblua.dir/src/lj_err.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_err.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_err.c.obj: ../src/lj_err.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/liblua.dir/src/lj_err.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_err.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_err.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/liblua.dir/src/lj_err.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_err.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_err.c
 
 CMakeFiles/liblua.dir/src/lj_err.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_err.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_err.c > CMakeFiles\liblua.dir\src\lj_err.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_err.c > CMakeFiles\liblua.dir\src\lj_err.c.i
 
 CMakeFiles/liblua.dir/src/lj_err.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_err.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_err.c -o CMakeFiles\liblua.dir\src\lj_err.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_err.c -o CMakeFiles\liblua.dir\src\lj_err.c.s
 
 CMakeFiles/liblua.dir/src/lj_err.c.obj.requires:
 
@@ -178,16 +178,16 @@ CMakeFiles/liblua.dir/src/lj_err.c.obj.provides.build: CMakeFiles/liblua.dir/src
 CMakeFiles/liblua.dir/src/lj_char.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_char.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_char.c.obj: ../src/lj_char.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/liblua.dir/src/lj_char.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_char.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_char.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/liblua.dir/src/lj_char.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_char.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_char.c
 
 CMakeFiles/liblua.dir/src/lj_char.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_char.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_char.c > CMakeFiles\liblua.dir\src\lj_char.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_char.c > CMakeFiles\liblua.dir\src\lj_char.c.i
 
 CMakeFiles/liblua.dir/src/lj_char.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_char.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_char.c -o CMakeFiles\liblua.dir\src\lj_char.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_char.c -o CMakeFiles\liblua.dir\src\lj_char.c.s
 
 CMakeFiles/liblua.dir/src/lj_char.c.obj.requires:
 
@@ -203,16 +203,16 @@ CMakeFiles/liblua.dir/src/lj_char.c.obj.provides.build: CMakeFiles/liblua.dir/sr
 CMakeFiles/liblua.dir/src/lj_bc.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_bc.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_bc.c.obj: ../src/lj_bc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/liblua.dir/src/lj_bc.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_bc.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_bc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/liblua.dir/src/lj_bc.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_bc.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_bc.c
 
 CMakeFiles/liblua.dir/src/lj_bc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_bc.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_bc.c > CMakeFiles\liblua.dir\src\lj_bc.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_bc.c > CMakeFiles\liblua.dir\src\lj_bc.c.i
 
 CMakeFiles/liblua.dir/src/lj_bc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_bc.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_bc.c -o CMakeFiles\liblua.dir\src\lj_bc.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_bc.c -o CMakeFiles\liblua.dir\src\lj_bc.c.s
 
 CMakeFiles/liblua.dir/src/lj_bc.c.obj.requires:
 
@@ -228,16 +228,16 @@ CMakeFiles/liblua.dir/src/lj_bc.c.obj.provides.build: CMakeFiles/liblua.dir/src/
 CMakeFiles/liblua.dir/src/lj_obj.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_obj.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_obj.c.obj: ../src/lj_obj.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/liblua.dir/src/lj_obj.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_obj.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_obj.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/liblua.dir/src/lj_obj.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_obj.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_obj.c
 
 CMakeFiles/liblua.dir/src/lj_obj.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_obj.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_obj.c > CMakeFiles\liblua.dir\src\lj_obj.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_obj.c > CMakeFiles\liblua.dir\src\lj_obj.c.i
 
 CMakeFiles/liblua.dir/src/lj_obj.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_obj.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_obj.c -o CMakeFiles\liblua.dir\src\lj_obj.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_obj.c -o CMakeFiles\liblua.dir\src\lj_obj.c.s
 
 CMakeFiles/liblua.dir/src/lj_obj.c.obj.requires:
 
@@ -253,16 +253,16 @@ CMakeFiles/liblua.dir/src/lj_obj.c.obj.provides.build: CMakeFiles/liblua.dir/src
 CMakeFiles/liblua.dir/src/lj_str.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_str.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_str.c.obj: ../src/lj_str.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/liblua.dir/src/lj_str.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_str.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_str.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/liblua.dir/src/lj_str.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_str.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_str.c
 
 CMakeFiles/liblua.dir/src/lj_str.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_str.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_str.c > CMakeFiles\liblua.dir\src\lj_str.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_str.c > CMakeFiles\liblua.dir\src\lj_str.c.i
 
 CMakeFiles/liblua.dir/src/lj_str.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_str.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_str.c -o CMakeFiles\liblua.dir\src\lj_str.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_str.c -o CMakeFiles\liblua.dir\src\lj_str.c.s
 
 CMakeFiles/liblua.dir/src/lj_str.c.obj.requires:
 
@@ -278,16 +278,16 @@ CMakeFiles/liblua.dir/src/lj_str.c.obj.provides.build: CMakeFiles/liblua.dir/src
 CMakeFiles/liblua.dir/src/lj_tab.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_tab.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_tab.c.obj: ../src/lj_tab.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/liblua.dir/src/lj_tab.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_tab.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_tab.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/liblua.dir/src/lj_tab.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_tab.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_tab.c
 
 CMakeFiles/liblua.dir/src/lj_tab.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_tab.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_tab.c > CMakeFiles\liblua.dir\src\lj_tab.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_tab.c > CMakeFiles\liblua.dir\src\lj_tab.c.i
 
 CMakeFiles/liblua.dir/src/lj_tab.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_tab.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_tab.c -o CMakeFiles\liblua.dir\src\lj_tab.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_tab.c -o CMakeFiles\liblua.dir\src\lj_tab.c.s
 
 CMakeFiles/liblua.dir/src/lj_tab.c.obj.requires:
 
@@ -303,16 +303,16 @@ CMakeFiles/liblua.dir/src/lj_tab.c.obj.provides.build: CMakeFiles/liblua.dir/src
 CMakeFiles/liblua.dir/src/lj_func.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_func.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_func.c.obj: ../src/lj_func.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/liblua.dir/src/lj_func.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_func.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_func.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/liblua.dir/src/lj_func.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_func.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_func.c
 
 CMakeFiles/liblua.dir/src/lj_func.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_func.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_func.c > CMakeFiles\liblua.dir\src\lj_func.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_func.c > CMakeFiles\liblua.dir\src\lj_func.c.i
 
 CMakeFiles/liblua.dir/src/lj_func.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_func.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_func.c -o CMakeFiles\liblua.dir\src\lj_func.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_func.c -o CMakeFiles\liblua.dir\src\lj_func.c.s
 
 CMakeFiles/liblua.dir/src/lj_func.c.obj.requires:
 
@@ -328,16 +328,16 @@ CMakeFiles/liblua.dir/src/lj_func.c.obj.provides.build: CMakeFiles/liblua.dir/sr
 CMakeFiles/liblua.dir/src/lj_udata.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_udata.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_udata.c.obj: ../src/lj_udata.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/liblua.dir/src/lj_udata.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_udata.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_udata.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/liblua.dir/src/lj_udata.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_udata.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_udata.c
 
 CMakeFiles/liblua.dir/src/lj_udata.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_udata.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_udata.c > CMakeFiles\liblua.dir\src\lj_udata.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_udata.c > CMakeFiles\liblua.dir\src\lj_udata.c.i
 
 CMakeFiles/liblua.dir/src/lj_udata.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_udata.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_udata.c -o CMakeFiles\liblua.dir\src\lj_udata.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_udata.c -o CMakeFiles\liblua.dir\src\lj_udata.c.s
 
 CMakeFiles/liblua.dir/src/lj_udata.c.obj.requires:
 
@@ -353,16 +353,16 @@ CMakeFiles/liblua.dir/src/lj_udata.c.obj.provides.build: CMakeFiles/liblua.dir/s
 CMakeFiles/liblua.dir/src/lj_meta.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_meta.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_meta.c.obj: ../src/lj_meta.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/liblua.dir/src/lj_meta.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_meta.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_meta.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/liblua.dir/src/lj_meta.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_meta.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_meta.c
 
 CMakeFiles/liblua.dir/src/lj_meta.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_meta.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_meta.c > CMakeFiles\liblua.dir\src\lj_meta.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_meta.c > CMakeFiles\liblua.dir\src\lj_meta.c.i
 
 CMakeFiles/liblua.dir/src/lj_meta.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_meta.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_meta.c -o CMakeFiles\liblua.dir\src\lj_meta.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_meta.c -o CMakeFiles\liblua.dir\src\lj_meta.c.s
 
 CMakeFiles/liblua.dir/src/lj_meta.c.obj.requires:
 
@@ -378,16 +378,16 @@ CMakeFiles/liblua.dir/src/lj_meta.c.obj.provides.build: CMakeFiles/liblua.dir/sr
 CMakeFiles/liblua.dir/src/lj_debug.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_debug.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_debug.c.obj: ../src/lj_debug.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/liblua.dir/src/lj_debug.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_debug.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_debug.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/liblua.dir/src/lj_debug.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_debug.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_debug.c
 
 CMakeFiles/liblua.dir/src/lj_debug.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_debug.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_debug.c > CMakeFiles\liblua.dir\src\lj_debug.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_debug.c > CMakeFiles\liblua.dir\src\lj_debug.c.i
 
 CMakeFiles/liblua.dir/src/lj_debug.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_debug.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_debug.c -o CMakeFiles\liblua.dir\src\lj_debug.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_debug.c -o CMakeFiles\liblua.dir\src\lj_debug.c.s
 
 CMakeFiles/liblua.dir/src/lj_debug.c.obj.requires:
 
@@ -403,16 +403,16 @@ CMakeFiles/liblua.dir/src/lj_debug.c.obj.provides.build: CMakeFiles/liblua.dir/s
 CMakeFiles/liblua.dir/src/lj_state.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_state.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_state.c.obj: ../src/lj_state.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/liblua.dir/src/lj_state.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_state.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_state.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/liblua.dir/src/lj_state.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_state.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_state.c
 
 CMakeFiles/liblua.dir/src/lj_state.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_state.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_state.c > CMakeFiles\liblua.dir\src\lj_state.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_state.c > CMakeFiles\liblua.dir\src\lj_state.c.i
 
 CMakeFiles/liblua.dir/src/lj_state.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_state.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_state.c -o CMakeFiles\liblua.dir\src\lj_state.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_state.c -o CMakeFiles\liblua.dir\src\lj_state.c.s
 
 CMakeFiles/liblua.dir/src/lj_state.c.obj.requires:
 
@@ -428,16 +428,16 @@ CMakeFiles/liblua.dir/src/lj_state.c.obj.provides.build: CMakeFiles/liblua.dir/s
 CMakeFiles/liblua.dir/src/lj_dispatch.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_dispatch.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_dispatch.c.obj: ../src/lj_dispatch.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/liblua.dir/src/lj_dispatch.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_dispatch.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_dispatch.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/liblua.dir/src/lj_dispatch.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_dispatch.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_dispatch.c
 
 CMakeFiles/liblua.dir/src/lj_dispatch.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_dispatch.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_dispatch.c > CMakeFiles\liblua.dir\src\lj_dispatch.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_dispatch.c > CMakeFiles\liblua.dir\src\lj_dispatch.c.i
 
 CMakeFiles/liblua.dir/src/lj_dispatch.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_dispatch.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_dispatch.c -o CMakeFiles\liblua.dir\src\lj_dispatch.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_dispatch.c -o CMakeFiles\liblua.dir\src\lj_dispatch.c.s
 
 CMakeFiles/liblua.dir/src/lj_dispatch.c.obj.requires:
 
@@ -453,16 +453,16 @@ CMakeFiles/liblua.dir/src/lj_dispatch.c.obj.provides.build: CMakeFiles/liblua.di
 CMakeFiles/liblua.dir/src/lj_vmevent.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_vmevent.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_vmevent.c.obj: ../src/lj_vmevent.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/liblua.dir/src/lj_vmevent.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_vmevent.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_vmevent.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/liblua.dir/src/lj_vmevent.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_vmevent.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_vmevent.c
 
 CMakeFiles/liblua.dir/src/lj_vmevent.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_vmevent.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_vmevent.c > CMakeFiles\liblua.dir\src\lj_vmevent.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_vmevent.c > CMakeFiles\liblua.dir\src\lj_vmevent.c.i
 
 CMakeFiles/liblua.dir/src/lj_vmevent.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_vmevent.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_vmevent.c -o CMakeFiles\liblua.dir\src\lj_vmevent.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_vmevent.c -o CMakeFiles\liblua.dir\src\lj_vmevent.c.s
 
 CMakeFiles/liblua.dir/src/lj_vmevent.c.obj.requires:
 
@@ -478,16 +478,16 @@ CMakeFiles/liblua.dir/src/lj_vmevent.c.obj.provides.build: CMakeFiles/liblua.dir
 CMakeFiles/liblua.dir/src/lj_vmmath.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_vmmath.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_vmmath.c.obj: ../src/lj_vmmath.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/liblua.dir/src/lj_vmmath.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_vmmath.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_vmmath.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/liblua.dir/src/lj_vmmath.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_vmmath.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_vmmath.c
 
 CMakeFiles/liblua.dir/src/lj_vmmath.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_vmmath.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_vmmath.c > CMakeFiles\liblua.dir\src\lj_vmmath.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_vmmath.c > CMakeFiles\liblua.dir\src\lj_vmmath.c.i
 
 CMakeFiles/liblua.dir/src/lj_vmmath.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_vmmath.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_vmmath.c -o CMakeFiles\liblua.dir\src\lj_vmmath.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_vmmath.c -o CMakeFiles\liblua.dir\src\lj_vmmath.c.s
 
 CMakeFiles/liblua.dir/src/lj_vmmath.c.obj.requires:
 
@@ -503,16 +503,16 @@ CMakeFiles/liblua.dir/src/lj_vmmath.c.obj.provides.build: CMakeFiles/liblua.dir/
 CMakeFiles/liblua.dir/src/lj_strscan.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_strscan.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_strscan.c.obj: ../src/lj_strscan.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/liblua.dir/src/lj_strscan.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_strscan.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_strscan.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/liblua.dir/src/lj_strscan.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_strscan.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_strscan.c
 
 CMakeFiles/liblua.dir/src/lj_strscan.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_strscan.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_strscan.c > CMakeFiles\liblua.dir\src\lj_strscan.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_strscan.c > CMakeFiles\liblua.dir\src\lj_strscan.c.i
 
 CMakeFiles/liblua.dir/src/lj_strscan.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_strscan.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_strscan.c -o CMakeFiles\liblua.dir\src\lj_strscan.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_strscan.c -o CMakeFiles\liblua.dir\src\lj_strscan.c.s
 
 CMakeFiles/liblua.dir/src/lj_strscan.c.obj.requires:
 
@@ -528,16 +528,16 @@ CMakeFiles/liblua.dir/src/lj_strscan.c.obj.provides.build: CMakeFiles/liblua.dir
 CMakeFiles/liblua.dir/src/lj_api.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_api.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_api.c.obj: ../src/lj_api.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/liblua.dir/src/lj_api.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_api.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_api.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/liblua.dir/src/lj_api.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_api.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_api.c
 
 CMakeFiles/liblua.dir/src/lj_api.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_api.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_api.c > CMakeFiles\liblua.dir\src\lj_api.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_api.c > CMakeFiles\liblua.dir\src\lj_api.c.i
 
 CMakeFiles/liblua.dir/src/lj_api.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_api.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_api.c -o CMakeFiles\liblua.dir\src\lj_api.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_api.c -o CMakeFiles\liblua.dir\src\lj_api.c.s
 
 CMakeFiles/liblua.dir/src/lj_api.c.obj.requires:
 
@@ -553,16 +553,16 @@ CMakeFiles/liblua.dir/src/lj_api.c.obj.provides.build: CMakeFiles/liblua.dir/src
 CMakeFiles/liblua.dir/src/lj_lex.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_lex.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_lex.c.obj: ../src/lj_lex.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/liblua.dir/src/lj_lex.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_lex.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_lex.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/liblua.dir/src/lj_lex.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_lex.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_lex.c
 
 CMakeFiles/liblua.dir/src/lj_lex.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_lex.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_lex.c > CMakeFiles\liblua.dir\src\lj_lex.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_lex.c > CMakeFiles\liblua.dir\src\lj_lex.c.i
 
 CMakeFiles/liblua.dir/src/lj_lex.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_lex.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_lex.c -o CMakeFiles\liblua.dir\src\lj_lex.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_lex.c -o CMakeFiles\liblua.dir\src\lj_lex.c.s
 
 CMakeFiles/liblua.dir/src/lj_lex.c.obj.requires:
 
@@ -578,16 +578,16 @@ CMakeFiles/liblua.dir/src/lj_lex.c.obj.provides.build: CMakeFiles/liblua.dir/src
 CMakeFiles/liblua.dir/src/lj_parse.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_parse.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_parse.c.obj: ../src/lj_parse.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/liblua.dir/src/lj_parse.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_parse.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_parse.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/liblua.dir/src/lj_parse.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_parse.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_parse.c
 
 CMakeFiles/liblua.dir/src/lj_parse.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_parse.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_parse.c > CMakeFiles\liblua.dir\src\lj_parse.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_parse.c > CMakeFiles\liblua.dir\src\lj_parse.c.i
 
 CMakeFiles/liblua.dir/src/lj_parse.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_parse.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_parse.c -o CMakeFiles\liblua.dir\src\lj_parse.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_parse.c -o CMakeFiles\liblua.dir\src\lj_parse.c.s
 
 CMakeFiles/liblua.dir/src/lj_parse.c.obj.requires:
 
@@ -603,16 +603,16 @@ CMakeFiles/liblua.dir/src/lj_parse.c.obj.provides.build: CMakeFiles/liblua.dir/s
 CMakeFiles/liblua.dir/src/lj_bcread.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_bcread.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_bcread.c.obj: ../src/lj_bcread.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/liblua.dir/src/lj_bcread.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_bcread.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_bcread.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/liblua.dir/src/lj_bcread.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_bcread.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_bcread.c
 
 CMakeFiles/liblua.dir/src/lj_bcread.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_bcread.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_bcread.c > CMakeFiles\liblua.dir\src\lj_bcread.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_bcread.c > CMakeFiles\liblua.dir\src\lj_bcread.c.i
 
 CMakeFiles/liblua.dir/src/lj_bcread.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_bcread.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_bcread.c -o CMakeFiles\liblua.dir\src\lj_bcread.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_bcread.c -o CMakeFiles\liblua.dir\src\lj_bcread.c.s
 
 CMakeFiles/liblua.dir/src/lj_bcread.c.obj.requires:
 
@@ -628,16 +628,16 @@ CMakeFiles/liblua.dir/src/lj_bcread.c.obj.provides.build: CMakeFiles/liblua.dir/
 CMakeFiles/liblua.dir/src/lj_bcwrite.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_bcwrite.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_bcwrite.c.obj: ../src/lj_bcwrite.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/liblua.dir/src/lj_bcwrite.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_bcwrite.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_bcwrite.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/liblua.dir/src/lj_bcwrite.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_bcwrite.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_bcwrite.c
 
 CMakeFiles/liblua.dir/src/lj_bcwrite.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_bcwrite.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_bcwrite.c > CMakeFiles\liblua.dir\src\lj_bcwrite.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_bcwrite.c > CMakeFiles\liblua.dir\src\lj_bcwrite.c.i
 
 CMakeFiles/liblua.dir/src/lj_bcwrite.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_bcwrite.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_bcwrite.c -o CMakeFiles\liblua.dir\src\lj_bcwrite.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_bcwrite.c -o CMakeFiles\liblua.dir\src\lj_bcwrite.c.s
 
 CMakeFiles/liblua.dir/src/lj_bcwrite.c.obj.requires:
 
@@ -653,16 +653,16 @@ CMakeFiles/liblua.dir/src/lj_bcwrite.c.obj.provides.build: CMakeFiles/liblua.dir
 CMakeFiles/liblua.dir/src/lj_load.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_load.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_load.c.obj: ../src/lj_load.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/liblua.dir/src/lj_load.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_load.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_load.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/liblua.dir/src/lj_load.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_load.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_load.c
 
 CMakeFiles/liblua.dir/src/lj_load.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_load.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_load.c > CMakeFiles\liblua.dir\src\lj_load.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_load.c > CMakeFiles\liblua.dir\src\lj_load.c.i
 
 CMakeFiles/liblua.dir/src/lj_load.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_load.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_load.c -o CMakeFiles\liblua.dir\src\lj_load.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_load.c -o CMakeFiles\liblua.dir\src\lj_load.c.s
 
 CMakeFiles/liblua.dir/src/lj_load.c.obj.requires:
 
@@ -678,16 +678,16 @@ CMakeFiles/liblua.dir/src/lj_load.c.obj.provides.build: CMakeFiles/liblua.dir/sr
 CMakeFiles/liblua.dir/src/lj_ir.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_ir.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_ir.c.obj: ../src/lj_ir.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/liblua.dir/src/lj_ir.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_ir.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_ir.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/liblua.dir/src/lj_ir.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_ir.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_ir.c
 
 CMakeFiles/liblua.dir/src/lj_ir.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_ir.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_ir.c > CMakeFiles\liblua.dir\src\lj_ir.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_ir.c > CMakeFiles\liblua.dir\src\lj_ir.c.i
 
 CMakeFiles/liblua.dir/src/lj_ir.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_ir.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_ir.c -o CMakeFiles\liblua.dir\src\lj_ir.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_ir.c -o CMakeFiles\liblua.dir\src\lj_ir.c.s
 
 CMakeFiles/liblua.dir/src/lj_ir.c.obj.requires:
 
@@ -703,16 +703,16 @@ CMakeFiles/liblua.dir/src/lj_ir.c.obj.provides.build: CMakeFiles/liblua.dir/src/
 CMakeFiles/liblua.dir/src/lj_opt_mem.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_opt_mem.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_opt_mem.c.obj: ../src/lj_opt_mem.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/liblua.dir/src/lj_opt_mem.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_opt_mem.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_opt_mem.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/liblua.dir/src/lj_opt_mem.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_opt_mem.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_opt_mem.c
 
 CMakeFiles/liblua.dir/src/lj_opt_mem.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_opt_mem.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_opt_mem.c > CMakeFiles\liblua.dir\src\lj_opt_mem.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_opt_mem.c > CMakeFiles\liblua.dir\src\lj_opt_mem.c.i
 
 CMakeFiles/liblua.dir/src/lj_opt_mem.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_opt_mem.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_opt_mem.c -o CMakeFiles\liblua.dir\src\lj_opt_mem.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_opt_mem.c -o CMakeFiles\liblua.dir\src\lj_opt_mem.c.s
 
 CMakeFiles/liblua.dir/src/lj_opt_mem.c.obj.requires:
 
@@ -728,16 +728,16 @@ CMakeFiles/liblua.dir/src/lj_opt_mem.c.obj.provides.build: CMakeFiles/liblua.dir
 CMakeFiles/liblua.dir/src/lj_opt_fold.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_opt_fold.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_opt_fold.c.obj: ../src/lj_opt_fold.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/liblua.dir/src/lj_opt_fold.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_opt_fold.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_opt_fold.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/liblua.dir/src/lj_opt_fold.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_opt_fold.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_opt_fold.c
 
 CMakeFiles/liblua.dir/src/lj_opt_fold.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_opt_fold.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_opt_fold.c > CMakeFiles\liblua.dir\src\lj_opt_fold.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_opt_fold.c > CMakeFiles\liblua.dir\src\lj_opt_fold.c.i
 
 CMakeFiles/liblua.dir/src/lj_opt_fold.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_opt_fold.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_opt_fold.c -o CMakeFiles\liblua.dir\src\lj_opt_fold.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_opt_fold.c -o CMakeFiles\liblua.dir\src\lj_opt_fold.c.s
 
 CMakeFiles/liblua.dir/src/lj_opt_fold.c.obj.requires:
 
@@ -753,16 +753,16 @@ CMakeFiles/liblua.dir/src/lj_opt_fold.c.obj.provides.build: CMakeFiles/liblua.di
 CMakeFiles/liblua.dir/src/lj_opt_narrow.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_opt_narrow.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_opt_narrow.c.obj: ../src/lj_opt_narrow.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/liblua.dir/src/lj_opt_narrow.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_opt_narrow.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_opt_narrow.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/liblua.dir/src/lj_opt_narrow.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_opt_narrow.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_opt_narrow.c
 
 CMakeFiles/liblua.dir/src/lj_opt_narrow.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_opt_narrow.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_opt_narrow.c > CMakeFiles\liblua.dir\src\lj_opt_narrow.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_opt_narrow.c > CMakeFiles\liblua.dir\src\lj_opt_narrow.c.i
 
 CMakeFiles/liblua.dir/src/lj_opt_narrow.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_opt_narrow.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_opt_narrow.c -o CMakeFiles\liblua.dir\src\lj_opt_narrow.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_opt_narrow.c -o CMakeFiles\liblua.dir\src\lj_opt_narrow.c.s
 
 CMakeFiles/liblua.dir/src/lj_opt_narrow.c.obj.requires:
 
@@ -778,16 +778,16 @@ CMakeFiles/liblua.dir/src/lj_opt_narrow.c.obj.provides.build: CMakeFiles/liblua.
 CMakeFiles/liblua.dir/src/lj_opt_dce.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_opt_dce.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_opt_dce.c.obj: ../src/lj_opt_dce.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/liblua.dir/src/lj_opt_dce.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_opt_dce.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_opt_dce.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/liblua.dir/src/lj_opt_dce.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_opt_dce.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_opt_dce.c
 
 CMakeFiles/liblua.dir/src/lj_opt_dce.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_opt_dce.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_opt_dce.c > CMakeFiles\liblua.dir\src\lj_opt_dce.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_opt_dce.c > CMakeFiles\liblua.dir\src\lj_opt_dce.c.i
 
 CMakeFiles/liblua.dir/src/lj_opt_dce.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_opt_dce.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_opt_dce.c -o CMakeFiles\liblua.dir\src\lj_opt_dce.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_opt_dce.c -o CMakeFiles\liblua.dir\src\lj_opt_dce.c.s
 
 CMakeFiles/liblua.dir/src/lj_opt_dce.c.obj.requires:
 
@@ -803,16 +803,16 @@ CMakeFiles/liblua.dir/src/lj_opt_dce.c.obj.provides.build: CMakeFiles/liblua.dir
 CMakeFiles/liblua.dir/src/lj_opt_loop.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_opt_loop.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_opt_loop.c.obj: ../src/lj_opt_loop.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/liblua.dir/src/lj_opt_loop.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_opt_loop.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_opt_loop.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/liblua.dir/src/lj_opt_loop.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_opt_loop.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_opt_loop.c
 
 CMakeFiles/liblua.dir/src/lj_opt_loop.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_opt_loop.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_opt_loop.c > CMakeFiles\liblua.dir\src\lj_opt_loop.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_opt_loop.c > CMakeFiles\liblua.dir\src\lj_opt_loop.c.i
 
 CMakeFiles/liblua.dir/src/lj_opt_loop.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_opt_loop.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_opt_loop.c -o CMakeFiles\liblua.dir\src\lj_opt_loop.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_opt_loop.c -o CMakeFiles\liblua.dir\src\lj_opt_loop.c.s
 
 CMakeFiles/liblua.dir/src/lj_opt_loop.c.obj.requires:
 
@@ -828,16 +828,16 @@ CMakeFiles/liblua.dir/src/lj_opt_loop.c.obj.provides.build: CMakeFiles/liblua.di
 CMakeFiles/liblua.dir/src/lj_opt_split.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_opt_split.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_opt_split.c.obj: ../src/lj_opt_split.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/liblua.dir/src/lj_opt_split.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_opt_split.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_opt_split.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/liblua.dir/src/lj_opt_split.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_opt_split.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_opt_split.c
 
 CMakeFiles/liblua.dir/src/lj_opt_split.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_opt_split.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_opt_split.c > CMakeFiles\liblua.dir\src\lj_opt_split.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_opt_split.c > CMakeFiles\liblua.dir\src\lj_opt_split.c.i
 
 CMakeFiles/liblua.dir/src/lj_opt_split.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_opt_split.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_opt_split.c -o CMakeFiles\liblua.dir\src\lj_opt_split.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_opt_split.c -o CMakeFiles\liblua.dir\src\lj_opt_split.c.s
 
 CMakeFiles/liblua.dir/src/lj_opt_split.c.obj.requires:
 
@@ -853,16 +853,16 @@ CMakeFiles/liblua.dir/src/lj_opt_split.c.obj.provides.build: CMakeFiles/liblua.d
 CMakeFiles/liblua.dir/src/lj_opt_sink.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_opt_sink.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_opt_sink.c.obj: ../src/lj_opt_sink.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/liblua.dir/src/lj_opt_sink.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_opt_sink.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_opt_sink.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/liblua.dir/src/lj_opt_sink.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_opt_sink.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_opt_sink.c
 
 CMakeFiles/liblua.dir/src/lj_opt_sink.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_opt_sink.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_opt_sink.c > CMakeFiles\liblua.dir\src\lj_opt_sink.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_opt_sink.c > CMakeFiles\liblua.dir\src\lj_opt_sink.c.i
 
 CMakeFiles/liblua.dir/src/lj_opt_sink.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_opt_sink.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_opt_sink.c -o CMakeFiles\liblua.dir\src\lj_opt_sink.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_opt_sink.c -o CMakeFiles\liblua.dir\src\lj_opt_sink.c.s
 
 CMakeFiles/liblua.dir/src/lj_opt_sink.c.obj.requires:
 
@@ -878,16 +878,16 @@ CMakeFiles/liblua.dir/src/lj_opt_sink.c.obj.provides.build: CMakeFiles/liblua.di
 CMakeFiles/liblua.dir/src/lj_mcode.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_mcode.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_mcode.c.obj: ../src/lj_mcode.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/liblua.dir/src/lj_mcode.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_mcode.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_mcode.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/liblua.dir/src/lj_mcode.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_mcode.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_mcode.c
 
 CMakeFiles/liblua.dir/src/lj_mcode.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_mcode.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_mcode.c > CMakeFiles\liblua.dir\src\lj_mcode.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_mcode.c > CMakeFiles\liblua.dir\src\lj_mcode.c.i
 
 CMakeFiles/liblua.dir/src/lj_mcode.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_mcode.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_mcode.c -o CMakeFiles\liblua.dir\src\lj_mcode.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_mcode.c -o CMakeFiles\liblua.dir\src\lj_mcode.c.s
 
 CMakeFiles/liblua.dir/src/lj_mcode.c.obj.requires:
 
@@ -903,16 +903,16 @@ CMakeFiles/liblua.dir/src/lj_mcode.c.obj.provides.build: CMakeFiles/liblua.dir/s
 CMakeFiles/liblua.dir/src/lj_snap.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_snap.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_snap.c.obj: ../src/lj_snap.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/liblua.dir/src/lj_snap.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_snap.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_snap.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/liblua.dir/src/lj_snap.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_snap.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_snap.c
 
 CMakeFiles/liblua.dir/src/lj_snap.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_snap.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_snap.c > CMakeFiles\liblua.dir\src\lj_snap.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_snap.c > CMakeFiles\liblua.dir\src\lj_snap.c.i
 
 CMakeFiles/liblua.dir/src/lj_snap.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_snap.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_snap.c -o CMakeFiles\liblua.dir\src\lj_snap.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_snap.c -o CMakeFiles\liblua.dir\src\lj_snap.c.s
 
 CMakeFiles/liblua.dir/src/lj_snap.c.obj.requires:
 
@@ -928,16 +928,16 @@ CMakeFiles/liblua.dir/src/lj_snap.c.obj.provides.build: CMakeFiles/liblua.dir/sr
 CMakeFiles/liblua.dir/src/lj_record.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_record.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_record.c.obj: ../src/lj_record.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building C object CMakeFiles/liblua.dir/src/lj_record.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_record.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_record.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building C object CMakeFiles/liblua.dir/src/lj_record.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_record.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_record.c
 
 CMakeFiles/liblua.dir/src/lj_record.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_record.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_record.c > CMakeFiles\liblua.dir\src\lj_record.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_record.c > CMakeFiles\liblua.dir\src\lj_record.c.i
 
 CMakeFiles/liblua.dir/src/lj_record.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_record.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_record.c -o CMakeFiles\liblua.dir\src\lj_record.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_record.c -o CMakeFiles\liblua.dir\src\lj_record.c.s
 
 CMakeFiles/liblua.dir/src/lj_record.c.obj.requires:
 
@@ -953,16 +953,16 @@ CMakeFiles/liblua.dir/src/lj_record.c.obj.provides.build: CMakeFiles/liblua.dir/
 CMakeFiles/liblua.dir/src/lj_crecord.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_crecord.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_crecord.c.obj: ../src/lj_crecord.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/liblua.dir/src/lj_crecord.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_crecord.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_crecord.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/liblua.dir/src/lj_crecord.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_crecord.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_crecord.c
 
 CMakeFiles/liblua.dir/src/lj_crecord.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_crecord.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_crecord.c > CMakeFiles\liblua.dir\src\lj_crecord.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_crecord.c > CMakeFiles\liblua.dir\src\lj_crecord.c.i
 
 CMakeFiles/liblua.dir/src/lj_crecord.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_crecord.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_crecord.c -o CMakeFiles\liblua.dir\src\lj_crecord.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_crecord.c -o CMakeFiles\liblua.dir\src\lj_crecord.c.s
 
 CMakeFiles/liblua.dir/src/lj_crecord.c.obj.requires:
 
@@ -978,16 +978,16 @@ CMakeFiles/liblua.dir/src/lj_crecord.c.obj.provides.build: CMakeFiles/liblua.dir
 CMakeFiles/liblua.dir/src/lj_ffrecord.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_ffrecord.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_ffrecord.c.obj: ../src/lj_ffrecord.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/liblua.dir/src/lj_ffrecord.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_ffrecord.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_ffrecord.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/liblua.dir/src/lj_ffrecord.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_ffrecord.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_ffrecord.c
 
 CMakeFiles/liblua.dir/src/lj_ffrecord.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_ffrecord.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_ffrecord.c > CMakeFiles\liblua.dir\src\lj_ffrecord.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_ffrecord.c > CMakeFiles\liblua.dir\src\lj_ffrecord.c.i
 
 CMakeFiles/liblua.dir/src/lj_ffrecord.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_ffrecord.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_ffrecord.c -o CMakeFiles\liblua.dir\src\lj_ffrecord.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_ffrecord.c -o CMakeFiles\liblua.dir\src\lj_ffrecord.c.s
 
 CMakeFiles/liblua.dir/src/lj_ffrecord.c.obj.requires:
 
@@ -1003,16 +1003,16 @@ CMakeFiles/liblua.dir/src/lj_ffrecord.c.obj.provides.build: CMakeFiles/liblua.di
 CMakeFiles/liblua.dir/src/lj_asm.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_asm.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_asm.c.obj: ../src/lj_asm.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building C object CMakeFiles/liblua.dir/src/lj_asm.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_asm.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_asm.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building C object CMakeFiles/liblua.dir/src/lj_asm.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_asm.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_asm.c
 
 CMakeFiles/liblua.dir/src/lj_asm.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_asm.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_asm.c > CMakeFiles\liblua.dir\src\lj_asm.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_asm.c > CMakeFiles\liblua.dir\src\lj_asm.c.i
 
 CMakeFiles/liblua.dir/src/lj_asm.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_asm.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_asm.c -o CMakeFiles\liblua.dir\src\lj_asm.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_asm.c -o CMakeFiles\liblua.dir\src\lj_asm.c.s
 
 CMakeFiles/liblua.dir/src/lj_asm.c.obj.requires:
 
@@ -1028,16 +1028,16 @@ CMakeFiles/liblua.dir/src/lj_asm.c.obj.provides.build: CMakeFiles/liblua.dir/src
 CMakeFiles/liblua.dir/src/lj_trace.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_trace.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_trace.c.obj: ../src/lj_trace.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/liblua.dir/src/lj_trace.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_trace.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_trace.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/liblua.dir/src/lj_trace.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_trace.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_trace.c
 
 CMakeFiles/liblua.dir/src/lj_trace.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_trace.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_trace.c > CMakeFiles\liblua.dir\src\lj_trace.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_trace.c > CMakeFiles\liblua.dir\src\lj_trace.c.i
 
 CMakeFiles/liblua.dir/src/lj_trace.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_trace.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_trace.c -o CMakeFiles\liblua.dir\src\lj_trace.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_trace.c -o CMakeFiles\liblua.dir\src\lj_trace.c.s
 
 CMakeFiles/liblua.dir/src/lj_trace.c.obj.requires:
 
@@ -1053,16 +1053,16 @@ CMakeFiles/liblua.dir/src/lj_trace.c.obj.provides.build: CMakeFiles/liblua.dir/s
 CMakeFiles/liblua.dir/src/lj_gdbjit.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_gdbjit.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_gdbjit.c.obj: ../src/lj_gdbjit.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object CMakeFiles/liblua.dir/src/lj_gdbjit.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_gdbjit.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_gdbjit.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object CMakeFiles/liblua.dir/src/lj_gdbjit.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_gdbjit.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_gdbjit.c
 
 CMakeFiles/liblua.dir/src/lj_gdbjit.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_gdbjit.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_gdbjit.c > CMakeFiles\liblua.dir\src\lj_gdbjit.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_gdbjit.c > CMakeFiles\liblua.dir\src\lj_gdbjit.c.i
 
 CMakeFiles/liblua.dir/src/lj_gdbjit.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_gdbjit.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_gdbjit.c -o CMakeFiles\liblua.dir\src\lj_gdbjit.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_gdbjit.c -o CMakeFiles\liblua.dir\src\lj_gdbjit.c.s
 
 CMakeFiles/liblua.dir/src/lj_gdbjit.c.obj.requires:
 
@@ -1078,16 +1078,16 @@ CMakeFiles/liblua.dir/src/lj_gdbjit.c.obj.provides.build: CMakeFiles/liblua.dir/
 CMakeFiles/liblua.dir/src/lj_ctype.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_ctype.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_ctype.c.obj: ../src/lj_ctype.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object CMakeFiles/liblua.dir/src/lj_ctype.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_ctype.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_ctype.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object CMakeFiles/liblua.dir/src/lj_ctype.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_ctype.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_ctype.c
 
 CMakeFiles/liblua.dir/src/lj_ctype.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_ctype.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_ctype.c > CMakeFiles\liblua.dir\src\lj_ctype.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_ctype.c > CMakeFiles\liblua.dir\src\lj_ctype.c.i
 
 CMakeFiles/liblua.dir/src/lj_ctype.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_ctype.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_ctype.c -o CMakeFiles\liblua.dir\src\lj_ctype.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_ctype.c -o CMakeFiles\liblua.dir\src\lj_ctype.c.s
 
 CMakeFiles/liblua.dir/src/lj_ctype.c.obj.requires:
 
@@ -1103,16 +1103,16 @@ CMakeFiles/liblua.dir/src/lj_ctype.c.obj.provides.build: CMakeFiles/liblua.dir/s
 CMakeFiles/liblua.dir/src/lj_cdata.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_cdata.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_cdata.c.obj: ../src/lj_cdata.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/liblua.dir/src/lj_cdata.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_cdata.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_cdata.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/liblua.dir/src/lj_cdata.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_cdata.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_cdata.c
 
 CMakeFiles/liblua.dir/src/lj_cdata.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_cdata.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_cdata.c > CMakeFiles\liblua.dir\src\lj_cdata.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_cdata.c > CMakeFiles\liblua.dir\src\lj_cdata.c.i
 
 CMakeFiles/liblua.dir/src/lj_cdata.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_cdata.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_cdata.c -o CMakeFiles\liblua.dir\src\lj_cdata.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_cdata.c -o CMakeFiles\liblua.dir\src\lj_cdata.c.s
 
 CMakeFiles/liblua.dir/src/lj_cdata.c.obj.requires:
 
@@ -1128,16 +1128,16 @@ CMakeFiles/liblua.dir/src/lj_cdata.c.obj.provides.build: CMakeFiles/liblua.dir/s
 CMakeFiles/liblua.dir/src/lj_cconv.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_cconv.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_cconv.c.obj: ../src/lj_cconv.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/liblua.dir/src/lj_cconv.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_cconv.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_cconv.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/liblua.dir/src/lj_cconv.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_cconv.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_cconv.c
 
 CMakeFiles/liblua.dir/src/lj_cconv.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_cconv.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_cconv.c > CMakeFiles\liblua.dir\src\lj_cconv.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_cconv.c > CMakeFiles\liblua.dir\src\lj_cconv.c.i
 
 CMakeFiles/liblua.dir/src/lj_cconv.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_cconv.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_cconv.c -o CMakeFiles\liblua.dir\src\lj_cconv.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_cconv.c -o CMakeFiles\liblua.dir\src\lj_cconv.c.s
 
 CMakeFiles/liblua.dir/src/lj_cconv.c.obj.requires:
 
@@ -1153,16 +1153,16 @@ CMakeFiles/liblua.dir/src/lj_cconv.c.obj.provides.build: CMakeFiles/liblua.dir/s
 CMakeFiles/liblua.dir/src/lj_ccall.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_ccall.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_ccall.c.obj: ../src/lj_ccall.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/liblua.dir/src/lj_ccall.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_ccall.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_ccall.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building C object CMakeFiles/liblua.dir/src/lj_ccall.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_ccall.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_ccall.c
 
 CMakeFiles/liblua.dir/src/lj_ccall.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_ccall.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_ccall.c > CMakeFiles\liblua.dir\src\lj_ccall.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_ccall.c > CMakeFiles\liblua.dir\src\lj_ccall.c.i
 
 CMakeFiles/liblua.dir/src/lj_ccall.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_ccall.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_ccall.c -o CMakeFiles\liblua.dir\src\lj_ccall.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_ccall.c -o CMakeFiles\liblua.dir\src\lj_ccall.c.s
 
 CMakeFiles/liblua.dir/src/lj_ccall.c.obj.requires:
 
@@ -1178,16 +1178,16 @@ CMakeFiles/liblua.dir/src/lj_ccall.c.obj.provides.build: CMakeFiles/liblua.dir/s
 CMakeFiles/liblua.dir/src/lj_ccallback.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_ccallback.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_ccallback.c.obj: ../src/lj_ccallback.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building C object CMakeFiles/liblua.dir/src/lj_ccallback.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_ccallback.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_ccallback.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building C object CMakeFiles/liblua.dir/src/lj_ccallback.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_ccallback.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_ccallback.c
 
 CMakeFiles/liblua.dir/src/lj_ccallback.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_ccallback.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_ccallback.c > CMakeFiles\liblua.dir\src\lj_ccallback.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_ccallback.c > CMakeFiles\liblua.dir\src\lj_ccallback.c.i
 
 CMakeFiles/liblua.dir/src/lj_ccallback.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_ccallback.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_ccallback.c -o CMakeFiles\liblua.dir\src\lj_ccallback.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_ccallback.c -o CMakeFiles\liblua.dir\src\lj_ccallback.c.s
 
 CMakeFiles/liblua.dir/src/lj_ccallback.c.obj.requires:
 
@@ -1203,16 +1203,16 @@ CMakeFiles/liblua.dir/src/lj_ccallback.c.obj.provides.build: CMakeFiles/liblua.d
 CMakeFiles/liblua.dir/src/lj_carith.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_carith.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_carith.c.obj: ../src/lj_carith.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/liblua.dir/src/lj_carith.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_carith.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_carith.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building C object CMakeFiles/liblua.dir/src/lj_carith.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_carith.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_carith.c
 
 CMakeFiles/liblua.dir/src/lj_carith.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_carith.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_carith.c > CMakeFiles\liblua.dir\src\lj_carith.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_carith.c > CMakeFiles\liblua.dir\src\lj_carith.c.i
 
 CMakeFiles/liblua.dir/src/lj_carith.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_carith.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_carith.c -o CMakeFiles\liblua.dir\src\lj_carith.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_carith.c -o CMakeFiles\liblua.dir\src\lj_carith.c.s
 
 CMakeFiles/liblua.dir/src/lj_carith.c.obj.requires:
 
@@ -1228,16 +1228,16 @@ CMakeFiles/liblua.dir/src/lj_carith.c.obj.provides.build: CMakeFiles/liblua.dir/
 CMakeFiles/liblua.dir/src/lj_clib.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_clib.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_clib.c.obj: ../src/lj_clib.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object CMakeFiles/liblua.dir/src/lj_clib.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_clib.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_clib.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building C object CMakeFiles/liblua.dir/src/lj_clib.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_clib.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_clib.c
 
 CMakeFiles/liblua.dir/src/lj_clib.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_clib.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_clib.c > CMakeFiles\liblua.dir\src\lj_clib.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_clib.c > CMakeFiles\liblua.dir\src\lj_clib.c.i
 
 CMakeFiles/liblua.dir/src/lj_clib.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_clib.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_clib.c -o CMakeFiles\liblua.dir\src\lj_clib.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_clib.c -o CMakeFiles\liblua.dir\src\lj_clib.c.s
 
 CMakeFiles/liblua.dir/src/lj_clib.c.obj.requires:
 
@@ -1253,16 +1253,16 @@ CMakeFiles/liblua.dir/src/lj_clib.c.obj.provides.build: CMakeFiles/liblua.dir/sr
 CMakeFiles/liblua.dir/src/lj_cparse.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_cparse.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_cparse.c.obj: ../src/lj_cparse.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object CMakeFiles/liblua.dir/src/lj_cparse.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_cparse.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_cparse.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building C object CMakeFiles/liblua.dir/src/lj_cparse.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_cparse.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_cparse.c
 
 CMakeFiles/liblua.dir/src/lj_cparse.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_cparse.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_cparse.c > CMakeFiles\liblua.dir\src\lj_cparse.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_cparse.c > CMakeFiles\liblua.dir\src\lj_cparse.c.i
 
 CMakeFiles/liblua.dir/src/lj_cparse.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_cparse.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_cparse.c -o CMakeFiles\liblua.dir\src\lj_cparse.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_cparse.c -o CMakeFiles\liblua.dir\src\lj_cparse.c.s
 
 CMakeFiles/liblua.dir/src/lj_cparse.c.obj.requires:
 
@@ -1278,16 +1278,16 @@ CMakeFiles/liblua.dir/src/lj_cparse.c.obj.provides.build: CMakeFiles/liblua.dir/
 CMakeFiles/liblua.dir/src/lj_lib.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_lib.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_lib.c.obj: ../src/lj_lib.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object CMakeFiles/liblua.dir/src/lj_lib.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_lib.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_lib.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building C object CMakeFiles/liblua.dir/src/lj_lib.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_lib.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_lib.c
 
 CMakeFiles/liblua.dir/src/lj_lib.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_lib.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_lib.c > CMakeFiles\liblua.dir\src\lj_lib.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_lib.c > CMakeFiles\liblua.dir\src\lj_lib.c.i
 
 CMakeFiles/liblua.dir/src/lj_lib.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_lib.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_lib.c -o CMakeFiles\liblua.dir\src\lj_lib.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_lib.c -o CMakeFiles\liblua.dir\src\lj_lib.c.s
 
 CMakeFiles/liblua.dir/src/lj_lib.c.obj.requires:
 
@@ -1303,16 +1303,16 @@ CMakeFiles/liblua.dir/src/lj_lib.c.obj.provides.build: CMakeFiles/liblua.dir/src
 CMakeFiles/liblua.dir/src/lj_alloc.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lj_alloc.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lj_alloc.c.obj: ../src/lj_alloc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/liblua.dir/src/lj_alloc.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_alloc.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_alloc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building C object CMakeFiles/liblua.dir/src/lj_alloc.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lj_alloc.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lj_alloc.c
 
 CMakeFiles/liblua.dir/src/lj_alloc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lj_alloc.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_alloc.c > CMakeFiles\liblua.dir\src\lj_alloc.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lj_alloc.c > CMakeFiles\liblua.dir\src\lj_alloc.c.i
 
 CMakeFiles/liblua.dir/src/lj_alloc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lj_alloc.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lj_alloc.c -o CMakeFiles\liblua.dir\src\lj_alloc.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lj_alloc.c -o CMakeFiles\liblua.dir\src\lj_alloc.c.s
 
 CMakeFiles/liblua.dir/src/lj_alloc.c.obj.requires:
 
@@ -1328,16 +1328,16 @@ CMakeFiles/liblua.dir/src/lj_alloc.c.obj.provides.build: CMakeFiles/liblua.dir/s
 CMakeFiles/liblua.dir/src/lib_aux.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lib_aux.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lib_aux.c.obj: ../src/lib_aux.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object CMakeFiles/liblua.dir/src/lib_aux.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lib_aux.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_aux.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building C object CMakeFiles/liblua.dir/src/lib_aux.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lib_aux.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lib_aux.c
 
 CMakeFiles/liblua.dir/src/lib_aux.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lib_aux.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_aux.c > CMakeFiles\liblua.dir\src\lib_aux.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lib_aux.c > CMakeFiles\liblua.dir\src\lib_aux.c.i
 
 CMakeFiles/liblua.dir/src/lib_aux.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lib_aux.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_aux.c -o CMakeFiles\liblua.dir\src\lib_aux.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lib_aux.c -o CMakeFiles\liblua.dir\src\lib_aux.c.s
 
 CMakeFiles/liblua.dir/src/lib_aux.c.obj.requires:
 
@@ -1353,16 +1353,16 @@ CMakeFiles/liblua.dir/src/lib_aux.c.obj.provides.build: CMakeFiles/liblua.dir/sr
 CMakeFiles/liblua.dir/src/lib_init.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lib_init.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lib_init.c.obj: ../src/lib_init.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building C object CMakeFiles/liblua.dir/src/lib_init.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lib_init.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_init.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building C object CMakeFiles/liblua.dir/src/lib_init.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lib_init.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lib_init.c
 
 CMakeFiles/liblua.dir/src/lib_init.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lib_init.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_init.c > CMakeFiles\liblua.dir\src\lib_init.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lib_init.c > CMakeFiles\liblua.dir\src\lib_init.c.i
 
 CMakeFiles/liblua.dir/src/lib_init.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lib_init.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_init.c -o CMakeFiles\liblua.dir\src\lib_init.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lib_init.c -o CMakeFiles\liblua.dir\src\lib_init.c.s
 
 CMakeFiles/liblua.dir/src/lib_init.c.obj.requires:
 
@@ -1378,16 +1378,16 @@ CMakeFiles/liblua.dir/src/lib_init.c.obj.provides.build: CMakeFiles/liblua.dir/s
 CMakeFiles/liblua.dir/src/lib_base.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lib_base.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lib_base.c.obj: ../src/lib_base.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building C object CMakeFiles/liblua.dir/src/lib_base.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lib_base.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_base.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building C object CMakeFiles/liblua.dir/src/lib_base.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lib_base.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lib_base.c
 
 CMakeFiles/liblua.dir/src/lib_base.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lib_base.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_base.c > CMakeFiles\liblua.dir\src\lib_base.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lib_base.c > CMakeFiles\liblua.dir\src\lib_base.c.i
 
 CMakeFiles/liblua.dir/src/lib_base.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lib_base.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_base.c -o CMakeFiles\liblua.dir\src\lib_base.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lib_base.c -o CMakeFiles\liblua.dir\src\lib_base.c.s
 
 CMakeFiles/liblua.dir/src/lib_base.c.obj.requires:
 
@@ -1403,16 +1403,16 @@ CMakeFiles/liblua.dir/src/lib_base.c.obj.provides.build: CMakeFiles/liblua.dir/s
 CMakeFiles/liblua.dir/src/lib_math.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lib_math.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lib_math.c.obj: ../src/lib_math.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building C object CMakeFiles/liblua.dir/src/lib_math.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lib_math.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_math.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building C object CMakeFiles/liblua.dir/src/lib_math.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lib_math.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lib_math.c
 
 CMakeFiles/liblua.dir/src/lib_math.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lib_math.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_math.c > CMakeFiles\liblua.dir\src\lib_math.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lib_math.c > CMakeFiles\liblua.dir\src\lib_math.c.i
 
 CMakeFiles/liblua.dir/src/lib_math.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lib_math.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_math.c -o CMakeFiles\liblua.dir\src\lib_math.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lib_math.c -o CMakeFiles\liblua.dir\src\lib_math.c.s
 
 CMakeFiles/liblua.dir/src/lib_math.c.obj.requires:
 
@@ -1428,16 +1428,16 @@ CMakeFiles/liblua.dir/src/lib_math.c.obj.provides.build: CMakeFiles/liblua.dir/s
 CMakeFiles/liblua.dir/src/lib_bit.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lib_bit.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lib_bit.c.obj: ../src/lib_bit.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building C object CMakeFiles/liblua.dir/src/lib_bit.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lib_bit.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_bit.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building C object CMakeFiles/liblua.dir/src/lib_bit.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lib_bit.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lib_bit.c
 
 CMakeFiles/liblua.dir/src/lib_bit.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lib_bit.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_bit.c > CMakeFiles\liblua.dir\src\lib_bit.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lib_bit.c > CMakeFiles\liblua.dir\src\lib_bit.c.i
 
 CMakeFiles/liblua.dir/src/lib_bit.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lib_bit.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_bit.c -o CMakeFiles\liblua.dir\src\lib_bit.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lib_bit.c -o CMakeFiles\liblua.dir\src\lib_bit.c.s
 
 CMakeFiles/liblua.dir/src/lib_bit.c.obj.requires:
 
@@ -1453,16 +1453,16 @@ CMakeFiles/liblua.dir/src/lib_bit.c.obj.provides.build: CMakeFiles/liblua.dir/sr
 CMakeFiles/liblua.dir/src/lib_string.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lib_string.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lib_string.c.obj: ../src/lib_string.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building C object CMakeFiles/liblua.dir/src/lib_string.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lib_string.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_string.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building C object CMakeFiles/liblua.dir/src/lib_string.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lib_string.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lib_string.c
 
 CMakeFiles/liblua.dir/src/lib_string.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lib_string.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_string.c > CMakeFiles\liblua.dir\src\lib_string.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lib_string.c > CMakeFiles\liblua.dir\src\lib_string.c.i
 
 CMakeFiles/liblua.dir/src/lib_string.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lib_string.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_string.c -o CMakeFiles\liblua.dir\src\lib_string.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lib_string.c -o CMakeFiles\liblua.dir\src\lib_string.c.s
 
 CMakeFiles/liblua.dir/src/lib_string.c.obj.requires:
 
@@ -1478,16 +1478,16 @@ CMakeFiles/liblua.dir/src/lib_string.c.obj.provides.build: CMakeFiles/liblua.dir
 CMakeFiles/liblua.dir/src/lib_table.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lib_table.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lib_table.c.obj: ../src/lib_table.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building C object CMakeFiles/liblua.dir/src/lib_table.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lib_table.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_table.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building C object CMakeFiles/liblua.dir/src/lib_table.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lib_table.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lib_table.c
 
 CMakeFiles/liblua.dir/src/lib_table.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lib_table.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_table.c > CMakeFiles\liblua.dir\src\lib_table.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lib_table.c > CMakeFiles\liblua.dir\src\lib_table.c.i
 
 CMakeFiles/liblua.dir/src/lib_table.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lib_table.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_table.c -o CMakeFiles\liblua.dir\src\lib_table.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lib_table.c -o CMakeFiles\liblua.dir\src\lib_table.c.s
 
 CMakeFiles/liblua.dir/src/lib_table.c.obj.requires:
 
@@ -1503,16 +1503,16 @@ CMakeFiles/liblua.dir/src/lib_table.c.obj.provides.build: CMakeFiles/liblua.dir/
 CMakeFiles/liblua.dir/src/lib_io.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lib_io.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lib_io.c.obj: ../src/lib_io.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building C object CMakeFiles/liblua.dir/src/lib_io.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lib_io.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_io.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building C object CMakeFiles/liblua.dir/src/lib_io.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lib_io.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lib_io.c
 
 CMakeFiles/liblua.dir/src/lib_io.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lib_io.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_io.c > CMakeFiles\liblua.dir\src\lib_io.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lib_io.c > CMakeFiles\liblua.dir\src\lib_io.c.i
 
 CMakeFiles/liblua.dir/src/lib_io.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lib_io.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_io.c -o CMakeFiles\liblua.dir\src\lib_io.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lib_io.c -o CMakeFiles\liblua.dir\src\lib_io.c.s
 
 CMakeFiles/liblua.dir/src/lib_io.c.obj.requires:
 
@@ -1528,16 +1528,16 @@ CMakeFiles/liblua.dir/src/lib_io.c.obj.provides.build: CMakeFiles/liblua.dir/src
 CMakeFiles/liblua.dir/src/lib_os.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lib_os.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lib_os.c.obj: ../src/lib_os.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building C object CMakeFiles/liblua.dir/src/lib_os.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lib_os.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_os.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building C object CMakeFiles/liblua.dir/src/lib_os.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lib_os.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lib_os.c
 
 CMakeFiles/liblua.dir/src/lib_os.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lib_os.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_os.c > CMakeFiles\liblua.dir\src\lib_os.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lib_os.c > CMakeFiles\liblua.dir\src\lib_os.c.i
 
 CMakeFiles/liblua.dir/src/lib_os.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lib_os.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_os.c -o CMakeFiles\liblua.dir\src\lib_os.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lib_os.c -o CMakeFiles\liblua.dir\src\lib_os.c.s
 
 CMakeFiles/liblua.dir/src/lib_os.c.obj.requires:
 
@@ -1553,16 +1553,16 @@ CMakeFiles/liblua.dir/src/lib_os.c.obj.provides.build: CMakeFiles/liblua.dir/src
 CMakeFiles/liblua.dir/src/lib_debug.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lib_debug.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lib_debug.c.obj: ../src/lib_debug.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building C object CMakeFiles/liblua.dir/src/lib_debug.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lib_debug.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_debug.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building C object CMakeFiles/liblua.dir/src/lib_debug.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lib_debug.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lib_debug.c
 
 CMakeFiles/liblua.dir/src/lib_debug.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lib_debug.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_debug.c > CMakeFiles\liblua.dir\src\lib_debug.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lib_debug.c > CMakeFiles\liblua.dir\src\lib_debug.c.i
 
 CMakeFiles/liblua.dir/src/lib_debug.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lib_debug.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_debug.c -o CMakeFiles\liblua.dir\src\lib_debug.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lib_debug.c -o CMakeFiles\liblua.dir\src\lib_debug.c.s
 
 CMakeFiles/liblua.dir/src/lib_debug.c.obj.requires:
 
@@ -1578,16 +1578,16 @@ CMakeFiles/liblua.dir/src/lib_debug.c.obj.provides.build: CMakeFiles/liblua.dir/
 CMakeFiles/liblua.dir/src/lib_jit.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lib_jit.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lib_jit.c.obj: ../src/lib_jit.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object CMakeFiles/liblua.dir/src/lib_jit.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lib_jit.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_jit.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building C object CMakeFiles/liblua.dir/src/lib_jit.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lib_jit.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lib_jit.c
 
 CMakeFiles/liblua.dir/src/lib_jit.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lib_jit.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_jit.c > CMakeFiles\liblua.dir\src\lib_jit.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lib_jit.c > CMakeFiles\liblua.dir\src\lib_jit.c.i
 
 CMakeFiles/liblua.dir/src/lib_jit.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lib_jit.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_jit.c -o CMakeFiles\liblua.dir\src\lib_jit.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lib_jit.c -o CMakeFiles\liblua.dir\src\lib_jit.c.s
 
 CMakeFiles/liblua.dir/src/lib_jit.c.obj.requires:
 
@@ -1603,16 +1603,16 @@ CMakeFiles/liblua.dir/src/lib_jit.c.obj.provides.build: CMakeFiles/liblua.dir/sr
 CMakeFiles/liblua.dir/src/lib_ffi.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lib_ffi.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lib_ffi.c.obj: ../src/lib_ffi.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building C object CMakeFiles/liblua.dir/src/lib_ffi.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lib_ffi.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_ffi.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building C object CMakeFiles/liblua.dir/src/lib_ffi.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lib_ffi.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lib_ffi.c
 
 CMakeFiles/liblua.dir/src/lib_ffi.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lib_ffi.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_ffi.c > CMakeFiles\liblua.dir\src\lib_ffi.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lib_ffi.c > CMakeFiles\liblua.dir\src\lib_ffi.c.i
 
 CMakeFiles/liblua.dir/src/lib_ffi.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lib_ffi.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_ffi.c -o CMakeFiles\liblua.dir\src\lib_ffi.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lib_ffi.c -o CMakeFiles\liblua.dir\src\lib_ffi.c.s
 
 CMakeFiles/liblua.dir/src/lib_ffi.c.obj.requires:
 
@@ -1628,16 +1628,16 @@ CMakeFiles/liblua.dir/src/lib_ffi.c.obj.provides.build: CMakeFiles/liblua.dir/sr
 CMakeFiles/liblua.dir/src/lib_package_rel.c.obj: CMakeFiles/liblua.dir/flags.make
 CMakeFiles/liblua.dir/src/lib_package_rel.c.obj: CMakeFiles/liblua.dir/includes_C.rsp
 CMakeFiles/liblua.dir/src/lib_package_rel.c.obj: ../src/lib_package_rel.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object CMakeFiles/liblua.dir/src/lib_package_rel.c.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lib_package_rel.c.obj   -c D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_package_rel.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building C object CMakeFiles/liblua.dir/src/lib_package_rel.c.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\liblua.dir\src\lib_package_rel.c.obj   -c D:\Lucia\Dependencies\Luajit\src\lib_package_rel.c
 
 CMakeFiles/liblua.dir/src/lib_package_rel.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/liblua.dir/src/lib_package_rel.c.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_package_rel.c > CMakeFiles\liblua.dir\src\lib_package_rel.c.i
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\Luajit\src\lib_package_rel.c > CMakeFiles\liblua.dir\src\lib_package_rel.c.i
 
 CMakeFiles/liblua.dir/src/lib_package_rel.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/liblua.dir/src/lib_package_rel.c.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\src\lib_package_rel.c -o CMakeFiles\liblua.dir\src\lib_package_rel.c.s
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\Luajit\src\lib_package_rel.c -o CMakeFiles\liblua.dir\src\lib_package_rel.c.s
 
 CMakeFiles/liblua.dir/src/lib_package_rel.c.obj.requires:
 
@@ -1716,7 +1716,7 @@ liblua_OBJECTS = \
 
 # External object files for target liblua
 liblua_EXTERNAL_OBJECTS = \
-"D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/lj_vm.obj"
+"D:/Lucia/Dependencies/Luajit/build/lj_vm.obj"
 
 liblua.dll: CMakeFiles/liblua.dir/src/lj_gc.c.obj
 liblua.dll: CMakeFiles/liblua.dir/src/lj_err.c.obj
@@ -1784,7 +1784,7 @@ liblua.dll: CMakeFiles/liblua.dir/build.make
 liblua.dll: CMakeFiles/liblua.dir/linklibs.rsp
 liblua.dll: CMakeFiles/liblua.dir/objects1.rsp
 liblua.dll: CMakeFiles/liblua.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Linking C shared library liblua.dll"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\Lucia\Dependencies\Luajit\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Linking C shared library liblua.dll"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\liblua.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -1866,6 +1866,6 @@ CMakeFiles/liblua.dir/depend: lj_bcdef.h
 CMakeFiles/liblua.dir/depend: lj_libdef.h
 CMakeFiles/liblua.dir/depend: lj_recdef.h
 CMakeFiles/liblua.dir/depend: lj_folddef.h
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles\liblua.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\Lucia\Dependencies\Luajit D:\Lucia\Dependencies\Luajit D:\Lucia\Dependencies\Luajit\build D:\Lucia\Dependencies\Luajit\build D:\Lucia\Dependencies\Luajit\build\CMakeFiles\liblua.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/liblua.dir/depend
 

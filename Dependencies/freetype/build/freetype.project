@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="freetype" InternalType="">
+  <VirtualDirectory Name="src">
+    <File Name="../builds/windows/ftdebug.c"/>
+    <File Name="../src/autofit/autofit.c"/>
+    <File Name="../src/base/ftbase.c"/>
+    <File Name="../src/base/ftbbox.c"/>
+    <File Name="../src/base/ftbdf.c"/>
+    <File Name="../src/base/ftbitmap.c"/>
+    <File Name="../src/base/ftcid.c"/>
+    <File Name="../src/base/ftfntfmt.c"/>
+    <File Name="../src/base/ftfstype.c"/>
+    <File Name="../src/base/ftgasp.c"/>
+    <File Name="../src/base/ftglyph.c"/>
+    <File Name="../src/base/ftgxval.c"/>
+    <File Name="../src/base/ftinit.c"/>
+    <File Name="../src/base/ftlcdfil.c"/>
+    <File Name="../src/base/ftmm.c"/>
+    <File Name="../src/base/ftotval.c"/>
+    <File Name="../src/base/ftpatent.c"/>
+    <File Name="../src/base/ftpfr.c"/>
+    <File Name="../src/base/ftstroke.c"/>
+    <File Name="../src/base/ftsynth.c"/>
+    <File Name="../src/base/ftsystem.c"/>
+    <File Name="../src/base/fttype1.c"/>
+    <File Name="../src/base/ftwinfnt.c"/>
+    <File Name="../src/bdf/bdf.c"/>
+    <File Name="../src/bzip2/ftbzip2.c"/>
+    <File Name="../src/cache/ftcache.c"/>
+    <File Name="../src/cff/cff.c"/>
+    <File Name="../src/cid/type1cid.c"/>
+    <File Name="../src/gzip/ftgzip.c"/>
+    <File Name="../src/lzw/ftlzw.c"/>
+    <File Name="../src/pcf/pcf.c"/>
+    <File Name="../src/pfr/pfr.c"/>
+    <File Name="../src/psaux/psaux.c"/>
+    <File Name="../src/pshinter/pshinter.c"/>
+    <File Name="../src/psnames/psnames.c"/>
+    <File Name="../src/raster/raster.c"/>
+    <File Name="../src/sfnt/sfnt.c"/>
+    <File Name="../src/smooth/smooth.c"/>
+    <File Name="../src/truetype/truetype.c"/>
+    <File Name="../src/type1/type1.c"/>
+    <File Name="../src/type42/type42.c"/>
+    <File Name="../src/winfonts/winfnt.c"/>
+  </VirtualDirectory>
+  <VirtualDirectory Name="include">
+    <File Name="../include/freetype/config/ftconfig.h"/>
+    <File Name="../include/freetype/config/ftheader.h"/>
+    <File Name="../include/freetype/config/ftmodule.h"/>
+    <File Name="../include/freetype/config/ftoption.h"/>
+    <File Name="../include/freetype/config/ftstdlib.h"/>
+    <File Name="../include/freetype/freetype.h"/>
+    <File Name="../include/freetype/ftadvanc.h"/>
+    <File Name="../include/freetype/ftautoh.h"/>
+    <File Name="../include/freetype/ftbbox.h"/>
+    <File Name="../include/freetype/ftbdf.h"/>
+    <File Name="../include/freetype/ftbitmap.h"/>
+    <File Name="../include/freetype/ftbzip2.h"/>
+    <File Name="../include/freetype/ftcache.h"/>
+    <File Name="../include/freetype/ftcffdrv.h"/>
+    <File Name="../include/freetype/ftchapters.h"/>
+    <File Name="../include/freetype/ftcid.h"/>
+    <File Name="../include/freetype/fterrdef.h"/>
+    <File Name="../include/freetype/fterrors.h"/>
+    <File Name="../include/freetype/ftfntfmt.h"/>
+    <File Name="../include/freetype/ftgasp.h"/>
+    <File Name="../include/freetype/ftglyph.h"/>
+    <File Name="../include/freetype/ftgxval.h"/>
+    <File Name="../include/freetype/ftgzip.h"/>
+    <File Name="../include/freetype/ftimage.h"/>
+    <File Name="../include/freetype/ftincrem.h"/>
+    <File Name="../include/freetype/ftlcdfil.h"/>
+    <File Name="../include/freetype/ftlist.h"/>
+    <File Name="../include/freetype/ftlzw.h"/>
+    <File Name="../include/freetype/ftmac.h"/>
+    <File Name="../include/freetype/ftmm.h"/>
+    <File Name="../include/freetype/ftmodapi.h"/>
+    <File Name="../include/freetype/ftmoderr.h"/>
+    <File Name="../include/freetype/ftotval.h"/>
+    <File Name="../include/freetype/ftoutln.h"/>
+    <File Name="../include/freetype/ftpfr.h"/>
+    <File Name="../include/freetype/ftrender.h"/>
+    <File Name="../include/freetype/ftsizes.h"/>
+    <File Name="../include/freetype/ftsnames.h"/>
+    <File Name="../include/freetype/ftstroke.h"/>
+    <File Name="../include/freetype/ftsynth.h"/>
+    <File Name="../include/freetype/ftsystem.h"/>
+    <File Name="../include/freetype/fttrigon.h"/>
+    <File Name="../include/freetype/ftttdrv.h"/>
+    <File Name="../include/freetype/fttypes.h"/>
+    <File Name="../include/freetype/ftwinfnt.h"/>
+    <File Name="../include/freetype/internal/autohint.h"/>
+    <File Name="../include/freetype/internal/ftcalc.h"/>
+    <File Name="../include/freetype/internal/ftdebug.h"/>
+    <File Name="../include/freetype/internal/ftdriver.h"/>
+    <File Name="../include/freetype/internal/ftgloadr.h"/>
+    <File Name="../include/freetype/internal/ftmemory.h"/>
+    <File Name="../include/freetype/internal/ftobjs.h"/>
+    <File Name="../include/freetype/internal/ftpic.h"/>
+    <File Name="../include/freetype/internal/ftrfork.h"/>
+    <File Name="../include/freetype/internal/ftserv.h"/>
+    <File Name="../include/freetype/internal/ftstream.h"/>
+    <File Name="../include/freetype/internal/fttrace.h"/>
+    <File Name="../include/freetype/internal/ftvalid.h"/>
+    <File Name="../include/freetype/internal/internal.h"/>
+    <File Name="../include/freetype/internal/psaux.h"/>
+    <File Name="../include/freetype/internal/pshints.h"/>
+    <File Name="../include/freetype/internal/sfnt.h"/>
+    <File Name="../include/freetype/internal/t1types.h"/>
+    <File Name="../include/freetype/internal/tttypes.h"/>
+    <File Name="../include/freetype/t1tables.h"/>
+    <File Name="../include/freetype/ttnameid.h"/>
+    <File Name="../include/freetype/tttables.h"/>
+    <File Name="../include/freetype/tttags.h"/>
+    <File Name="../include/freetype/ttunpat.h"/>
+    <File Name="../include/ft2build.h"/>
+    <File Name="../src/base/ftbase.h"/>
+    <File Name="../src/bdf/bdf.h"/>
+    <File Name="../src/pcf/pcf.h"/>
+    <File Name="../src/winfonts/winfnt.h"/>
+  </VirtualDirectory>
+
+  <Settings Type="Static Library">
+    <Configuration Name="NoConfig" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Static Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g" Required="yes" PreCompiledHeader="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="" Required="yes"/>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./" Command="./$(ProjectName)" CommandArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>C:/mingw64/mingw64/bin/mingw32-make.exe -j 4 clean &amp;&amp; C:/mingw64/mingw64/bin/mingw32-make.exe -j 4</RebuildCommand>
+        <CleanCommand>C:/mingw64/mingw64/bin/mingw32-make.exe -j 4 clean</CleanCommand>
+        <BuildCommand>C:/mingw64/mingw64/bin/mingw32-make.exe -j 4</BuildCommand>
+        <SingleFileCommand>C:/mingw64/mingw64/bin/mingw32-make.exe -f$(ProjectPath)/Makefile $(CurrentFileName).cpp.o</SingleFileCommand>
+        <PreprocessFileCommand/>
+        <WorkingDirectory>$(WorkspacePath)</WorkingDirectory>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+    </Configuration>
+    <GlobalSettings>
+      <Compiler Options="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value="."/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+  </Settings>
+</CodeLite_Project>

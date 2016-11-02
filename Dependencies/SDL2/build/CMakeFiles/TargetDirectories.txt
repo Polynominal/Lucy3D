@@ -1,0 +1,4 @@
+D:/Lucia/Dependencies/SDL2/build/CMakeFiles/uninstall.dir
+D:/Lucia/Dependencies/SDL2/build/CMakeFiles/SDL2-static.dir
+D:/Lucia/Dependencies/SDL2/build/CMakeFiles/SDL2.dir
+D:/Lucia/Dependencies/SDL2/build/CMakeFiles/SDL2main.dir

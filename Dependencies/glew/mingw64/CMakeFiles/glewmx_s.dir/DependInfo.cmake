@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "D:/Lucy3D/Dependencies/glew-1.13.0/src/glew.c" "D:/Lucy3D/Dependencies/glew-1.13.0/mingw64/CMakeFiles/glewmx_s.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.obj"
+  "D:/Lucia/Dependencies/glew/src/glew.c" "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/glew/mingw64/CMakeFiles/glewmx_s.dir/D_/Lucia/Dependencies/glew/src/glew.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -17,7 +17,7 @@ set(CMAKE_TARGET_DEFINITIONS_C
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
-  "D:/Lucy3D/Dependencies/glew-1.13.0/build/cmake/../../include"
+  "D:/Lucia/Dependencies/glew/build/cmake/../../include"
   )
 
 # Targets to which this target links.

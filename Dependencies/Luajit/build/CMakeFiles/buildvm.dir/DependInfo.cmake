@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/src/host/buildvm.c" "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/CMakeFiles/buildvm.dir/src/host/buildvm.c.obj"
-  "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/src/host/buildvm_asm.c" "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/CMakeFiles/buildvm.dir/src/host/buildvm_asm.c.obj"
-  "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/src/host/buildvm_fold.c" "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/CMakeFiles/buildvm.dir/src/host/buildvm_fold.c.obj"
-  "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/src/host/buildvm_lib.c" "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/CMakeFiles/buildvm.dir/src/host/buildvm_lib.c.obj"
-  "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/src/host/buildvm_peobj.c" "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/CMakeFiles/buildvm.dir/src/host/buildvm_peobj.c.obj"
+  "D:/Lucia/Dependencies/Luajit/src/host/buildvm.c" "D:/Lucia/Dependencies/Luajit/build/CMakeFiles/buildvm.dir/src/host/buildvm.c.obj"
+  "D:/Lucia/Dependencies/Luajit/src/host/buildvm_asm.c" "D:/Lucia/Dependencies/Luajit/build/CMakeFiles/buildvm.dir/src/host/buildvm_asm.c.obj"
+  "D:/Lucia/Dependencies/Luajit/src/host/buildvm_fold.c" "D:/Lucia/Dependencies/Luajit/build/CMakeFiles/buildvm.dir/src/host/buildvm_fold.c.obj"
+  "D:/Lucia/Dependencies/Luajit/src/host/buildvm_lib.c" "D:/Lucia/Dependencies/Luajit/build/CMakeFiles/buildvm.dir/src/host/buildvm_lib.c.obj"
+  "D:/Lucia/Dependencies/Luajit/src/host/buildvm_peobj.c" "D:/Lucia/Dependencies/Luajit/build/CMakeFiles/buildvm.dir/src/host/buildvm_peobj.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

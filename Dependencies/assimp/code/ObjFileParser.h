@@ -2,7 +2,7 @@
 Open Asset Import Library (assimp)
 ----------------------------------------------------------------------
 
-Copyright (c) 2006-2015, assimp team
+Copyright (c) 2006-2016, assimp team
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -46,6 +46,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <assimp/vector2.h>
 #include <assimp/vector3.h>
 #include <assimp/mesh.h>
+#include "IOStreamBuffer.h"
 
 namespace Assimp {
 
@@ -59,6 +60,7 @@ namespace ObjFile {
 
 class ObjFileImporter;
 class IOSystem;
+class ProgressHandler;
 
 /// \class  ObjFileParser
 /// \brief  Parser for a obj waveform file
@@ -71,7 +73,7 @@ public:
 
 public:
     /// \brief  Constructor with data array.
-    ObjFileParser(std::vector<char> &Data,const std::string &strModelName, IOSystem* io);
+    ObjFileParser( IOStreamBuffer<char> &streamBuffer, const std::string &strModelName, IOSystem* io, ProgressHandler* progress, const std::string &originalObjFileName);
     /// \brief  Destructor
     ~ObjFileParser();
     /// \brief  Model getter.
@@ -79,7 +81,7 @@ public:
 
 private:
     /// Parse the loaded file
-    void parseFile();
+    void parseFile( IOStreamBuffer<char> &streamBuffer );
     /// Method to copy the new delimited word in the current line.
     void copyNextWord(char *pBuffer, size_t length);
     /// Method to copy the new line.
@@ -88,6 +90,10 @@ private:
     void getVector( std::vector<aiVector3D> &point3d_array );
     /// Stores the following 3d vector.
     void getVector3( std::vector<aiVector3D> &point3d_array );
+    /// Stores the following homogeneous vector as a 3D vector
+    void getHomogeneousVector3( std::vector<aiVector3D> &point3d_array );
+    /// Stores the following two 3d vectors on the line.
+    void getTwoVectors3( std::vector<aiVector3D> &point3d_array_a, std::vector<aiVector3D> &point3d_array_b );
     /// Stores the following 3d vector.
     void getVector2(std::vector<aiVector2D> &point2d_array);
     /// Stores the following face.
@@ -118,6 +124,8 @@ private:
     bool needsNewMesh( const std::string &rMaterialName );
     /// Error report in token
     void reportErrorTokenInFace();
+    /// Get the number of components in a line.
+    size_t getNumComponentsInLine();
 
 private:
     // Copy and assignment constructor should be private
@@ -139,7 +147,11 @@ private:
     char m_buffer[Buffersize];
     /// Pointer to IO system instance.
     IOSystem *m_pIO;
+    //! Pointer to progress handler
+    ProgressHandler* m_progress;
     /// Path to the current model
+    // name of the obj file where the buffer comes from
+    const std::string& m_originalObjFileName;
 };
 
 }   // Namespace Assimp

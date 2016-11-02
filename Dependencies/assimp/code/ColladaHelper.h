@@ -4,7 +4,7 @@
 Open Asset Import Library (assimp)
 ----------------------------------------------------------------------
 
-Copyright (c) 2006-2015, assimp team
+Copyright (c) 2006-2016, assimp team
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -47,9 +47,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <map>
 #include <vector>
 #include <stdint.h>
-#include "../include/assimp/light.h"
-#include "../include/assimp/mesh.h"
-#include "../include/assimp/material.h"
+#include <assimp/light.h>
+#include <assimp/mesh.h>
+#include <assimp/material.h>
 
 struct aiMaterial;
 
@@ -94,7 +94,7 @@ struct Transform
 {
     std::string mID;  ///< SID of the transform step, by which anim channels address their target node
     TransformType mType;
-    float f[16]; ///< Interpretation of data depends on the type of the transformation
+    ai_real f[16]; ///< Interpretation of data depends on the type of the transformation
 };
 
 /** A collada camera. */
@@ -116,16 +116,16 @@ struct Camera
     bool mOrtho;
 
     //! Horizontal field of view in degrees
-    float mHorFov;
+    ai_real mHorFov;
 
     //! Vertical field of view in degrees
-    float mVerFov;
+    ai_real mVerFov;
 
     //! Screen aspect
-    float mAspect;
+    ai_real mAspect;
 
     //! Near& far z
-    float mZNear, mZFar;
+    ai_real mZNear, mZFar;
 };
 
 #define ASSIMP_COLLADA_LIGHT_ANGLE_NOT_SET 1e9f
@@ -152,21 +152,21 @@ struct Light
     aiColor3D mColor;
 
     //! Light attenuation
-    float mAttConstant,mAttLinear,mAttQuadratic;
+    ai_real mAttConstant,mAttLinear,mAttQuadratic;
 
     //! Spot light falloff
-    float mFalloffAngle;
-    float mFalloffExponent;
+    ai_real mFalloffAngle;
+    ai_real mFalloffExponent;
 
     // -----------------------------------------------------
     // FCOLLADA extension from here
 
     //! ... related stuff from maja and max extensions
-    float mPenumbraAngle;
-    float mOuterAngle;
+    ai_real mPenumbraAngle;
+    ai_real mOuterAngle;
 
     //! Common light intensity
-    float mIntensity;
+    ai_real mIntensity;
 };
 
 /** Short vertex index description */
@@ -275,7 +275,7 @@ struct Node
 struct Data
 {
     bool mIsStringArray;
-    std::vector<float> mValues;
+    std::vector<ai_real> mValues;
     std::vector<std::string> mStrings;
 };
 
@@ -387,7 +387,7 @@ struct Controller
     std::string mJointNameSource;
 
     ///< The bind shape matrix, as array of floats. I'm not sure what this matrix actually describes, but it can't be ignored in all cases
-    float mBindShapeMatrix[16];
+    ai_real mBindShapeMatrix[16];
 
     // accessor URL of the joint inverse bind matrices
     std::string mJointOffsetMatrixSource;
@@ -490,11 +490,11 @@ struct Sampler
 
     /** Weighting factor
      */
-    float mWeighting;
+    ai_real mWeighting;
 
     /** Mixing factor from OKINO
      */
-    float mMixWithPrevious;
+    ai_real mMixWithPrevious;
 };
 
 /** A collada effect. Can contain about anything according to the Collada spec,
@@ -513,10 +513,11 @@ struct Effect
         mTexTransparent, mTexBump, mTexReflective;
 
     // Scalar factory
-    float mShininess, mRefractIndex, mReflectivity;
-    float mTransparency;
+    ai_real mShininess, mRefractIndex, mReflectivity;
+    ai_real mTransparency;
     bool mHasTransparency;
     bool mRGBTransparency;
+    bool mInvertTransparency;
 
     // local params referring to each other by their SID
     typedef std::map<std::string, Collada::EffectParam> ParamLibrary;
@@ -536,10 +537,11 @@ struct Effect
         , mTransparent  ( 0, 0, 0, 1)
         , mShininess    (10.0f)
         , mRefractIndex (1.f)
-        , mReflectivity (1.f)
+        , mReflectivity (0.f)
         , mTransparency (1.f)
         , mHasTransparency (false)
         , mRGBTransparency(false)
+        , mInvertTransparency(false)
         , mDoubleSided  (false)
         , mWireframe    (false)
         , mFaceted      (false)
@@ -595,6 +597,48 @@ struct Animation
         for( std::vector<Animation*>::iterator it = mSubAnims.begin(); it != mSubAnims.end(); ++it)
             delete *it;
     }
+
+	/** Collect all channels in the animation hierarchy into a single channel list. */
+	void CollectChannelsRecursively(std::vector<AnimationChannel> &channels)
+	{
+		channels.insert(channels.end(), mChannels.begin(), mChannels.end());
+
+		for (std::vector<Animation*>::iterator it = mSubAnims.begin(); it != mSubAnims.end(); ++it)
+		{
+			Animation *pAnim = (*it);
+
+			pAnim->CollectChannelsRecursively(channels);
+		}
+	}
+
+	/** Combine all single-channel animations' channel into the same (parent) animation channel list. */
+	void CombineSingleChannelAnimations()
+	{
+		CombineSingleChannelAnimationsRecursively(this);
+	}
+
+	void CombineSingleChannelAnimationsRecursively(Animation *pParent)
+	{
+		for (std::vector<Animation*>::iterator it = pParent->mSubAnims.begin(); it != pParent->mSubAnims.end();)
+		{
+			Animation *anim = *it;
+
+			CombineSingleChannelAnimationsRecursively(anim);
+
+			if (anim->mChannels.size() == 1)
+			{
+				pParent->mChannels.push_back(anim->mChannels[0]);
+
+				it = pParent->mSubAnims.erase(it);
+
+				delete anim;
+			}
+			else
+			{
+				++it;
+			}
+		}
+	}
 };
 
 /** Description of a collada animation channel which has been determined to affect the current node */

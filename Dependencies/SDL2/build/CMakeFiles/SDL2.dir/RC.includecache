@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Lucia/Dependencies/SDL2/src/main/windows/version.rc
+winresrc.h
+D:/Lucia/Dependencies/SDL2/src/main/windows/winresrc.h
+

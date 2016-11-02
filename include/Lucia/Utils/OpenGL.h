@@ -116,7 +116,7 @@ namespace Utils
                 #endif
                 GLuint ebo=0;
                 uint size;
-                uint boundInstanceSize = 0;
+                int boundInstanceSize = 0;
                 std::vector<std::shared_ptr<Buffer>> Buffers;
                 std::shared_ptr<Shader_Vars> Vars;
                 bool Attached = false;

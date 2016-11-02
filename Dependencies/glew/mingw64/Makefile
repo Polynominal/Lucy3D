@@ -47,10 +47,10 @@ RM = "C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Lucy3D\Dependencies\glew-1.13.0\build\cmake
+CMAKE_SOURCE_DIR = D:\Lucia\Dependencies\glew\build\cmake
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\Lucy3D\Dependencies\glew-1.13.0\mingw64
+CMAKE_BINARY_DIR = D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\glew\mingw64
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -123,9 +123,9 @@ list_install_components/fast: list_install_components
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Lucy3D\Dependencies\glew-1.13.0\mingw64\CMakeFiles D:\Lucy3D\Dependencies\glew-1.13.0\mingw64\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\glew\mingw64\CMakeFiles D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\glew\mingw64\CMakeFiles\progress.marks
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Lucy3D\Dependencies\glew-1.13.0\mingw64\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\glew\mingw64\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -232,58 +232,58 @@ visualinfo/fast:
 .PHONY : visualinfo/fast
 
 # target to build an object file
-D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.obj:
-	$(MAKE) -f CMakeFiles\glew.dir\build.make CMakeFiles/glew.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.obj
-	$(MAKE) -f CMakeFiles\glew_s.dir\build.make CMakeFiles/glew_s.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.obj
-	$(MAKE) -f CMakeFiles\glewmx.dir\build.make CMakeFiles/glewmx.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.obj
-	$(MAKE) -f CMakeFiles\glewmx_s.dir\build.make CMakeFiles/glewmx_s.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.obj
-.PHONY : D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.obj
+D_/Lucia/Dependencies/glew/src/glew.obj:
+	$(MAKE) -f CMakeFiles\glew.dir\build.make CMakeFiles/glew.dir/D_/Lucia/Dependencies/glew/src/glew.obj
+	$(MAKE) -f CMakeFiles\glew_s.dir\build.make CMakeFiles/glew_s.dir/D_/Lucia/Dependencies/glew/src/glew.obj
+	$(MAKE) -f CMakeFiles\glewmx.dir\build.make CMakeFiles/glewmx.dir/D_/Lucia/Dependencies/glew/src/glew.obj
+	$(MAKE) -f CMakeFiles\glewmx_s.dir\build.make CMakeFiles/glewmx_s.dir/D_/Lucia/Dependencies/glew/src/glew.obj
+.PHONY : D_/Lucia/Dependencies/glew/src/glew.obj
 
 # target to preprocess a source file
-D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.i:
-	$(MAKE) -f CMakeFiles\glew.dir\build.make CMakeFiles/glew.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.i
-	$(MAKE) -f CMakeFiles\glew_s.dir\build.make CMakeFiles/glew_s.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.i
-	$(MAKE) -f CMakeFiles\glewmx.dir\build.make CMakeFiles/glewmx.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.i
-	$(MAKE) -f CMakeFiles\glewmx_s.dir\build.make CMakeFiles/glewmx_s.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.i
-.PHONY : D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.i
+D_/Lucia/Dependencies/glew/src/glew.i:
+	$(MAKE) -f CMakeFiles\glew.dir\build.make CMakeFiles/glew.dir/D_/Lucia/Dependencies/glew/src/glew.i
+	$(MAKE) -f CMakeFiles\glew_s.dir\build.make CMakeFiles/glew_s.dir/D_/Lucia/Dependencies/glew/src/glew.i
+	$(MAKE) -f CMakeFiles\glewmx.dir\build.make CMakeFiles/glewmx.dir/D_/Lucia/Dependencies/glew/src/glew.i
+	$(MAKE) -f CMakeFiles\glewmx_s.dir\build.make CMakeFiles/glewmx_s.dir/D_/Lucia/Dependencies/glew/src/glew.i
+.PHONY : D_/Lucia/Dependencies/glew/src/glew.i
 
 # target to generate assembly for a file
-D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.s:
-	$(MAKE) -f CMakeFiles\glew.dir\build.make CMakeFiles/glew.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.s
-	$(MAKE) -f CMakeFiles\glew_s.dir\build.make CMakeFiles/glew_s.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.s
-	$(MAKE) -f CMakeFiles\glewmx.dir\build.make CMakeFiles/glewmx.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.s
-	$(MAKE) -f CMakeFiles\glewmx_s.dir\build.make CMakeFiles/glewmx_s.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.s
-.PHONY : D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.s
+D_/Lucia/Dependencies/glew/src/glew.s:
+	$(MAKE) -f CMakeFiles\glew.dir\build.make CMakeFiles/glew.dir/D_/Lucia/Dependencies/glew/src/glew.s
+	$(MAKE) -f CMakeFiles\glew_s.dir\build.make CMakeFiles/glew_s.dir/D_/Lucia/Dependencies/glew/src/glew.s
+	$(MAKE) -f CMakeFiles\glewmx.dir\build.make CMakeFiles/glewmx.dir/D_/Lucia/Dependencies/glew/src/glew.s
+	$(MAKE) -f CMakeFiles\glewmx_s.dir\build.make CMakeFiles/glewmx_s.dir/D_/Lucia/Dependencies/glew/src/glew.s
+.PHONY : D_/Lucia/Dependencies/glew/src/glew.s
 
 # target to build an object file
-D_/Lucy3D/Dependencies/glew-1.13.0/src/glewinfo.obj:
-	$(MAKE) -f CMakeFiles\glewinfo.dir\build.make CMakeFiles/glewinfo.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glewinfo.obj
-.PHONY : D_/Lucy3D/Dependencies/glew-1.13.0/src/glewinfo.obj
+D_/Lucia/Dependencies/glew/src/glewinfo.obj:
+	$(MAKE) -f CMakeFiles\glewinfo.dir\build.make CMakeFiles/glewinfo.dir/D_/Lucia/Dependencies/glew/src/glewinfo.obj
+.PHONY : D_/Lucia/Dependencies/glew/src/glewinfo.obj
 
 # target to preprocess a source file
-D_/Lucy3D/Dependencies/glew-1.13.0/src/glewinfo.i:
-	$(MAKE) -f CMakeFiles\glewinfo.dir\build.make CMakeFiles/glewinfo.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glewinfo.i
-.PHONY : D_/Lucy3D/Dependencies/glew-1.13.0/src/glewinfo.i
+D_/Lucia/Dependencies/glew/src/glewinfo.i:
+	$(MAKE) -f CMakeFiles\glewinfo.dir\build.make CMakeFiles/glewinfo.dir/D_/Lucia/Dependencies/glew/src/glewinfo.i
+.PHONY : D_/Lucia/Dependencies/glew/src/glewinfo.i
 
 # target to generate assembly for a file
-D_/Lucy3D/Dependencies/glew-1.13.0/src/glewinfo.s:
-	$(MAKE) -f CMakeFiles\glewinfo.dir\build.make CMakeFiles/glewinfo.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/glewinfo.s
-.PHONY : D_/Lucy3D/Dependencies/glew-1.13.0/src/glewinfo.s
+D_/Lucia/Dependencies/glew/src/glewinfo.s:
+	$(MAKE) -f CMakeFiles\glewinfo.dir\build.make CMakeFiles/glewinfo.dir/D_/Lucia/Dependencies/glew/src/glewinfo.s
+.PHONY : D_/Lucia/Dependencies/glew/src/glewinfo.s
 
 # target to build an object file
-D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.obj:
-	$(MAKE) -f CMakeFiles\visualinfo.dir\build.make CMakeFiles/visualinfo.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.obj
-.PHONY : D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.obj
+D_/Lucia/Dependencies/glew/src/visualinfo.obj:
+	$(MAKE) -f CMakeFiles\visualinfo.dir\build.make CMakeFiles/visualinfo.dir/D_/Lucia/Dependencies/glew/src/visualinfo.obj
+.PHONY : D_/Lucia/Dependencies/glew/src/visualinfo.obj
 
 # target to preprocess a source file
-D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.i:
-	$(MAKE) -f CMakeFiles\visualinfo.dir\build.make CMakeFiles/visualinfo.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.i
-.PHONY : D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.i
+D_/Lucia/Dependencies/glew/src/visualinfo.i:
+	$(MAKE) -f CMakeFiles\visualinfo.dir\build.make CMakeFiles/visualinfo.dir/D_/Lucia/Dependencies/glew/src/visualinfo.i
+.PHONY : D_/Lucia/Dependencies/glew/src/visualinfo.i
 
 # target to generate assembly for a file
-D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.s:
-	$(MAKE) -f CMakeFiles\visualinfo.dir\build.make CMakeFiles/visualinfo.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.s
-.PHONY : D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.s
+D_/Lucia/Dependencies/glew/src/visualinfo.s:
+	$(MAKE) -f CMakeFiles\visualinfo.dir\build.make CMakeFiles/visualinfo.dir/D_/Lucia/Dependencies/glew/src/visualinfo.s
+.PHONY : D_/Lucia/Dependencies/glew/src/visualinfo.s
 
 # Help Target
 help:
@@ -303,15 +303,15 @@ help:
 	@echo ... glewmx
 	@echo ... visualinfo
 	@echo ... glew
-	@echo ... D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.obj
-	@echo ... D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.i
-	@echo ... D_/Lucy3D/Dependencies/glew-1.13.0/src/glew.s
-	@echo ... D_/Lucy3D/Dependencies/glew-1.13.0/src/glewinfo.obj
-	@echo ... D_/Lucy3D/Dependencies/glew-1.13.0/src/glewinfo.i
-	@echo ... D_/Lucy3D/Dependencies/glew-1.13.0/src/glewinfo.s
-	@echo ... D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.obj
-	@echo ... D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.i
-	@echo ... D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.s
+	@echo ... D_/Lucia/Dependencies/glew/src/glew.obj
+	@echo ... D_/Lucia/Dependencies/glew/src/glew.i
+	@echo ... D_/Lucia/Dependencies/glew/src/glew.s
+	@echo ... D_/Lucia/Dependencies/glew/src/glewinfo.obj
+	@echo ... D_/Lucia/Dependencies/glew/src/glewinfo.i
+	@echo ... D_/Lucia/Dependencies/glew/src/glewinfo.s
+	@echo ... D_/Lucia/Dependencies/glew/src/visualinfo.obj
+	@echo ... D_/Lucia/Dependencies/glew/src/visualinfo.i
+	@echo ... D_/Lucia/Dependencies/glew/src/visualinfo.s
 .PHONY : help
 
 

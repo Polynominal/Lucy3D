@@ -5,8 +5,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/src/luajit.c" "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/CMakeFiles/wluajit.dir/src/luajit.c.obj"
-  "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/src/wmain.c" "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/CMakeFiles/wluajit.dir/src/wmain.c.obj"
+  "D:/Lucia/Dependencies/Luajit/src/luajit.c" "D:/Lucia/Dependencies/Luajit/build/CMakeFiles/wluajit.dir/src/luajit.c.obj"
+  "D:/Lucia/Dependencies/Luajit/src/wmain.c" "D:/Lucia/Dependencies/Luajit/build/CMakeFiles/wluajit.dir/src/wmain.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -24,7 +24,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "../src/host"
   )
 set(CMAKE_DEPENDS_CHECK_RC
-  "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/src/luajit.rc" "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/CMakeFiles/wluajit.dir/src/luajit.rc.obj"
+  "D:/Lucia/Dependencies/Luajit/src/luajit.rc" "D:/Lucia/Dependencies/Luajit/build/CMakeFiles/wluajit.dir/src/luajit.rc.obj"
   )
 
 # Preprocessor definitions for this target.
@@ -43,7 +43,7 @@ set(CMAKE_RC_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/CMakeFiles/liblua.dir/DependInfo.cmake"
+  "D:/Lucia/Dependencies/Luajit/build/CMakeFiles/liblua.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

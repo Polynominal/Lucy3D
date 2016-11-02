@@ -1,5 +1,5 @@
-D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/CMakeFiles/minilua.dir
-D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/CMakeFiles/luajit.dir
-D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/CMakeFiles/wluajit.dir
-D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/CMakeFiles/liblua.dir
-D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/CMakeFiles/buildvm.dir
+D:/Lucia/Dependencies/Luajit/build/CMakeFiles/minilua.dir
+D:/Lucia/Dependencies/Luajit/build/CMakeFiles/luajit.dir
+D:/Lucia/Dependencies/Luajit/build/CMakeFiles/wluajit.dir
+D:/Lucia/Dependencies/Luajit/build/CMakeFiles/liblua.dir
+D:/Lucia/Dependencies/Luajit/build/CMakeFiles/buildvm.dir

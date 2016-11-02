@@ -2,7 +2,7 @@
 Open Asset Import Library (assimp)
 ----------------------------------------------------------------------
 
-Copyright (c) 2006-2014, assimp team
+Copyright (c) 2006-2016, assimp team
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -113,7 +113,6 @@ struct LightObject {
     bool shadowFlag;
 };
 
-
 struct CameraObject {
     float focalLength;
     float nearDepth;
@@ -146,7 +145,6 @@ struct Name {
     std::string name;
 };
 
-
 struct ObjectRef {
     Object *targetStructure;
 };
@@ -172,7 +170,6 @@ struct BoneIndex {
     const unsigned short *boneIndexArray;
     unsigned short *arrayStorage;
 };
-
 
 struct BoneWeight {
     int boneWeightCount;

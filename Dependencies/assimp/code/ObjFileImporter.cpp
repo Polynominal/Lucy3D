@@ -3,7 +3,7 @@
 Open Asset Import Library (assimp)
 ---------------------------------------------------------------------------
 
-Copyright (c) 2006-2015, assimp team
+Copyright (c) 2006-2016, assimp team
 
 All rights reserved.
 
@@ -39,19 +39,18 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ---------------------------------------------------------------------------
 */
 
-
 #ifndef ASSIMP_BUILD_NO_OBJ_IMPORTER
 
 #include "DefaultIOSystem.h"
 #include "ObjFileImporter.h"
 #include "ObjFileParser.h"
 #include "ObjFileData.h"
-#include <boost/scoped_ptr.hpp>
+#include "IOStreamBuffer.h"
+#include <memory>
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/ai_assert.h>
 #include <assimp/DefaultLogger.hpp>
-
 
 static const aiImporterDesc desc = {
     "Wavefront Object Importer",
@@ -114,39 +113,48 @@ const aiImporterDesc* ObjFileImporter::GetInfo () const
 
 // ------------------------------------------------------------------------------------------------
 //  Obj-file import implementation
-void ObjFileImporter::InternReadFile( const std::string& pFile, aiScene* pScene, IOSystem* pIOHandler)
-{
+void ObjFileImporter::InternReadFile( const std::string &file, aiScene* pScene, IOSystem* pIOHandler) {
     // Read file into memory
-    const std::string mode = "rb";
-    boost::scoped_ptr<IOStream> file( pIOHandler->Open( pFile, mode));
-    if( !file.get() ) {
-        throw DeadlyImportError( "Failed to open file " + pFile + "." );
+    static const std::string mode = "rb";
+    std::unique_ptr<IOStream> fileStream( pIOHandler->Open( file, mode));
+    if( !fileStream.get() ) {
+        throw DeadlyImportError( "Failed to open file " + file + "." );
     }
 
     // Get the file-size and validate it, throwing an exception when fails
-    size_t fileSize = file->FileSize();
+    size_t fileSize = fileStream->FileSize();
     if( fileSize < ObjMinSize ) {
         throw DeadlyImportError( "OBJ-file is too small.");
     }
 
+    IOStreamBuffer<char> streamedBuffer;
+    streamedBuffer.open( fileStream.get() );
+
     // Allocate buffer and read file into it
-    TextFileToBuffer(file.get(),m_Buffer);
+    //TextFileToBuffer( fileStream.get(),m_Buffer);
 
     // Get the model name
     std::string  modelName, folderName;
-    std::string::size_type pos = pFile.find_last_of( "\\/" );
+    std::string::size_type pos = file.find_last_of( "\\/" );
     if ( pos != std::string::npos ) {
-        modelName = pFile.substr(pos+1, pFile.size() - pos - 1);
-        folderName = pFile.substr( 0, pos );
+        modelName = file.substr(pos+1, file.size() - pos - 1);
+        folderName = file.substr( 0, pos );
         if ( !folderName.empty() ) {
             pIOHandler->PushDirectory( folderName );
         }
     } else {
-        modelName = pFile;
+        modelName = file;
     }
 
+    // This next stage takes ~ 1/3th of the total readFile task
+    // so should amount for 1/3th of the progress
+    // only update every 100KB or it'll be too slow
+    unsigned int progress = 0;
+    unsigned int progressCounter = 0;
+    const unsigned int updateProgressEveryBytes = 100 * 1024;
+    const unsigned int progressTotal = (3*m_Buffer.size()/updateProgressEveryBytes);
     // process all '\'
-    std::vector<char> ::iterator iter = m_Buffer.begin();
+    /*std::vector<char> ::iterator iter = m_Buffer.begin();
     while (iter != m_Buffer.end())
     {
         if (*iter == '\\')
@@ -159,13 +167,24 @@ void ObjFileImporter::InternReadFile( const std::string& pFile, aiScene* pScene,
         }
         else
             ++iter;
-    }
+
+        if (++progressCounter >= updateProgressEveryBytes)
+        {
+            m_progress->UpdateFileRead(++progress, progressTotal);
+            progressCounter = 0;
+        }
+    }*/
+
+    // 1/3rd progress
+    m_progress->UpdateFileRead(1, 3);
 
     // parse the file into a temporary representation
-    ObjFileParser parser(m_Buffer, modelName, pIOHandler);
+    ObjFileParser parser( streamedBuffer, modelName, pIOHandler, m_progress, file);
 
     // And create the proper return structures out of it
     CreateDataFromImport(parser.GetModel(), pScene);
+
+    streamedBuffer.close();
 
     // Clean up allocated storage for the next import
     m_Buffer.clear();
@@ -278,9 +297,7 @@ aiNode *ObjFileImporter::createNodes(const ObjFile::Model* pModel, const ObjFile
 
 // ------------------------------------------------------------------------------------------------
 //  Create topology data
-aiMesh *ObjFileImporter::createTopology( const ObjFile::Model* pModel, const ObjFile::Object* pData,
-                                         unsigned int meshIndex )
-{
+aiMesh *ObjFileImporter::createTopology( const ObjFile::Model* pModel, const ObjFile::Object* pData, unsigned int meshIndex ) {
     // Checking preconditions
     ai_assert( NULL != pModel );
 
@@ -293,7 +310,11 @@ aiMesh *ObjFileImporter::createTopology( const ObjFile::Model* pModel, const Obj
     if( !pObjMesh ) {
         return NULL;
     }
-    ai_assert( NULL != pObjMesh );
+
+    if( pObjMesh->m_Faces.empty() ) {
+        return NULL;
+    }
+
     aiMesh* pMesh = new aiMesh;
     if( !pObjMesh->m_name.empty() ) {
         pMesh->mName.Set( pObjMesh->m_name );
@@ -370,8 +391,7 @@ void ObjFileImporter::createVertexArray(const ObjFile::Model* pModel,
                                         const ObjFile::Object* pCurrentObject,
                                         unsigned int uiMeshIndex,
                                         aiMesh* pMesh,
-                                        unsigned int numIndices)
-{
+                                        unsigned int numIndices) {
     // Checking preconditions
     ai_assert( NULL != pCurrentObject );
 
@@ -381,8 +401,9 @@ void ObjFileImporter::createVertexArray(const ObjFile::Model* pModel,
 
     // Get current mesh
     ObjFile::Mesh *pObjMesh = pModel->m_Meshes[ uiMeshIndex ];
-    if ( NULL == pObjMesh || pObjMesh->m_uiNumIndices < 1)
+    if ( NULL == pObjMesh || pObjMesh->m_uiNumIndices < 1 ) {
         return;
+    }
 
     // Copy vertices of this mesh instance
     pMesh->mNumVertices = numIndices;
@@ -397,6 +418,10 @@ void ObjFileImporter::createVertexArray(const ObjFile::Model* pModel,
     if ( !pModel->m_Normals.empty() && pObjMesh->m_hasNormals )
         pMesh->mNormals = new aiVector3D[ pMesh->mNumVertices ];
 
+    // Allocate buffer for vertex-color vectors
+    if ( !pModel->m_VertexColors.empty() )
+        pMesh->mColors[0] = new aiColor4D[ pMesh->mNumVertices ];
+
     // Allocate buffer for texture coordinates
     if ( !pModel->m_TextureCoord.empty() && pObjMesh->m_uiUVCoordinates[0] )
     {
@@ -406,28 +431,33 @@ void ObjFileImporter::createVertexArray(const ObjFile::Model* pModel,
 
     // Copy vertices, normals and textures into aiMesh instance
     unsigned int newIndex = 0, outIndex = 0;
-    for ( size_t index=0; index < pObjMesh->m_Faces.size(); index++ )
-    {
+    for ( size_t index=0; index < pObjMesh->m_Faces.size(); index++ ) {
         // Get source face
         ObjFile::Face *pSourceFace = pObjMesh->m_Faces[ index ];
 
         // Copy all index arrays
-        for ( size_t vertexIndex = 0, outVertexIndex = 0; vertexIndex < pSourceFace->m_pVertices->size(); vertexIndex++ )
-        {
+        for ( size_t vertexIndex = 0, outVertexIndex = 0; vertexIndex < pSourceFace->m_pVertices->size(); vertexIndex++ ) {
             const unsigned int vertex = pSourceFace->m_pVertices->at( vertexIndex );
-            if ( vertex >= pModel->m_Vertices.size() )
+            if ( vertex >= pModel->m_Vertices.size() ) {
                 throw DeadlyImportError( "OBJ: vertex index out of range" );
+            }
 
             pMesh->mVertices[ newIndex ] = pModel->m_Vertices[ vertex ];
 
             // Copy all normals
-            if ( !pModel->m_Normals.empty() && vertexIndex < pSourceFace->m_pNormals->size())
-            {
+            if ( !pModel->m_Normals.empty() && vertexIndex < pSourceFace->m_pNormals->size()) {
                 const unsigned int normal = pSourceFace->m_pNormals->at( vertexIndex );
-                if ( normal >= pModel->m_Normals.size() )
-                    throw DeadlyImportError("OBJ: vertex normal index out of range");
-
+                if ( normal >= pModel->m_Normals.size() ) {
+                    throw DeadlyImportError( "OBJ: vertex normal index out of range" );
+                }
                 pMesh->mNormals[ newIndex ] = pModel->m_Normals[ normal ];
+            }
+
+            // Copy all vertex colors
+            if ( !pModel->m_VertexColors.empty())
+            {
+                const aiVector3D color = pModel->m_VertexColors[ vertex ];
+                pMesh->mColors[0][ newIndex ] = aiColor4D(color.x, color.y, color.z, 1.0);
             }
 
             // Copy all texture coordinates
@@ -451,19 +481,15 @@ void ObjFileImporter::createVertexArray(const ObjFile::Model* pModel,
             aiFace *pDestFace = &pMesh->mFaces[ outIndex ];
 
             const bool last = ( vertexIndex == pSourceFace->m_pVertices->size() - 1 );
-            if (pSourceFace->m_PrimitiveType != aiPrimitiveType_LINE || !last)
-            {
+            if (pSourceFace->m_PrimitiveType != aiPrimitiveType_LINE || !last) {
                 pDestFace->mIndices[ outVertexIndex ] = newIndex;
                 outVertexIndex++;
             }
 
-            if (pSourceFace->m_PrimitiveType == aiPrimitiveType_POINT)
-            {
+            if (pSourceFace->m_PrimitiveType == aiPrimitiveType_POINT) {
                 outIndex++;
                 outVertexIndex = 0;
-            }
-            else if (pSourceFace->m_PrimitiveType == aiPrimitiveType_LINE)
-            {
+            } else if (pSourceFace->m_PrimitiveType == aiPrimitiveType_LINE) {
                 outVertexIndex = 0;
 
                 if(!last)
@@ -516,20 +542,21 @@ void ObjFileImporter::countObjects(const std::vector<ObjFile::Object*> &rObjects
 
 // ------------------------------------------------------------------------------------------------
 //   Add clamp mode property to material if necessary
-void ObjFileImporter::addTextureMappingModeProperty(aiMaterial* mat, aiTextureType type, int clampMode)
-{
-    ai_assert( NULL != mat);
-    mat->AddProperty<int>(&clampMode, 1, AI_MATKEY_MAPPINGMODE_U(type, 0));
-    mat->AddProperty<int>(&clampMode, 1, AI_MATKEY_MAPPINGMODE_V(type, 0));
+void ObjFileImporter::addTextureMappingModeProperty( aiMaterial* mat, aiTextureType type, int clampMode) {
+    if ( nullptr == mat ) {
+        return;
+    }
+
+    mat->AddProperty<int>( &clampMode, 1, AI_MATKEY_MAPPINGMODE_U( type, 0 ) );
+    mat->AddProperty<int>( &clampMode, 1, AI_MATKEY_MAPPINGMODE_V( type, 0 ) );
 }
 
 // ------------------------------------------------------------------------------------------------
 //  Creates the material
-void ObjFileImporter::createMaterials(const ObjFile::Model* pModel, aiScene* pScene )
-{
-    ai_assert( NULL != pScene );
-    if ( NULL == pScene )
+void ObjFileImporter::createMaterials(const ObjFile::Model* pModel, aiScene* pScene ) {
+    if ( NULL == pScene ) {
         return;
+    }
 
     const unsigned int numMaterials = (unsigned int) pModel->m_MaterialLib.size();
     pScene->mNumMaterials = 0;

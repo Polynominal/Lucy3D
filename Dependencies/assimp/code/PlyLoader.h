@@ -2,7 +2,7 @@
 Open Asset Import Library (assimp)
 ----------------------------------------------------------------------
 
-Copyright (c) 2006-2015, assimp team
+Copyright (c) 2006-2016, assimp team
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -45,7 +45,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define AI_PLYLOADER_H_INCLUDED
 
 #include "BaseImporter.h"
-#include "../include/assimp/types.h"
+#include <assimp/types.h>
 #include "PlyParser.h"
 #include <vector>
 
@@ -155,7 +155,7 @@ protected:
     /** Static helper to parse a color channel value. The input value
     *  is normalized to 0-1.
     */
-    static float NormalizeColorValue (
+    static ai_real NormalizeColorValue (
         PLY::PropertyInstance::ValueUnion val,
         PLY::EDataType eType);
 

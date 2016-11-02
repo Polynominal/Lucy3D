@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CodeLite_Workspace Name="luajit" >
-  <Project Name="luajit" Path="luajit.project" Active="No"/>
+<CodeLite_Workspace Name="luajit">
+  <Project Name="luajit" Path="luajit.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="NoConfig" Selected="yes">
       <Project Name="luajit" ConfigName="NoConfig"/>

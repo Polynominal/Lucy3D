@@ -2,7 +2,7 @@
 Open Asset Import Library (assimp)
 ----------------------------------------------------------------------
 
-Copyright (c) 2006-2015, assimp team
+Copyright (c) 2006-2016, assimp team
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -104,7 +104,7 @@ struct Face
 
 // ------------------------------------------------------------------------------------------------
 //! \struct Object
-//! \brief  Stores all objects of an objfile object definition
+//! \brief  Stores all objects of an obj-file object definition
 struct Object
 {
     enum ObjectType
@@ -160,8 +160,8 @@ struct Material
     aiString textureSpecularity;
     aiString textureOpacity;
     aiString textureDisp;
-    enum TextureType
-    {
+
+    enum TextureType {
         TextureDiffuseType = 0,
         TextureSpecularType,
         TextureAmbientType,
@@ -191,21 +191,21 @@ struct Material
     //! Emissive color
     aiColor3D emissive;
     //! Alpha value
-    float alpha;
+    ai_real alpha;
     //! Shineness factor
-    float shineness;
+    ai_real shineness;
     //! Illumination model
     int illumination_model;
     //! Index of refraction
-    float ior;
+    ai_real ior;
 
     //! Constructor
     Material()
-        :   diffuse (0.6f,0.6f,0.6f)
-        ,   alpha   (1.f)
-        ,   shineness (0.0f)
+        :   diffuse (0.6,0.6,0.6)
+        ,   alpha   (1.0)
+        ,   shineness (0.0)
         ,   illumination_model (1)
-        ,   ior     (1.f)
+        ,   ior     (1.0)
     {
         // empty
         for (size_t i = 0; i < TextureTypeCount; ++i)
@@ -240,9 +240,11 @@ struct Mesh {
     unsigned int m_uiMaterialIndex;
     /// True, if normals are stored.
     bool m_hasNormals;
+    /// True, if vertex colors are stored.
+    bool m_hasVertexColors;
 
     /// Constructor
-    explicit Mesh( const std::string &name ) 
+    explicit Mesh( const std::string &name )
     : m_name( name )
     , m_pMaterial(NULL)
     , m_uiNumIndices(0)
@@ -283,12 +285,12 @@ struct Model
     ObjFile::Material *m_pDefaultMaterial;
     //! Vector with all generated materials
     std::vector<std::string> m_MaterialLib;
-    //! Vector with all generated group
-    std::vector<std::string> m_GroupLib;
     //! Vector with all generated vertices
     std::vector<aiVector3D> m_Vertices;
     //! vector with all generated normals
     std::vector<aiVector3D> m_Normals;
+    //! vector with all vertex colors
+    std::vector<aiVector3D> m_VertexColors;
     //! Group map
     GroupMap m_Groups;
     //! Group to face id assignment

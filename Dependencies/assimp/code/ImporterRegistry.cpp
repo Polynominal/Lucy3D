@@ -1,9 +1,9 @@
-/*
+﻿/*
 ---------------------------------------------------------------------------
 Open Asset Import Library (assimp)
 ---------------------------------------------------------------------------
 
-Copyright (c) 2006-2015, assimp team
+Copyright (c) 2006-2016, assimp team
 
 All rights reserved.
 
@@ -53,6 +53,9 @@ corresponding preprocessor flag to selectively disable formats.
 #ifndef ASSIMP_BUILD_NO_X_IMPORTER
 #   include "XFileImporter.h"
 #endif
+#ifndef ASSIMP_BUILD_NO_AMF_IMPORTER
+#   include "AMFImporter.hpp"
+#endif
 #ifndef ASSIMP_BUILD_NO_3DS_IMPORTER
 #   include "3DSLoader.h"
 #endif
@@ -100,6 +103,9 @@ corresponding preprocessor flag to selectively disable formats.
 #endif
 #ifndef ASSIMP_BUILD_NO_RAW_IMPORTER
 #   include "RawLoader.h"
+#endif
+#ifndef ASSIMP_BUILD_NO_SIB_IMPORTER
+#   include "SIBImporter.h"
 #endif
 #ifndef ASSIMP_BUILD_NO_OFF_IMPORTER
 #   include "OFFLoader.h"
@@ -170,9 +176,17 @@ corresponding preprocessor flag to selectively disable formats.
 #ifndef ASSIMP_BUILD_NO_ASSBIN_IMPORTER
 #   include "AssbinLoader.h"
 #endif
-
+#ifndef ASSIMP_BUILD_NO_GLTF_IMPORTER
+#   include "glTFImporter.h"
+#endif
 #ifndef ASSIMP_BUILD_NO_C4D_IMPORTER
 #   include "C4DImporter.h"
+#endif
+#ifndef ASSIMP_BUILD_NO_3MF_IMPORTER
+#   include "D3MFImporter.h"
+#endif
+#ifndef ASSIMP_BUILD_NO_X3D_IMPORTER
+#   include "X3DImporter.hpp"
 #endif
 
 namespace Assimp {
@@ -190,6 +204,9 @@ void GetImporterInstanceList(std::vector< BaseImporter* >& out)
 #endif
 #if (!defined ASSIMP_BUILD_NO_OBJ_IMPORTER)
     out.push_back( new ObjFileImporter());
+#endif
+#ifndef ASSIMP_BUILD_NO_AMF_IMPORTER
+	out.push_back( new AMFImporter() );
 #endif
 #if (!defined ASSIMP_BUILD_NO_3DS_IMPORTER)
     out.push_back( new Discreet3DSImporter());
@@ -235,6 +252,9 @@ void GetImporterInstanceList(std::vector< BaseImporter* >& out)
 #endif
 #if (!defined ASSIMP_BUILD_NO_RAW_IMPORTER)
     out.push_back( new RAWImporter());
+#endif
+#if (!defined ASSIMP_BUILD_NO_SIB_IMPORTER)
+    out.push_back( new SIBImporter());
 #endif
 #if (!defined ASSIMP_BUILD_NO_OFF_IMPORTER)
     out.push_back( new OFFImporter());
@@ -305,10 +325,26 @@ void GetImporterInstanceList(std::vector< BaseImporter* >& out)
 #if ( !defined ASSIMP_BUILD_NO_ASSBIN_IMPORTER )
     out.push_back( new AssbinImporter() );
 #endif
-
-#ifndef ASSIMP_BUILD_NO_C4D_IMPORTER
+#if ( !defined ASSIMP_BUILD_NO_GLTF_IMPORTER )
+    out.push_back( new glTFImporter() );
+#endif
+#if ( !defined ASSIMP_BUILD_NO_C4D_IMPORTER )
     out.push_back( new C4DImporter() );
 #endif
+#if ( !defined ASSIMP_BUILD_NO_3MF_IMPORTER )
+    out.push_back(new D3MFImporter() );
+#endif
+#ifndef ASSIMP_BUILD_NO_X3D_IMPORTER
+    out.push_back( new X3DImporter() );
+#endif
+}
+
+/** will delete all registered importers. */
+void DeleteImporterInstanceList(std::vector< BaseImporter* >& deleteList){
+	for(size_t i= 0; i<deleteList.size();++i){
+		delete deleteList[i];
+		deleteList[i]=NULL;
+	}//for
 }
 
 } // namespace Assimp

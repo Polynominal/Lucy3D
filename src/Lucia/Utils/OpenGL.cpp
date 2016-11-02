@@ -343,7 +343,7 @@ void Buffer::generate(bool genEBO)
 {
     #ifndef LUCIA_USE_GLES2
     glGenVertexArrays(1,&vao);
-    boundInstanceSize = (uint)((GLvoid*)0);
+    boundInstanceSize = sizeof((GLvoid*)0);
     #endif // LUCIA_USE_GLES2
     glGenBuffers(1,&vbo);
     if (genEBO)
@@ -516,7 +516,7 @@ void Buffer::bindInstanced(uint componentNo,uint size,std::string where,uint nth
 }
 void Buffer::setInstanced(std::vector<ptr<Buffer>> items,float* data,std::string where,uint componentNo,uint size,uint perNthInstance)
 {
-    boundInstanceSize = (uint)((GLvoid*)0);;
+    boundInstanceSize = sizeof((GLvoid*)0);;
     Buffers = items;
     glDeleteBuffers(1,&ivbo);
     glGenBuffers(1, &ivbo);

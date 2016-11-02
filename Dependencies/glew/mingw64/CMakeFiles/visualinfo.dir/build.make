@@ -42,10 +42,10 @@ RM = "C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Lucy3D\Dependencies\glew-1.13.0\build\cmake
+CMAKE_SOURCE_DIR = D:\Lucia\Dependencies\glew\build\cmake
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\Lucy3D\Dependencies\glew-1.13.0\mingw64
+CMAKE_BINARY_DIR = D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\glew\mingw64
 
 # Include any dependencies generated for this target.
 include CMakeFiles/visualinfo.dir/depend.make
@@ -56,45 +56,45 @@ include CMakeFiles/visualinfo.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/visualinfo.dir/flags.make
 
-CMakeFiles/visualinfo.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.obj: CMakeFiles/visualinfo.dir/flags.make
-CMakeFiles/visualinfo.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.obj: CMakeFiles/visualinfo.dir/includes_C.rsp
-CMakeFiles/visualinfo.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.obj: D:/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Lucy3D\Dependencies\glew-1.13.0\mingw64\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/visualinfo.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.obj"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\visualinfo.dir\D_\Lucy3D\Dependencies\glew-1.13.0\src\visualinfo.obj   -c D:\Lucy3D\Dependencies\glew-1.13.0\src\visualinfo.c
+CMakeFiles/visualinfo.dir/D_/Lucia/Dependencies/glew/src/visualinfo.obj: CMakeFiles/visualinfo.dir/flags.make
+CMakeFiles/visualinfo.dir/D_/Lucia/Dependencies/glew/src/visualinfo.obj: CMakeFiles/visualinfo.dir/includes_C.rsp
+CMakeFiles/visualinfo.dir/D_/Lucia/Dependencies/glew/src/visualinfo.obj: D:/Lucia/Dependencies/glew/src/visualinfo.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\glew\mingw64\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/visualinfo.dir/D_/Lucia/Dependencies/glew/src/visualinfo.obj"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\visualinfo.dir\D_\Lucia\Dependencies\glew\src\visualinfo.obj   -c D:\Lucia\Dependencies\glew\src\visualinfo.c
 
-CMakeFiles/visualinfo.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/visualinfo.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.i"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucy3D\Dependencies\glew-1.13.0\src\visualinfo.c > CMakeFiles\visualinfo.dir\D_\Lucy3D\Dependencies\glew-1.13.0\src\visualinfo.i
+CMakeFiles/visualinfo.dir/D_/Lucia/Dependencies/glew/src/visualinfo.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/visualinfo.dir/D_/Lucia/Dependencies/glew/src/visualinfo.i"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\Lucia\Dependencies\glew\src\visualinfo.c > CMakeFiles\visualinfo.dir\D_\Lucia\Dependencies\glew\src\visualinfo.i
 
-CMakeFiles/visualinfo.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/visualinfo.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.s"
-	C:\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucy3D\Dependencies\glew-1.13.0\src\visualinfo.c -o CMakeFiles\visualinfo.dir\D_\Lucy3D\Dependencies\glew-1.13.0\src\visualinfo.s
+CMakeFiles/visualinfo.dir/D_/Lucia/Dependencies/glew/src/visualinfo.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/visualinfo.dir/D_/Lucia/Dependencies/glew/src/visualinfo.s"
+	C:\mingw64\mingw64\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\Lucia\Dependencies\glew\src\visualinfo.c -o CMakeFiles\visualinfo.dir\D_\Lucia\Dependencies\glew\src\visualinfo.s
 
-CMakeFiles/visualinfo.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.obj.requires:
+CMakeFiles/visualinfo.dir/D_/Lucia/Dependencies/glew/src/visualinfo.obj.requires:
 
-.PHONY : CMakeFiles/visualinfo.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.obj.requires
+.PHONY : CMakeFiles/visualinfo.dir/D_/Lucia/Dependencies/glew/src/visualinfo.obj.requires
 
-CMakeFiles/visualinfo.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.obj.provides: CMakeFiles/visualinfo.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.obj.requires
-	$(MAKE) -f CMakeFiles\visualinfo.dir\build.make CMakeFiles/visualinfo.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.obj.provides.build
-.PHONY : CMakeFiles/visualinfo.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.obj.provides
+CMakeFiles/visualinfo.dir/D_/Lucia/Dependencies/glew/src/visualinfo.obj.provides: CMakeFiles/visualinfo.dir/D_/Lucia/Dependencies/glew/src/visualinfo.obj.requires
+	$(MAKE) -f CMakeFiles\visualinfo.dir\build.make CMakeFiles/visualinfo.dir/D_/Lucia/Dependencies/glew/src/visualinfo.obj.provides.build
+.PHONY : CMakeFiles/visualinfo.dir/D_/Lucia/Dependencies/glew/src/visualinfo.obj.provides
 
-CMakeFiles/visualinfo.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.obj.provides.build: CMakeFiles/visualinfo.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.obj
+CMakeFiles/visualinfo.dir/D_/Lucia/Dependencies/glew/src/visualinfo.obj.provides.build: CMakeFiles/visualinfo.dir/D_/Lucia/Dependencies/glew/src/visualinfo.obj
 
 
 # Object files for target visualinfo
 visualinfo_OBJECTS = \
-"CMakeFiles/visualinfo.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.obj"
+"CMakeFiles/visualinfo.dir/D_/Lucia/Dependencies/glew/src/visualinfo.obj"
 
 # External object files for target visualinfo
 visualinfo_EXTERNAL_OBJECTS =
 
-bin/visualinfo.exe: CMakeFiles/visualinfo.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.obj
+bin/visualinfo.exe: CMakeFiles/visualinfo.dir/D_/Lucia/Dependencies/glew/src/visualinfo.obj
 bin/visualinfo.exe: CMakeFiles/visualinfo.dir/build.make
 bin/visualinfo.exe: lib/libglew32.dll.a
 bin/visualinfo.exe: CMakeFiles/visualinfo.dir/linklibs.rsp
 bin/visualinfo.exe: CMakeFiles/visualinfo.dir/objects1.rsp
 bin/visualinfo.exe: CMakeFiles/visualinfo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\Lucy3D\Dependencies\glew-1.13.0\mingw64\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable bin\visualinfo.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\glew\mingw64\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable bin\visualinfo.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\visualinfo.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -102,7 +102,7 @@ CMakeFiles/visualinfo.dir/build: bin/visualinfo.exe
 
 .PHONY : CMakeFiles/visualinfo.dir/build
 
-CMakeFiles/visualinfo.dir/requires: CMakeFiles/visualinfo.dir/D_/Lucy3D/Dependencies/glew-1.13.0/src/visualinfo.obj.requires
+CMakeFiles/visualinfo.dir/requires: CMakeFiles/visualinfo.dir/D_/Lucia/Dependencies/glew/src/visualinfo.obj.requires
 
 .PHONY : CMakeFiles/visualinfo.dir/requires
 
@@ -111,6 +111,6 @@ CMakeFiles/visualinfo.dir/clean:
 .PHONY : CMakeFiles/visualinfo.dir/clean
 
 CMakeFiles/visualinfo.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\Lucy3D\Dependencies\glew-1.13.0\build\cmake D:\Lucy3D\Dependencies\glew-1.13.0\build\cmake D:\Lucy3D\Dependencies\glew-1.13.0\mingw64 D:\Lucy3D\Dependencies\glew-1.13.0\mingw64 D:\Lucy3D\Dependencies\glew-1.13.0\mingw64\CMakeFiles\visualinfo.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" D:\Lucia\Dependencies\glew\build\cmake D:\Lucia\Dependencies\glew\build\cmake D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\glew\mingw64 D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\glew\mingw64 D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\glew\mingw64\CMakeFiles\visualinfo.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/visualinfo.dir/depend
 

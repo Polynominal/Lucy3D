@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="SDL2" InternalType="">
+  <VirtualDirectory Name="src">
+    <File Name="../src/SDL.c"/>
+    <File Name="../src/SDL_assert.c"/>
+    <File Name="../src/SDL_error.c"/>
+    <File Name="../src/SDL_hints.c"/>
+    <File Name="../src/SDL_log.c"/>
+    <File Name="../src/atomic/SDL_atomic.c"/>
+    <File Name="../src/atomic/SDL_spinlock.c"/>
+    <File Name="../src/audio/SDL_audio.c"/>
+    <File Name="../src/audio/SDL_audiocvt.c"/>
+    <File Name="../src/audio/SDL_audiodev.c"/>
+    <File Name="../src/audio/SDL_audiotypecvt.c"/>
+    <File Name="../src/audio/SDL_mixer.c"/>
+    <File Name="../src/audio/SDL_wave.c"/>
+    <File Name="../src/audio/directsound/SDL_directsound.c"/>
+    <File Name="../src/audio/disk/SDL_diskaudio.c"/>
+    <File Name="../src/audio/dummy/SDL_dummyaudio.c"/>
+    <File Name="../src/audio/winmm/SDL_winmm.c"/>
+    <File Name="../src/core/windows/SDL_windows.c"/>
+    <File Name="../src/core/windows/SDL_xinput.c"/>
+    <File Name="../src/cpuinfo/SDL_cpuinfo.c"/>
+    <File Name="../src/dynapi/SDL_dynapi.c"/>
+    <File Name="../src/events/SDL_clipboardevents.c"/>
+    <File Name="../src/events/SDL_dropevents.c"/>
+    <File Name="../src/events/SDL_events.c"/>
+    <File Name="../src/events/SDL_gesture.c"/>
+    <File Name="../src/events/SDL_keyboard.c"/>
+    <File Name="../src/events/SDL_mouse.c"/>
+    <File Name="../src/events/SDL_quit.c"/>
+    <File Name="../src/events/SDL_touch.c"/>
+    <File Name="../src/events/SDL_windowevents.c"/>
+    <File Name="../src/file/SDL_rwops.c"/>
+    <File Name="../src/filesystem/windows/SDL_sysfilesystem.c"/>
+    <File Name="../src/haptic/SDL_haptic.c"/>
+    <File Name="../src/haptic/windows/SDL_dinputhaptic.c"/>
+    <File Name="../src/haptic/windows/SDL_windowshaptic.c"/>
+    <File Name="../src/haptic/windows/SDL_xinputhaptic.c"/>
+    <File Name="../src/joystick/SDL_gamecontroller.c"/>
+    <File Name="../src/joystick/SDL_joystick.c"/>
+    <File Name="../src/joystick/windows/SDL_dinputjoystick.c"/>
+    <File Name="../src/joystick/windows/SDL_mmjoystick.c"/>
+    <File Name="../src/joystick/windows/SDL_windowsjoystick.c"/>
+    <File Name="../src/joystick/windows/SDL_xinputjoystick.c"/>
+    <File Name="../src/libm/e_atan2.c"/>
+    <File Name="../src/libm/e_log.c"/>
+    <File Name="../src/libm/e_pow.c"/>
+    <File Name="../src/libm/e_rem_pio2.c"/>
+    <File Name="../src/libm/e_sqrt.c"/>
+    <File Name="../src/libm/k_cos.c"/>
+    <File Name="../src/libm/k_rem_pio2.c"/>
+    <File Name="../src/libm/k_sin.c"/>
+    <File Name="../src/libm/k_tan.c"/>
+    <File Name="../src/libm/s_atan.c"/>
+    <File Name="../src/libm/s_copysign.c"/>
+    <File Name="../src/libm/s_cos.c"/>
+    <File Name="../src/libm/s_fabs.c"/>
+    <File Name="../src/libm/s_floor.c"/>
+    <File Name="../src/libm/s_scalbn.c"/>
+    <File Name="../src/libm/s_sin.c"/>
+    <File Name="../src/libm/s_tan.c"/>
+    <File Name="../src/loadso/windows/SDL_sysloadso.c"/>
+    <File Name="../src/main/windows/SDL_windows_main.c"/>
+    <File Name="../src/power/SDL_power.c"/>
+    <File Name="../src/power/windows/SDL_syspower.c"/>
+    <File Name="../src/render/SDL_d3dmath.c"/>
+    <File Name="../src/render/SDL_render.c"/>
+    <File Name="../src/render/SDL_yuv_mmx.c"/>
+    <File Name="../src/render/SDL_yuv_sw.c"/>
+    <File Name="../src/render/direct3d/SDL_render_d3d.c"/>
+    <File Name="../src/render/direct3d11/SDL_render_d3d11.c"/>
+    <File Name="../src/render/opengl/SDL_render_gl.c"/>
+    <File Name="../src/render/opengl/SDL_shaders_gl.c"/>
+    <File Name="../src/render/opengles/SDL_render_gles.c"/>
+    <File Name="../src/render/opengles2/SDL_render_gles2.c"/>
+    <File Name="../src/render/opengles2/SDL_shaders_gles2.c"/>
+    <File Name="../src/render/psp/SDL_render_psp.c"/>
+    <File Name="../src/render/software/SDL_blendfillrect.c"/>
+    <File Name="../src/render/software/SDL_blendline.c"/>
+    <File Name="../src/render/software/SDL_blendpoint.c"/>
+    <File Name="../src/render/software/SDL_drawline.c"/>
+    <File Name="../src/render/software/SDL_drawpoint.c"/>
+    <File Name="../src/render/software/SDL_render_sw.c"/>
+    <File Name="../src/render/software/SDL_rotate.c"/>
+    <File Name="../src/stdlib/SDL_getenv.c"/>
+    <File Name="../src/stdlib/SDL_iconv.c"/>
+    <File Name="../src/stdlib/SDL_malloc.c"/>
+    <File Name="../src/stdlib/SDL_qsort.c"/>
+    <File Name="../src/stdlib/SDL_stdlib.c"/>
+    <File Name="../src/stdlib/SDL_string.c"/>
+    <File Name="../src/thread/SDL_thread.c"/>
+    <File Name="../src/thread/generic/SDL_syscond.c"/>
+    <File Name="../src/thread/windows/SDL_sysmutex.c"/>
+    <File Name="../src/thread/windows/SDL_syssem.c"/>
+    <File Name="../src/thread/windows/SDL_systhread.c"/>
+    <File Name="../src/thread/windows/SDL_systls.c"/>
+    <File Name="../src/timer/SDL_timer.c"/>
+    <File Name="../src/timer/windows/SDL_systimer.c"/>
+    <File Name="../src/video/SDL_RLEaccel.c"/>
+    <File Name="../src/video/SDL_blit.c"/>
+    <File Name="../src/video/SDL_blit_0.c"/>
+    <File Name="../src/video/SDL_blit_1.c"/>
+    <File Name="../src/video/SDL_blit_A.c"/>
+    <File Name="../src/video/SDL_blit_N.c"/>
+    <File Name="../src/video/SDL_blit_auto.c"/>
+    <File Name="../src/video/SDL_blit_copy.c"/>
+    <File Name="../src/video/SDL_blit_slow.c"/>
+    <File Name="../src/video/SDL_bmp.c"/>
+    <File Name="../src/video/SDL_clipboard.c"/>
+    <File Name="../src/video/SDL_egl.c"/>
+    <File Name="../src/video/SDL_fillrect.c"/>
+    <File Name="../src/video/SDL_pixels.c"/>
+    <File Name="../src/video/SDL_rect.c"/>
+    <File Name="../src/video/SDL_shape.c"/>
+    <File Name="../src/video/SDL_stretch.c"/>
+    <File Name="../src/video/SDL_surface.c"/>
+    <File Name="../src/video/SDL_video.c"/>
+    <File Name="../src/video/dummy/SDL_nullevents.c"/>
+    <File Name="../src/video/dummy/SDL_nullframebuffer.c"/>
+    <File Name="../src/video/dummy/SDL_nullvideo.c"/>
+    <File Name="../src/video/windows/SDL_windowsclipboard.c"/>
+    <File Name="../src/video/windows/SDL_windowsevents.c"/>
+    <File Name="../src/video/windows/SDL_windowsframebuffer.c"/>
+    <File Name="../src/video/windows/SDL_windowskeyboard.c"/>
+    <File Name="../src/video/windows/SDL_windowsmessagebox.c"/>
+    <File Name="../src/video/windows/SDL_windowsmodes.c"/>
+    <File Name="../src/video/windows/SDL_windowsmouse.c"/>
+    <File Name="../src/video/windows/SDL_windowsopengl.c"/>
+    <File Name="../src/video/windows/SDL_windowsopengles.c"/>
+    <File Name="../src/video/windows/SDL_windowsshape.c"/>
+    <File Name="../src/video/windows/SDL_windowsvideo.c"/>
+    <File Name="../src/video/windows/SDL_windowswindow.c"/>
+  </VirtualDirectory>
+  <VirtualDirectory Name="include">
+    <File Name="../src/audio/SDL_wave.h"/>
+    <File Name="../src/audio/directsound/SDL_directsound.h"/>
+    <File Name="../src/audio/disk/SDL_diskaudio.h"/>
+    <File Name="../src/audio/dummy/SDL_dummyaudio.h"/>
+    <File Name="../src/audio/winmm/SDL_winmm.h"/>
+    <File Name="../src/core/windows/SDL_windows.h"/>
+    <File Name="../src/core/windows/SDL_xinput.h"/>
+    <File Name="../src/dynapi/SDL_dynapi.h"/>
+    <File Name="../src/main/windows/version.rc"/>
+    <File Name="../src/render/SDL_d3dmath.h"/>
+    <File Name="../src/render/opengl/SDL_shaders_gl.h"/>
+    <File Name="../src/render/opengles2/SDL_shaders_gles2.h"/>
+    <File Name="../src/render/software/SDL_blendfillrect.h"/>
+    <File Name="../src/render/software/SDL_blendline.h"/>
+    <File Name="../src/render/software/SDL_blendpoint.h"/>
+    <File Name="../src/render/software/SDL_drawline.h"/>
+    <File Name="../src/render/software/SDL_drawpoint.h"/>
+    <File Name="../src/render/software/SDL_rotate.h"/>
+    <File Name="../src/video/SDL_blit.h"/>
+    <File Name="../src/video/SDL_blit_auto.h"/>
+    <File Name="../src/video/SDL_blit_copy.h"/>
+    <File Name="../src/video/SDL_blit_slow.h"/>
+    <File Name="../src/video/dummy/SDL_nullvideo.h"/>
+    <File Name="../src/video/windows/SDL_windowsclipboard.h"/>
+    <File Name="../src/video/windows/SDL_windowsevents.h"/>
+    <File Name="../src/video/windows/SDL_windowsframebuffer.h"/>
+    <File Name="../src/video/windows/SDL_windowskeyboard.h"/>
+    <File Name="../src/video/windows/SDL_windowsmessagebox.h"/>
+    <File Name="../src/video/windows/SDL_windowsmodes.h"/>
+    <File Name="../src/video/windows/SDL_windowsmouse.h"/>
+    <File Name="../src/video/windows/SDL_windowsopengl.h"/>
+    <File Name="../src/video/windows/SDL_windowsopengles.h"/>
+    <File Name="../src/video/windows/SDL_windowsshape.h"/>
+    <File Name="../src/video/windows/SDL_windowsvideo.h"/>
+    <File Name="../src/video/windows/SDL_windowswindow.h"/>
+  </VirtualDirectory>
+
+  <Settings Type="Static Library">
+    <Configuration Name="NoConfig" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Static Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g" Required="yes" PreCompiledHeader="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="" Required="yes"/>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./" Command="./$(ProjectName)" CommandArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>C:/mingw64/mingw64/bin/mingw32-make.exe -j 4 clean &amp;&amp; C:/mingw64/mingw64/bin/mingw32-make.exe -j 4</RebuildCommand>
+        <CleanCommand>C:/mingw64/mingw64/bin/mingw32-make.exe -j 4 clean</CleanCommand>
+        <BuildCommand>C:/mingw64/mingw64/bin/mingw32-make.exe -j 4</BuildCommand>
+        <SingleFileCommand>C:/mingw64/mingw64/bin/mingw32-make.exe -f$(ProjectPath)/Makefile $(CurrentFileName).cpp.o</SingleFileCommand>
+        <PreprocessFileCommand/>
+        <WorkingDirectory>$(WorkspacePath)</WorkingDirectory>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+    </Configuration>
+    <GlobalSettings>
+      <Compiler Options="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value="."/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+  </Settings>
+</CodeLite_Project>

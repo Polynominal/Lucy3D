@@ -1,4 +1,4 @@
-# Install script for directory: D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit
+# Install script for directory: D:/Lucia/Dependencies/Luajit
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -28,77 +28,77 @@ if(NOT CMAKE_INSTALL_COMPONENT)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Runtime")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/wluajit.exe")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "D:/Lucia/Dependencies/Luajit/build/wluajit.exe")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/wluajit.exe" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/wluajit.exe")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "C:/mingw64/bin/strip.exe" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/wluajit.exe")
+      execute_process(COMMAND "C:/mingw64/mingw64/bin/strip.exe" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/wluajit.exe")
     endif()
   endif()
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Runtime")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/luajit.exe")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "D:/Lucia/Dependencies/Luajit/build/luajit.exe")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/luajit.exe" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/luajit.exe")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "C:/mingw64/bin/strip.exe" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/luajit.exe")
+      execute_process(COMMAND "C:/mingw64/mingw64/bin/strip.exe" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/luajit.exe")
     endif()
   endif()
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Library")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY OPTIONAL FILES "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/liblua.dll.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY OPTIONAL FILES "D:/Lucia/Dependencies/Luajit/build/liblua.dll.a")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Runtime")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE SHARED_LIBRARY FILES "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/liblua.dll")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE SHARED_LIBRARY FILES "D:/Lucia/Dependencies/Luajit/build/liblua.dll")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/liblua.dll" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/liblua.dll")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "C:/mingw64/bin/strip.exe" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/liblua.dll")
+      execute_process(COMMAND "C:/mingw64/mingw64/bin/strip.exe" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/liblua.dll")
     endif()
   endif()
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Header")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/src/lua.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "D:/Lucia/Dependencies/Luajit/src/lua.h")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Header")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/src/luajit.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "D:/Lucia/Dependencies/Luajit/src/luajit.h")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Header")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/src/lua.hpp")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "D:/Lucia/Dependencies/Luajit/src/lua.hpp")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Header")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/luaconf.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "D:/Lucia/Dependencies/Luajit/build/luaconf.h")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Header")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/src/lualib.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "D:/Lucia/Dependencies/Luajit/src/lualib.h")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Header")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/src/lauxlib.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "D:/Lucia/Dependencies/Luajit/src/lauxlib.h")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Documentation")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/luajit/doc/" TYPE DIRECTORY FILES "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/doc/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/luajit/doc/" TYPE DIRECTORY FILES "D:/Lucia/Dependencies/Luajit/doc/")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Other")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/luajit/etc/" TYPE DIRECTORY FILES "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/etc/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/luajit/etc/" TYPE DIRECTORY FILES "D:/Lucia/Dependencies/Luajit/etc/")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Data")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/luajit" TYPE FILE FILES "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/COPYRIGHT")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/luajit" TYPE FILE FILES "D:/Lucia/Dependencies/Luajit/COPYRIGHT")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Data")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/luajit" TYPE FILE FILES "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/README.md")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/luajit" TYPE FILE FILES "D:/Lucia/Dependencies/Luajit/README.md")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -109,5 +109,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/Lucia/Dependencies/Luajit/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

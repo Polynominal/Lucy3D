@@ -3,7 +3,7 @@
 Open Asset Import Library (assimp)
 ---------------------------------------------------------------------------
 
-Copyright (c) 2006-2015, assimp team
+Copyright (c) 2006-2016, assimp team
 
 All rights reserved.
 
@@ -63,11 +63,11 @@ Here we implement only the C++ interface (Assimp::Exporter).
 #include "ConvertToLHProcess.h"
 #include "Exceptional.h"
 #include "ScenePrivate.h"
-#include <boost/shared_ptr.hpp>
-#include "../include/assimp/Exporter.hpp"
-#include "../include/assimp/mesh.h"
-#include "../include/assimp/postprocess.h"
-#include "../include/assimp/scene.h"
+#include <memory>
+#include <assimp/Exporter.hpp>
+#include <assimp/mesh.h>
+#include <assimp/postprocess.h>
+#include <assimp/scene.h>
 #include <memory>
 
 namespace Assimp {
@@ -87,8 +87,11 @@ void ExportSceneSTLBinary(const char*,IOSystem*, const aiScene*, const ExportPro
 void ExportScenePly(const char*,IOSystem*, const aiScene*, const ExportProperties*);
 void ExportScenePlyBinary(const char*, IOSystem*, const aiScene*, const ExportProperties*);
 void ExportScene3DS(const char*, IOSystem*, const aiScene*, const ExportProperties*);
+void ExportSceneGLTF(const char*, IOSystem*, const aiScene*, const ExportProperties*);
+void ExportSceneGLB(const char*, IOSystem*, const aiScene*, const ExportProperties*);
 void ExportSceneAssbin(const char*, IOSystem*, const aiScene*, const ExportProperties*);
 void ExportSceneAssxml(const char*, IOSystem*, const aiScene*, const ExportProperties*);
+void ExportSceneX3D(const char*, IOSystem*, const aiScene*, const ExportProperties*);
 
 // ------------------------------------------------------------------------------------------------
 // global array of all export formats which Assimp supports in its current build
@@ -135,12 +138,23 @@ Exporter::ExportFormatEntry gExporters[] =
         aiProcess_Triangulate | aiProcess_SortByPType | aiProcess_JoinIdenticalVertices),
 #endif
 
+#ifndef ASSIMP_BUILD_NO_GLTF_EXPORTER
+    Exporter::ExportFormatEntry( "gltf", "GL Transmission Format", "gltf", &ExportSceneGLTF,
+        aiProcess_JoinIdenticalVertices | aiProcess_Triangulate | aiProcess_SortByPType),
+    Exporter::ExportFormatEntry( "glb", "GL Transmission Format (binary)", "glb", &ExportSceneGLB,
+        aiProcess_JoinIdenticalVertices | aiProcess_Triangulate | aiProcess_SortByPType),
+#endif
+
 #ifndef ASSIMP_BUILD_NO_ASSBIN_EXPORTER
     Exporter::ExportFormatEntry( "assbin", "Assimp Binary", "assbin" , &ExportSceneAssbin, 0),
 #endif
 
 #ifndef ASSIMP_BUILD_NO_ASSXML_EXPORTER
     Exporter::ExportFormatEntry( "assxml", "Assxml Document", "assxml" , &ExportSceneAssxml, 0),
+#endif
+
+#ifndef ASSIMP_BUILD_NO_X3D_EXPORTER
+	Exporter::ExportFormatEntry( "x3d", "Extensible 3D", "x3d" , &ExportSceneX3D, 0),
 #endif
 };
 
@@ -175,7 +189,7 @@ public:
 public:
 
     aiExportDataBlob* blob;
-    boost::shared_ptr< Assimp::IOSystem > mIOSystem;
+    std::shared_ptr< Assimp::IOSystem > mIOSystem;
     bool mIsDefaultIOHandler;
 
     /** Post processing steps we can apply at the imported data. */
@@ -245,10 +259,10 @@ const aiExportDataBlob* Exporter :: ExportToBlob(  const aiScene* pScene, const 
     }
 
 
-    boost::shared_ptr<IOSystem> old = pimpl->mIOSystem;
+    std::shared_ptr<IOSystem> old = pimpl->mIOSystem;
 
     BlobIOSystem* blobio = new BlobIOSystem();
-    pimpl->mIOSystem = boost::shared_ptr<IOSystem>( blobio );
+    pimpl->mIOSystem = std::shared_ptr<IOSystem>( blobio );
 
     if (AI_SUCCESS != Export(pScene,pFormatId,blobio->GetMagicFileName())) {
         pimpl->mIOSystem = old;
@@ -312,10 +326,10 @@ aiReturn Exporter :: Export( const aiScene* pScene, const char* pFormatId, const
 
                 // Always create a full copy of the scene. We might optimize this one day,
                 // but for now it is the most pragmatic way.
-                aiScene* scenecopy_tmp;
+                aiScene* scenecopy_tmp = NULL;
                 SceneCombiner::CopyScene(&scenecopy_tmp,pScene);
 
-                std::auto_ptr<aiScene> scenecopy(scenecopy_tmp);
+                std::unique_ptr<aiScene> scenecopy(scenecopy_tmp);
                 const ScenePrivateData* const priv = ScenePriv(pScene);
 
                 // steps that are not idempotent, i.e. we might need to run them again, usually to get back to the
@@ -482,7 +496,7 @@ const aiExportFormatDesc* Exporter :: GetExportFormatDescription( size_t pIndex 
 // ------------------------------------------------------------------------------------------------
 aiReturn Exporter :: RegisterExporter(const ExportFormatEntry& desc)
 {
-    BOOST_FOREACH(const ExportFormatEntry& e, pimpl->mExporters) {
+    for(const ExportFormatEntry& e : pimpl->mExporters) {
         if (!strcmp(e.mDescription.id,desc.mDescription.id)) {
             return aiReturn_FAILURE;
         }
@@ -525,9 +539,9 @@ bool ExportProperties :: SetPropertyInteger(const char* szName, int iValue)
 
 // ------------------------------------------------------------------------------------------------
 // Set a configuration property
-bool ExportProperties :: SetPropertyFloat(const char* szName, float iValue)
+bool ExportProperties :: SetPropertyFloat(const char* szName, ai_real iValue)
 {
-    return SetGenericProperty<float>(mFloatProperties, szName,iValue);
+    return SetGenericProperty<ai_real>(mFloatProperties, szName,iValue);
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -554,10 +568,10 @@ int ExportProperties :: GetPropertyInteger(const char* szName,
 
 // ------------------------------------------------------------------------------------------------
 // Get a configuration property
-float ExportProperties :: GetPropertyFloat(const char* szName,
-    float iErrorReturn /*= 10e10*/) const
+ai_real ExportProperties :: GetPropertyFloat(const char* szName,
+    ai_real iErrorReturn /*= 10e10*/) const
 {
-    return GetGenericProperty<float>(mFloatProperties,szName,iErrorReturn);
+    return GetGenericProperty<ai_real>(mFloatProperties,szName,iErrorReturn);
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -594,7 +608,7 @@ bool ExportProperties :: HasPropertyBool(const char* szName) const
 // Has a configuration property
 bool ExportProperties :: HasPropertyFloat(const char* szName) const
 {
-    return HasGenericProperty<float>(mFloatProperties, szName);
+    return HasGenericProperty<ai_real>(mFloatProperties, szName);
 };
 
 // ------------------------------------------------------------------------------------------------

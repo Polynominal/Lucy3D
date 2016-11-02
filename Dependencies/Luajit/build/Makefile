@@ -47,10 +47,10 @@ RM = "C:\Program Files (x86)\CMake\bin\cmake.exe" -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit
+CMAKE_SOURCE_DIR = D:\Lucia\Dependencies\Luajit
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build
+CMAKE_BINARY_DIR = D:\Lucia\Dependencies\Luajit\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -135,7 +135,7 @@ list_install_components/fast: list_install_components
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	"C:\Program Files (x86)\CMake\bin\cpack.exe" --config ./CPackSourceConfig.cmake D:/Projects/au/rhgame/RHGame/Dependencies/Lucia/Dependencies/Luajit/build/CPackSourceConfig.cmake
+	"C:\Program Files (x86)\CMake\bin\cpack.exe" --config ./CPackSourceConfig.cmake D:/Lucia/Dependencies/Luajit/build/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -145,9 +145,9 @@ package_source/fast: package_source
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Lucia\Dependencies\Luajit\build\CMakeFiles D:\Lucia\Dependencies\Luajit\build\CMakeFiles\progress.marks
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Projects\au\rhgame\RHGame\Dependencies\Lucia\Dependencies\Luajit\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Lucia\Dependencies\Luajit\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target

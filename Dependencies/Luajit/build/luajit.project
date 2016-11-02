@@ -142,10 +142,10 @@
       <PreBuild/>
       <PostBuild/>
       <CustomBuild Enabled="yes">
-        <RebuildCommand>C:/mingw64/bin/mingw32-make.exe -j 4 clean &amp;&amp; C:/mingw64/bin/mingw32-make.exe -j 4</RebuildCommand>
-        <CleanCommand>C:/mingw64/bin/mingw32-make.exe -j 4 clean</CleanCommand>
-        <BuildCommand>C:/mingw64/bin/mingw32-make.exe -j 4</BuildCommand>
-        <SingleFileCommand>C:/mingw64/bin/mingw32-make.exe -f$(ProjectPath)/Makefile $(CurrentFileName).cpp.o</SingleFileCommand>
+        <RebuildCommand>C:/mingw64/mingw64/bin/mingw32-make.exe -j 4 clean &amp;&amp; C:/mingw64/mingw64/bin/mingw32-make.exe -j 4</RebuildCommand>
+        <CleanCommand>C:/mingw64/mingw64/bin/mingw32-make.exe -j 4 clean</CleanCommand>
+        <BuildCommand>C:/mingw64/mingw64/bin/mingw32-make.exe -j 4</BuildCommand>
+        <SingleFileCommand>C:/mingw64/mingw64/bin/mingw32-make.exe -f$(ProjectPath)/Makefile $(CurrentFileName).cpp.o</SingleFileCommand>
         <PreprocessFileCommand/>
         <WorkingDirectory>$(WorkspacePath)</WorkingDirectory>
       </CustomBuild>

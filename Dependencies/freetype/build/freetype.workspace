@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Workspace Name="freetype">
+  <Project Name="freetype" Path="freetype.project" Active="Yes"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="NoConfig" Selected="yes">
+      <Project Name="freetype" ConfigName="NoConfig"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>

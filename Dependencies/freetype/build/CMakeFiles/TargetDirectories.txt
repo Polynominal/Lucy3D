@@ -1,0 +1,2 @@
+D:/Lucia/Dependencies/freetype/build/CMakeFiles/freetype.dir
+D:/Lucia/Dependencies/freetype/build/CMakeFiles/dist.dir

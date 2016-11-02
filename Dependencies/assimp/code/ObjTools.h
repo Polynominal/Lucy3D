@@ -2,7 +2,7 @@
 Open Asset Import Library (assimp)
 ----------------------------------------------------------------------
 
-Copyright (c) 2006-2015, assimp team
+Copyright (c) 2006-2016, assimp team
 All rights reserved.
 
 Redistribution and use of this software in source and binary forms,
@@ -142,15 +142,15 @@ inline char_t getName( char_t it, char_t end, std::string &name )
     }
 
     char *pStart = &( *it );
-    while( !isEndOfBuffer( it, end ) && !IsLineEnd( *it ) ) {
+    while( !isEndOfBuffer( it, end ) && !IsLineEnd( *it ) && !IsSpaceOrNewLine( *it ) ) {
         ++it;
     }
 
-    while( isEndOfBuffer( it, end ) || IsLineEnd( *it ) || IsSpaceOrNewLine( *it ) ) {
+    /*while( isEndOfBuffer( it, end ) || IsLineEnd( *it ) || IsSpaceOrNewLine( *it ) ) {
         --it;
     }
     ++it;
-
+    */
     // Get name
     // if there is no name, and the previous char is a separator, come back to start
     while (&(*it) < pStart) {
@@ -196,12 +196,12 @@ inline char_t CopyNextWord( char_t it, char_t end, char *pBuffer, size_t length 
  *  @return Current-iterator with new position
  */
 template<class char_t>
-inline char_t getFloat( char_t it, char_t end, float &value )
+inline char_t getFloat( char_t it, char_t end, ai_real &value )
 {
     static const size_t BUFFERSIZE = 1024;
     char buffer[ BUFFERSIZE ];
     it = CopyNextWord<char_t>( it, end, buffer, BUFFERSIZE );
-    value = (float) fast_atof( buffer );
+    value = (ai_real) fast_atof( buffer );
 
     return it;
 }
@@ -236,6 +236,28 @@ unsigned int tokenize( const string_type& str, std::vector<string_type>& tokens,
     }
 
     return static_cast<unsigned int>( tokens.size() );
+}
+
+template <class string_type>
+string_type trim_whitespaces(string_type str)
+{
+    while (!str.empty() && IsSpace(str[0])) str.erase(0);
+    while (!str.empty() && IsSpace(str[str.length() - 1])) str.erase(str.length() - 1);
+    return str;
+}
+
+template<class T>
+bool hasLineEnd( T it, T end ) {
+    bool hasLineEnd( false );
+    while ( !isEndOfBuffer( it, end ) ) {
+        it++;
+        if ( IsLineEnd( it ) ) {
+            hasLineEnd = true;
+            break;
+        }
+    }
+
+    return hasLineEnd;
 }
 
 } // Namespace Assimp
