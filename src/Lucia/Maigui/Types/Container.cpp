@@ -11,11 +11,6 @@ namespace Maigui {
         //ctor
     };
     // these are relative!!!
-    Container::~Container()
-    {
-        remove();
-        //dtor
-    };
     void Container::minimize(){scaleTo(minimumSize.x,minimumSize.y,minimumSize.z);};
     void Container::maximize(){scaleTo(maximumSize.x,maximumSize.y,maximumSize.z);};
     void Container::close(){Visible = false;Inactive = true;};

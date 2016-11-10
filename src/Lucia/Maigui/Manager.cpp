@@ -53,7 +53,7 @@ namespace Maigui
             {
                 activeItem->setFocus(false);
 
-                activeItem = shape->shared_from_this();
+                activeItem = shape->getPtr();
                 shape->setFocus(true);
                 return true;
             }
@@ -93,7 +93,7 @@ namespace Maigui
             {
                 void* UserData = a->UserData;
                 Item* realData = static_cast<Item*>(UserData);
-                ActiveCollisions.push_back(realData->shared_from_this());
+                ActiveCollisions.push_back(realData->getPtr());
                 compare(realData->getPtr());
             };
             Mouse->OnRelease = [this](Shape *a)

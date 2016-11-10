@@ -26,7 +26,6 @@ namespace Maigui
                 virtual void setTitleTextColor(Graphics::Base::Color c){titleBar->getText()->setColor(c);};
                 virtual void onMorph();
                 virtual void onCreate();
-                virtual ~Frame(){remove();};
 
             protected:
                 std::shared_ptr<Addon::Titlebar> titleBar;

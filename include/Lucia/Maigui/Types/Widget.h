@@ -7,6 +7,7 @@ class Maigui::Widget : public Maigui::Item
 {
     public:
         Widget(Vertex,Vertex,shared_ptr<Skin> skin);
+        Widget(){};
         virtual ~Widget();
 
     protected:

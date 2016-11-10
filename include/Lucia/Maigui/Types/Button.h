@@ -19,8 +19,6 @@ namespace Maigui
 
             virtual Maigui::Addon::Text* getTextObject(){return &CText;};
 
-            virtual ~Button(){remove();};
-
         protected:
             Maigui::Addon::Text CText = Maigui::Addon::Text();
     };

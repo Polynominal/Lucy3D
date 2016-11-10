@@ -17,7 +17,7 @@ namespace Lucia
                 {
                     public:
                         Focus(){}
-                        ~Focus(){}
+                        virtual ~Focus(){}
                         //set
                         virtual void setMouse(){};
                         virtual void setInactive(bool condition){Inactive = condition;};

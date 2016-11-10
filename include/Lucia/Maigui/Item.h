@@ -1,6 +1,6 @@
 #ifndef MIKUS_LUCIA_MAIGUI_ITEM_H
 #define MIKUS_LUCIA_MAIGUI_ITEM_H
-
+#include <memory>
 #include <Lucia/Maigui/Maigui.h>
 #include <Lucia/Maigui/Skin.h>
 #include <Lucia/Maigui/Manager.h>
@@ -13,7 +13,7 @@ namespace Maigui
 {
     class Item : 
     
-    public std::enable_shared_from_this<Maigui::Item>, 
+    public std::enable_shared_from_this<Maigui::Item>,
     public Maigui::Base::Drawable,
     public Maigui::Base::Moveable,
     public Maigui::Base::Focus
@@ -24,6 +24,8 @@ namespace Maigui
         friend class Abstract;
 
         public:
+            Item(){};
+            virtual ~Item(){};
             // these do not necesarily remove the shape programatically, these are used alongside manager.
             virtual void create(Manager *m);
             virtual void create(Item *m); // creation within another item. Allows for recrusion

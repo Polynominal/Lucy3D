@@ -32,7 +32,7 @@ void Item::create(Item *m)
 void Item::remove()
 {
     for(auto v: Children){v->remove();};
-    Instance->remove(shared_from_this());
+    Instance->remove(getPtr());
     if(Parent != nullptr){Parent->remove(this);Parent=nullptr;};
 };
 void Item::addItem(Item* item){auto p = item->getPosition(); addItem(item,p.x,p.y,p.z);};

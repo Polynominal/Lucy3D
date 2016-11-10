@@ -12,7 +12,7 @@ namespace Maigui {
             virtual void minimize();
             virtual void maximize();
             virtual void close();
-            virtual ~Container();
+
         protected:
             Vertex maximumSize = Vertex(100,100,100);
             Vertex minimumSize = Vertex(10,10,10);

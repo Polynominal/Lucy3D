@@ -114,12 +114,16 @@ namespace Maigui
                             {
                                 int w =(parentWidth*(1.0f/globalScale.x));
                                 int h = (parentHeight*(1.0f/globalScale.y));
-                                Vertex pDimensions = toPrecentage(Dimensions);
+                                
+                                Vertex pDimensions = Dimensions;
+                                if (pDimensions > Vertex(1,1,0)){pDimensions = toPrecentage(Dimensions);};
                                 globalDimensions.x = parentWidth*(pDimensions.x*globalScale.x);
                                 globalDimensions.y = parentHeight*(pDimensions.y*globalScale.y);
                                 globalDimensions.z = Dimensions.z;
+                                
 
-                                Vertex pPosition = toPrecentage(Position);
+                                Vertex pPosition = Position;
+                                if (pPosition > Vertex(1,1,0)){pPosition = toPrecentage(Position);};
                                 globalPosition.x = w*(pPosition.x*globalScale.x);
                                 globalPosition.y = h*(pPosition.y*globalScale.y);
                                 globalPosition.z = Position.z;
