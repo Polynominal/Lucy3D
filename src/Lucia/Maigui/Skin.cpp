@@ -27,6 +27,7 @@ void Skin::draw(string item,float r,float g,float b,float a)
         Drawable d = i->second;
         drawColoredItem(&d,r,g,b,a);
         
+        
     }else{LOG << "Warning" << "Couldnt find item by name: " << item << std::endl;};
 };
 Vec2 Skin::toMechanical(float nx,float ny)
@@ -86,6 +87,7 @@ namespace Maigui{
                 Skin->setPath("assets/Maigui/default.png");
 
                 Skin->form("Container",5,265,26,26);
+                Skin->form("Item",5,265,26,26);
                 Skin->form("Frame",5,265,26,26);
                 Skin->form("Plate",305,152,154,153);
                 

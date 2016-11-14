@@ -54,6 +54,11 @@ std::vector<std::shared_ptr<Space>> Space::subdivide()
 void Space::clear()
 {
     Shapes.clear();
+    for (auto v: Children)
+    {
+        v->clear();
+    }
+    Parent = nullptr;
     Children.clear();
 }
 void Space::remove(Shape* shape)

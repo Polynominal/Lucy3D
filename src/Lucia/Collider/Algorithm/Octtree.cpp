@@ -52,8 +52,17 @@ void Octtree::form()
     auto dim = max - min;
     auto center = min + dim/2.0f;
     
-    auto main = std::make_shared<Space>(center,dim);
-    Root = main;
+    
+    //[/ ! \] MEMORY LEAK PROTECTION DO NOT REMOVE [/ ! \]
+    //The way this works is it deletes a vector of double referenced shared pointers therefore remvoing any chance of
+    //double reference hell, therefore freeing the memeory.
+    if (Root.get())
+    {
+        Root->clear();
+    };
+    //[/ ! \][/ ! \]
+    
+    Root = std::make_shared<Space>(center,dim);;
     
     for (auto v: Shapes)
     {
@@ -113,7 +122,7 @@ void Octtree::update()
 {
     if (changed)
     {
-        form();
+        form(); // MEMORY LEAK!!!
         changed = false;
         checkCollisions(Root);
     }

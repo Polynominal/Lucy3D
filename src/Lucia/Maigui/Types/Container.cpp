@@ -13,6 +13,6 @@ namespace Maigui {
     // these are relative!!!
     void Container::minimize(){scaleTo(minimumSize.x,minimumSize.y,minimumSize.z);};
     void Container::maximize(){scaleTo(maximumSize.x,maximumSize.y,maximumSize.z);};
-    void Container::close(){Visible = false;Inactive = true;};
+    void Container::close(){visible = false;inactive = true;};
 } // namespace Maigui
 }

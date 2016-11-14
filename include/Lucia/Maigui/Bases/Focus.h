@@ -20,8 +20,9 @@ namespace Lucia
                         virtual ~Focus(){}
                         //set
                         virtual void setMouse(){};
-                        virtual void setInactive(bool condition){Inactive = condition;};
+                        virtual void setInactive(bool condition){inactive = condition;};
                         virtual void setFocus(bool condition);
+                        virtual void setVisible(bool condition){visible = condition;};
                         void setShape(std::shared_ptr<Collider::Shape> s){CoreShape = s;};
                         //get 
                         std::shared_ptr<Collider::Shape> getShape(){return CoreShape;};
@@ -46,8 +47,8 @@ namespace Lucia
                     
                     protected:
                         std::shared_ptr<Collider::Shape> CoreShape;
-                        bool Inactive= true; // inactive cannot not process input but is drawn
-                        bool Visible = false; // invisible but can still process input
+                        bool inactive= true; // inactive cannot not process input but is drawn
+                        bool visible = true; // invisible but can still process input
                         bool currentFocus =false;
                         bool lastFocus=false;
                 };

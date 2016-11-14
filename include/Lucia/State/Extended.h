@@ -16,6 +16,7 @@
     #include <Lucia\Maigui\Wrappers\OpenGL.h>
     #include <Lucia\Collider\OpenGL.h>
 #endif 
+#include <Lucia/Maigui/Editor/Parser.h>
 
 namespace Lucia{
     namespace State{

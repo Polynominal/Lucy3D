@@ -9,8 +9,8 @@ void Item::create(Manager *m)
     setDrawState(Drawable::BASE,Name);
     std::cout << "Creating item: " << Name << std::endl;
 
-    Visible = true;
-    Inactive = false;
+    visible = true;
+    inactive = false;
 
     Instance = m;
     // add shape
@@ -75,7 +75,7 @@ void Item::remove(Item* w)
 }
 void Item::draw()
 {
-    if (Visible)
+    if (visible)
     {
         OnDrawPre();
         Maigui::Base::Drawable::draw(Translation,hasFocus());

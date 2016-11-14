@@ -26,6 +26,7 @@ namespace Graphics
             void generate();
             void remove();
             //GET 
+            std::string getSource(){return source;};
             //TODO Please use a new method for get image data
             #ifdef LUCIA_USE_GLES2
             virtual ImageData getImageData()
@@ -43,7 +44,7 @@ namespace Graphics
             bool isGenerated(){return generated;};
             bool isSucessfull(){return success;}
             //
-
+            
             virtual ~Image();
         private:
             bool success = false;

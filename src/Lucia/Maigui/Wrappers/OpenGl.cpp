@@ -93,128 +93,12 @@ namespace Maigui
             Quad2D->setData(Quad,6);
 
             programID = Collider_OpenGL::LoadShaders("assets/Maigui/Shaders/Shader.vert","assets/Maigui/Shaders/Shader.frag");
-            #ifndef LUCIA_USE_GLES2
-            glGenVertexArrays(1, &VaoID);
-            glBindVertexArray(VaoID);
-            #endif // LUCIA_USE_GLES2
-
-            glGenBuffers(1, &VboID);
-            glGenBuffers(1, &EboID);
-
-
-            glBindBuffer(GL_ARRAY_BUFFER,VboID);
-            glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(Vertex_Buffer),&data.front(),GL_STREAM_DRAW);
-            GLuint pos = glGetAttribLocation(programID,"position");
-            GLuint tex = glGetAttribLocation(programID,"texCoord");
-            GLuint tex2 = glGetAttribLocation(programID,"texCoord2");
-
-            glEnableVertexAttribArray(pos);
-            glVertexAttribPointer(pos,3,GL_FLOAT,GL_FALSE,sizeof(Vertex_Buffer),(GLvoid*)0);
-            glEnableVertexAttribArray(tex);
-            glVertexAttribPointer(tex, 2, GL_FLOAT,GL_FALSE,sizeof(Vertex_Buffer), (GLvoid*)(sizeof(GL_FLOAT)*3));
-            glEnableVertexAttribArray(tex2);
-            glVertexAttribPointer(tex2, 2, GL_FLOAT,GL_FALSE,sizeof(Vertex_Buffer), (GLvoid*)(sizeof(GL_FLOAT)*5));
-
-            #ifndef LUCIA_USE_GLES2
-            glBindVertexArray(0);
-            #endif
         }
-        // 7-------------4
-        // |##           |##
-        // |   ##        |  ##
-        // |     ##      |    ##
-        // |        3-----------0
-        // 6#-------|----5##    |
-        //    ##    |       ##  |
-        //      ##  |         ##|
-        //        ##2-----------1
-        std::vector<Vertex_Buffer> data{
-                // topx = 1; (1,0)
-                // topy = 2; (2,1)
-                // bottomx = 3; (2,3)
-                // bottomy = 4; (2,1)
-                Vertex_Buffer(-0.5f, -0.5f, -0.5f, 1, 2,  0,0), // 2
-                Vertex_Buffer(0.5f, -0.5f, -0.5f,  3, 2,  1,0), // 1
-                Vertex_Buffer(0.5f,  0.5f, -0.5f,  3, 4,  1,1), // 0
-                Vertex_Buffer(0.5f,  0.5f, -0.5f,  3, 4,  1,1), // 0
-                Vertex_Buffer(-0.5f,  0.5f, -0.5f, 1, 4,  0,1), // 3
-                Vertex_Buffer(-0.5f, -0.5f, -0.5f, 1, 2,  0,0), // 2
-
-
-//                Vertex_Buffer(-0.5f, -0.5f,  0.5f, 0.0f, 0.0f),
-//                Vertex_Buffer(0.5f, -0.5f,  0.5f, 1.0f, 0.0f),
-//                Vertex_Buffer(0.5f,  0.5f,  0.5f, 1.0f, 1.0f),
-//                Vertex_Buffer(0.5f,  0.5f,  0.5f, 1.0f, 1.0f),
-//                Vertex_Buffer(-0.5f,  0.5f,  0.5f, 0.0f, 1.0f),
-//                Vertex_Buffer(-0.5f, -0.5f,  0.5f, 0.0f, 0.0f),
-//
-//                Vertex_Buffer(-0.5f,  0.5f,  0.5f, 1.0f, 0.0f),
-//                Vertex_Buffer(-0.5f,  0.5f, -0.5f, 1.0f, 1.0f),
-//                Vertex_Buffer(-0.5f, -0.5f, -0.5f, 0.0f, 1.0f),
-//                Vertex_Buffer(-0.5f, -0.5f, -0.5f, 0.0f, 1.0f),
-//                Vertex_Buffer(-0.5f, -0.5f,  0.5f, 0.0f, 0.0f),
-//                Vertex_Buffer(-0.5f,  0.5f,  0.5f, 1.0f, 0.0f),
-//
-//                Vertex_Buffer(0.5f,  0.5f,  0.5f, 1.0f, 0.0f),
-//                Vertex_Buffer(0.5f,  0.5f, -0.5f, 1.0f, 1.0f),
-//                Vertex_Buffer(0.5f, -0.5f, -0.5f, 0.0f, 1.0f),
-//                Vertex_Buffer(0.5f, -0.5f, -0.5f, 0.0f, 1.0f),
-//                Vertex_Buffer(0.5f, -0.5f,  0.5f, 0.0f, 0.0f),
-//                Vertex_Buffer(0.5f,  0.5f,  0.5f, 1.0f, 0.0f),
-//
-//                Vertex_Buffer(-0.5f, -0.5f, -0.5f, 0.0f, 1.0f),
-//                Vertex_Buffer( 0.5f, -0.5f, -0.5f, 1.0f, 1.0f),
-//                Vertex_Buffer( 0.5f, -0.5f,  0.5f, 1.0f, 0.0f),
-//                Vertex_Buffer( 0.5f, -0.5f,  0.5f, 1.0f, 0.0f),
-//                Vertex_Buffer(-0.5f, -0.5f,  0.5f, 0.0f, 0.0f),
-//                Vertex_Buffer(-0.5f, -0.5f, -0.5f, 0.0f, 1.0f),
-//
-//                Vertex_Buffer(-0.5f,  0.5f, -0.5f, 0.0f, 1.0f),
-//                Vertex_Buffer( 0.5f,  0.5f, -0.5f, 1.0f, 1.0f),
-//                Vertex_Buffer( 0.5f,  0.5f,  0.5f, 1.0f, 0.0f),
-//                Vertex_Buffer( 0.5f,  0.5f,  0.5f, 1.0f, 0.0f),
-//                Vertex_Buffer(-0.5f,  0.5f,  0.5f, 0.0f, 0.0f),
-//                Vertex_Buffer(-0.5f,  0.5f, -0.5f, 0.0f, 1.0f)
-
-        };
 
 
         void createFromUV(float topx,float topy,float bottomx,float bottomy)
         {
-            vector<Vertex_Buffer> Out;
-            for (auto v: data)
-            {
-                float a;
-                float u;
 
-                if (v.u == 1){u = topx;};
-                if (v.u == 3){u = topy;};
-
-                if (v.u == 2){u = topy;};
-                if (v.v == 2){a = topy;};
-
-                if (v.u == 3){u = bottomx;};
-                if (v.v == 3){a = bottomx;};
-
-                if (v.u == 4){u = bottomy;};
-                if (v.v == 4){a = bottomy;};
-
-                Out.push_back(Vertex_Buffer(v.x,v.y,v.z,u,a,v.e,v.n));
-            };
-            glBindBuffer(GL_ARRAY_BUFFER,VboID);
-
-            GLuint pos = glGetAttribLocation(programID,"position");
-            GLuint tex = glGetAttribLocation(programID,"texCoord");
-            GLuint tex2 = glGetAttribLocation(programID,"texCoord2");
-
-            glEnableVertexAttribArray(pos);
-            glVertexAttribPointer(pos,3,GL_FLOAT,GL_FALSE,sizeof(Vertex_Buffer),(GLvoid*)0);
-            glEnableVertexAttribArray(tex);
-            glVertexAttribPointer(tex, 2, GL_FLOAT,GL_FALSE,sizeof(Vertex_Buffer), (GLvoid*)(sizeof(GL_FLOAT)*3));
-            glEnableVertexAttribArray(tex2);
-            glVertexAttribPointer(tex2, 2, GL_FLOAT,GL_FALSE,sizeof(Vertex_Buffer), (GLvoid*)(sizeof(GL_FLOAT)*5));
-
-            glBufferData(GL_ARRAY_BUFFER,Out.size() * sizeof(Vertex_Buffer),&Out.front(),GL_STREAM_DRAW);
         }
         Vec2 toMechanical(float nx,float ny,float w,float h)
         {
@@ -380,6 +264,7 @@ namespace Maigui
                 Vec2 extension = toMechanical((scale.x - d->w),(scale.y - d->h),scale.x,scale.y);
                 extension = Vec2((d->bottom.x - d->top.x)*extension.x,(d->bottom.y - d->top.y)*extension.y);
                 // position data
+                
                 GLuint var=0;
                 var = glGetUniformLocation(programID,"Color");
                 glUniform4f(var,r,g,b,a);
@@ -392,17 +277,35 @@ namespace Maigui
 
                 var = glGetUniformLocation(programID,"Extension");
                 glUniform2f(var,extension.x,extension.y);
+                
                 var = glGetUniformLocation(programID,"Aspect");
                 glUniform2f(var,scale.x/Image->getWidth(),scale.y/Image->getHeight());
 
+                var = glGetUniformLocation(programID,"UV");
+                glUniform4f(var,d->top.x,d->top.y,d->bottom.x - d->top.x,d->bottom.y - d->top.y);
+                
                 #ifndef LUCIA_USE_GLES2
-                glBindVertexArray(VaoID);
+                    glBindVertexArray(Quad2D->vao);
+                #else
+                    glBindBuffer(GL_ARRAY_BUFFER,Quad2D->vbo);
+
+                    GLuint pos = glGetAttribLocation(programID,"position");
+                    GLuint tex = glGetAttribLocation(programID,"texCoord");
+                    
+                    glEnableVertexAttribArray(pos);
+                    glVertexAttribPointer(pos,3,GL_FLOAT,GL_FALSE,5*sizeof(GLfloat),(GLvoid*)0);
+                    glEnableVertexAttribArray(tex);
+                    glVertexAttribPointer(tex, 2, GL_FLOAT,GL_FALSE,5*sizeof(GLfloat), (GLvoid*)(sizeof(GLfloat)*3));
+                
                 #endif
-                createFromUV(d->top.x,d->top.y,d->bottom.x,d->bottom.y);
-                glDrawArrays(GL_TRIANGLES,0,data.size());
+                        glDrawArrays(GL_TRIANGLES,0,6);
+                
                 #ifndef LUCIA_USE_GLES2
-                glBindVertexArray(0);
+                    glBindVertexArray(0);
+                #else
+                    glBindBuffer(GL_ARRAY_BUFFER,0);
                 #endif
+                
                 if (sprite == nullptr)
                 {
                     delete d;
@@ -439,19 +342,37 @@ namespace Maigui
                             var = glGetUniformLocation(programID,"Range");
                             glUniform4f(var,d->top.x,d->top.y,d->bottom.x,d->bottom.y);
 
+                            var = glGetUniformLocation(programID,"UV");
+                            glUniform4f(var,d->top.x,d->top.y,d->bottom.x - d->top.x,d->bottom.y - d->top.y);
+                            
                             var = glGetUniformLocation(programID,"Extension");
                             glUniform2f(var,extension.x,extension.y);
+                            
                             var = glGetUniformLocation(programID,"Aspect");
                             glUniform2f(var,scale.x/Image->getWidth(),scale.y/Image->getHeight());
+                            
+                            #ifndef LUCIA_USE_GLES2
+                                glBindVertexArray(Quad2D->vao);
+                            #else
+                                glBindBuffer(GL_ARRAY_BUFFER,Quad2D->vbo);
 
-                            #ifndef LUCIA_USE_GLES2
-                            glBindVertexArray(VaoID);
+                                GLuint pos = glGetAttribLocation(programID,"position");
+                                GLuint tex = glGetAttribLocation(programID,"texCoord");
+                                
+                                glEnableVertexAttribArray(pos);
+                                glVertexAttribPointer(pos,3,GL_FLOAT,GL_FALSE,5*sizeof(GLfloat),(GLvoid*)0);
+                                glEnableVertexAttribArray(tex);
+                                glVertexAttribPointer(tex, 2, GL_FLOAT,GL_FALSE,5*sizeof(GLfloat), (GLvoid*)(sizeof(GLfloat)*3));
+                            
                             #endif
-                            createFromUV(d->top.x,d->top.y,d->bottom.x,d->bottom.y);
-                            glDrawArrays(GL_TRIANGLES,0,data.size());
+                                    glDrawArrays(GL_TRIANGLES,0,6);
+                            
                             #ifndef LUCIA_USE_GLES2
-                            glBindVertexArray(0);
+                                glBindVertexArray(0);
+                            #else
+                                glBindBuffer(GL_ARRAY_BUFFER,0);
                             #endif
+                            
                             break;
                         }
                     }

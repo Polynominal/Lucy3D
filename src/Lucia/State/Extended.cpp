@@ -17,6 +17,20 @@ std::shared_ptr<Maigui::Manager> Extended::generateUserInterface(std::shared_ptr
 {
     return generateUserInterface(Window->getWidth(),Window->getHeight(),skin);
 }
+void applyWrappers(Lucia::Maigui::Skin* def,Matrix<4>* view,Matrix<4>* projection)
+{
+    Lucia::Maigui::OpenGL::attachWrappers(def,view,projection);
+    Maigui::Editor::setWrappers([view,projection](Lucia::Maigui::Skin* s)
+    {
+        if (view and projection)
+        {
+            Lucia::Maigui::OpenGL::attachWrappers(s,view,projection);
+        }else 
+        {
+            LOG << "Fatal" << "Matrx is a dangling pointer for skins please fix ownership." << std::endl;
+        }
+    });
+}
 std::shared_ptr<Maigui::Manager> Extended::generateUserInterface(float w,float h,std::shared_ptr<Maigui::Skin> skin)
 {
     camera = nullptr;
@@ -27,7 +41,7 @@ std::shared_ptr<Maigui::Manager> Extended::generateUserInterface(float w,float h
     
     UIProjection.reset(new Ortho(0.0f,w,0.0f,h,0.0f,100000000));
     UIView.reset(new Matrix<4>());
-    Lucia::Maigui::OpenGL::attachWrappers(skin.get(),UIView.get(),UIProjection.get());
+    applyWrappers(skin.get(),UIView.get(),UIProjection.get());
     UserInterface->formDefaultSkin();
     
     return UserInterface;
@@ -39,7 +53,7 @@ std::shared_ptr<Maigui::Manager> Extended::generateUserInterface(Graphics::Camer
     UserInterface = generateEmptyUI(skin);
     if (skin.get() ==nullptr){skin = Maigui::Default::Skin;};
     
-    Lucia::Maigui::OpenGL::attachWrappers(skin.get(),&cam->projection,&cam->view);
+    applyWrappers(skin.get(),&cam->projection,&cam->view);
     UserInterface->formDefaultSkin();
     
     return UserInterface;
@@ -136,6 +150,6 @@ void Extended::internalMousemotion(int x,int y,int relx,int rely)
 };
 void Extended::internalUpdate(double dt)
 {
-    if(Collider.get() != nullptr){Collider->update();};
-    if(UserInterface.get() != nullptr){UserInterface->update(dt);};
+    //if(Collider.get() != nullptr){Collider->update();};
+    //if(UserInterface.get() != nullptr){UserInterface->update(dt);};
 }

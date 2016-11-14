@@ -75,6 +75,7 @@ namespace Maigui
                 {
                     if (image.get() == nullptr)
                     {
+                        if (not skin){LOG << "Warning" << "GUI Item has no skin while executing setSprite, please set skin first" << std::endl; return;}
                         auto img = skin->getData();
                         Drawable::setSprite(x,y,w,h,img->getWidth(),img->getHeight());
                         

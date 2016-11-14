@@ -59,6 +59,7 @@ namespace Maigui
             Vertex globalScale = Vertex(1,1,1);
             shared_ptr<Item> activeItem;
             shared_ptr<Skin> skin;
+            shared_ptr<Skin> boundSkin;
             std::vector<shared_ptr<Item>> ActiveCollisions;
             std::vector<shared_ptr<Item>> Children;
     };

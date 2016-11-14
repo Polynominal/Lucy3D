@@ -65,7 +65,7 @@ namespace Maigui
 
 
         protected:
-            string Name="Plate"; // this is used to navigate the skin.
+            string Name="Item"; // this is used to navigate the skin.
             string personalReference = "null";
             Manager *Instance;
             Item    *Parent;

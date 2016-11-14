@@ -23,7 +23,8 @@ template <unsigned int N>
 class Matrix
 {
     private:
-        float* Core = new float[N*N];
+        //temporary measure!!
+        std::vector<float> temporaryData;
     public:
         std::vector<std::vector<float>> array;
         void createArray(bool identity = false)
@@ -101,20 +102,19 @@ class Matrix
         //
         void preparePackage()
         {
-            if (Core != nullptr){delete Core; Core = nullptr;};
-            Core = new float[N*N];
+            temporaryData = std::vector<float>(N*N);
             unsigned int index = 0;
             for (unsigned int i =0; i < N;i++)
             {
                 for (unsigned int j =0; j < N;j++){
-                    Core[index] = array[i][j];
+                    temporaryData[index] = array[i][j];
                     index++;
                 }
             }
         }
         float* unpack(){
             preparePackage();
-            return Core;
+            return &temporaryData[0];
         };
         Matrix<N> transpose()
         {

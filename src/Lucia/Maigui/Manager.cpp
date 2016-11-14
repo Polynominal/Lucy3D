@@ -13,13 +13,14 @@ namespace Maigui
     {
         skin = Maigui::Default::Skin;
         World = std::make_shared<Collider::Manager>();
-    //ctor
-    }    
+        //ctor
+    }
     void Manager::formDefaultSkin()
     {
         Maigui::Default::form();
         skin = Maigui::Default::Skin;
     }
+    
     template<typename T>
     bool checkPointer(std::shared_ptr<T> pointer)
     {
@@ -88,6 +89,7 @@ namespace Maigui
     {
         if (Mouse.get() == nullptr)
         {
+            ActiveCollisions.clear();
             Mouse = World->addRay(Eye,Forward);
             Mouse->OnCollide = [this](Shape *a)
             {
@@ -103,7 +105,9 @@ namespace Maigui
                 eraseFromCollisions(realData);
             };
         }else
-        {Mouse->setPoints(Eye,Forward);};
+        {
+            Mouse->setPoints(Eye,Forward);
+        };
     }
     void Manager::remove()
     {
@@ -128,13 +132,19 @@ namespace Maigui
     }
     void Manager::draw()
     {
-        skin->PreDraw();
+        boundSkin = nullptr;
+        
         for (auto v: Children)
         {
+            auto mySkin = v->getSkin();
+            bool sameSkin = (mySkin == boundSkin);
+            if (not sameSkin){boundSkin = mySkin; boundSkin->PreDraw();};
             v->draw();
+            
+            if (not sameSkin){boundSkin->PostDraw();};
         }
-        skin->PostDraw();
-
+        
+        boundSkin = nullptr;
     }
     void Manager::drawSkeleton()
     {
