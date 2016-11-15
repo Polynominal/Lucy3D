@@ -29,8 +29,10 @@ namespace Lucia{
                 
                 virtual void useDefaultSkinUI(bool f=true){formDefaultUISkin = f;};
                 //inherited
-                virtual void internalUpdate(double delta_time);
-                virtual void internalMousemotion(int x,int y,int relx,int rely);
+                virtual void update(double delta_time);
+                virtual void mousemotion(int x,int y,int relx,int rely);
+                virtual void mousepressed(std::string key,int x ,int y);
+                virtual void mousereleased(std::string key,int x ,int y);
                 //create
                 virtual std::shared_ptr<Maigui::Manager> generateEmptyUI(std::shared_ptr<Maigui::Skin> skin=nullptr);
                 
@@ -47,9 +49,10 @@ namespace Lucia{
                 //remove
                 virtual void removeUserInterface();
                 virtual void removeCollider();
-            private:
-                bool isUIOrthographic = true;
-                bool formDefaultUISkin = false;
+                
+                std::shared_ptr<Collider::Manager> Collider;
+                std::shared_ptr<Maigui::Manager> UserInterface;
+                
                 Graphics::Camera* camera = nullptr;
                 std::unique_ptr<Maths::Matrix<4>> UIProjection;
                 std::unique_ptr<Maths::Matrix<4>> UIView;
@@ -57,11 +60,10 @@ namespace Lucia{
                 std::unique_ptr<Maths::Matrix<4>> ColliderProjection;
                 std::unique_ptr<Maths::Matrix<4>> ColliderView;
             
-            protected:
-                
-                
-                std::shared_ptr<Collider::Manager> Collider;
-                std::shared_ptr<Maigui::Manager> UserInterface;
+            private:
+                bool isUIOrthographic = true;
+                bool formDefaultUISkin = false;
+
 
         };
     }

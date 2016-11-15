@@ -7,7 +7,7 @@ void Item::create(Manager *m)
     
     resetDrawStates();
     setDrawState(Drawable::BASE,Name);
-    std::cout << "Creating item: " << Name << std::endl;
+    LOG << "Info" << "Creating item with internal name: " << Name << std::endl;
 
     visible = true;
     inactive = false;

@@ -125,7 +125,7 @@ void Extended::removeCollider()
         ColliderProjection = nullptr;
     };
 }
-void Extended::internalMousemotion(int x,int y,int relx,int rely)
+void Extended::mousemotion(int x,int y,int relx,int rely)
 {
     if (UserInterface.get() != nullptr)
     {
@@ -148,8 +148,17 @@ void Extended::internalMousemotion(int x,int y,int relx,int rely)
         UserInterface->mousemoved(keys,x,y,relx,rely);
     }
 };
-void Extended::internalUpdate(double dt)
+void Extended::update(double dt)
 {
-    //if(Collider.get() != nullptr){Collider->update();};
-    //if(UserInterface.get() != nullptr){UserInterface->update(dt);};
+    if(Collider.get() != nullptr){Collider->update();};
+    if(UserInterface.get() != nullptr){UserInterface->update(dt);};
+    
+}
+void Extended::mousepressed(std::string key,int x ,int y)
+{
+    if (UserInterface.get() != nullptr){UserInterface->mousepressed(key);};
+}
+void Extended::mousereleased(std::string key, int x ,int y )
+{
+    if (UserInterface.get() != nullptr){UserInterface->mousereleased(key);};
 }

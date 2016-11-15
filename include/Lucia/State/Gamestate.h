@@ -11,6 +11,7 @@ namespace Lucia
     class Gamestate
     {
         public:
+            friend class GameManager;
             Gamestate();
             void setWindow(Context::Window* w){Window = w;};
             virtual ~Gamestate();
@@ -24,8 +25,8 @@ namespace Lucia
 
             virtual void leave(){};
             virtual void quit(){};
-
-            // 3D cords in the world. as such <screen> [x,y], <world> [x,y,z]
+            void cleanUp(){internalStates.clear();};
+            
             virtual void mousepressed(std::string key,int x,int y){};
             virtual void mousereleased(std::string key, int x ,int y ){};
             virtual void internalMousemotion(int x,int y,int relx,int rely){};
@@ -49,7 +50,12 @@ namespace Lucia
             virtual void window_focus(bool focus){};
 
             virtual void drop(std::string filedirectory){};
-
+            
+            virtual void extend(std::shared_ptr<Gamestate> state);
+            virtual void shrink(Gamestate* a){Utils::erase_if(&internalStates,[a](std::shared_ptr<Gamestate> b){return a == b.get();});};
+            
+        private:
+            std::vector<std::shared_ptr<Gamestate>> internalStates;
         protected:
             Controll::Keyboard keyboard = Controll::Keyboard();
             Controll::Mouse mouse = Controll::Mouse();

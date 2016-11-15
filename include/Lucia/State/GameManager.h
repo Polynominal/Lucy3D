@@ -14,6 +14,7 @@ namespace Lucia {
 class GameManager
 {
     public:
+        
         GameManager(Gamestate *state,Context::Window *W);
         GameManager();
 

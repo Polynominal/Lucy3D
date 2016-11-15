@@ -7,6 +7,7 @@ GameManager::GameManager(Gamestate *state,Context::Window *w)
     state->setWindow(w);
     state->enter();
     Active_Gamestate = state;
+    for(auto v: state->internalStates ) {v->enter();};
     Maths::randomSeed();
     //ctor
 }
@@ -55,11 +56,14 @@ const char* errorToString(GLenum s)
 };
 void GameManager::update(double dt)
 {
+    for (auto v: Active_Gamestate->internalStates)
+    {
+        v->preUpdate(dt);
+        v->update(dt);
+        v->postUpdate(dt);
+    };
     Active_Gamestate->preUpdate(dt);
-    Active_Gamestate->internalUpdate(dt);
-    
     Active_Gamestate->update(dt);
-    
     Active_Gamestate->postUpdate(dt);
     
     int err;
@@ -71,14 +75,17 @@ void GameManager::update(double dt)
 }
 void GameManager::preDraw()
 {
+    for (auto v: Active_Gamestate->internalStates){v->preDraw();};
     Active_Gamestate->preDraw();
 }
 void GameManager::postDraw()
 {
+    for (auto v: Active_Gamestate->internalStates){v->postDraw();};
     Active_Gamestate->postDraw();
 }
 void GameManager::draw()
 {
+  for (auto v: Active_Gamestate->internalStates){v->draw();};
   Active_Gamestate->draw();
 }
 void GameManager::wrap()
@@ -129,7 +136,8 @@ void GameManager::event(SDL_Event *event)
         {
             std::string key = SDL_GetKeyName(event->key.keysym.sym);
             std::transform(key.begin(), key.end(),key.begin(), ::tolower);
-
+            
+            for (auto v: Active_Gamestate->internalStates){v->keypressed(key);};
             Active_Gamestate->keypressed(key);
         }
         break;
@@ -137,7 +145,8 @@ void GameManager::event(SDL_Event *event)
         {
             std::string key = SDL_GetKeyName(event->key.keysym.sym);
             std::transform(key.begin(), key.end(),key.begin(), ::tolower);
-
+            
+            for (auto v: Active_Gamestate->internalStates){v->keyreleased(key);};
             Active_Gamestate->keyreleased(key);
             break;
         }
@@ -145,7 +154,9 @@ void GameManager::event(SDL_Event *event)
         {
             int x = event->button.x;
             int y = event->button.y;
-            Active_Gamestate->mousepressed(intToStringMouse(event->button.button),x,y);
+            auto key = intToStringMouse(event->button.button);
+            for (auto v: Active_Gamestate->internalStates){v->mousepressed(key,x,y);};
+            Active_Gamestate->mousepressed(key,x,y);
 
             break;
         }
@@ -153,8 +164,11 @@ void GameManager::event(SDL_Event *event)
         {
             int x = event->button.x;
             int y = event->button.y;
-            Active_Gamestate->mousereleased(intToStringMouse(event->button.button),x,y);
-
+            
+            auto key = intToStringMouse(event->button.button);
+            for (auto v: Active_Gamestate->internalStates){v->mousereleased(key,x,y);};
+            Active_Gamestate->mousereleased(key,x,y);
+            
             break;
         }
     case SDL_MOUSEMOTION:
@@ -164,8 +178,7 @@ void GameManager::event(SDL_Event *event)
 
             int relativex   = event->motion.xrel;
             int relativey   = event->motion.yrel;
-
-            Active_Gamestate->internalMousemotion(x,y,relativex,relativey);
+            for (auto v: Active_Gamestate->internalStates){v->mousemotion(x,y,relativex,relativey);};
             Active_Gamestate->mousemotion(x,y,relativex,relativey);
 
             break;
@@ -188,8 +201,9 @@ void GameManager::event(SDL_Event *event)
 
     case SDL_QUIT:
 
-
+        for (auto v: Active_Gamestate->internalStates){v->quit();v->cleanUp();};
         Active_Gamestate->quit();
+        Active_Gamestate->cleanUp();
         exit(1);
 
         break;

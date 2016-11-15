@@ -146,7 +146,27 @@ namespace Lucia
                 }
                 return skins;
             };
-            inline int parseWidget(std::map<std::string,std::shared_ptr<Lucia::Maigui::Skin>>* skins,Lucia::Maigui::Manager* m,Maigui::Item* parent,sol::table table,std::string path,int no,sol::state* lua)
+            template <typename R, typename... Args>
+            inline void attachEvent(
+                std::shared_ptr<sol::state> state,
+                std::function<R(Args...)>& original,
+                const sol::reference& fnRef
+            )
+            {
+                if (fnRef){
+                    original = [fnRef,state](Args... args)
+                    {
+                        auto result = ( (sol::protected_function)(fnRef) )(args...);
+                        if (not result.valid())
+                        {
+                            sol::error err = result;
+                            LOG << "Warning" << "LUA ERROR: " << err.what() << std::endl;
+                        }
+                        return result;
+                    };
+                }
+            };
+            inline int parseWidget(std::map<std::string,std::shared_ptr<Lucia::Maigui::Skin>>* skins,Lucia::Maigui::Manager* m,Maigui::Item* parent,sol::table table,std::string path,int no,std::shared_ptr<sol::state> lua)
             {
                 std::string positionMode = (*lua)["positionMode"].get_or<std::string>("center");
                 std::string name = table["name"].get_or<std::string>("null");
@@ -205,25 +225,26 @@ namespace Lucia
                     y = table["rotation"][2].get_or<int>(0);
                     z = table["rotation"][3].get_or<int>(0);
                     LOG << "Info" << "Rotation: x:" << x << " y: " << y << " z: " << z << std::endl; 
+                    
                     nItem->rotateTo(x,y,z);
                     
                     nItem->setDrag(table["dragEnabled"].get_or<bool>(false));
                     nItem->setVisible(table["visible"].get_or<bool>(false));
                     nItem->setInactive(table["inactive"].get_or<bool>(false));
                                
-                    nItem->OnDrawPre = table["OnDrawPre"].get_or<std::function<void()>>([](){});
-                    nItem->OnDrawAfter = table["OnDrawAfter"].get_or<std::function<void()>>([](){});
-                    nItem->OnDrag = table["OnDrag"].get_or<std::function<void(int,int)>>([](int dx,int dy){});
-                    nItem->OnUpdate = table["OnUpdate"].get_or<std::function<void(double)>>([](double dt){});
+                    attachEvent(lua,nItem->OnDrawPre,table["OnDrawPre"]);
+                    attachEvent(lua,nItem->OnDrawAfter,table["OnDrawAfter"]);
+                    attachEvent(lua,nItem->OnDrag,table["OnDrag"]);
+        
+                    attachEvent(lua,nItem->OnUpdate,table["OnUpdate"]);
                     
-                    nItem->OnFocus = table["OnFocus"].get_or<std::function<void(bool)>>([](bool hasFocus){});
-                    nItem->OnClick = table["OnClick"].get_or<std::function<void(std::string)>>([](std::string b){});
-                    nItem->OnReleaseClick = table["OnReleaseClick"].get_or<std::function<void(std::string)>>([](std::string b){});
+                    attachEvent(lua,nItem->OnClick,table["OnClick"]);
+                    attachEvent(lua,nItem->OnReleaseClick,table["OnReleaseClick"]);
+                    attachEvent(lua,nItem->OnFocus,table["OnFocus"]);
                     
-                    nItem->OnFocus = table["OnFocus"].get_or<std::function<void(bool)>>([](bool b){});
-                    nItem->OnScale = table["OnScale"].get_or<std::function<void(float,float,float)>>([](float x,float y,float z){});
-                    nItem->OnRotate = table["OnRotate"].get_or<std::function<void(float,float,float)>>([](float x,float y,float z){});
-                    nItem->OnGlobalScale = table["OnGlobalScale"].get_or<std::function<bool(float,float)>>([](float x,float y){return false;});
+                    attachEvent(lua,nItem->OnScale,table["OnScale"]);
+                    attachEvent(lua,nItem->OnRotate,table["OnRotate"]);
+                    attachEvent(lua,nItem->OnGlobalScale,table["OnGlobalScale"]);
                     
                     if (parent != nullptr)
                     {
@@ -290,6 +311,7 @@ namespace Lucia
             }
             inline void parseLua(Lucia::Maigui::Manager* manager,std::string path,std::function<void(sol::state* s)> attachements=[](sol::state*){})
             {
+                
                 std::ifstream LuaScriptStream(path, std::ios::in);
                 std::string LuaScene = "";
                 if(LuaScriptStream.is_open()){
@@ -305,24 +327,24 @@ namespace Lucia
                 }
                 try
                 {
-                    sol::state lua = sol::state();
-                    lua.open_libraries(sol::lib::base, sol::lib::table, sol::lib::package);
-                    attachements(&lua);
-                    lua.set_function("findItem", &Maigui::Manager::findItem,manager);
+                    auto lua = std::make_shared<sol::state>();
+                    lua->open_libraries(sol::lib::base, sol::lib::table, sol::lib::package);
+                    attachements(lua.get());
+                    lua->set_function("findItem", &Maigui::Manager::findItem,manager);
                     sol::table items = sol::table();
                 
-                    sol::load_result luaState = lua.load_file(path);
+                    sol::load_result luaState = lua->load_file(path);
                     if (not luaState.valid())
                     {
                         LOG << "Warning" << "Lua state is not valid" << std::endl;
                         return;
                     }
                     luaState();
-                    items = lua["UserInterface"];
+                    items = (*lua)["UserInterface"];
                     
                     std::cout << "ITEM SIZE : " << items.size() << std::endl;
                     
-                    auto skinTable = lua["Skins"];
+                    auto skinTable = (*lua)["Skins"];
                     std::map<std::string,std::shared_ptr<Lucia::Maigui::Skin>>* skins;
                     if (skinTable)
                     {
@@ -344,7 +366,7 @@ namespace Lucia
                     for (unsigned int i=0; i < items.size(); i++)
                     {
                         loaded++;
-                        loaded = parseWidget(skins,manager,nullptr,items[i+1],path,loaded,&lua);
+                        loaded = parseWidget(skins,manager,nullptr,items[i+1],path,loaded,lua);
                     };
                     LOG << "Info" << "Loaded " << loaded << " items" << std::endl;
                     delete skins;
